@@ -178,24 +178,8 @@
 		B2C560B81CEE36C00015AA40 /* ProductViewControllerToggleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductViewControllerToggleTableViewCell.m; path = "Product View/ProductViewControllerToggleTableViewCell.m"; sourceTree = "<group>"; };
 		B2C560C01CEE39180015AA40 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
 		B2C560C11CEE39180015AA40 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
-		B812BE171E003D5C00ED6FEC /* ProductsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsModel.swift; sourceTree = "<group>"; };
-		B812BE1E1E003DC700ED6FEC /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
-		B82F5DC91E01898200CC5376 /* ProductDetailsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsInterfaceController.swift; sourceTree = "<group>"; };
-		B82F5DD01E0190CA00CC5376 /* ProductItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
-		B86CCA921DF9A2DA00F46EDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		B86CCA941DF9A2DA00F46EDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B86CCA961DF9A2DA00F46EDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B86CCAA11DF9A2DA00F46EDE /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		B86CCAA21DF9A2DA00F46EDE /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		B86CCAA41DF9A2DA00F46EDE /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		B86CCAA61DF9A2DA00F46EDE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		B86CCAA81DF9A2DA00F46EDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B86CCAAA1DF9A2DA00F46EDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B86CCABC1DFAF39300F46EDE /* ProductRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRowController.swift; sourceTree = "<group>"; };
-		B86CCAC91DFF39AC00F46EDE /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		B8784B741E0C200D00734909 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
 		B8784B791E0C215F00734909 /* Mobile Buy SDK Advanced Sample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mobile Buy SDK Advanced Sample-Bridging-Header.h"; sourceTree = "<group>"; };
-		B8DA1BC51E033F6100CE947E /* ApplePayHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplePayHandler.swift; sourceTree = "<group>"; };
 		BE5E28451B94F5C300D2ECB5 /* Mobile Buy SDK Advanced Sample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mobile Buy SDK Advanced Sample.entitlements"; sourceTree = "<group>"; };
 		BE8B824B1B8CF49D00E3F871 /* Mobile Buy SDK Advanced Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobile Buy SDK Advanced Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8B824F1B8CF49D00E3F871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -382,51 +366,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B86CCA901DF9A2DA00F46EDE /* Mobile Buy SDK watchOS Sample App */ = {
-			isa = PBXGroup;
-			children = (
-				B86CCA911DF9A2DA00F46EDE /* Interface.storyboard */,
-				B86CCA941DF9A2DA00F46EDE /* Assets.xcassets */,
-				B86CCA961DF9A2DA00F46EDE /* Info.plist */,
-			);
-			path = "Mobile Buy SDK watchOS Sample App";
-			sourceTree = "<group>";
-		};
-		B86CCA9F1DF9A2DA00F46EDE /* Mobile Buy SDK watchOS Sample App Extension */ = {
-			isa = PBXGroup;
-			children = (
-				B86CCAA21DF9A2DA00F46EDE /* InterfaceController.swift */,
-				B86CCAA41DF9A2DA00F46EDE /* ExtensionDelegate.swift */,
-				B86CCAA61DF9A2DA00F46EDE /* NotificationController.swift */,
-				B86CCAA81DF9A2DA00F46EDE /* Assets.xcassets */,
-				B86CCAAA1DF9A2DA00F46EDE /* Info.plist */,
-				B86CCAA01DF9A2DA00F46EDE /* Supporting Files */,
-				B86CCABC1DFAF39300F46EDE /* ProductRowController.swift */,
-				B86CCAC91DFF39AC00F46EDE /* DataProvider.swift */,
-				B812BE171E003D5C00ED6FEC /* ProductsModel.swift */,
-				B812BE1E1E003DC700ED6FEC /* BaseModel.swift */,
-				B82F5DC91E01898200CC5376 /* ProductDetailsInterfaceController.swift */,
-				B82F5DD01E0190CA00CC5376 /* ProductItem.swift */,
-				B8DA1BC51E033F6100CE947E /* ApplePayHandler.swift */,
-			);
-			path = "Mobile Buy SDK watchOS Sample App Extension";
-			sourceTree = "<group>";
-		};
-		B86CCAA01DF9A2DA00F46EDE /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				B86CCAA11DF9A2DA00F46EDE /* PushNotificationPayload.apns */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		BE8B82421B8CF49D00E3F871 = {
 			isa = PBXGroup;
 			children = (
 				90A6F42C1BA8BCAC003E7C4F /* PassKit.framework */,
 				BE8B824D1B8CF49D00E3F871 /* Mobile Buy SDK Advanced Sample */,
-				B86CCA901DF9A2DA00F46EDE /* Mobile Buy SDK watchOS Sample App */,
-				B86CCA9F1DF9A2DA00F46EDE /* Mobile Buy SDK watchOS Sample App Extension */,
 				BE8B824C1B8CF49D00E3F871 /* Products */,
 				78D18B50F9FF6DCD9BC29598 /* Pods */,
 				B54F9122C8F05EE07A9AFBC5 /* Frameworks */,
@@ -527,7 +471,6 @@
 				TargetAttributes = {
 					BE8B824A1B8CF49D00E3F871 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = TW65V67668;
 						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.OMC = {
@@ -676,14 +619,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B86CCA911DF9A2DA00F46EDE /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B86CCA921DF9A2DA00F46EDE /* Base */,
-			);
-			name = Interface.storyboard;
-			sourceTree = "<group>";
-		};
 		BE8B825B1B8CF49D00E3F871 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -794,11 +729,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = TW65V67668;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Mobile Buy SDK Advanced Sample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.growler.Growler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.growler.GrowlerExpress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mobile Buy SDK Advanced Sample/Mobile Buy SDK Advanced Sample-Bridging-Header.h";
@@ -818,11 +753,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = TW65V67668;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Mobile Buy SDK Advanced Sample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.growler.Growler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.growler.GrowlerExpress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mobile Buy SDK Advanced Sample/Mobile Buy SDK Advanced Sample-Bridging-Header.h";
