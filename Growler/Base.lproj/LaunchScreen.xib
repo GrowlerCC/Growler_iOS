@@ -8,50 +8,45 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Aller_Rg.ttf">
+            <string>Aller</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="555" height="589"/>
+            <rect key="frame" x="0.0" y="0.0" width="423" height="678"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright 2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="554.5" width="515" height="14.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="201.5" y="237" width="244.5" height="114.5"/>
-                    <string key="text">GROWLER
-EXPRESS</string>
-                    <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="49"/>
+                    <rect key="frame" x="20" y="644" width="383" height="14"/>
+                    <fontDescription key="fontDescription" name="Aller" family="Aller" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="T43-NQ-Dmn">
-                    <rect key="frame" x="108.5" y="246" width="67" height="96"/>
+                    <rect key="frame" x="63" y="291" width="297" height="96"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="0.9882352941176471" green="0.50588235294117645" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kId-c2-rCX" secondAttribute="trailing" id="0Cp-J7-S8P"/>
                 <constraint firstItem="T43-NQ-Dmn" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="0qw-gW-0zh"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Aue-Yg-D1z"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" priority="1" constant="46" id="Inw-0k-gEZ"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="T43-NQ-Dmn" secondAttribute="trailing" id="8uQ-8e-fTN"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstItem="T43-NQ-Dmn" firstAttribute="trailing" secondItem="kId-c2-rCX" secondAttribute="leading" constant="-26" id="Mkv-Oj-DlL"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
+                <constraint firstItem="T43-NQ-Dmn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dLA-h1-GiO"/>
                 <constraint firstItem="T43-NQ-Dmn" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="j6N-my-dt3"/>
                 <constraint firstItem="T43-NQ-Dmn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" id="n4S-7Q-qHp"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="585.5" y="509.5"/>
+            <point key="canvasLocation" x="519.5" y="554"/>
         </view>
     </objects>
     <resources>
-        <image name="Logo" width="67" height="96"/>
+        <image name="Logo" width="297" height="96"/>
     </resources>
 </document>
