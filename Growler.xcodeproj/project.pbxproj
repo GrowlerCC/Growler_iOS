@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2735405B769BFB83526915DB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273543E49897ED81C375486B /* MenuItem.swift */; };
+		273540D954DD1F6902EC8CC4 /* AccountProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354F3FE07E2F2591BF5EFF /* AccountProfileViewController.swift */; };
 		273541D90A369727EB3BBBCB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273546A4D2717ECFDF3AA763 /* Utils.swift */; };
-		2735441EBC7D8089DEC07ED2 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354F6C32FDDD047BF9A5B4 /* MenuItem.swift */; };
 		27354489A214A685D5AD4943 /* Aller_Lt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354E4AD18A9D5EA9393966 /* Aller_Lt.ttf */; };
 		273544EFB027D2B0DF75509C /* AllerDisplay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354DDA82C8A62B444DB7A5 /* AllerDisplay.ttf */; };
 		273545064355D78758BC286C /* Aller_LtIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354A47118DFFA147143E72 /* Aller_LtIt.ttf */; };
+		273545C5BE81A08CF5520FEA /* ConfirmAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354DB4E856B90AE0A6D6F0 /* ConfirmAddressViewController.swift */; };
+		273547CA5A98D002216D720C /* MenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273540C7B6D311FD299C8368 /* MenuItem.xib */; };
 		273547DFC345B4A12D1CB7CB /* Aller_Rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273540DF56CF883403A2E832 /* Aller_Rg.ttf */; };
 		273548CCEE8B7B3DE6D8ACA6 /* Aller_Bd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273543855BB4CA4157FD3D1C /* Aller_Bd.ttf */; };
-		27354A2019CC83C637EF3868 /* MenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27354A622E2F06A9FE292A3F /* MenuItem.xib */; };
+		2735492D22C36B6EBE538630 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547785F455240EC5351DA /* HomeController.swift */; };
 		27354C00FAF0D8F0CC67DC49 /* Aller_It.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273549012048EA14724926F4 /* Aller_It.ttf */; };
+		27354DCA9127146C0563685C /* PopupMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547E48016C5BE03F59076 /* PopupMenuViewController.swift */; };
 		27354EF7E84CC6D8F8B77B6F /* Aller_BdIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354F74E3C1F624B63675C5 /* Aller_BdIt.ttf */; };
 		842799661CB31498003AD0CE /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842799651CB31498003AD0CE /* PaymentViewController.m */; };
 		847612671CAB047600AB17AA /* DisclosureIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847612251CAB047600AB17AA /* DisclosureIndicatorView.m */; };
@@ -99,16 +103,20 @@
 
 /* Begin PBXFileReference section */
 		1B8C0E5AC304875CD46EE891 /* Pods-Growler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Growler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Growler/Pods-Growler.debug.xcconfig"; sourceTree = "<group>"; };
+		273540C7B6D311FD299C8368 /* MenuItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItem.xib; sourceTree = "<group>"; };
 		273540DF56CF883403A2E832 /* Aller_Rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_Rg.ttf; sourceTree = "<group>"; };
 		273543855BB4CA4157FD3D1C /* Aller_Bd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_Bd.ttf; sourceTree = "<group>"; };
+		273543E49897ED81C375486B /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		273546A4D2717ECFDF3AA763 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		273547785F455240EC5351DA /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeController.swift; path = "View Controllers/HomeController.swift"; sourceTree = "<group>"; };
+		273547E48016C5BE03F59076 /* PopupMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupMenuViewController.swift; path = "View Controllers/PopupMenuViewController.swift"; sourceTree = "<group>"; };
 		2735482A55251FC462DB19FB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		273549012048EA14724926F4 /* Aller_It.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_It.ttf; sourceTree = "<group>"; };
 		27354A47118DFFA147143E72 /* Aller_LtIt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_LtIt.ttf; sourceTree = "<group>"; };
-		27354A622E2F06A9FE292A3F /* MenuItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItem.xib; sourceTree = "<group>"; };
+		27354DB4E856B90AE0A6D6F0 /* ConfirmAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmAddressViewController.swift; path = "View Controllers/ConfirmAddressViewController.swift"; sourceTree = "<group>"; };
 		27354DDA82C8A62B444DB7A5 /* AllerDisplay.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = AllerDisplay.ttf; sourceTree = "<group>"; };
 		27354E4AD18A9D5EA9393966 /* Aller_Lt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_Lt.ttf; sourceTree = "<group>"; };
-		27354F6C32FDDD047BF9A5B4 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		27354F3FE07E2F2591BF5EFF /* AccountProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountProfileViewController.swift; path = "View Controllers/AccountProfileViewController.swift"; sourceTree = "<group>"; };
 		27354F74E3C1F624B63675C5 /* Aller_BdIt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_BdIt.ttf; sourceTree = "<group>"; };
 		2AE84DE96E82A8FB1AC28658 /* Pods_Growler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Growler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5491CB13BE24F1150D1EC99D /* Pods-Growler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Growler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Growler/Pods-Growler.release.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +265,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		27354C490D2007123D8C9D16 /* Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				273540C7B6D311FD299C8368 /* MenuItem.xib */,
+				273543E49897ED81C375486B /* MenuItem.swift */,
+			);
+			path = "Table View Cell";
+			sourceTree = "<group>";
+		};
 		78D18B50F9FF6DCD9BC29598 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,8 +413,6 @@
 				902C9B8E1BB0729F00FC456E /* ShippingRateTableViewCell.m */,
 				902C9B901BB08FF500FC456E /* SummaryItemsTableViewCell.h */,
 				902C9B911BB08FF500FC456E /* SummaryItemsTableViewCell.m */,
-				27354A622E2F06A9FE292A3F /* MenuItem.xib */,
-				27354F6C32FDDD047BF9A5B4 /* MenuItem.swift */,
 			);
 			name = "Table View Cells";
 			sourceTree = "<group>";
@@ -435,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				847612231CAB047600AB17AA /* Appearance */,
+				2735472571D947ABB0B5DD33 /* Components */,
 				2735407D4E3D1ACE5A08FE86 /* Fonts */,
 				8476128F1CAB059100AB17AA /* PaymentButton */,
 				8476122E1CAB047600AB17AA /* Product View */,
@@ -449,7 +465,8 @@
 				BE948D4C1B95087A009AB20B /* Images.xcassets */,
 				BE8B82601B8CF49D00E3F871 /* LaunchScreen.xib */,
 				BE8B825B1B8CF49D00E3F871 /* Main.storyboard */,
-				2735472571D947ABB0B5DD33 /* Components */,
+				27354C490D2007123D8C9D16 /* Table View Cell */,
+				273547E48016C5BE03F59076 /* PopupMenuViewController.swift */,
 			);
 			path = Growler;
 			sourceTree = "<group>";
@@ -466,6 +483,9 @@
 		BE8B82961B8E6A6900E3F871 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				273547785F455240EC5351DA /* HomeController.swift */,
+				27354DB4E856B90AE0A6D6F0 /* ConfirmAddressViewController.swift */,
+				27354F3FE07E2F2591BF5EFF /* AccountProfileViewController.swift */,
 				9079F5F21BB1AAA100CB1B35 /* CollectionListViewController.h */,
 				9079F5F31BB1AAA100CB1B35 /* CollectionListViewController.m */,
 				BE8B82551B8CF49D00E3F871 /* ProductListViewController.h */,
@@ -554,7 +574,6 @@
 				BE948D4D1B95087A009AB20B /* Images.xcassets in Resources */,
 				BE8B825D1B8CF49D00E3F871 /* Main.storyboard in Resources */,
 				BE8B82621B8CF49D00E3F871 /* LaunchScreen.xib in Resources */,
-				27354A2019CC83C637EF3868 /* MenuItem.xib in Resources */,
 				273548CCEE8B7B3DE6D8ACA6 /* Aller_Bd.ttf in Resources */,
 				27354EF7E84CC6D8F8B77B6F /* Aller_BdIt.ttf in Resources */,
 				27354C00FAF0D8F0CC67DC49 /* Aller_It.ttf in Resources */,
@@ -562,6 +581,7 @@
 				273545064355D78758BC286C /* Aller_LtIt.ttf in Resources */,
 				273547DFC345B4A12D1CB7CB /* Aller_Rg.ttf in Resources */,
 				273544EFB027D2B0DF75509C /* AllerDisplay.ttf in Resources */,
+				273547CA5A98D002216D720C /* MenuItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,8 +688,12 @@
 				847612751CAB047600AB17AA /* ProductImageCell.m in Sources */,
 				B2C560B91CEE36C00015AA40 /* ProductViewControllerThemeStyleTableViewCell.m in Sources */,
 				847612741CAB047600AB17AA /* ProductHeaderCell.m in Sources */,
-				2735441EBC7D8089DEC07ED2 /* MenuItem.swift in Sources */,
 				273541D90A369727EB3BBBCB /* Utils.swift in Sources */,
+				2735492D22C36B6EBE538630 /* HomeController.swift in Sources */,
+				273545C5BE81A08CF5520FEA /* ConfirmAddressViewController.swift in Sources */,
+				2735405B769BFB83526915DB /* MenuItem.swift in Sources */,
+				273540D954DD1F6902EC8CC4 /* AccountProfileViewController.swift in Sources */,
+				27354DCA9127146C0563685C /* PopupMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
