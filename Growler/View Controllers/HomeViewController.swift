@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         menuController = PopupMenuViewController()
+        menuController.homeController = self
 
         let menuButtonImage = UIImage(named: "MenuButton")?.withRenderingMode(.alwaysOriginal)
         let menuButton = UIBarButtonItem(image: menuButtonImage, style: .plain, target: self, action: #selector(HomeViewController.didTapMenuButton))

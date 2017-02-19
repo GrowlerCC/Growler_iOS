@@ -27,7 +27,9 @@ class PopupMenuViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let selectedItem = menuItems[indexPath.row]
-        dismiss(animated: true)
+        dismiss(animated: false) {
+            selectedItem.didSelect?(self.homeController!.navigationController)
+        }
         return indexPath
     }
 

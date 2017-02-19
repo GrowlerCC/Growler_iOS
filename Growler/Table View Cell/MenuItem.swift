@@ -6,13 +6,18 @@
 import Foundation
 import UIKit
 
+typealias MenuCallback = ((UINavigationController?) -> Void)
+
 class MenuItem: UITableViewCell {
 
     private var title: String!
 
-    convenience init(title: String) {
+    public var didSelect: MenuCallback?
+
+    convenience init(title: String, didSelect: MenuCallback? = nil) {
         self.init(style: .default, reuseIdentifier: "")
         self.textLabel?.text = title
+        self.didSelect = didSelect
     }
 
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {

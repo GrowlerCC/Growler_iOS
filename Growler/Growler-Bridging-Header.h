@@ -25,3 +25,4 @@
 //
 
 #import "Credentials.h"
+#import "CollectionListViewController.h"
