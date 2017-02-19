@@ -64,10 +64,18 @@
     }];
 
 
-    UIImage *hamburgerMenuImage = [UIImage imageNamed: @"HamburgerMenu"];// imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
-
-    id menuBtn = [[UIBarButtonItem alloc] initWithImage: hamburgerMenuImage style: UIBarButtonItemStylePlain target: self action: @selector(didTapMenuButton)];
+    UIImage *menuButtonImage = [[UIImage imageNamed: @"MenuButton"] imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
+    id menuBtn = [[UIBarButtonItem alloc] initWithImage: menuButtonImage style: UIBarButtonItemStylePlain target: self action: @selector(didTapMenuButton)];
     self.navigationController.topViewController.navigationItem.leftBarButtonItem = menuBtn;
+
+
+    UIImage *searchButtonImage = [[UIImage imageNamed: @"SearchButton"] imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
+    id searchButton = [[UIBarButtonItem alloc] initWithImage: searchButtonImage style: UIBarButtonItemStylePlain target: self action: @selector(didTapMenuButton)];
+
+    UIImage *checkoutButtonImage = [[UIImage imageNamed: @"CheckoutButton"] imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
+    id checkoutButton = [[UIBarButtonItem alloc] initWithImage: checkoutButtonImage style: UIBarButtonItemStylePlain target: self action: @selector(didTapMenuButton)];
+
+    self.navigationController.topViewController.navigationItem.rightBarButtonItems = @[searchButton, checkoutButton];
 }
 
 - (void)didTapMenuButton {

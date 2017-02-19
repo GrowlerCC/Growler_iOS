@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273541D90A369727EB3BBBCB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273546A4D2717ECFDF3AA763 /* Utils.swift */; };
 		2735441EBC7D8089DEC07ED2 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354F6C32FDDD047BF9A5B4 /* MenuItem.swift */; };
 		27354489A214A685D5AD4943 /* Aller_Lt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354E4AD18A9D5EA9393966 /* Aller_Lt.ttf */; };
 		273544EFB027D2B0DF75509C /* AllerDisplay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354DDA82C8A62B444DB7A5 /* AllerDisplay.ttf */; };
@@ -100,6 +101,7 @@
 		1B8C0E5AC304875CD46EE891 /* Pods-Growler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Growler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Growler/Pods-Growler.debug.xcconfig"; sourceTree = "<group>"; };
 		273540DF56CF883403A2E832 /* Aller_Rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_Rg.ttf; sourceTree = "<group>"; };
 		273543855BB4CA4157FD3D1C /* Aller_Bd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_Bd.ttf; sourceTree = "<group>"; };
+		273546A4D2717ECFDF3AA763 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2735482A55251FC462DB19FB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		273549012048EA14724926F4 /* Aller_It.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_It.ttf; sourceTree = "<group>"; };
 		27354A47118DFFA147143E72 /* Aller_LtIt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_LtIt.ttf; sourceTree = "<group>"; };
@@ -245,6 +247,14 @@
 				27354DDA82C8A62B444DB7A5 /* AllerDisplay.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2735472571D947ABB0B5DD33 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				273546A4D2717ECFDF3AA763 /* Utils.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		78D18B50F9FF6DCD9BC29598 /* Pods */ = {
@@ -439,6 +449,7 @@
 				BE948D4C1B95087A009AB20B /* Images.xcassets */,
 				BE8B82601B8CF49D00E3F871 /* LaunchScreen.xib */,
 				BE8B825B1B8CF49D00E3F871 /* Main.storyboard */,
+				2735472571D947ABB0B5DD33 /* Components */,
 			);
 			path = Growler;
 			sourceTree = "<group>";
@@ -658,6 +669,7 @@
 				B2C560B91CEE36C00015AA40 /* ProductViewControllerThemeStyleTableViewCell.m in Sources */,
 				847612741CAB047600AB17AA /* ProductHeaderCell.m in Sources */,
 				2735441EBC7D8089DEC07ED2 /* MenuItem.swift in Sources */,
+				273541D90A369727EB3BBBCB /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
