@@ -63,7 +63,7 @@
         }
     }];
 
-
+    /*
     UIImage *menuButtonImage = [[UIImage imageNamed: @"MenuButton"] imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
     id menuBtn = [[UIBarButtonItem alloc] initWithImage: menuButtonImage style: UIBarButtonItemStylePlain target: self action: @selector(didTapMenuButton)];
     self.navigationController.topViewController.navigationItem.leftBarButtonItem = menuBtn;
@@ -74,6 +74,7 @@
 
     UIImage *checkoutButtonImage = [[UIImage imageNamed: @"CheckoutButton"] imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
     id checkoutButton = [[UIBarButtonItem alloc] initWithImage: checkoutButtonImage style: UIBarButtonItemStylePlain target: self action: @selector(didTapMenuButton)];
+    */
 
     self.navigationController.topViewController.navigationItem.rightBarButtonItems = @[checkoutButton, searchButton];
 }
