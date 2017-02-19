@@ -64,7 +64,6 @@
 		BE948D4D1B95087A009AB20B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE948D4C1B95087A009AB20B /* Images.xcassets */; };
 		C1007F599F5C3D4D1CE62BFE /* Pods_Growler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE84DE96E82A8FB1AC28658 /* Pods_Growler.framework */; };
 		D9178E1B1E5620E2002FA829 /* Buy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9178E1A1E5620E2002FA829 /* Buy.framework */; };
-		E9AEEA471B1FF6E475D33A07 /* Pods_Growler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D07BCC2F92791BCF4858513 /* Pods_Growler.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -397,20 +396,20 @@
 		BE8B824D1B8CF49D00E3F871 /* Growler */ = {
 			isa = PBXGroup;
 			children = (
-				BE8B82521B8CF49D00E3F871 /* AppDelegate.h */,
-				BE8B82531B8CF49D00E3F871 /* AppDelegate.m */,
 				847612231CAB047600AB17AA /* Appearance */,
 				8476128F1CAB059100AB17AA /* PaymentButton */,
-				BE948D4C1B95087A009AB20B /* Images.xcassets */,
-				BE8B82601B8CF49D00E3F871 /* LaunchScreen.xib */,
-				BE8B825B1B8CF49D00E3F871 /* Main.storyboard */,
-				BE5E28451B94F5C300D2ECB5 /* Growler.entitlements */,
 				8476122E1CAB047600AB17AA /* Product View */,
 				BE8B824E1B8CF49D00E3F871 /* Supporting Files */,
 				847612991CAB05BE00AB17AA /* UIKit Additions */,
 				BE8B82961B8E6A6900E3F871 /* View Controllers */,
+				BE8B82521B8CF49D00E3F871 /* AppDelegate.h */,
+				BE8B82531B8CF49D00E3F871 /* AppDelegate.m */,
 				B8784B741E0C200D00734909 /* Credentials.h */,
 				B8784B791E0C215F00734909 /* Growler-Bridging-Header.h */,
+				BE5E28451B94F5C300D2ECB5 /* Growler.entitlements */,
+				BE948D4C1B95087A009AB20B /* Images.xcassets */,
+				BE8B82601B8CF49D00E3F871 /* LaunchScreen.xib */,
+				BE8B825B1B8CF49D00E3F871 /* Main.storyboard */,
 			);
 			path = Growler;
 			sourceTree = "<group>";
@@ -475,7 +474,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = Shopify;
+				ORGANIZATIONNAME = growler;
 				TargetAttributes = {
 					BE8B824A1B8CF49D00E3F871 = {
 						CreatedOnToolsVersion = 6.4;
