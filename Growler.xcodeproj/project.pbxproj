@@ -21,10 +21,12 @@
 		27354489A214A685D5AD4943 /* Aller_Lt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354E4AD18A9D5EA9393966 /* Aller_Lt.ttf */; };
 		273544EFB027D2B0DF75509C /* AllerDisplay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354DDA82C8A62B444DB7A5 /* AllerDisplay.ttf */; };
 		273545064355D78758BC286C /* Aller_LtIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354A47118DFFA147143E72 /* Aller_LtIt.ttf */; };
+		273545517650C830850E5E48 /* Product_Med_Fruit_Straw_1024x1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27354B7CC69A732BEF0C00F6 /* Product_Med_Fruit_Straw_1024x1024.jpg */; };
 		2735459EE81F68AC489D611A /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273548BE2FFC5603ADE95129 /* Lato-Heavy.ttf */; };
 		273545B47818BC278D22FA99 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2735419A19E7A46743195F08 /* Lato-Semibold.ttf */; };
 		273545C5BE81A08CF5520FEA /* ConfirmAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354DB4E856B90AE0A6D6F0 /* ConfirmAddressViewController.swift */; };
 		273546621A3FBB0F0C42598D /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273546B9025A603186DD233E /* Lato-Hairline.ttf */; };
+		27354788EA25B4E34DF8966B /* ProductBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273544280EF5AC9BC915DAEA /* ProductBannerView.swift */; };
 		273547CA5A98D002216D720C /* MenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273540C7B6D311FD299C8368 /* MenuItem.xib */; };
 		273547DFC345B4A12D1CB7CB /* Aller_Rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273540DF56CF883403A2E832 /* Aller_Rg.ttf */; };
 		273547E1A7AC333297BCB35D /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354A7A9281457AAED4CE6B /* UIViewController.swift */; };
@@ -96,6 +98,8 @@
 		C1007F599F5C3D4D1CE62BFE /* Pods_Growler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE84DE96E82A8FB1AC28658 /* Pods_Growler.framework */; };
 		D9178E1B1E5620E2002FA829 /* Buy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9178E1A1E5620E2002FA829 /* Buy.framework */; };
 		D91B37E81E59EA4C00A5B5A5 /* ConfirmAddressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D91B37E71E59EA4C00A5B5A5 /* ConfirmAddressViewController.storyboard */; };
+		D91B37EC1E5A542D00A5B5A5 /* ProductBannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91B37EB1E5A542D00A5B5A5 /* ProductBannerView.xib */; };
+		E1356B5FE28305C9E3D6862E /* Pods_Growler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D07BCC2F92791BCF4858513 /* Pods_Growler.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -130,6 +134,7 @@
 		2735427F6AB2A06821861055 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		273543855BB4CA4157FD3D1C /* Aller_Bd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_Bd.ttf; sourceTree = "<group>"; };
 		273543E49897ED81C375486B /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		273544280EF5AC9BC915DAEA /* ProductBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductBannerView.swift; sourceTree = "<group>"; };
 		273546349EAC77ADDD4F3D7A /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		273546A4D2717ECFDF3AA763 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		273546B9025A603186DD233E /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
@@ -146,6 +151,7 @@
 		27354A6897C3B6844D4C27DD /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
 		27354A7A9281457AAED4CE6B /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		27354B09BED69F4D4D62C474 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		27354B7CC69A732BEF0C00F6 /* Product_Med_Fruit_Straw_1024x1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Product_Med_Fruit_Straw_1024x1024.jpg; sourceTree = "<group>"; };
 		27354B8365DFB4A2B2F3AB2E /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
 		27354D56E8ECC4A741C93605 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
 		27354DB4E856B90AE0A6D6F0 /* ConfirmAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmAddressViewController.swift; path = "View Controllers/ConfirmAddressViewController.swift"; sourceTree = "<group>"; };
@@ -267,6 +273,7 @@
 		BE948D4C1B95087A009AB20B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D9178E1A1E5620E2002FA829 /* Buy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Buy.framework; path = "../../Users/Sash/Library/Developer/Xcode/DerivedData/Mobile_Buy_SDK-dnyvblfcrcpjwzesrfmtajoaedfb/Build/Products/Debug-universal/Buy.framework"; sourceTree = "<group>"; };
 		D91B37E71E59EA4C00A5B5A5 /* ConfirmAddressViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ConfirmAddressViewController.storyboard; path = "View Controllers/ConfirmAddressViewController.storyboard"; sourceTree = "<group>"; };
+		D91B37EB1E5A542D00A5B5A5 /* ProductBannerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductBannerView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +284,7 @@
 				90A6F42D1BA8BCAC003E7C4F /* PassKit.framework in Frameworks */,
 				D9178E1B1E5620E2002FA829 /* Buy.framework in Frameworks */,
 				C1007F599F5C3D4D1CE62BFE /* Pods_Growler.framework in Frameworks */,
+				E1356B5FE28305C9E3D6862E /* Pods_Growler.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +304,15 @@
 				273547919115F3B7964F5550 /* Lato */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2735418011E1B9B411D39A8D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				273544280EF5AC9BC915DAEA /* ProductBannerView.swift */,
+				D91B37EB1E5A542D00A5B5A5 /* ProductBannerView.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		273544175039954B20CDFEBA /* Extensions */ = {
@@ -525,11 +542,14 @@
 			children = (
 				847612231CAB047600AB17AA /* Appearance */,
 				2735472571D947ABB0B5DD33 /* Components */,
+				273544175039954B20CDFEBA /* Extensions */,
 				2735407D4E3D1ACE5A08FE86 /* Fonts */,
 				8476128F1CAB059100AB17AA /* PaymentButton */,
 				8476122E1CAB047600AB17AA /* Product View */,
 				BE8B824E1B8CF49D00E3F871 /* Supporting Files */,
 				847612991CAB05BE00AB17AA /* UIKit Additions */,
+				27354C490D2007123D8C9D16 /* Table View Cell */,
+				2735418011E1B9B411D39A8D /* Views */,
 				BE8B82961B8E6A6900E3F871 /* View Controllers */,
 				BE8B82521B8CF49D00E3F871 /* AppDelegate.h */,
 				BE8B82531B8CF49D00E3F871 /* AppDelegate.m */,
@@ -539,9 +559,8 @@
 				BE948D4C1B95087A009AB20B /* Images.xcassets */,
 				BE8B82601B8CF49D00E3F871 /* LaunchScreen.xib */,
 				BE8B825B1B8CF49D00E3F871 /* Main.storyboard */,
-				27354C490D2007123D8C9D16 /* Table View Cell */,
 				273547E48016C5BE03F59076 /* PopupMenuViewController.swift */,
-				273544175039954B20CDFEBA /* Extensions */,
+				27354B7CC69A732BEF0C00F6 /* Product_Med_Fruit_Straw_1024x1024.jpg */,
 			);
 			path = Growler;
 			sourceTree = "<group>";
@@ -670,6 +689,7 @@
 				273546621A3FBB0F0C42598D /* Lato-Hairline.ttf in Resources */,
 				273545B47818BC278D22FA99 /* Lato-Semibold.ttf in Resources */,
 				27354290E151312680468177 /* Lato-BoldItalic.ttf in Resources */,
+				D91B37EC1E5A542D00A5B5A5 /* ProductBannerView.xib in Resources */,
 				273543E73385C0467657BC87 /* Lato-ThinItalic.ttf in Resources */,
 				27354D7C8BA8E308F7B42C7B /* Lato-BlackItalic.ttf in Resources */,
 				273543AB3071522923F59AE8 /* Lato-HeavyItalic.ttf in Resources */,
@@ -677,6 +697,7 @@
 				27354054CFC53860D8B85A21 /* Lato-MediumItalic.ttf in Resources */,
 				273541D7AB2D79DA5F76FF14 /* Lato-HairlineItalic.ttf in Resources */,
 				273543978C99E4C1CD933CA9 /* Lato-SemiboldItalic.ttf in Resources */,
+				273545517650C830850E5E48 /* Product_Med_Fruit_Straw_1024x1024.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +811,7 @@
 				273540D954DD1F6902EC8CC4 /* AccountProfileViewController.swift in Sources */,
 				27354DCA9127146C0563685C /* PopupMenuViewController.swift in Sources */,
 				273547E1A7AC333297BCB35D /* UIViewController.swift in Sources */,
+				27354788EA25B4E34DF8966B /* ProductBannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

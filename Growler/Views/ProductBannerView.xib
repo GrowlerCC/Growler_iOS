@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Semibold.ttf">
+            <string>Lato-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="s8i-0v-OfU" customClass="ProductBannerView" customModule="Growler" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="304"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" image="Product_Med_Fruit_Straw_1024x1024.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Q8f-IR-YU9">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="201"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" text="Delivery cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iF2-yl-Gnh">
+                    <rect key="frame" x="15" y="272" width="81" height="17"/>
+                    <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
+                    <color key="textColor" red="0.20392156862745098" green="0.57647058823529407" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" text="Delivery Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMH-Ax-0lN">
+                    <rect key="frame" x="125" y="272" width="85" height="17"/>
+                    <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
+                    <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" text="Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHU-qL-bin">
+                    <rect key="frame" x="239" y="272" width="30" height="17"/>
+                    <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
+                    <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksk-iM-Jbx">
+                    <rect key="frame" x="15" y="245" width="345" height="17"/>
+                    <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
+                    <color key="textColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYP-b6-Nke">
+                    <rect key="frame" x="106" y="268" width="9" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejd-WS-5fu">
+                    <rect key="frame" x="220" y="268" width="9" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzJ-ib-yZT">
+                    <rect key="frame" x="15" y="215" width="345" height="20"/>
+                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                    <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ejd-WS-5fu" secondAttribute="bottom" constant="15" id="0vA-qA-IdU"/>
+                <constraint firstItem="WMH-Ax-0lN" firstAttribute="leading" secondItem="FYP-b6-Nke" secondAttribute="trailing" constant="10" id="2uI-kI-9lc"/>
+                <constraint firstAttribute="bottom" secondItem="WMH-Ax-0lN" secondAttribute="bottom" constant="15" id="4VK-tN-gVs"/>
+                <constraint firstItem="Q8f-IR-YU9" firstAttribute="leading" secondItem="s8i-0v-OfU" secondAttribute="leading" id="8Y0-Us-zhr"/>
+                <constraint firstAttribute="bottom" secondItem="DHU-qL-bin" secondAttribute="bottom" constant="15" id="EIB-Ru-Wya"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DHU-qL-bin" secondAttribute="trailing" constant="15" id="K09-Tq-14v"/>
+                <constraint firstAttribute="bottom" secondItem="FYP-b6-Nke" secondAttribute="bottom" constant="15" id="LND-xN-RoK"/>
+                <constraint firstAttribute="trailing" secondItem="FzJ-ib-yZT" secondAttribute="trailing" constant="15" id="Lvu-yj-G5i"/>
+                <constraint firstItem="FYP-b6-Nke" firstAttribute="leading" secondItem="iF2-yl-Gnh" secondAttribute="trailing" constant="10" id="MgG-bi-IhX"/>
+                <constraint firstItem="FzJ-ib-yZT" firstAttribute="leading" secondItem="s8i-0v-OfU" secondAttribute="leading" constant="15" id="QZ6-Bo-o2a"/>
+                <constraint firstItem="ksk-iM-Jbx" firstAttribute="leading" secondItem="s8i-0v-OfU" secondAttribute="leading" constant="15" id="Xci-2B-rzr"/>
+                <constraint firstItem="Q8f-IR-YU9" firstAttribute="top" secondItem="s8i-0v-OfU" secondAttribute="top" id="aYL-05-y2h"/>
+                <constraint firstItem="iF2-yl-Gnh" firstAttribute="leading" secondItem="s8i-0v-OfU" secondAttribute="leading" constant="15" id="d98-GX-4Yh"/>
+                <constraint firstItem="FzJ-ib-yZT" firstAttribute="top" secondItem="Q8f-IR-YU9" secondAttribute="bottom" constant="14" id="dTS-pl-qdZ"/>
+                <constraint firstAttribute="trailing" secondItem="Q8f-IR-YU9" secondAttribute="trailing" id="gz1-F6-7G7"/>
+                <constraint firstAttribute="bottom" secondItem="iF2-yl-Gnh" secondAttribute="bottom" constant="15" id="h1z-cl-RDS"/>
+                <constraint firstItem="DHU-qL-bin" firstAttribute="leading" secondItem="ejd-WS-5fu" secondAttribute="trailing" constant="10" id="mD0-ds-Kdh"/>
+                <constraint firstAttribute="trailing" secondItem="ksk-iM-Jbx" secondAttribute="trailing" constant="15" id="mkV-yw-2jb"/>
+                <constraint firstItem="iF2-yl-Gnh" firstAttribute="top" secondItem="ksk-iM-Jbx" secondAttribute="bottom" constant="10" id="ryR-Dm-W52"/>
+                <constraint firstItem="ejd-WS-5fu" firstAttribute="leading" secondItem="WMH-Ax-0lN" secondAttribute="trailing" constant="10" id="scG-ts-11P"/>
+                <constraint firstItem="ksk-iM-Jbx" firstAttribute="top" secondItem="FzJ-ib-yZT" secondAttribute="bottom" constant="10" id="ucy-DP-1Y7"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="costLabel" destination="DHU-qL-bin" id="5aL-zB-s1L"/>
+                <outlet property="deliveryCostLabel" destination="iF2-yl-Gnh" id="eMH-H6-fKk"/>
+                <outlet property="deliveryTimeLabel" destination="WMH-Ax-0lN" id="PNU-mJ-cPK"/>
+                <outlet property="descriptionLabel" destination="ksk-iM-Jbx" id="OLK-e1-w3z"/>
+                <outlet property="image" destination="Q8f-IR-YU9" id="8gP-Vr-XUd"/>
+                <outlet property="titleLabel" destination="FzJ-ib-yZT" id="oSZ-jQ-KHO"/>
+            </connections>
+            <point key="canvasLocation" x="-170.5" y="-170"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Product_Med_Fruit_Straw_1024x1024.jpg" width="1024" height="682"/>
+    </resources>
+</document>

@@ -5,13 +5,18 @@
 
 import Foundation
 import UIKit
+import SwiftCarousel
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, SwiftCarouselDelegate {
 
     // todo show CollectionListViewController when tapping on banners
 
     private var menuController: PopupMenuViewController!
 
+    @IBOutlet weak var topCarousel: SwiftCarousel!
+    
+    @IBOutlet weak var bottomCarousel: SwiftCarousel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,10 +37,39 @@ class HomeViewController: UIViewController {
 
         let addressController = ConfirmAddressViewController.loadFromStoryboard(name: "ConfirmAddressViewController", type: ConfirmAddressViewController.self)
         navigationController!.present(addressController, animated: false)
+
+        setupTopCarousel()
+        setupBottomCarousel()
     }
 
     func didTapMenuButton() {
         present(menuController, animated: true)
+    }
+
+    private func setupTopCarousel() {
+        let carousel = topCarousel!
+        try! carousel.itemsFactory(itemsCount: 5) {
+            index in
+            let view = Utils.loadViewFromNib(nibName: "ProductBannerView", owner: self) as! ProductBannerView
+            return view
+        }
+        carousel.resizeType = .visibleItemsPerPage(1)
+        carousel.delegate = self
+        carousel.defaultSelectedIndex = 2
+        view.addSubview(carousel)
+    }
+
+    private func setupBottomCarousel() {
+        let carousel = bottomCarousel!
+        try! carousel.itemsFactory(itemsCount: 5) {
+            index in
+            let view = Utils.loadViewFromNib(nibName: "ProductBannerView", owner: self) as! ProductBannerView
+            return view
+        }
+        carousel.resizeType = .visibleItemsPerPage(2)
+        carousel.delegate = self
+        carousel.defaultSelectedIndex = 2
+        view.addSubview(carousel)
     }
 
     func didTapCheckoutButton() {
