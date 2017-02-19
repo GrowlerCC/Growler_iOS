@@ -11,6 +11,10 @@ class PopupMenuViewController: UITableViewController {
     weak var homeController: HomeViewController?
 
     var menuItems: [MenuItem] = [
+        MenuItem(title: "Shopify Demo App") {
+            let controller = CollectionListViewController()
+            $0!.pushViewController(controller, animated: true)
+        },
         MenuItem(title: "Account Profile"),
         MenuItem(title: "My Orders"),
         MenuItem(title: "Recommendations"),
