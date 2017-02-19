@@ -10,7 +10,14 @@ class PopupMenuViewController: UITableViewController {
 
     weak var homeController: HomeViewController?
 
-    var menuItems: [MenuItem] = []
+    var menuItems: [MenuItem] = [
+        MenuItem(title: "Account Profile"),
+        MenuItem(title: "My Orders"),
+        MenuItem(title: "Recommendations"),
+        MenuItem(title: "App Settings"),
+        MenuItem(title: "FAQs"),
+        MenuItem(title: "About GrEx"),
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +27,7 @@ class PopupMenuViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let selectedItem = menuItems[indexPath.row]
+        dismiss(animated: true)
         return indexPath
     }
 

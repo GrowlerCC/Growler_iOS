@@ -8,12 +8,12 @@ import UIKit
 
 class MenuItem: UITableViewCell {
 
-    @IBOutlet weak var stripe: UIView!
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    
-    // index of view controller which this menu item should show. If it's null then it's menu header
-    var viewControllerIndex: Int?
+    private var title: String!
+
+    convenience init(title: String) {
+        self.init(style: .default, reuseIdentifier: "")
+        self.textLabel?.text = title
+    }
 
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         // ignoring and not calling parent because we don't highlight menu items. only select
