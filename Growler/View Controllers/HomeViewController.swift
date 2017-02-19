@@ -48,6 +48,7 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
 
     private func setupTopCarousel() {
         let carousel = topCarousel!
+        carousel.selectByTapEnabled = false
         try! carousel.itemsFactory(itemsCount: 5) {
             index in
             let view = Utils.loadViewFromNib(nibName: "ProductBannerView", owner: self) as! ProductBannerView
@@ -61,6 +62,7 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
 
     private func setupBottomCarousel() {
         let carousel = bottomCarousel!
+        carousel.selectByTapEnabled = false
         try! carousel.itemsFactory(itemsCount: 5) {
             index in
             let view = Utils.loadViewFromNib(nibName: "ProductBannerView", owner: self) as! ProductBannerView
