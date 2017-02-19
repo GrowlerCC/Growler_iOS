@@ -8,7 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		2735441EBC7D8089DEC07ED2 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354F6C32FDDD047BF9A5B4 /* MenuItem.swift */; };
+		27354489A214A685D5AD4943 /* Aller_Lt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354E4AD18A9D5EA9393966 /* Aller_Lt.ttf */; };
+		273544EFB027D2B0DF75509C /* AllerDisplay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354DDA82C8A62B444DB7A5 /* AllerDisplay.ttf */; };
+		273545064355D78758BC286C /* Aller_LtIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354A47118DFFA147143E72 /* Aller_LtIt.ttf */; };
+		273547DFC345B4A12D1CB7CB /* Aller_Rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273540DF56CF883403A2E832 /* Aller_Rg.ttf */; };
+		273548CCEE8B7B3DE6D8ACA6 /* Aller_Bd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273543855BB4CA4157FD3D1C /* Aller_Bd.ttf */; };
 		27354A2019CC83C637EF3868 /* MenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27354A622E2F06A9FE292A3F /* MenuItem.xib */; };
+		27354C00FAF0D8F0CC67DC49 /* Aller_It.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273549012048EA14724926F4 /* Aller_It.ttf */; };
+		27354EF7E84CC6D8F8B77B6F /* Aller_BdIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354F74E3C1F624B63675C5 /* Aller_BdIt.ttf */; };
 		842799661CB31498003AD0CE /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842799651CB31498003AD0CE /* PaymentViewController.m */; };
 		847612671CAB047600AB17AA /* DisclosureIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847612251CAB047600AB17AA /* DisclosureIndicatorView.m */; };
 		847612681CAB047600AB17AA /* Theme+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 847612271CAB047600AB17AA /* Theme+Additions.m */; };
@@ -91,9 +98,16 @@
 
 /* Begin PBXFileReference section */
 		1B8C0E5AC304875CD46EE891 /* Pods-Growler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Growler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Growler/Pods-Growler.debug.xcconfig"; sourceTree = "<group>"; };
+		273540DF56CF883403A2E832 /* Aller_Rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_Rg.ttf; sourceTree = "<group>"; };
+		273543855BB4CA4157FD3D1C /* Aller_Bd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_Bd.ttf; sourceTree = "<group>"; };
 		2735482A55251FC462DB19FB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
+		273549012048EA14724926F4 /* Aller_It.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_It.ttf; sourceTree = "<group>"; };
+		27354A47118DFFA147143E72 /* Aller_LtIt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_LtIt.ttf; sourceTree = "<group>"; };
 		27354A622E2F06A9FE292A3F /* MenuItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItem.xib; sourceTree = "<group>"; };
+		27354DDA82C8A62B444DB7A5 /* AllerDisplay.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = AllerDisplay.ttf; sourceTree = "<group>"; };
+		27354E4AD18A9D5EA9393966 /* Aller_Lt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_Lt.ttf; sourceTree = "<group>"; };
 		27354F6C32FDDD047BF9A5B4 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		27354F74E3C1F624B63675C5 /* Aller_BdIt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_BdIt.ttf; sourceTree = "<group>"; };
 		2AE84DE96E82A8FB1AC28658 /* Pods_Growler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Growler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5491CB13BE24F1150D1EC99D /* Pods-Growler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Growler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Growler/Pods-Growler.release.xcconfig"; sourceTree = "<group>"; };
 		6D07BCC2F92791BCF4858513 /* Pods_Growler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Growler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +233,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2735407D4E3D1ACE5A08FE86 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				273543855BB4CA4157FD3D1C /* Aller_Bd.ttf */,
+				27354F74E3C1F624B63675C5 /* Aller_BdIt.ttf */,
+				273549012048EA14724926F4 /* Aller_It.ttf */,
+				27354E4AD18A9D5EA9393966 /* Aller_Lt.ttf */,
+				27354A47118DFFA147143E72 /* Aller_LtIt.ttf */,
+				273540DF56CF883403A2E832 /* Aller_Rg.ttf */,
+				27354DDA82C8A62B444DB7A5 /* AllerDisplay.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		78D18B50F9FF6DCD9BC29598 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,6 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				847612231CAB047600AB17AA /* Appearance */,
+				2735407D4E3D1ACE5A08FE86 /* Fonts */,
 				8476128F1CAB059100AB17AA /* PaymentButton */,
 				8476122E1CAB047600AB17AA /* Product View */,
 				BE8B824E1B8CF49D00E3F871 /* Supporting Files */,
@@ -515,6 +544,13 @@
 				BE8B825D1B8CF49D00E3F871 /* Main.storyboard in Resources */,
 				BE8B82621B8CF49D00E3F871 /* LaunchScreen.xib in Resources */,
 				27354A2019CC83C637EF3868 /* MenuItem.xib in Resources */,
+				273548CCEE8B7B3DE6D8ACA6 /* Aller_Bd.ttf in Resources */,
+				27354EF7E84CC6D8F8B77B6F /* Aller_BdIt.ttf in Resources */,
+				27354C00FAF0D8F0CC67DC49 /* Aller_It.ttf in Resources */,
+				27354489A214A685D5AD4943 /* Aller_Lt.ttf in Resources */,
+				273545064355D78758BC286C /* Aller_LtIt.ttf in Resources */,
+				273547DFC345B4A12D1CB7CB /* Aller_Rg.ttf in Resources */,
+				273544EFB027D2B0DF75509C /* AllerDisplay.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
