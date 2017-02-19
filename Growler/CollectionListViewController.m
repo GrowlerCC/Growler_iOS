@@ -74,9 +74,10 @@
 
     UIImage *checkoutButtonImage = [[UIImage imageNamed: @"CheckoutButton"] imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
     id checkoutButton = [[UIBarButtonItem alloc] initWithImage: checkoutButtonImage style: UIBarButtonItemStylePlain target: self action: @selector(didTapMenuButton)];
-    */
+    
 
     self.navigationController.topViewController.navigationItem.rightBarButtonItems = @[checkoutButton, searchButton];
+    */
 }
 
 - (void)didTapMenuButton {
