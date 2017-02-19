@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Semibold.ttf">
+            <string>Lato-Semibold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Confirm Address View Controller-->
+        <scene sceneID="G8A-j4-RQC">
+            <objects>
+                <viewController storyboardIdentifier="ConfirmAddressViewController" id="nNf-TP-5hv" customClass="ConfirmAddressViewController" customModule="Growler" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ESL-af-He0"/>
+                        <viewControllerLayoutGuide type="bottom" id="UwT-DZ-7H9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6EG-6m-agE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jK7-W2-UXA">
+                                <rect key="frame" x="171.5" y="616" width="32" height="33"/>
+                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="17"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTouchSkipButton:" destination="nNf-TP-5hv" eventType="touchUpInside" id="xyr-Wp-3wO"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="T7X-lU-yRS">
+                                <rect key="frame" x="38.5" y="215.5" width="297" height="96"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qwk-aJ-J4X">
+                                <rect key="frame" x="42" y="373.5" width="290" height="44"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lgN-8I-ern">
+                                        <rect key="frame" x="44" y="0.0" width="202" height="44"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LocationMark" translatesAutoresizingMaskIntoConstraints="NO" id="KA8-sA-fG0">
+                                        <rect key="frame" x="19" y="14" width="13" height="16"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.46666666666666667" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="lgN-8I-ern" secondAttribute="bottom" id="2Gs-6O-Zif"/>
+                                    <constraint firstAttribute="height" constant="44" id="9jd-Yi-Nao"/>
+                                    <constraint firstAttribute="width" constant="290" id="CxT-qH-g6q"/>
+                                    <constraint firstAttribute="trailing" secondItem="lgN-8I-ern" secondAttribute="trailing" constant="44" id="S4p-Kh-gk2"/>
+                                    <constraint firstItem="lgN-8I-ern" firstAttribute="top" secondItem="Qwk-aJ-J4X" secondAttribute="top" id="aqI-me-3Ec"/>
+                                    <constraint firstItem="KA8-sA-fG0" firstAttribute="leading" secondItem="Qwk-aJ-J4X" secondAttribute="leading" constant="19" id="gOP-AZ-kok"/>
+                                    <constraint firstItem="lgN-8I-ern" firstAttribute="leading" secondItem="Qwk-aJ-J4X" secondAttribute="leading" constant="44" id="wM3-QJ-0GS"/>
+                                    <constraint firstItem="KA8-sA-fG0" firstAttribute="centerY" secondItem="Qwk-aJ-J4X" secondAttribute="centerY" id="zoj-mz-zlg"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2T-tN-JaZ">
+                                <rect key="frame" x="42.5" y="427.5" width="290" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="Nqz-HI-Drz"/>
+                                    <constraint firstAttribute="height" constant="44" id="rLy-TS-O5n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="17"/>
+                                <state key="normal" title="Start your order">
+                                    <color key="titleColor" red="0.98823529409999999" green="0.50588235290000005" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTouchStartButton:" destination="nNf-TP-5hv" eventType="touchUpInside" id="xtl-9J-Chp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.46274509803921571" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Qwk-aJ-J4X" firstAttribute="centerX" secondItem="6EG-6m-agE" secondAttribute="centerX" id="0uz-jU-xQ9"/>
+                            <constraint firstItem="UwT-DZ-7H9" firstAttribute="top" secondItem="jK7-W2-UXA" secondAttribute="bottom" constant="18" id="EN8-NP-Fyx"/>
+                            <constraint firstItem="jK7-W2-UXA" firstAttribute="centerX" secondItem="6EG-6m-agE" secondAttribute="centerX" id="Ghg-wV-Ixd"/>
+                            <constraint firstItem="j2T-tN-JaZ" firstAttribute="top" secondItem="Qwk-aJ-J4X" secondAttribute="bottom" constant="10" id="Iwj-FM-9rH"/>
+                            <constraint firstItem="Qwk-aJ-J4X" firstAttribute="top" secondItem="T7X-lU-yRS" secondAttribute="bottom" constant="62" id="QeX-ng-3vj"/>
+                            <constraint firstItem="j2T-tN-JaZ" firstAttribute="centerX" secondItem="6EG-6m-agE" secondAttribute="centerX" id="Snd-t3-PBz"/>
+                            <constraint firstItem="T7X-lU-yRS" firstAttribute="centerY" secondItem="6EG-6m-agE" secondAttribute="centerY" constant="-70" id="a4B-VR-xMR"/>
+                            <constraint firstItem="T7X-lU-yRS" firstAttribute="centerX" secondItem="6EG-6m-agE" secondAttribute="centerX" id="voQ-oq-aH2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addressField" destination="lgN-8I-ern" id="88P-6t-oBY"/>
+                        <outlet property="addressFieldContainer" destination="Qwk-aJ-J4X" id="HzK-n5-wjU"/>
+                        <outlet property="startButton" destination="j2T-tN-JaZ" id="023-Nm-qM6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dk1-Ls-iyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-106.40000000000001" y="45.42728635682159"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LocationMark" width="13" height="16"/>
+        <image name="Logo" width="297" height="96"/>
+    </resources>
+</document>

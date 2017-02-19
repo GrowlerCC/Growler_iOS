@@ -29,6 +29,9 @@ class HomeViewController: UIViewController {
         let checkoutButton = UIBarButtonItem(image: checkoutButtonImage, style: .plain, target: self, action: #selector(HomeViewController.didTapCheckoutButton))
 
         navigationController?.topViewController?.navigationItem.rightBarButtonItems = [checkoutButton, searchButton]
+
+        let addressController = ConfirmAddressViewController.loadFromStoryboard(name: "ConfirmAddressViewController", type: ConfirmAddressViewController.self)
+        navigationController!.present(addressController, animated: false)
     }
 
     func didTapMenuButton() {
