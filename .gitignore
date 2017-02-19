@@ -1,5 +1,7 @@
 .idea/
-Mobile Buy SDK Advanced Sample.xcodeproj/xcuserdata/
-Mobile Buy SDK Advanced Sample.xcworkspace/
+Growler.xcodeproj/xcuserdata/
+Growler.xcworkspace/
 PRODUCT_VIEW_README.md
 Pods/
+.DS_Store
+Mobile Buy SDK Advanced Sample.xcworkspace/
