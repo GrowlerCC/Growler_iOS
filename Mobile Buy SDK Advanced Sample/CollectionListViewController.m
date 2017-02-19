@@ -64,7 +64,7 @@
     }];
 
 
-    UIImage *hamburgerMenuImage = [[UIImage imageNamed: @"HamburgerMenu"] imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
+    UIImage *hamburgerMenuImage = [UIImage imageNamed: @"HamburgerMenu"];// imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
 
     id menuBtn = [[UIBarButtonItem alloc] initWithImage: hamburgerMenuImage style: UIBarButtonItemStylePlain target: self action: @selector(didTapMenuButton)];
     self.navigationController.topViewController.navigationItem.leftBarButtonItem = menuBtn;
