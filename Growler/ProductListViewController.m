@@ -24,6 +24,7 @@
 //  THE SOFTWARE.
 //
 
+#import <Buy/BUYClient.h>
 #import "Credentials.h"
 #import "ProductListViewController.h"
 #import "ProductViewController.h"
@@ -39,12 +40,13 @@
 
 @property (nonatomic, strong) BUYClient *client;
 @property (nonatomic, strong) BUYCollection *collection;
-@property (nonatomic, strong) NSArray *products;
 @property (nonatomic, strong) NSOperation *collectionOperation;
 
 @end
 
 @implementation ProductListViewController
+
+@synthesize products = _products;
 
 - (instancetype)initWithClient:(BUYClient *)client collection:(BUYCollection*)collection
 {
@@ -59,13 +61,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     if (self.collection) {
         self.title = self.collection.title;
     } else {
         self.title = @"All Products";
     }
-    
+
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     UINib *nib = [UINib nibWithNibName:@"ProductListCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"ProductListCell"];
@@ -74,6 +76,13 @@
         // If we're presenting with a collection, add the ability to sort
         UIBarButtonItem *sortBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sort" style:UIBarButtonItemStylePlain target:self action:@selector(presentCollectionSortOptions:)];
         self.navigationItem.rightBarButtonItem = sortBarButtonItem;
+    }
+
+    [self loadProducts];
+}
+
+- (void) loadProducts {
+    if (self.collection) {
         [self getCollectionWithSortOrder:BUYCollectionSortCollectionDefault];
     } else {
         // todo implement loading all pages as user scrolls UITableView
@@ -195,7 +204,8 @@
     ProductViewController *productViewController = [self productViewController];
     [productViewController loadWithProduct:product completion:^(BOOL success, NSError *error) {
         if (error == nil) {
-            [productViewController presentPortraitInViewController:self];
+            [self.navigationController pushViewController:productViewController animated:YES];
+
         }
     }];
 }

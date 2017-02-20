@@ -27,9 +27,14 @@
 @import UIKit;
 @import Buy;
 
+@class BUYClient;
+
 @interface ProductListViewController : UITableViewController
+
+@property NSArray* products;
 
 - (instancetype)initWithClient:(BUYClient *)client collection:(BUYCollection*)collection;
 
+- (void)loadProducts;
 @end
 

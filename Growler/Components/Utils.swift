@@ -20,4 +20,24 @@ class Utils: NSObject {
         return numberFormatter.string(from: value) ?? ""
     }
 
+    static func alert(message: String) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        mq {
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
+    }
+
+}
+
+
+/**
+ * Stands for main queue. Asynchronously executes passed callback on main queue if calling code is not from main queue. Otherwise just calls block
+ */
+func mq(callback: @escaping () -> Void) {
+    if Thread.isMainThread {
+        callback()
+    } else {
+        DispatchQueue.main.async(execute: callback)
+    }
 }

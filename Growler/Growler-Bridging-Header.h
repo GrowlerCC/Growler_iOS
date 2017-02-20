@@ -27,4 +27,5 @@
 #import "Credentials.h"
 #import "CollectionListViewController.h"
 #import "ShippingRatesTableViewController.h"
+#import "ProductListViewController.h"
 #import "AsyncImageView.h"

@@ -22,11 +22,21 @@ class ShopifyController: NSObject {
 
     private var checkoutCreationOperation: Operation?
 
+    private var cartProducts: [BUYProduct] = []
+
+    func getCart() -> [BUYProduct] {
+        return cartProducts
+    }
+
+    func addProductToCart(product: BUYProduct) {
+        cartProducts.append(product)
+    }
+
     deinit {
         checkoutCreationOperation?.cancel()
     }
 
-    func checkout(_ product: BUYProduct?, navigationController: UINavigationController) {
+    func checkout(navigationController: UINavigationController) {
         if let operation = checkoutCreationOperation, operation.isExecuting {
             operation.cancel()
         }
@@ -36,7 +46,7 @@ class ShopifyController: NSObject {
             return
         }
 
-        if let product = product {
+        for product in cartProducts {
             cart.add(product.variants.firstObject as! BUYProductVariant)
         }
 

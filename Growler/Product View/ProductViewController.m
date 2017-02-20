@@ -294,7 +294,7 @@ CGFloat const BUYMaxProductViewHeight = 640.0;
         [_productView.productViewFooter.actionButton addTarget:self action:@selector(addSelectedVariantToCart) forControlEvents:UIControlEventTouchUpInside];
     }
     else {
-        [_productView.productViewFooter.actionButton setTitle:NSLocalizedString(@"Buy", nil) forState:UIControlStateNormal];
+        [_productView.productViewFooter.actionButton setTitle:NSLocalizedString(@"Add to Cart", nil) forState:UIControlStateNormal];
 		[_productView.productViewFooter.actionButton addTarget:self action:@selector(buy) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -487,7 +487,8 @@ CGFloat const BUYMaxProductViewHeight = 640.0;
 	
 	self.client.urlScheme = @"advancedsample://";
 
-    [ShopifyController.instance checkout:product navigationController:self.navigationController];
+    [ShopifyController.instance addProductToCartWithProduct:product];
+    [Utils alertWithMessage:@"Product has been added to cart"];
 }
 
 

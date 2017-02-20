@@ -16,6 +16,7 @@
 		273541D7AB2D79DA5F76FF14 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354A6897C3B6844D4C27DD /* Lato-HairlineItalic.ttf */; };
 		273541D90A369727EB3BBBCB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273546A4D2717ECFDF3AA763 /* Utils.swift */; };
 		27354290E151312680468177 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354B09BED69F4D4D62C474 /* Lato-BoldItalic.ttf */; };
+		27354366F7A2822519B7A26D /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273540B1004A856A4D07F46F /* CartViewController.swift */; };
 		273543978C99E4C1CD933CA9 /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273549AB40941EA9AC1C6642 /* Lato-SemiboldItalic.ttf */; };
 		273543AB3071522923F59AE8 /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273547BD2EC500BD5C3F1E23 /* Lato-HeavyItalic.ttf */; };
 		273543D4C234F3C6A2592240 /* SwiftCarouselResizeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735438F5E5197BBC80DCBF0 /* SwiftCarouselResizeType.swift */; };
@@ -135,6 +136,7 @@
 /* Begin PBXFileReference section */
 		1B8C0E5AC304875CD46EE891 /* Pods-Growler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Growler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Growler/Pods-Growler.debug.xcconfig"; sourceTree = "<group>"; };
 		2735403BE710BFE3CCE75A1A /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		273540B1004A856A4D07F46F /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartViewController.swift; path = "View Controllers/CartViewController.swift"; sourceTree = "<group>"; };
 		273540C7B6D311FD299C8368 /* MenuItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItem.xib; sourceTree = "<group>"; };
 		273540DF56CF883403A2E832 /* Aller_Rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = Aller_Rg.ttf; sourceTree = "<group>"; };
 		27354141D8BC3E2B5EB9AB53 /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 				BE8B825B1B8CF49D00E3F871 /* Main.storyboard */,
 				273547E48016C5BE03F59076 /* PopupMenuViewController.swift */,
 				27354FE0AADB8E8AB7B2C154 /* Controllers */,
+				273540B1004A856A4D07F46F /* CartViewController.swift */,
 			);
 			path = Growler;
 			sourceTree = "<group>";
@@ -850,6 +853,7 @@
 				27354AE49328F66BA049EF1C /* SwiftCarousel+UIScrollViewDelegate.swift in Sources */,
 				27354A266FDF4A2913B202C0 /* SwiftCarousel+UIGestureRecognizerDelegate.swift in Sources */,
 				27354598D737AC727F1CA830 /* SwiftCarousel.swift in Sources */,
+				27354366F7A2822519B7A26D /* CartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
