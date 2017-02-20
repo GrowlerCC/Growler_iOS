@@ -75,6 +75,7 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
     }
 
     func didTapCheckoutButton() {
+        ShopifyController.instance.checkout(nil, navigationController: navigationController!)
     }
 
     func didTapSearchButton() {

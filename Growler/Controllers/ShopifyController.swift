@@ -20,13 +20,13 @@ class ShopifyController: NSObject {
         client = BUYClient(shopDomain:SHOP_DOMAIN, apiKey: API_KEY, appId: APP_ID)
     }
 
-    var checkoutCreationOperation: Operation?
+    private var checkoutCreationOperation: Operation?
 
     deinit {
         checkoutCreationOperation?.cancel()
     }
 
-    func checkout(_ product: BUYProduct, navigationController: UINavigationController) {
+    func checkout(_ product: BUYProduct?, navigationController: UINavigationController) {
         if let operation = checkoutCreationOperation, operation.isExecuting {
             operation.cancel()
         }
@@ -35,7 +35,10 @@ class ShopifyController: NSObject {
             print("Failed to create card")
             return
         }
-        cart.add(product.variants.firstObject as! BUYProductVariant)
+
+        if let product = product {
+            cart.add(product.variants.firstObject as! BUYProductVariant)
+        }
 
         let checkout = BUYCheckout(modelManager: cart.modelManager!, cart: cart)
         checkout.shippingAddress = address()
