@@ -87,9 +87,9 @@
                 <constraint firstItem="FzJ-ib-yZT" firstAttribute="top" secondItem="Q8f-IR-YU9" secondAttribute="bottom" constant="14" id="dTS-pl-qdZ"/>
                 <constraint firstAttribute="trailing" secondItem="Q8f-IR-YU9" secondAttribute="trailing" id="gz1-F6-7G7"/>
                 <constraint firstAttribute="bottom" secondItem="iF2-yl-Gnh" secondAttribute="bottom" constant="15" id="h1z-cl-RDS"/>
+                <constraint firstItem="DHU-qL-bin" firstAttribute="top" secondItem="ksk-iM-Jbx" secondAttribute="bottom" constant="10" id="jAy-6P-eux"/>
                 <constraint firstItem="DHU-qL-bin" firstAttribute="leading" secondItem="ejd-WS-5fu" secondAttribute="trailing" constant="10" id="mD0-ds-Kdh"/>
                 <constraint firstAttribute="trailing" secondItem="ksk-iM-Jbx" secondAttribute="trailing" constant="15" id="mkV-yw-2jb"/>
-                <constraint firstItem="iF2-yl-Gnh" firstAttribute="top" secondItem="ksk-iM-Jbx" secondAttribute="bottom" constant="10" id="ryR-Dm-W52"/>
                 <constraint firstItem="ejd-WS-5fu" firstAttribute="leading" secondItem="WMH-Ax-0lN" secondAttribute="trailing" constant="10" id="scG-ts-11P"/>
                 <constraint firstItem="ksk-iM-Jbx" firstAttribute="top" secondItem="FzJ-ib-yZT" secondAttribute="bottom" constant="10" id="ucy-DP-1Y7"/>
             </constraints>
@@ -105,7 +105,7 @@
                 <outlet property="image" destination="Q8f-IR-YU9" id="8gP-Vr-XUd"/>
                 <outlet property="titleLabel" destination="FzJ-ib-yZT" id="oSZ-jQ-KHO"/>
             </connections>
-            <point key="canvasLocation" x="-170.5" y="-170"/>
+            <point key="canvasLocation" x="-182" y="-96"/>
         </view>
     </objects>
 </document>
