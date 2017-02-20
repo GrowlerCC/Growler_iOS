@@ -29,6 +29,7 @@
 #import "Credentials.h"
 #import "ProductViewController.h"
 #import "ProductListViewController.h"
+#import "Growler-Swift.h"
 
 @interface CollectionListViewController ()
 
@@ -46,10 +47,8 @@
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
-    self.client = [[BUYClient alloc] initWithShopDomain:SHOP_DOMAIN
-                                                 apiKey:API_KEY
-                                                  appId:APP_ID];
-    
+    self.client = [ShopifyController instance].client;
+
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self.client getCollectionsPage:1 completion:^(NSArray *collections, NSUInteger page, BOOL reachedEnd, NSError *error) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

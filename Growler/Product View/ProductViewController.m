@@ -45,6 +45,7 @@
 #import "CheckoutButton.h"
 #import "ActionableFooterView.h"
 #import "ShippingRatesTableViewController.h"
+#import "Growler-Swift.h"
 
 CGFloat const BUYMaxProductViewWidth = 414.0; // We max out to the width of the iPhone 6+
 CGFloat const BUYMaxProductViewHeight = 640.0;
@@ -84,7 +85,6 @@ CGFloat const BUYMaxProductViewHeight = 640.0;
 @end
 
 @implementation ProductViewController {
-    NSOperation *checkoutCreationOperation;
 }
 
 - (instancetype)initWithClient:(BUYClient *)client
@@ -135,7 +135,6 @@ CGFloat const BUYMaxProductViewHeight = 640.0;
 }
 
 - (void)dealloc {
-    [self->checkoutCreationOperation cancel];
 }
 
 
@@ -482,53 +481,13 @@ CGFloat const BUYMaxProductViewHeight = 640.0;
 	[self demoNativeFlowWithProduct:self.product];
 }
 
-- (BUYAddress *)address
-{
-    BUYAddress *address = [self.client.modelManager insertAddressWithJSONDictionary:nil];
-    address.address1 = @"150 Elgin Street";
-    address.address2 = @"8th Floor";
-    address.city = @"Ottawa";
-    address.company = @"Shopify Inc.";
-    address.firstName = @"Egon";
-    address.lastName = @"Spengler";
-    address.phone = @"1-555-555-5555";
-    address.countryCode = @"CA";
-    address.provinceCode = @"ON";
-    address.zip = @"K1N5T5";
-    return address;
-}
-
 - (void)demoNativeFlowWithProduct:(BUYProduct*)product
 {
-	if (checkoutCreationOperation != nil && checkoutCreationOperation.executing) {
-		[checkoutCreationOperation cancel];
-	}
-
-	BUYCart *cart = [self.client.modelManager insertCartWithJSONDictionary:nil];
-	[cart addVariant:product.variants.firstObject];
-
-	BUYCheckout *checkout = [[BUYCheckout alloc] initWithModelManager:cart.modelManager cart:cart];
-
-	// Apply billing and shipping address, as well as email to the checkout
-	checkout.shippingAddress = [self address];
-	checkout.billingAddress = [self address];
-	checkout.email = @"banana@testasaurus.com";
-
+    // Apply billing and shipping address, as well as email to the checkout
+	
 	self.client.urlScheme = @"advancedsample://";
 
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-	checkoutCreationOperation = [self.client createCheckout:checkout completion:^(BUYCheckout *checkout, NSError *error) {
-		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
-		if (error == nil && checkout) {
-
-			ShippingRatesTableViewController *shippingController = [[ShippingRatesTableViewController alloc] initWithClient:self.client checkout:checkout];
-			[self.navigationController pushViewController:shippingController animated:YES];
-		}
-		else {
-			NSLog(@"Error creating checkout: %@", error);
-		}
-	}];
+    [ShopifyController.instance checkout:product navigationController:self.navigationController];
 }
 
 
