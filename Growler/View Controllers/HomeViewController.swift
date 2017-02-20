@@ -45,7 +45,6 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
         // also resizeType should always be set before setting items
         topCarousel.resizeType = .visibleItemsPerPage(1)
         bottomCarousel.resizeType = .visibleItemsPerPage(2)
-        // we should setup carousels before parent view is show, otherwise they will not scroll
 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         ShopifyController.instance.client.getProductsPage(1) {
@@ -69,7 +68,7 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
 
     private func setupCarousel(_ carousel: SwiftCarousel) {
 //        carousel.selectByTapEnabled = false
-        let count = min(5, products.count) // limited by 5 items to not exhaust memory
+        let count = min(10, products.count) // limited by 10 items to not exhaust memory
         try! carousel.itemsFactory(itemsCount: count) {
             index in
             let view = Utils.loadViewFromNib(nibName: "ProductBannerView", owner: self) as! ProductBannerView
@@ -84,6 +83,7 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
             }
             return view
         }
+        carousel.layoutSubviews() // this will update scrollview content size
         carousel.delegate = self
     }
 
