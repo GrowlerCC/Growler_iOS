@@ -103,13 +103,15 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
 
     func switchTopCarousel() {
         if let current = topCarousel.selectedIndex {
-            topCarousel.selectItem(current + 1, animated: true)
+            let next = current + 1 < topCarousel.items.count ? current + 1 : 0
+            topCarousel.selectItem(next, animated: true)
         }
     }
 
     func switchBottomCarousel() {
         if let current = bottomCarousel.selectedIndex {
-            bottomCarousel.selectItem(current + 1, animated: true)
+            let next = current + 1 < bottomCarousel.items.count ? current + 1 : 0
+            bottomCarousel.selectItem(next, animated: true)
         }
     }
 
