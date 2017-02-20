@@ -32,6 +32,7 @@
 #import "Growler-Swift.h"
 
 #import <Buy/Buy.h>
+#import <Buy/BUYClient+Storefront.h>
 
 @interface ProductListViewController () <UIViewControllerPreviewingDelegate>
 
