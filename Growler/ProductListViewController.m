@@ -32,6 +32,7 @@
 #import "ProductViewControllerToggleTableViewCell.h"
 #import "ProductViewControllerThemeStyleTableViewCell.h"
 #import "ProductViewControllerThemeTintColorTableViewCell.h"
+#import "Growler-Swift.h"
 
 #import <Buy/Buy.h>
 
@@ -75,6 +76,8 @@
     }
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    UINib *nib = [UINib nibWithNibName:@"ProductListCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"ProductListCell"];
     [self.tableView registerClass:[ProductViewControllerToggleTableViewCell class] forCellReuseIdentifier:@"ProductViewControllerToggleCell"];
     [self.tableView registerClass:[ProductViewControllerThemeStyleTableViewCell class] forCellReuseIdentifier:@"ThemeStyleCell"];
     [self.tableView registerClass:[ProductViewControllerThemeTintColorTableViewCell class] forCellReuseIdentifier:@"ThemeTintColorCell"];
@@ -247,19 +250,28 @@
             }
             break;
         case 1: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell = [tableView dequeueReusableCellWithIdentifier:@"ProductListCell" forIndexPath:indexPath];
+            cell.accessoryType = UITableViewCellAccessoryNone;
             BUYProduct *product = self.products[indexPath.row];
-            cell.textLabel.text = product.title;
-        }
+            ProductListCell *productCell = (ProductListCell *) cell;
+            productCell.titleLabel.text = product.title;
             break;
-            
+        }
         default:
             break;
     }
     
     return cell;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    } else {
+        return 84;
+    }
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
