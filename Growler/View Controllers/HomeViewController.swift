@@ -5,7 +5,6 @@
 
 import Foundation
 import UIKit
-import SwiftCarousel
 import Buy;
 
 class HomeViewController: UIViewController, SwiftCarouselDelegate {

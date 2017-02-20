@@ -6,7 +6,7 @@ target 'Growler' do
   use_frameworks!
 
   pod 'Mobile-Buy-SDK'
-  pod 'SwiftCarousel'
+  # pod 'SwiftCarousel'
 
 end
 

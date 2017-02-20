@@ -1,15 +1,12 @@
 PODS:
   - Mobile-Buy-SDK (2.2.0)
-  - SwiftCarousel (0.8.0)
 
 DEPENDENCIES:
   - Mobile-Buy-SDK
-  - SwiftCarousel
 
 SPEC CHECKSUMS:
   Mobile-Buy-SDK: 5c335aaa578d8424e5093b8a87ed7c8cc6ad0059
-  SwiftCarousel: a62f4e9b944d1bca4ccfe3f28abb6119e3e36b12
 
-PODFILE CHECKSUM: ace02d8572de27e5f07bfa3a578c90cedb353a77
+PODFILE CHECKSUM: 4bee456a96a01b1b280417bde347b8e0a4dc5efb
 
 COCOAPODS: 1.2.0
