@@ -55,8 +55,8 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
                 if !products.isEmpty {
                     self.setupCarousel(self.topCarousel)
                     self.setupCarousel(self.bottomCarousel)
-                    Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.switchTopCarousel), userInfo: nil, repeats: true)
-                    Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.switchBottomCarousel), userInfo: nil, repeats: true)
+                    Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.switchTopCarousel), userInfo: nil, repeats: true)
+                    Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.switchBottomCarousel), userInfo: nil, repeats: true)
                 }
             } else {
                 print("Error fetching products: \(error)")
