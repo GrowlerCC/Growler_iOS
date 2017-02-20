@@ -216,6 +216,7 @@ open class SwiftCarousel: UIView {
         scrollView.isScrollEnabled = true
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.bounces = false
         addSubview(scrollView)
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[scrollView]|",
@@ -507,7 +508,7 @@ open class SwiftCarousel: UIView {
         let choiceView = choices[index]
         let x = choiceView.center.x - scrollView.frame.width / 2.0
         
-        let newPosition = CGPoint(x: x, y: scrollView.contentOffset.y)
+        let newPosition = CGPoint(x: x, y: 0)
         let animationIsNotNeeded = newPosition.equalTo(scrollView.contentOffset)
         scrollView.setContentOffset(newPosition, animated: animated)
         
