@@ -13,10 +13,8 @@ class PopupMenuViewController: UITableViewController {
     var menuItems: [MenuItem] = [
         MenuItem(title: "Account Profile") {
             navigationController in
-            /*
-            let controller = ***Controller()
-            $0!.pushViewController(controller, animated: true)
-            */
+            let controller = AccountProfileViewController()
+            navigationController!.pushViewController(controller, animated: true)
         },
         MenuItem(title: "My Orders"),
         MenuItem(title: "Recommendations"),
