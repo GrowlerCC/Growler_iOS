@@ -36,7 +36,7 @@
 #import <Buy/Buy.h>
 #import <Buy/BUYClient+Storefront.h>
 
-@interface ProductListViewController () <UIViewControllerPreviewingDelegate>
+@interface ProductListViewController () /*<UIViewControllerPreviewingDelegate>*/
 
 @property (nonatomic, strong) BUYClient *client;
 @property (nonatomic, strong) BUYCollection *collection;
@@ -218,6 +218,7 @@
 }
 
 #pragma mark - UIViewControllerPreviewingDelegate
+/*
 
 -(UIViewController*)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
 {
@@ -240,5 +241,6 @@
 {
     [self presentViewController:viewControllerToCommit animated:YES completion:NULL];
 }
+*/
 
 @end
