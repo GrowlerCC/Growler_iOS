@@ -59,7 +59,6 @@ CGFloat const BUYMaxProductViewHeight = 640.0;
 
 @property (nonatomic, strong) NSString *productId;
 @property (nonatomic, strong) BUYProductVariant *selectedProductVariant;
-@property (nonatomic, strong) Theme *theme;
 @property (nonatomic, assign) BOOL shouldShowVariantSelector;
 @property (nonatomic, assign) BOOL shouldEnableVariantSelection;
 @property (nonatomic, assign) BOOL shouldShowDescription;

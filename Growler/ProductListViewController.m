@@ -29,9 +29,6 @@
 #import "ProductViewController.h"
 #import "Theme.h"
 #import "ShippingRatesTableViewController.h"
-#import "ProductViewControllerToggleTableViewCell.h"
-#import "ProductViewControllerThemeStyleTableViewCell.h"
-#import "ProductViewControllerThemeTintColorTableViewCell.h"
 #import "Growler-Swift.h"
 
 #import <Buy/Buy.h>
@@ -43,13 +40,7 @@
 @property (nonatomic, strong) NSArray *products;
 @property (nonatomic, strong) NSOperation *collectionOperation;
 @property (nonatomic, strong) NSOperation *checkoutCreationOperation;
-
 @property (nonatomic, assign) BOOL demoProductViewController;
-@property (nonatomic, assign) ThemeStyle themeStyle;
-@property (nonatomic, strong) NSArray *themeTintColors;
-@property (nonatomic, assign) NSInteger themeTintColorSelectedIndex;
-@property (nonatomic, assign) BOOL showsProductImageBackground;
-@property (nonatomic, assign) BOOL presentViewController;
 
 @end
 
@@ -78,17 +69,7 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     UINib *nib = [UINib nibWithNibName:@"ProductListCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"ProductListCell"];
-    [self.tableView registerClass:[ProductViewControllerToggleTableViewCell class] forCellReuseIdentifier:@"ProductViewControllerToggleCell"];
-    [self.tableView registerClass:[ProductViewControllerThemeStyleTableViewCell class] forCellReuseIdentifier:@"ThemeStyleCell"];
-    [self.tableView registerClass:[ProductViewControllerThemeTintColorTableViewCell class] forCellReuseIdentifier:@"ThemeTintColorCell"];
-    [self.tableView registerClass:[ProductViewControllerToggleTableViewCell class] forCellReuseIdentifier:@"ThemeShowsBackgroundToggleCell"];
-    [self.tableView registerClass:[ProductViewControllerToggleTableViewCell class] forCellReuseIdentifier:@"ProductViewControllerPresentViewControllerToggleCell"];
-    
-    self.themeTintColors = @[[UIColor colorWithRed:0.48f green:0.71f blue:0.36f alpha:1.0f], [UIColor colorWithRed:0.88 green:0.06 blue:0.05 alpha:1], [UIColor colorWithRed:0.02 green:0.54 blue:1 alpha:1]];
-    self.themeTintColorSelectedIndex = 0;
-    self.showsProductImageBackground = YES;
-    self.presentViewController = YES;
-    
+
     if (self.collection) {
         // If we're presenting with a collection, add the ability to sort
         UIBarButtonItem *sortBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sort" style:UIBarButtonItemStylePlain target:self action:@selector(presentCollectionSortOptions:)];
@@ -177,113 +158,35 @@
 
 #pragma mark - Table View
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    switch (section) {
-        case 0:
-            if (self.demoProductViewController) {
-                return 5;
-            } else {
-                return 1;
-            }
-            break;
-        case 1:
-            return self.products.count;
-        default:
-            return 0;
-            break;
-    }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.products.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell;
-    
-    switch (indexPath.section) {
-        case 0:
-            switch (indexPath.row) {
-                case 0: {
-                    ProductViewControllerToggleTableViewCell *toggleCell = (ProductViewControllerToggleTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"ProductViewControllerToggleCell" forIndexPath:indexPath];
-                    toggleCell.textLabel.text = @"Demo BUYProductViewController";
-                    [toggleCell.toggleSwitch setOn:self.demoProductViewController];
-                    [toggleCell.toggleSwitch addTarget:self action:@selector(toggleProductViewControllerDemo:) forControlEvents:UIControlEventValueChanged];
-                    cell = toggleCell;
-                }
-                    break;
-                case 1: {
-                    ProductViewControllerThemeStyleTableViewCell *themeCell = (ProductViewControllerThemeStyleTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"ThemeStyleCell" forIndexPath:indexPath];
-                    themeCell.segmentedControl.selectedSegmentIndex = self.themeStyle;
-                    [themeCell.segmentedControl addTarget:self action:@selector(toggleProductViewControllerThemeStyle:) forControlEvents:UIControlEventValueChanged];
-                    cell = themeCell;
-                }
-                    break;
-                case 2: {
-                    ProductViewControllerThemeTintColorTableViewCell *themeCell = (ProductViewControllerThemeTintColorTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"ThemeTintColorCell" forIndexPath:indexPath];
-                    themeCell.segmentedControl.selectedSegmentIndex = self.themeTintColorSelectedIndex;
-                    [themeCell.segmentedControl addTarget:self action:@selector(toggleProductViewControllerTintColorSelection:) forControlEvents:UIControlEventValueChanged];
-                    cell = themeCell;
-                }
-                    break;
-                case 3: {
-                    ProductViewControllerToggleTableViewCell *toggleCell = (ProductViewControllerToggleTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"ThemeShowsBackgroundToggleCell" forIndexPath:indexPath];
-                    toggleCell.textLabel.text = @"Product Image in Background";
-                    [toggleCell.toggleSwitch setOn:self.showsProductImageBackground];
-                    [toggleCell.toggleSwitch addTarget:self action:@selector(toggleShowsProductImageBackground:) forControlEvents:UIControlEventValueChanged];
-                    cell = toggleCell;
-                }
-                    break;
-                case 4: {
-                    ProductViewControllerToggleTableViewCell *toggleCell = (ProductViewControllerToggleTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"ProductViewControllerPresentViewControllerToggleCell" forIndexPath:indexPath];
-                    toggleCell.textLabel.text = @"Modal Presentation";
-                    [toggleCell.toggleSwitch setOn:self.presentViewController];
-                    [toggleCell.toggleSwitch addTarget:self action:@selector(togglePresentViewController:) forControlEvents:UIControlEventValueChanged];
-                    cell = toggleCell;
-                    
-                }
-                    break;
-                default:
-                    break;
-            }
-            break;
-        case 1: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"ProductListCell" forIndexPath:indexPath];
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            BUYProduct *product = self.products[indexPath.row];
-            ProductListCell *productCell = (ProductListCell *) cell;
-            productCell.titleLabel.text = product.title;
-            break;
-        }
-        default:
-            break;
-    }
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProductListCell" forIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    BUYProduct *product = self.products[indexPath.row];
+    ProductListCell *productCell = (ProductListCell *) cell;
+    productCell.titleLabel.text = product.title;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return [super tableView:tableView heightForRowAtIndexPath:indexPath];
-    } else {
-        return 84;
-    }
+    return 84;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section > 0) {
         BUYProduct *product = self.products[indexPath.row];
-        if (self.demoProductViewController) {
+        bool showProduct = true;
+        if (showProduct) {
             [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
             [self demoProductViewControllerWithProduct:product];
         } else {
             [self demoNativeFlowWithProduct:product];
         }
-    }
 }
 
 - (void)demoNativeFlowWithProduct:(BUYProduct*)product
@@ -324,57 +227,16 @@
     ProductViewController *productViewController = [self productViewController];
     [productViewController loadWithProduct:product completion:^(BOOL success, NSError *error) {
         if (error == nil) {
-            if (self.presentViewController) {
-                [productViewController presentPortraitInViewController:self];
-            } else {
-                [self.navigationController pushViewController:productViewController animated:YES];
-            }
+            [productViewController presentPortraitInViewController:self];
         }
     }];
 }
 
 -(ProductViewController*)productViewController
 {
-    Theme *theme = [Theme new];
-    theme.style = self.themeStyle;
-    theme.tintColor = self.themeTintColors[self.themeTintColorSelectedIndex];
-    theme.showsProductImageBackground = self.showsProductImageBackground;
-    ProductViewController *productViewController = [[ProductViewController alloc] initWithClient:self.client theme:theme];
+    ProductViewController *productViewController = [[ProductViewController alloc] initWithClient:self.client];
     productViewController.merchantId = MERCHANT_ID;
     return productViewController;
-}
-
-- (void)toggleProductViewControllerDemo:(UISwitch*)toggleSwitch
-{
-    self.demoProductViewController = toggleSwitch.on;
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-    
-    // Add 3D Touch peek and pop for product previewing
-    if (self.demoProductViewController == YES && [[UITraitCollection class] respondsToSelector:@selector(traitCollectionWithForceTouchCapability:)] && self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
-        [self registerForPreviewingWithDelegate:self sourceView:self.tableView];
-    } else if ([[UITraitCollection class] respondsToSelector:@selector(traitCollectionWithForceTouchCapability:)] && self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
-        [self registerForPreviewingWithDelegate:self sourceView:self.tableView];
-    }
-}
-
-- (void)toggleProductViewControllerThemeStyle:(UISegmentedControl*)segmentedControl
-{
-    self.themeStyle = segmentedControl.selectedSegmentIndex;
-}
-
-- (void)toggleProductViewControllerTintColorSelection:(UISegmentedControl*)segmentedControl
-{
-    self.themeTintColorSelectedIndex = segmentedControl.selectedSegmentIndex;
-}
-
-- (void)toggleShowsProductImageBackground:(UISwitch*)toggleSwitch
-{
-    self.showsProductImageBackground = toggleSwitch.on;
-}
-
-- (void)togglePresentViewController:(UISwitch*)toggleSwitch
-{
-    self.presentViewController = toggleSwitch.on;
 }
 
 - (BUYAddress *)address
@@ -399,7 +261,7 @@
 {
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    if (cell == nil || self.demoProductViewController == NO) {
+    if (cell == nil) {
         return nil;
     }
     
@@ -414,11 +276,7 @@
 
 -(void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit
 {
-    if (self.presentViewController) {
-        [self presentViewController:viewControllerToCommit animated:YES completion:NULL];
-    } else {
-        [self.navigationController pushViewController:viewControllerToCommit animated:YES];
-    }
+    [self presentViewController:viewControllerToCommit animated:YES completion:NULL];
 }
 
 @end

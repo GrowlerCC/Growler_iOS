@@ -138,7 +138,7 @@
                 theme.style = ThemeStyleLight;
                 theme.tintColor = [UIColor colorWithRed:0.48f green:0.71f blue:0.36f alpha:1.0f];
                 theme.showsProductImageBackground = YES;
-                ProductViewController *productViewController = [[ProductViewController alloc] initWithClient:self.client theme:theme];
+                ProductViewController *productViewController = [[ProductViewController alloc] initWithClient:self.client];
                 productViewController.merchantId = MERCHANT_ID;
                 [productViewController loadWithProduct:product completion:^(BOOL success, NSError *error) {
                     if (error == nil) {
