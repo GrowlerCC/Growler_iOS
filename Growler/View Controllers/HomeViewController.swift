@@ -78,6 +78,8 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
     }
 
     func didTapSearchButton() {
+        let controller = CollectionListViewController()
+        navigationController!.pushViewController(controller, animated: true)
     }
 
 }
