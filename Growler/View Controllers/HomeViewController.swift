@@ -6,17 +6,20 @@
 import Foundation
 import UIKit
 import SwiftCarousel
+import Buy;
 
 class HomeViewController: UIViewController, SwiftCarouselDelegate {
 
-    // todo show CollectionListViewController when tapping on banners
+    // todo show ProductViewController when tapping on banners
 
     private var menuController: PopupMenuViewController!
 
     @IBOutlet weak var topCarousel: SwiftCarousel!
     
     @IBOutlet weak var bottomCarousel: SwiftCarousel!
-    
+
+    private var products: [BUYProduct] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,40 +41,51 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
         let addressController = ConfirmAddressViewController.loadFromStoryboard(name: "ConfirmAddressViewController", type: ConfirmAddressViewController.self)
         navigationController!.present(addressController, animated: false)
 
-        setupTopCarousel()
-        setupBottomCarousel()
+        // visibleItemsPerPage is the only resize type in which SwiftCarousel doesn't crash when empty
+        // so setting resize type here
+        // also resizeType should always be set before setting items
+        topCarousel.resizeType = .visibleItemsPerPage(1)
+        bottomCarousel.resizeType = .visibleItemsPerPage(2)
+        // we should setup carousels before parent view is show, otherwise they will not scroll
+
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        ShopifyController.instance.client.getProductsPage(1) {
+            products, page, reachedEnd, error in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            if let products = products, error == nil {
+                self.products = products
+                if !products.isEmpty {
+                    self.setupCarousel(self.topCarousel)
+                    self.setupCarousel(self.bottomCarousel)
+                }
+            } else {
+                print("Error fetching products: \(error)")
+            }
+        }
     }
 
     func didTapMenuButton() {
         present(menuController, animated: true)
     }
 
-    private func setupTopCarousel() {
-        let carousel = topCarousel!
-        carousel.selectByTapEnabled = false
-        try! carousel.itemsFactory(itemsCount: 5) {
+    private func setupCarousel(_ carousel: SwiftCarousel) {
+//        carousel.selectByTapEnabled = false
+        let count = min(5, products.count) // limited by 5 items to not exhaust memory
+        try! carousel.itemsFactory(itemsCount: count) {
             index in
             let view = Utils.loadViewFromNib(nibName: "ProductBannerView", owner: self) as! ProductBannerView
+            let product = products[index]
+            view.titleLabel.text = product.title
+            view.descriptionLabel.text = product.stringDescription
+            view.costLabel.text = Utils.formatUSD(value: product.minimumPrice)
+            view.deliveryTimeLabel.text = ""
+            view.deliveryCostLabel.text = ""
+            if let image = product.images.firstObject as? BUYImageLink {
+                view.image.loadImage(with: image.sourceURL, completion: nil)
+            }
             return view
         }
-        carousel.resizeType = .visibleItemsPerPage(1)
         carousel.delegate = self
-        carousel.defaultSelectedIndex = 2
-        view.addSubview(carousel)
-    }
-
-    private func setupBottomCarousel() {
-        let carousel = bottomCarousel!
-        carousel.selectByTapEnabled = false
-        try! carousel.itemsFactory(itemsCount: 5) {
-            index in
-            let view = Utils.loadViewFromNib(nibName: "ProductBannerView", owner: self) as! ProductBannerView
-            return view
-        }
-        carousel.resizeType = .visibleItemsPerPage(2)
-        carousel.delegate = self
-        carousel.defaultSelectedIndex = 2
-        view.addSubview(carousel)
     }
 
     func didTapCheckoutButton() {

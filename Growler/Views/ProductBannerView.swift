@@ -8,7 +8,7 @@ import UIKit
 
 class ProductBannerView: UIView {
 
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var image: AsyncImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
     
