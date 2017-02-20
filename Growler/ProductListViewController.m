@@ -76,15 +76,14 @@
         self.navigationItem.rightBarButtonItem = sortBarButtonItem;
         [self getCollectionWithSortOrder:BUYCollectionSortCollectionDefault];
     } else {
+        // todo implement loading all pages as user scrolls UITableView
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         [self.client getProductsPage:1 completion:^(NSArray *products, NSUInteger page, BOOL reachedEnd, NSError *error) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-            
             if (error == nil && products) {
                 self.products = products;
                 [self.tableView reloadData];
-            }
-            else {
+            } else {
                 NSLog(@"Error fetching products: %@", error);
             }
         }];
