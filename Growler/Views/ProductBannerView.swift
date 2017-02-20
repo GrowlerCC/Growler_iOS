@@ -8,6 +8,10 @@ import UIKit
 
 class ProductBannerView: UIView {
 
+    var product: BUYProduct?
+
+    weak var navigationController: UINavigationController?
+
     @IBOutlet weak var image: AsyncImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -19,5 +23,23 @@ class ProductBannerView: UIView {
     @IBOutlet weak var deliveryTimeLabel: UILabel!
     
     @IBOutlet weak var costLabel: UILabel!
-    
+
+    private var recognizer: UITapGestureRecognizer!
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        recognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTap(_:)))
+        addGestureRecognizer(recognizer)
+
+    }
+
+    func didTap(_ sender: UITapGestureRecognizer) {
+        if let product = product, let nav = navigationController {
+            let controller = ProductViewController(client: ShopifyController.instance.client)!
+            controller.merchantId = MERCHANT_ID
+            controller.load(with: product) { success, error in }
+            nav.pushViewController(controller, animated: true)
+        }
+    }
+
 }

@@ -67,12 +67,14 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
     }
 
     private func setupCarousel(_ carousel: SwiftCarousel) {
-//        carousel.selectByTapEnabled = false
+        carousel.selectByTapEnabled = true
         let count = min(10, products.count) // limited by 10 items to not exhaust memory
         try! carousel.itemsFactory(itemsCount: count) {
             index in
             let view = Utils.loadViewFromNib(nibName: "ProductBannerView", owner: self) as! ProductBannerView
             let product = products[index]
+            view.product = product
+            view.navigationController = navigationController
             view.titleLabel.text = product.title
             view.descriptionLabel.text = product.stringDescription
             view.costLabel.text = Utils.formatUSD(value: product.minimumPrice)

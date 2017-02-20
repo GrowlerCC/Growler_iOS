@@ -28,4 +28,5 @@
 #import "CollectionListViewController.h"
 #import "ShippingRatesTableViewController.h"
 #import "ProductListViewController.h"
+#import "ProductViewController.h"
 #import "AsyncImageView.h"
