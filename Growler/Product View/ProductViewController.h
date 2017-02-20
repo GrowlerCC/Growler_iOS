@@ -33,19 +33,6 @@
 @interface ProductViewController : PaymentViewController
 
 /**
- *  Creates a BUYProductViewController with a BUYClient and a theme
- *  Note: Use this initializer to instatiate a BUYProdctViewController
- *  with a custom theme. If you don't need to customize the theme
- *  use `initWithClient:`
- *
- *  @param client A BUYClient configured to your shop
- *  @param theme  A Theme
- *
- *  @return		  A PaymentViewController
- */
-- (instancetype)initWithClient:(BUYClient *)client theme:(Theme *)theme;
-
-/**
  *  Creates a BUYProductViewController with a BUYClient and a cart
  *
  *  @param client A BUYClient configured to your shop

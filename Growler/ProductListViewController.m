@@ -39,8 +39,6 @@
 @property (nonatomic, strong) BUYCollection *collection;
 @property (nonatomic, strong) NSArray *products;
 @property (nonatomic, strong) NSOperation *collectionOperation;
-@property (nonatomic, strong) NSOperation *checkoutCreationOperation;
-@property (nonatomic, assign) BOOL demoProductViewController;
 
 @end
 
@@ -93,7 +91,6 @@
 
 - (void)dealloc
 {
-    [self.checkoutCreationOperation cancel];
     [self.collectionOperation cancel];
 }
 
@@ -179,47 +176,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        BUYProduct *product = self.products[indexPath.row];
-        bool showProduct = true;
-        if (showProduct) {
-            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-            [self demoProductViewControllerWithProduct:product];
-        } else {
-            [self demoNativeFlowWithProduct:product];
-        }
-}
-
-- (void)demoNativeFlowWithProduct:(BUYProduct*)product
-{
-    if (self.checkoutCreationOperation.executing) {
-        [self.checkoutCreationOperation cancel];
-    }
-    
-    BUYCart *cart = [self.client.modelManager insertCartWithJSONDictionary:nil];
-    [cart addVariant:product.variants.firstObject];
-    
-    BUYCheckout *checkout = [[BUYCheckout alloc] initWithModelManager:cart.modelManager cart:cart];
-    
-    // Apply billing and shipping address, as well as email to the checkout
-    checkout.shippingAddress = [self address];
-    checkout.billingAddress = [self address];
-    checkout.email = @"banana@testasaurus.com";
-    
-    self.client.urlScheme = @"advancedsample://";
-    
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    self.checkoutCreationOperation = [self.client createCheckout:checkout completion:^(BUYCheckout *checkout, NSError *error) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        
-        if (error == nil && checkout) {
-            
-            ShippingRatesTableViewController *shippingController = [[ShippingRatesTableViewController alloc] initWithClient:self.client checkout:checkout];
-            [self.navigationController pushViewController:shippingController animated:YES];
-        }
-        else {
-            NSLog(@"Error creating checkout: %@", error);
-        }
-    }];
+    BUYProduct *product = self.products[indexPath.row];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self demoProductViewControllerWithProduct:product];
 }
 
 - (void)demoProductViewControllerWithProduct:(BUYProduct*)product
@@ -237,22 +196,6 @@
     ProductViewController *productViewController = [[ProductViewController alloc] initWithClient:self.client];
     productViewController.merchantId = MERCHANT_ID;
     return productViewController;
-}
-
-- (BUYAddress *)address
-{
-    BUYAddress *address = [self.client.modelManager insertAddressWithJSONDictionary:nil];
-    address.address1 = @"150 Elgin Street";
-    address.address2 = @"8th Floor";
-    address.city = @"Ottawa";
-    address.company = @"Shopify Inc.";
-    address.firstName = @"Egon";
-    address.lastName = @"Spengler";
-    address.phone = @"1-555-555-5555";
-    address.countryCode = @"CA";
-    address.provinceCode = @"ON";
-    address.zip = @"K1N5T5";
-    return address;
 }
 
 #pragma mark - UIViewControllerPreviewingDelegate
