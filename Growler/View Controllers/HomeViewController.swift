@@ -55,6 +55,8 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
                 if !products.isEmpty {
                     self.setupCarousel(self.topCarousel)
                     self.setupCarousel(self.bottomCarousel)
+                    Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.switchTopCarousel), userInfo: nil, repeats: true)
+                    Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.switchBottomCarousel), userInfo: nil, repeats: true)
                 }
             } else {
                 print("Error fetching products: \(error)")
@@ -97,6 +99,18 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
     func didTapSearchButton() {
         let controller = CollectionListViewController()
         navigationController!.pushViewController(controller, animated: true)
+    }
+
+    func switchTopCarousel() {
+        if let current = topCarousel.selectedIndex {
+            topCarousel.selectItem(current + 1, animated: true)
+        }
+    }
+
+    func switchBottomCarousel() {
+        if let current = bottomCarousel.selectedIndex {
+            bottomCarousel.selectItem(current + 1, animated: true)
+        }
     }
 
 }
