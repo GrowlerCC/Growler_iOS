@@ -5,11 +5,19 @@
 
 import Foundation
 
-class Utils {
+@objc
+class Utils: NSObject {
 
     static func loadViewFromNib(nibName: String, owner: AnyObject) -> UIView {
         let views = Bundle.main.loadNibNamed(nibName, owner: owner, options: nil)
         return views![0] as! UIView
+    }
+
+    static func formatUSD(value: NSDecimalNumber) -> String {
+        let numberFormatter = NumberFormatter();
+        numberFormatter.numberStyle = .currency
+        numberFormatter.locale = Locale(identifier: "en_US")
+        return numberFormatter.string(from: value) ?? ""
     }
 
 }

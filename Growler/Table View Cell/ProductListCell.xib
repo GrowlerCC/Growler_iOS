@@ -28,24 +28,24 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUp-z5-DAq">
-                        <rect key="frame" x="88" y="8" width="254" height="21"/>
+                        <rect key="frame" x="88" y="8" width="254" height="20"/>
                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
                         <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGR-0z-ne7">
-                        <rect key="frame" x="88" y="37" width="298" height="38.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AGR-0z-ne7">
+                        <rect key="frame" x="88" y="28" width="298" height="47.5"/>
                         <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
                         <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXJ-gm-aeP">
-                        <rect key="frame" x="350" y="8" width="36" height="19.5"/>
+                        <rect key="frame" x="350" y="8" width="36" height="19"/>
                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                         <color key="textColor" red="0.9882352941176471" green="0.53333333333333333" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Product_Med_Fruit_Straw_1024x1024.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="mYY-Wg-XHN">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mYY-Wg-XHN" customClass="AsyncImageView">
                         <rect key="frame" x="8" y="5.5" width="72" height="72.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="72" id="0K4-SK-NXV"/>
@@ -57,7 +57,7 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="AGR-0z-ne7" firstAttribute="top" secondItem="LUp-z5-DAq" secondAttribute="bottom" constant="8" id="2t1-Iq-fHI"/>
+                    <constraint firstItem="AGR-0z-ne7" firstAttribute="top" secondItem="LUp-z5-DAq" secondAttribute="bottom" id="2t1-Iq-fHI"/>
                     <constraint firstItem="LUp-z5-DAq" firstAttribute="top" secondItem="pVb-3T-akP" secondAttribute="topMargin" id="64q-te-Cfo"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AGR-0z-ne7" secondAttribute="bottom" constant="8" id="IJE-yH-CMP"/>
                     <constraint firstItem="AGR-0z-ne7" firstAttribute="leading" secondItem="mYY-Wg-XHN" secondAttribute="trailing" constant="8" id="JBH-o2-0fC"/>
@@ -80,7 +80,4 @@
             <point key="canvasLocation" x="-628" y="96"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="Product_Med_Fruit_Straw_1024x1024.jpg" width="1024" height="682"/>
-    </resources>
 </document>

@@ -30,6 +30,7 @@
 #import "Theme.h"
 #import "ShippingRatesTableViewController.h"
 #import "Growler-Swift.h"
+#import "AsyncImageView.h"
 
 #import <Buy/Buy.h>
 #import <Buy/BUYClient+Storefront.h>
@@ -167,6 +168,14 @@
     BUYProduct *product = self.products[indexPath.row];
     ProductListCell *productCell = (ProductListCell *) cell;
     productCell.titleLabel.text = product.title;
+    productCell.descriptionLabel.text = product.stringDescription;
+    productCell.priceLabel.text = [Utils formatUSDWithValue:product.minimumPrice];
+
+    id image = product.images.firstObject;
+    if (image != nil) {
+        BUYImageLink *link = (BUYImageLink *)image;
+        [productCell.picture loadImageWithURL:link.sourceURL completion:NULL];
+    }
     return cell;
 }
 
