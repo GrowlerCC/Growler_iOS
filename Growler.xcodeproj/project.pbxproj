@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273540387E68807C8476659B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354C867E114FDDC7306A45 /* UIColor.swift */; };
 		27354054CFC53860D8B85A21 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354D56E8ECC4A741C93605 /* Lato-MediumItalic.ttf */; };
 		2735405B769BFB83526915DB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273543E49897ED81C375486B /* MenuItem.swift */; };
 		273540D954DD1F6902EC8CC4 /* AccountProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354F3FE07E2F2591BF5EFF /* AccountProfileViewController.swift */; };
@@ -173,6 +174,7 @@
 		27354B1C126D596C9DF894CA /* UIView+SwiftCarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SwiftCarousel.swift"; sourceTree = "<group>"; };
 		27354B8365DFB4A2B2F3AB2E /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
 		27354B980382872E5B2B5517 /* Theme+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Theme+Additions.h"; sourceTree = "<group>"; };
+		27354C867E114FDDC7306A45 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		27354CA07B29DBA2BCEE3F81 /* SwiftCarousel+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftCarousel+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
 		27354CA2FF6C4AB99020D8EE /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		27354D56E8ECC4A741C93605 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				27354A7A9281457AAED4CE6B /* UIViewController.swift */,
+				27354C867E114FDDC7306A45 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -857,6 +860,7 @@
 				27354598D737AC727F1CA830 /* SwiftCarousel.swift in Sources */,
 				27354366F7A2822519B7A26D /* CartViewController.swift in Sources */,
 				27354926AED8F8096CE69BBC /* NavigationControllerDelegate.swift in Sources */,
+				273540387E68807C8476659B /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         let mainNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNavigationController") as! UINavigationController
 
+        mainNavigationController.toolbar.barTintColor = UIColor(0xfc8127)
+        mainNavigationController.toolbar.tintColor = UIColor.white
+
         drawerMenuController = DrawerMenuViewController.loadFromStoryboard()
         let homeViewController = mainNavigationController.viewControllers.first as? HomeViewController
         drawerMenuController.homeController = homeViewController

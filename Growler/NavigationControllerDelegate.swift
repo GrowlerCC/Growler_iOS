@@ -13,10 +13,8 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
         super.init()
 
         let cartItemCount = UIBarButtonItem(title: "0", style: .plain, target: nil, action: nil)
-        cartItemCount.tintColor = UIColor.black
         let cartButton = UIBarButtonItem(title: "View Cart", style: .plain, target: self, action: #selector(self.viewCart))
         let cartTotalAmount = UIBarButtonItem(title: "$0", style: .plain, target: nil, action: nil)
-        cartTotalAmount.tintColor = UIColor.black
 
         toolbarItems = [
             cartItemCount,
