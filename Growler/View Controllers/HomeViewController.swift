@@ -9,10 +9,6 @@ import Buy;
 
 class HomeViewController: UIViewController, SwiftCarouselDelegate {
 
-    // todo show ProductViewController when tapping on banners
-
-    private var menuController: DrawerMenuViewController!
-
     @IBOutlet weak var topCarousel: SwiftCarousel!
     
     @IBOutlet weak var bottomCarousel: SwiftCarousel!
@@ -21,9 +17,6 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        menuController = PopupMenuViewController()
-        menuController.homeController = self
 
         let menuButtonImage = UIImage(named: "MenuButton")?.withRenderingMode(.alwaysOriginal)
         let menuButton = UIBarButtonItem(image: menuButtonImage, style: .plain, target: self, action: #selector(HomeViewController.didTapMenuButton))
@@ -37,7 +30,7 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
 
         navigationController?.topViewController?.navigationItem.rightBarButtonItems = [checkoutButton, searchButton]
 
-        let addressController = ConfirmAddressViewController.loadFromStoryboard(name: "ConfirmAddressViewController", type: ConfirmAddressViewController.self)
+        let addressController = ConfirmAddressViewController.loadFromStoryboard()
         navigationController!.present(addressController, animated: false)
 
         // visibleItemsPerPage is the only resize type in which SwiftCarousel doesn't crash when empty
@@ -65,7 +58,7 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
     }
 
     func didTapMenuButton() {
-        present(menuController, animated: true)
+        AppDelegate.shared.sideMenuViewController.presentLeftMenuViewController()
     }
 
     private func setupCarousel(_ carousel: SwiftCarousel) {

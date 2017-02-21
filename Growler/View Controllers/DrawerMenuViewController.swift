@@ -6,21 +6,23 @@
 import Foundation
 import UIKit
 
-class DrawerMenuViewController: UITableViewController {
+class DrawerMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     weak var homeController: HomeViewController?
 
+    @IBOutlet weak var tableView: UITableView!
+    
     var menuItems: [MenuItem] = [
-        MenuItem(title: "Account Profile") {
+        MenuItem.create(title: "Account Profile") {
             navigationController in
             let controller = AccountProfileViewController()
             navigationController!.pushViewController(controller, animated: true)
         },
-        MenuItem(title: "My Orders"),
-        MenuItem(title: "Recommendations"),
-        MenuItem(title: "App Settings"),
-        MenuItem(title: "FAQs"),
-        MenuItem(title: "About GrEx"),
+        MenuItem.create(title: "My Orders"),
+        MenuItem.create(title: "Recommendations"),
+        MenuItem.create(title: "App Settings"),
+        MenuItem.create(title: "FAQs"),
+        MenuItem.create(title: "About GrEx"),
     ]
 
     override func viewDidLoad() {
@@ -29,20 +31,23 @@ class DrawerMenuViewController: UITableViewController {
         tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0) // make room for status bar
     }
 
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let selectedItem = menuItems[indexPath.row]
-        dismiss(animated: false) {
-            selectedItem.didSelect?(self.homeController!.navigationController)
-        }
+        AppDelegate.shared.sideMenuViewController!.hideViewController()
+        selectedItem.didSelect?(self.homeController!.navigationController)
         return indexPath
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return menuItems[indexPath.row]
+    }
+    
+    @IBAction func didTapCloseButton(_ sender: Any) {
+        AppDelegate.shared.sideMenuViewController!.hideViewController()
     }
 
 }

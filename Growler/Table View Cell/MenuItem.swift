@@ -10,14 +10,16 @@ typealias MenuCallback = ((UINavigationController?) -> Void)
 
 class MenuItem: UITableViewCell {
 
-    private var title: String!
-
+    @IBOutlet weak var titleLabel: UILabel!
+    
     public var didSelect: MenuCallback?
 
-    convenience init(title: String, didSelect: MenuCallback? = nil) {
-        self.init(style: .default, reuseIdentifier: "")
-        self.textLabel?.text = title
-        self.didSelect = didSelect
+    static func create(title: String, didSelect: MenuCallback? = nil) -> MenuItem {
+        let items = Bundle.main.loadNibNamed("MenuItem", owner: nil, options: nil)
+        let cell = items?.first as! MenuItem
+        cell.titleLabel?.text = title
+        cell.didSelect = didSelect
+        return cell
     }
 
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
@@ -26,10 +28,6 @@ class MenuItem: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(false, animated: animated)
-
-//        stripe.backgroundColor = selected ? UIColor.red : nil
-//        titleLabel?.textColor = selected ? Constants.selectedMenuItemTextColor : Constants.menuTextColor
-//        backgroundColor = selected ? Constants.selectedMenuItemBackgroundColor : Constants.menuBackgroundColor
     }
 
 }
