@@ -12,6 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private var drawerMenuController: DrawerMenuViewController!
 
+    private var navigationControllerDelegate: NavigationControllerDelegate!
+
     static var shared: AppDelegate {
         return (UIApplication.shared.delegate as! AppDelegate)
     }
@@ -20,7 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNavigationController") as! UINavigationController
 
         drawerMenuController = DrawerMenuViewController.loadFromStoryboard()
-        drawerMenuController.homeController = mainNavigationController.viewControllers.first as? HomeViewController
+        let homeViewController = mainNavigationController.viewControllers.first as? HomeViewController
+        drawerMenuController.homeController = homeViewController
+
+        navigationControllerDelegate = NavigationControllerDelegate()
+        mainNavigationController.delegate = navigationControllerDelegate
 
         sideMenuViewController = RESideMenu(
             contentViewController: mainNavigationController,

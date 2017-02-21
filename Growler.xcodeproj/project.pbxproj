@@ -36,6 +36,7 @@
 		273547CA5A98D002216D720C /* MenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273540C7B6D311FD299C8368 /* MenuItem.xib */; };
 		273547E1A7AC333297BCB35D /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354A7A9281457AAED4CE6B /* UIViewController.swift */; };
 		273548BF8654E4BBE381E36D /* Aller_Rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354AAE8B7DFBBB38F8400D /* Aller_Rg.ttf */; };
+		27354926AED8F8096CE69BBC /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354CA2FF6C4AB99020D8EE /* NavigationControllerDelegate.swift */; };
 		2735492C7E40D1279D1C5056 /* DrawerMenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 273544C315EDAB7FEFEED3E8 /* DrawerMenuViewController.storyboard */; };
 		2735492D22C36B6EBE538630 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547785F455240EC5351DA /* HomeViewController.swift */; };
 		2735497A6C31F85B0B047AA6 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2735427F6AB2A06821861055 /* Lato-Medium.ttf */; };
@@ -173,6 +174,7 @@
 		27354B8365DFB4A2B2F3AB2E /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
 		27354B980382872E5B2B5517 /* Theme+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Theme+Additions.h"; sourceTree = "<group>"; };
 		27354CA07B29DBA2BCEE3F81 /* SwiftCarousel+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftCarousel+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
+		27354CA2FF6C4AB99020D8EE /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		27354D56E8ECC4A741C93605 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
 		27354DB4E856B90AE0A6D6F0 /* ConfirmAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmAddressViewController.swift; path = "View Controllers/ConfirmAddressViewController.swift"; sourceTree = "<group>"; };
 		27354E17505632D486F6CA28 /* SwiftCarouselDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCarouselDelegate.swift; sourceTree = "<group>"; };
@@ -591,6 +593,7 @@
 				BE8B82601B8CF49D00E3F871 /* LaunchScreen.xib */,
 				BE8B825B1B8CF49D00E3F871 /* Main.storyboard */,
 				27354FE0AADB8E8AB7B2C154 /* Controllers */,
+				27354CA2FF6C4AB99020D8EE /* NavigationControllerDelegate.swift */,
 			);
 			path = Growler;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				27354A266FDF4A2913B202C0 /* SwiftCarousel+UIGestureRecognizerDelegate.swift in Sources */,
 				27354598D737AC727F1CA830 /* SwiftCarousel.swift in Sources */,
 				27354366F7A2822519B7A26D /* CartViewController.swift in Sources */,
+				27354926AED8F8096CE69BBC /* NavigationControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

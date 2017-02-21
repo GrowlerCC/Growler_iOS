@@ -55,6 +55,21 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
                 print("Error fetching products: \(error)")
             }
         }
+
+        let cartItemCount = UIBarButtonItem(title: "1", style: .plain, target: nil, action: nil)
+        cartItemCount.tintColor = UIColor.black
+        let cartButton = UIBarButtonItem(title: "View Cart", style: .plain, target: self, action: nil)
+        let cartTotalAmount = UIBarButtonItem(title: "$12.50", style: .plain, target: nil, action: nil)
+        cartTotalAmount.tintColor = UIColor.black
+
+        let toolbarItems = [
+            cartItemCount,
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            cartButton,
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            cartTotalAmount,
+        ]
+        setToolbarItems(toolbarItems, animated: true)
     }
 
     func didTapMenuButton() {
