@@ -13,16 +13,16 @@ class DrawerMenuViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var tableView: UITableView!
     
     var menuItems: [MenuItem] = [
-        MenuItem.create(title: "Account Profile") {
+        MenuItem.create(title: "Account Profile", image: UIImage(named: "AccountProfileIcon")) {
             navigationController in
             let controller = AccountProfileViewController()
             navigationController!.pushViewController(controller, animated: true)
         },
-        MenuItem.create(title: "My Orders"),
-        MenuItem.create(title: "Recommendations"),
-        MenuItem.create(title: "App Settings"),
-        MenuItem.create(title: "FAQs"),
-        MenuItem.create(title: "About GrEx"),
+        MenuItem.create(title: "My Orders", image: UIImage(named: "MyOrdersIcon")),
+        MenuItem.create(title: "Recommendations", image: UIImage(named: "RecommendationsIcon")),
+        MenuItem.create(title: "App Settings", image: UIImage(named: "SettingsIcon")),
+        MenuItem.create(title: "FAQs", image: UIImage(named: "FaqsIcon")),
+        MenuItem.create(title: "About GrEx", image: UIImage(named: "AboutIcon")),
     ]
 
     override func viewDidLoad() {

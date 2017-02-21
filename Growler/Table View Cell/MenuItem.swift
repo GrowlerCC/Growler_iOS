@@ -12,12 +12,15 @@ class MenuItem: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var icon: UIImageView!
+    
     public var didSelect: MenuCallback?
 
-    static func create(title: String, didSelect: MenuCallback? = nil) -> MenuItem {
+    static func create(title: String, image: UIImage?, didSelect: MenuCallback? = nil) -> MenuItem {
         let items = Bundle.main.loadNibNamed("MenuItem", owner: nil, options: nil)
         let cell = items?.first as! MenuItem
         cell.titleLabel?.text = title
+        cell.icon.image = image
         cell.didSelect = didSelect
         return cell
     }
