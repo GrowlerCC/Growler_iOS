@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNavigationController") as! UINavigationController
 
         drawerMenuController = DrawerMenuViewController.loadFromStoryboard()
-        drawerMenuController.homeController = mainNavigationController.viewControllers.first as! HomeViewController
+        drawerMenuController.homeController = mainNavigationController.viewControllers.first as? HomeViewController
 
         sideMenuViewController = RESideMenu(
             contentViewController: mainNavigationController,
