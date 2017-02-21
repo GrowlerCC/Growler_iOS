@@ -51,7 +51,7 @@
 		27354D2BC6EFFE421F99430E /* SwiftCarouselError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354546FCDBC5D861D32179 /* SwiftCarouselError.swift */; };
 		27354D6A03DAAECCE2E3ACA2 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2735403BE710BFE3CCE75A1A /* Lato-Regular.ttf */; };
 		27354D7C8BA8E308F7B42C7B /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273546349EAC77ADDD4F3D7A /* Lato-BlackItalic.ttf */; };
-		27354DCA9127146C0563685C /* PopupMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547E48016C5BE03F59076 /* PopupMenuViewController.swift */; };
+		27354DCA9127146C0563685C /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547E48016C5BE03F59076 /* DrawerMenuViewController.swift */; };
 		27354E01B9FBF64215E4D6F5 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354FCF88B85937F09ED48D /* Lato-Black.ttf */; };
 		27354EF7E84CC6D8F8B77B6F /* Aller_BdIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354F74E3C1F624B63675C5 /* Aller_BdIt.ttf */; };
 		842799661CB31498003AD0CE /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842799651CB31498003AD0CE /* PaymentViewController.m */; };
@@ -155,7 +155,7 @@
 		273546B9025A603186DD233E /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
 		273547785F455240EC5351DA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "View Controllers/HomeViewController.swift"; sourceTree = "<group>"; };
 		273547BD2EC500BD5C3F1E23 /* Lato-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-HeavyItalic.ttf"; sourceTree = "<group>"; };
-		273547E48016C5BE03F59076 /* PopupMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupMenuViewController.swift; path = "View Controllers/PopupMenuViewController.swift"; sourceTree = "<group>"; };
+		273547E48016C5BE03F59076 /* DrawerMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawerMenuViewController.swift; path = "View Controllers/DrawerMenuViewController.swift"; sourceTree = "<group>"; };
 		273548095C4C5D8A3D4DEA4A /* SwiftCarouselScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCarouselScroll.swift; sourceTree = "<group>"; };
 		2735482A55251FC462DB19FB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		273548BE2FFC5603ADE95129 /* Lato-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Heavy.ttf"; sourceTree = "<group>"; };
@@ -592,7 +592,7 @@
 				BE948D4C1B95087A009AB20B /* Images.xcassets */,
 				BE8B82601B8CF49D00E3F871 /* LaunchScreen.xib */,
 				BE8B825B1B8CF49D00E3F871 /* Main.storyboard */,
-				273547E48016C5BE03F59076 /* PopupMenuViewController.swift */,
+				273547E48016C5BE03F59076 /* DrawerMenuViewController.swift */,
 				27354FE0AADB8E8AB7B2C154 /* Controllers */,
 				273540B1004A856A4D07F46F /* CartViewController.swift */,
 			);
@@ -667,6 +667,7 @@
 				TargetAttributes = {
 					BE8B824A1B8CF49D00E3F871 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = PB6QN7UA96;
 						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.OMC = {
@@ -838,7 +839,7 @@
 				273545C5BE81A08CF5520FEA /* ConfirmAddressViewController.swift in Sources */,
 				2735405B769BFB83526915DB /* MenuItem.swift in Sources */,
 				273540D954DD1F6902EC8CC4 /* AccountProfileViewController.swift in Sources */,
-				27354DCA9127146C0563685C /* PopupMenuViewController.swift in Sources */,
+				27354DCA9127146C0563685C /* DrawerMenuViewController.swift in Sources */,
 				273547E1A7AC333297BCB35D /* UIViewController.swift in Sources */,
 				27354788EA25B4E34DF8966B /* ProductBannerView.swift in Sources */,
 				27354CC5559BCE620FD30F75 /* ProductListCell.swift in Sources */,
@@ -970,11 +971,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PB6QN7UA96;
 				INFOPLIST_FILE = Growler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.growler.GrowlerExpress;
+				PRODUCT_BUNDLE_IDENTIFIER = com.growlerexpress.GrowlerExpress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Growler/Growler-Bridging-Header.h";
@@ -994,11 +995,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PB6QN7UA96;
 				INFOPLIST_FILE = Growler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.growler.GrowlerExpress;
+				PRODUCT_BUNDLE_IDENTIFIER = com.growlerexpress.GrowlerExpress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Growler/Growler-Bridging-Header.h";

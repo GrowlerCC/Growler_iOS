@@ -11,7 +11,7 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
 
     // todo show ProductViewController when tapping on banners
 
-    private var menuController: PopupMenuViewController!
+    private var menuController: DrawerMenuViewController!
 
     @IBOutlet weak var topCarousel: SwiftCarousel!
     

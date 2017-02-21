@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-class PopupMenuViewController: UITableViewController {
+class DrawerMenuViewController: UITableViewController {
 
     weak var homeController: HomeViewController?
 
