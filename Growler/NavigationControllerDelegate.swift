@@ -12,10 +12,10 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
     override init() {
         super.init()
 
-        let cartItemCount = UIBarButtonItem(title: "1", style: .plain, target: nil, action: nil)
+        let cartItemCount = UIBarButtonItem(title: "0", style: .plain, target: nil, action: nil)
         cartItemCount.tintColor = UIColor.black
         let cartButton = UIBarButtonItem(title: "View Cart", style: .plain, target: self, action: #selector(self.viewCart))
-        let cartTotalAmount = UIBarButtonItem(title: "$12.50", style: .plain, target: nil, action: nil)
+        let cartTotalAmount = UIBarButtonItem(title: "$0", style: .plain, target: nil, action: nil)
         cartTotalAmount.tintColor = UIColor.black
 
         toolbarItems = [
