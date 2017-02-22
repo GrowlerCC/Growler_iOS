@@ -9,6 +9,10 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
 
     var toolbarItems: [UIBarButtonItem]!
 
+    private var profileButton: UIBarButtonItem!
+
+    private var searchButton: UIBarButtonItem!
+
     override init() {
         super.init()
 
@@ -23,24 +27,28 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             cartTotalAmount,
         ]
+
+        let profileButtonImage = UIImage(named: "ProfileButton")?.withRenderingMode(.alwaysOriginal)
+        profileButton = UIBarButtonItem(image: profileButtonImage, style: .plain, target: self, action: #selector(self.didTapProfileButton))
+
+        let searchButtonImage = UIImage(named: "SearchButton")?.withRenderingMode(.alwaysOriginal)
+        searchButton = UIBarButtonItem(image: searchButtonImage, style: .plain, target: self, action: #selector(self.didTapSearchButton))
     }
 
     var navigationController: UINavigationController!
 
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         self.navigationController = navigationController
-        switch viewController {
-            case is CartViewController:
-                 break // doing nothing. this check is needed because CartViewController is descendant of ProductListViewController
-            case
-                is HomeViewController,
-                is CollectionListViewController,
-                is ProductListViewController,
-                is ProductViewController:
-                    viewController.setToolbarItems(toolbarItems, animated: false)
-            default:
-                break
+        if !(viewController is CartViewController) {
+            viewController.setToolbarItems(toolbarItems, animated: false)
         }
+
+        if !(viewController is AccountProfileViewController) {
+            viewController.navigationItem.leftBarButtonItem = profileButton
+        }
+
+        // todo search button should be visible on all screens?
+        viewController.navigationItem.rightBarButtonItem = searchButton
     }
 
     func viewCart() {
@@ -50,7 +58,16 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
     
     // @Notification(.didChangeCart)
     func didChangeCart() {
-        
+    }
+    
+    func didTapProfileButton() {
+        let controller = AccountProfileViewController()
+        navigationController!.pushViewController(controller, animated: true)
+    }
+
+    func didTapSearchButton() {
+        let controller = CollectionListViewController()
+        navigationController!.pushViewController(controller, animated: true)
     }
 
 }

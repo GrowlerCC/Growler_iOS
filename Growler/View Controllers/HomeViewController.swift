@@ -18,15 +18,6 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let menuButtonImage = UIImage(named: "MenuButton")?.withRenderingMode(.alwaysOriginal)
-        let menuButton = UIBarButtonItem(image: menuButtonImage, style: .plain, target: self, action: #selector(HomeViewController.didTapMenuButton))
-        navigationController?.topViewController?.navigationItem.leftBarButtonItem = menuButton
-
-        let searchButtonImage = UIImage(named: "SearchButton")?.withRenderingMode(.alwaysOriginal)
-        let searchButton = UIBarButtonItem(image: searchButtonImage, style: .plain, target: self, action: #selector(HomeViewController.didTapSearchButton))
-
-        navigationController?.topViewController?.navigationItem.rightBarButtonItem = searchButton
-
         // visibleItemsPerPage is the only resize type in which SwiftCarousel doesn't crash when empty
         // so setting resize type here
         // also resizeType should always be set before setting items
@@ -78,11 +69,6 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
         }
         carousel.layoutSubviews() // this will update scrollview content size
         carousel.delegate = self
-    }
-
-    func didTapSearchButton() {
-        let controller = CollectionListViewController()
-        navigationController!.pushViewController(controller, animated: true)
     }
 
 }
