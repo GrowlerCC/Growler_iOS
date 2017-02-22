@@ -25,10 +25,7 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
         let searchButtonImage = UIImage(named: "SearchButton")?.withRenderingMode(.alwaysOriginal)
         let searchButton = UIBarButtonItem(image: searchButtonImage, style: .plain, target: self, action: #selector(HomeViewController.didTapSearchButton))
 
-        let checkoutButtonImage = UIImage(named: "CheckoutButton")?.withRenderingMode(.alwaysOriginal)
-        let checkoutButton = UIBarButtonItem(image: checkoutButtonImage, style: .plain, target: self, action: #selector(HomeViewController.didTapCheckoutButton))
-
-        navigationController?.topViewController?.navigationItem.rightBarButtonItems = [checkoutButton, searchButton]
+        navigationController?.topViewController?.navigationItem.rightBarButtonItem = searchButton
 
         let addressController = ConfirmAddressViewController.loadFromStoryboard()
         navigationController!.present(addressController, animated: false)
@@ -61,15 +58,6 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
         let cartButton = UIBarButtonItem(title: "View Cart", style: .plain, target: self, action: nil)
         let cartTotalAmount = UIBarButtonItem(title: "$12.50", style: .plain, target: nil, action: nil)
         cartTotalAmount.tintColor = UIColor.black
-
-        let toolbarItems = [
-            cartItemCount,
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            cartButton,
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            cartTotalAmount,
-        ]
-        setToolbarItems(toolbarItems, animated: true)
     }
 
     func didTapMenuButton() {
@@ -101,11 +89,6 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
         }
         carousel.layoutSubviews() // this will update scrollview content size
         carousel.delegate = self
-    }
-
-    func didTapCheckoutButton() {
-        let controller = CartViewController(client: ShopifyController.instance.client, collection: nil)!
-        navigationController!.pushViewController(controller, animated: true)
     }
 
     func didTapSearchButton() {
