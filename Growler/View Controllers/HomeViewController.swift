@@ -27,9 +27,6 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
 
         navigationController?.topViewController?.navigationItem.rightBarButtonItem = searchButton
 
-        let addressController = ConfirmAddressViewController.loadFromStoryboard()
-        navigationController!.present(addressController, animated: false)
-
         // visibleItemsPerPage is the only resize type in which SwiftCarousel doesn't crash when empty
         // so setting resize type here
         // also resizeType should always be set before setting items
@@ -52,12 +49,6 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
                 print("Error fetching products: \(error)")
             }
         }
-
-        let cartItemCount = UIBarButtonItem(title: "1", style: .plain, target: nil, action: nil)
-        cartItemCount.tintColor = UIColor.black
-        let cartButton = UIBarButtonItem(title: "View Cart", style: .plain, target: self, action: nil)
-        let cartTotalAmount = UIBarButtonItem(title: "$12.50", style: .plain, target: nil, action: nil)
-        cartTotalAmount.tintColor = UIColor.black
     }
 
     func didTapMenuButton() {
