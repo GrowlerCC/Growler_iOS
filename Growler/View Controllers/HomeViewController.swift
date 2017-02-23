@@ -99,7 +99,7 @@ class HomeViewController: UITableViewController {
         _ = getProducts(fromCollectionWithId: CollectionIdentifier.gameDay.rawValue, page: 1)
             .then {
                 (products: [BUYProduct]) -> Void in
-                self.items[CarouserIndex.ciceronesChoice.rawValue] = CarouselTableCell.create(
+                self.items[CarouserIndex.gameDay.rawValue] = CarouselTableCell.create(
                     title: "Featured Collections",
                     itemsPerPage: 2.5,
                     bannerFactory: ProductBannerFactory(products: products)
