@@ -257,7 +257,7 @@ open class SwiftCarousel: UIView {
             case .withoutResizing(let spacing): additionalSpacing = spacing
             case .floatWithSpacing(let spacing): additionalSpacing = spacing
             case .visibleItemsPerPage(let visibleItems):
-                choice.frame.size.width = scrollView.frame.width / CGFloat(visibleItems)
+                choice.frame.size.width = scrollView.frame.width / visibleItems
                 choice.frame.size.height = frame.height
             }
             choice.frame.origin.x = x

@@ -30,7 +30,7 @@ public enum SwiftCarouselResizeType {
     /// VisibleItemsPerPage will try to fit the number of items you specify
     /// in the whole screen (will resize them of course).
     /// Parameter = number of items visible on screen.
-    case visibleItemsPerPage(Int)
+    case visibleItemsPerPage(CGFloat)
     
     /// FloatWithSpacing will use sizeToFit() on your views to correctly place images
     /// It is helpful for instance with UILabels (Example1 in Examples folder).

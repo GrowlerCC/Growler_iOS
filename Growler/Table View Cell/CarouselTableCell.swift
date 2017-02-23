@@ -31,7 +31,7 @@ class CarouselTableCell: UITableViewCell {
         // visibleItemsPerPage is the only resize type in which SwiftCarousel doesn't crash when empty
         // so setting resize type here
         // also resizeType should always be set before setting items
-        cell.carousel.resizeType = .visibleItemsPerPage(Int(itemsPerPage))
+        cell.carousel.resizeType = .visibleItemsPerPage(itemsPerPage)
         return cell
     }
 
