@@ -110,6 +110,18 @@ class HomeViewController: UITableViewController {
 
                 mq { self.tableView.reloadData() }
             }
+
+
+        getCollectionsPage(page: 1)
+            .then {
+                collections in
+                self.items[CarouserIndex.shopByCollections.rawValue] = CarouselTableCell.create(
+                    title: "Shop By Collections",
+                    itemsPerPage: 2.5,
+                    bannerFactory: CollectionBannerFactory(collections: collections)
+                )
+
+            }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

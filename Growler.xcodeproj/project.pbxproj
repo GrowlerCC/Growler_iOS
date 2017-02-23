@@ -63,6 +63,7 @@
 		27354D7C8BA8E308F7B42C7B /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273546349EAC77ADDD4F3D7A /* Lato-BlackItalic.ttf */; };
 		27354DCA9127146C0563685C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547E48016C5BE03F59076 /* MenuViewController.swift */; };
 		27354E01B9FBF64215E4D6F5 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354FCF88B85937F09ED48D /* Lato-Black.ttf */; };
+		27354F950072C32CC6F1961D /* CollectionBannerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354B8BE1C2936EC2030042 /* CollectionBannerFactory.swift */; };
 		27354FE4A20C5955677F1699 /* AllerDisplay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354E5A7705DF66670BD5F9 /* AllerDisplay.ttf */; };
 		842799661CB31498003AD0CE /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842799651CB31498003AD0CE /* PaymentViewController.m */; };
 		847612671CAB047600AB17AA /* DisclosureIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847612251CAB047600AB17AA /* DisclosureIndicatorView.m */; };
@@ -188,6 +189,7 @@
 		27354B09BED69F4D4D62C474 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
 		27354B1C126D596C9DF894CA /* UIView+SwiftCarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SwiftCarousel.swift"; sourceTree = "<group>"; };
 		27354B8365DFB4A2B2F3AB2E /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		27354B8BE1C2936EC2030042 /* CollectionBannerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionBannerFactory.swift; sourceTree = "<group>"; };
 		27354B980382872E5B2B5517 /* Theme+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Theme+Additions.h"; sourceTree = "<group>"; };
 		27354C867E114FDDC7306A45 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		27354CA07B29DBA2BCEE3F81 /* SwiftCarousel+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftCarousel+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 			children = (
 				27354910FD67555BAC44E975 /* AbstractBannerFactory.swift */,
 				273545C16EBC547CC7254F90 /* ProductBannerFactory.swift */,
+				27354B8BE1C2936EC2030042 /* CollectionBannerFactory.swift */,
 			);
 			path = "Banner Factories";
 			sourceTree = "<group>";
@@ -905,6 +908,7 @@
 				273543BD5B5FB022A21F7E4B /* CollectionIdentifier.swift in Sources */,
 				2735462159140E1BBEAC4E4A /* AbstractBannerFactory.swift in Sources */,
 				27354AC4EA3CB633A3944591 /* ProductBannerFactory.swift in Sources */,
+				27354F950072C32CC6F1961D /* CollectionBannerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
