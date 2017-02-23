@@ -48,3 +48,17 @@ func getProducts(fromCollectionWithId collectionId: Int64, page: UInt) -> Promis
         }
     }
 }
+
+// todo fetch all instead of one page?
+func getTags(page: UInt) -> Promise<[String]> {
+    return Promise {
+        fulfill, reject in
+        ShopifyController.instance.client.getProductTagsPage(1) {
+            products, page, reachedEnd, error in
+            if let error = error {
+                reject(error)
+            }
+            fulfill(products ?? [])
+        }
+    }
+}
