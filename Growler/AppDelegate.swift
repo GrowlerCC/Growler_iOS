@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     public var sideMenuViewController: RESideMenu!
 
-    private var drawerMenuController: DrawerMenuViewController!
+    private var drawerMenuController: MenuViewController!
 
     private var navigationControllerDelegate: NavigationControllerDelegate!
 
@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mainNavigationController.toolbar.barTintColor = UIColor(0xfc8127)
         mainNavigationController.toolbar.tintColor = UIColor.white
 
-        drawerMenuController = DrawerMenuViewController.loadFromStoryboard()
+        drawerMenuController = MenuViewController.loadFromStoryboard()
         let homeViewController = mainNavigationController.viewControllers.first as? HomeViewController
         drawerMenuController.homeController = homeViewController
 

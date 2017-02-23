@@ -13,7 +13,7 @@
         <!--Drawer Menu View Controller-->
         <scene sceneID="n8E-wP-A4z">
             <objects>
-                <viewController storyboardIdentifier="DrawerMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BRa-d0-tDn" customClass="DrawerMenuViewController" customModule="Growler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BRa-d0-tDn" customClass="MenuViewController" customModule="Growler" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Ef-Hh-dUe"/>
                         <viewControllerLayoutGuide type="bottom" id="7R8-IM-vEC"/>

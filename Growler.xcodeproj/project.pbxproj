@@ -38,7 +38,7 @@
 		273547E1A7AC333297BCB35D /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354A7A9281457AAED4CE6B /* UIViewController.swift */; };
 		273548BF8654E4BBE381E36D /* Aller_Rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354AAE8B7DFBBB38F8400D /* Aller_Rg.ttf */; };
 		27354926AED8F8096CE69BBC /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354CA2FF6C4AB99020D8EE /* NavigationControllerDelegate.swift */; };
-		2735492C7E40D1279D1C5056 /* DrawerMenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 273544C315EDAB7FEFEED3E8 /* DrawerMenuViewController.storyboard */; };
+		2735492C7E40D1279D1C5056 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 273544C315EDAB7FEFEED3E8 /* MenuViewController.storyboard */; };
 		2735492D22C36B6EBE538630 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547785F455240EC5351DA /* HomeViewController.swift */; };
 		2735497A6C31F85B0B047AA6 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2735427F6AB2A06821861055 /* Lato-Medium.ttf */; };
 		27354A266FDF4A2913B202C0 /* SwiftCarousel+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354CA07B29DBA2BCEE3F81 /* SwiftCarousel+UIGestureRecognizerDelegate.swift */; };
@@ -54,7 +54,7 @@
 		27354D2BC6EFFE421F99430E /* SwiftCarouselError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354546FCDBC5D861D32179 /* SwiftCarouselError.swift */; };
 		27354D6A03DAAECCE2E3ACA2 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2735403BE710BFE3CCE75A1A /* Lato-Regular.ttf */; };
 		27354D7C8BA8E308F7B42C7B /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273546349EAC77ADDD4F3D7A /* Lato-BlackItalic.ttf */; };
-		27354DCA9127146C0563685C /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547E48016C5BE03F59076 /* DrawerMenuViewController.swift */; };
+		27354DCA9127146C0563685C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547E48016C5BE03F59076 /* MenuViewController.swift */; };
 		27354E01B9FBF64215E4D6F5 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354FCF88B85937F09ED48D /* Lato-Black.ttf */; };
 		27354FE4A20C5955677F1699 /* AllerDisplay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354E5A7705DF66670BD5F9 /* AllerDisplay.ttf */; };
 		842799661CB31498003AD0CE /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842799651CB31498003AD0CE /* PaymentViewController.m */; };
@@ -149,7 +149,7 @@
 		273543E49897ED81C375486B /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		273543E6AB7C01EE659A1B97 /* Aller_LtIt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; name = Aller_LtIt.ttf; path = Aller/Aller_LtIt.ttf; sourceTree = "<group>"; };
 		273544280EF5AC9BC915DAEA /* ProductBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductBannerView.swift; sourceTree = "<group>"; };
-		273544C315EDAB7FEFEED3E8 /* DrawerMenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = DrawerMenuViewController.storyboard; path = "View Controllers/DrawerMenuViewController.storyboard"; sourceTree = "<group>"; };
+		273544C315EDAB7FEFEED3E8 /* MenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = MenuViewController.storyboard; path = "View Controllers/MenuViewController.storyboard"; sourceTree = "<group>"; };
 		27354546FCDBC5D861D32179 /* SwiftCarouselError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCarouselError.swift; sourceTree = "<group>"; };
 		273545C68D4A7ECD75039CEF /* ProductListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListCell.swift; sourceTree = "<group>"; };
 		273546349EAC77ADDD4F3D7A /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		273546B9025A603186DD233E /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
 		273547785F455240EC5351DA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "View Controllers/HomeViewController.swift"; sourceTree = "<group>"; };
 		273547BD2EC500BD5C3F1E23 /* Lato-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-HeavyItalic.ttf"; sourceTree = "<group>"; };
-		273547E48016C5BE03F59076 /* DrawerMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawerMenuViewController.swift; path = "View Controllers/DrawerMenuViewController.swift"; sourceTree = "<group>"; };
+		273547E48016C5BE03F59076 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = "View Controllers/MenuViewController.swift"; sourceTree = "<group>"; };
 		273548095C4C5D8A3D4DEA4A /* SwiftCarouselScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCarouselScroll.swift; sourceTree = "<group>"; };
 		2735482A55251FC462DB19FB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		27354834DA98485A6AD7DEB9 /* Aller_It.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; name = Aller_It.ttf; path = Aller/Aller_It.ttf; sourceTree = "<group>"; };
@@ -619,8 +619,8 @@
 				27354F3FE07E2F2591BF5EFF /* AccountProfileViewController.swift */,
 				9079F5F21BB1AAA100CB1B35 /* CollectionListViewController.h */,
 				9079F5F31BB1AAA100CB1B35 /* CollectionListViewController.m */,
-				273544C315EDAB7FEFEED3E8 /* DrawerMenuViewController.storyboard */,
-				273547E48016C5BE03F59076 /* DrawerMenuViewController.swift */,
+				273544C315EDAB7FEFEED3E8 /* MenuViewController.storyboard */,
+				273547E48016C5BE03F59076 /* MenuViewController.swift */,
 				BE8B82551B8CF49D00E3F871 /* ProductListViewController.h */,
 				BE8B82561B8CF49D00E3F871 /* ProductListViewController.m */,
 				BE8B82901B8E612700E3F871 /* ShippingRatesTableViewController.h */,
@@ -737,7 +737,7 @@
 				27354797D77A561F80F1C820 /* Aller_Bd.ttf in Resources */,
 				273546ECE12237ED461FE492 /* Aller_LtIt.ttf in Resources */,
 				27354AE22708256909208565 /* Aller_BdIt.ttf in Resources */,
-				2735492C7E40D1279D1C5056 /* DrawerMenuViewController.storyboard in Resources */,
+				2735492C7E40D1279D1C5056 /* MenuViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -843,7 +843,7 @@
 				273545C5BE81A08CF5520FEA /* ConfirmAddressViewController.swift in Sources */,
 				2735405B769BFB83526915DB /* MenuItem.swift in Sources */,
 				273540D954DD1F6902EC8CC4 /* AccountProfileViewController.swift in Sources */,
-				27354DCA9127146C0563685C /* DrawerMenuViewController.swift in Sources */,
+				27354DCA9127146C0563685C /* MenuViewController.swift in Sources */,
 				273547E1A7AC333297BCB35D /* UIViewController.swift in Sources */,
 				27354788EA25B4E34DF8966B /* ProductBannerView.swift in Sources */,
 				27354CC5559BCE620FD30F75 /* ProductListCell.swift in Sources */,

@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-class DrawerMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var homeController: HomeViewController? // todo move to appdelegate? or to new class AppController?
 
