@@ -8,7 +8,10 @@ import UIKit
 
 class DrawerMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var homeController: HomeViewController?
+    var homeController: HomeViewController? // todo move to appdelegate? or to new class AppController?
+
+    // todo store link to navigation controller here or retrieve it from app.
+    // todo store all view controllers which can be reused instead of recreating them.
 
     @IBOutlet weak var tableView: UITableView!
     
