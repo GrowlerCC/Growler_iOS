@@ -7,6 +7,18 @@ import Foundation
 import UIKit
 import Buy
 import CoreGraphics
+import PromiseKit
+
+enum CarouserIndex: Int {
+    case main
+    case recommendedForYou
+    case featuredCollections
+    case ciceronesChoice
+    case staffsPick
+    case shopByCollections
+    case shopByStyle
+    case shopByPrice
+}
 
 class HomeViewController: UITableViewController {
 
@@ -21,7 +33,7 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
-        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.createCarouselCells), userInfo: nil, repeats: false)
+        createCarouselCells()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -30,23 +42,42 @@ class HomeViewController: UITableViewController {
     }
 
     func createCarouselCells() {
-        self.items[0] = CarouselTableCell.create(title: "", itemsPerPage: 1)
+        var products: [BUYProduct] = []
+        var collections: [BUYCollection] = []
 
-        self.items[1] = CarouselTableCell.create(title: "Recommended for You", itemsPerPage: 1.5)
+        getProductsPage(page: 1)
+            .then {
+                (list: [BUYProduct]) -> Promise<[BUYCollection]> in
+                products = list
+                return getCollectionsPage(page: 1)
+            }
+            .then {
+                (list: [BUYCollection]) -> Promise<Bool> in
+                collections = list
+                return Promise<Bool>(value: true)
+            }
+            .always {
+                _ in
+                self.items[CarouserIndex.main.rawValue] = CarouselTableCell.create(title: "", itemsPerPage: 1)
 
-        self.items[2] = CarouselTableCell.create(title: "Featured Collections", itemsPerPage: 2.5)
+                self.items[CarouserIndex.recommendedForYou.rawValue] = CarouselTableCell.create(title: "Recommended for You", itemsPerPage: 1.5)
 
-        self.items[3] = CarouselTableCell.create(title: "Cicerone’s Choice", itemsPerPage: 2.5)
+                self.items[CarouserIndex.featuredCollections.rawValue] = CarouselTableCell.create(title: "Featured Collections", itemsPerPage: 2.5)
 
-        self.items[4] = CarouselTableCell.create(title: "Staff’s Pick", itemsPerPage: 2.5)
+                self.items[CarouserIndex.ciceronesChoice.rawValue] = CarouselTableCell.create(title: "Cicerone’s Choice", itemsPerPage: 2.5)
 
-        self.items[5] = CarouselTableCell.create(title: "Shop By Collections", itemsPerPage: 2.5)
+                self.items[CarouserIndex.staffsPick.rawValue] = CarouselTableCell.create(title: "Staff’s Pick", itemsPerPage: 2.5)
 
-        self.items[6] = CarouselTableCell.create(title: "Shop By Style", itemsPerPage: 2.5)
+                self.items[CarouserIndex.shopByCollections.rawValue] = CarouselTableCell.create(title: "Shop By Collections", itemsPerPage: 2.5)
 
-        self.items[7] = CarouselTableCell.create(title: "Shop By Price", itemsPerPage: 2.5)
+                self.items[CarouserIndex.shopByStyle.rawValue] = CarouselTableCell.create(title: "Shop By Style", itemsPerPage: 2.5)
 
-        tableView.reloadData()
+                self.items[CarouserIndex.shopByPrice.rawValue] = CarouselTableCell.create(title: "Shop By Price", itemsPerPage: 2.5)
+
+                mq {
+                    self.tableView.reloadData()
+                }
+            }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

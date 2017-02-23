@@ -1,15 +1,28 @@
 PODS:
   - Mobile-Buy-SDK (2.2.0)
+  - PromiseKit (4.1.7):
+    - PromiseKit/Foundation (= 4.1.7)
+    - PromiseKit/QuartzCore (= 4.1.7)
+    - PromiseKit/UIKit (= 4.1.7)
+  - PromiseKit/CorePromise (4.1.7)
+  - PromiseKit/Foundation (4.1.7):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.1.7):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.1.7):
+    - PromiseKit/CorePromise
   - RESideMenu (4.0.7)
 
 DEPENDENCIES:
   - Mobile-Buy-SDK
+  - PromiseKit
   - RESideMenu (~> 4.0.7)
 
 SPEC CHECKSUMS:
   Mobile-Buy-SDK: 5c335aaa578d8424e5093b8a87ed7c8cc6ad0059
+  PromiseKit: 779f2e41faf62d854e7593026ddbcb0bb5c5002d
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
 
-PODFILE CHECKSUM: e36ec3b2c0bf537cb89a38356a708d964e3d2506
+PODFILE CHECKSUM: fb52d7b1a7624a12c2a5b1a54b80b5c3fb725335
 
 COCOAPODS: 1.2.0

@@ -50,6 +50,7 @@
 		27354AE49328F66BA049EF1C /* SwiftCarousel+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735436A75AA18B8B4BFE5F7 /* SwiftCarousel+UIScrollViewDelegate.swift */; };
 		27354B14D6F4A8BFDBE206D1 /* Theme+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 27354E2881A94B765A968CF9 /* Theme+Additions.m */; };
 		27354B5046BF8ABAFD209B01 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354F62BEEA547CBB474E47 /* Lato-Bold.ttf */; };
+		27354BBA18946DD8C17A2231 /* Promisses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354EFBF4CC46E620B19266 /* Promisses.swift */; };
 		27354BF8C05626F7CCEB6754 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354F115349B2087E426AAA /* Lato-Light.ttf */; };
 		27354C1FDFF7D5CC70332A12 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273549840063D5EE463FAC80 /* Lato-LightItalic.ttf */; };
 		27354CC5559BCE620FD30F75 /* ProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273545C68D4A7ECD75039CEF /* ProductListCell.swift */; };
@@ -194,6 +195,7 @@
 		27354E8CEF38601B1FCB9EAC /* ShopifyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopifyController.swift; sourceTree = "<group>"; };
 		27354EA6F6C9482032638D2D /* Aller_BdIt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; name = Aller_BdIt.ttf; path = Aller/Aller_BdIt.ttf; sourceTree = "<group>"; };
 		27354EC78587B296F9736490 /* SwiftCarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCarousel.swift; sourceTree = "<group>"; };
+		27354EFBF4CC46E620B19266 /* Promisses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promisses.swift; sourceTree = "<group>"; };
 		27354F115349B2087E426AAA /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		27354F3FE07E2F2591BF5EFF /* AccountProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountProfileViewController.swift; path = "View Controllers/AccountProfileViewController.swift"; sourceTree = "<group>"; };
 		27354F62BEEA547CBB474E47 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -612,6 +614,7 @@
 				BE8B825B1B8CF49D00E3F871 /* Main.storyboard */,
 				27354FE0AADB8E8AB7B2C154 /* Controllers */,
 				27354CA2FF6C4AB99020D8EE /* NavigationControllerDelegate.swift */,
+				27354EFBF4CC46E620B19266 /* Promisses.swift */,
 			);
 			path = Growler;
 			sourceTree = "<group>";
@@ -881,6 +884,7 @@
 				2735402ABBAF4B0944A56145 /* CarouselTableCell.swift in Sources */,
 				273549B45374256364CBD4FB /* UITableViewCell.swift in Sources */,
 				27354243C472769E6AA2BB66 /* ActivityIndicatorTableCell.swift in Sources */,
+				27354BBA18946DD8C17A2231 /* Promisses.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

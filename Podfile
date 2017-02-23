@@ -2,11 +2,12 @@
 # platform :ios, '9.0'
 
 target 'Growler' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
+    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    use_frameworks!
 
-  pod 'Mobile-Buy-SDK'
-  pod 'RESideMenu', '~> 4.0.7'
+    pod 'Mobile-Buy-SDK', '~> 2.2.0'
+    pod 'RESideMenu', '~> 4.0.7'
+    pod 'PromiseKit', '~> 4.1.7'
 
 end
 
