@@ -44,10 +44,6 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
         AppDelegate.shared.sideMenuViewController.presentLeftMenuViewController()
     }
 
-    @IBAction func didPanScreenEdge(_ sender: Any) {
-        AppDelegate.shared.sideMenuViewController.presentLeftMenuViewController()
-    }
-    
     private func setupCarousel(_ carousel: SwiftCarousel) {
         carousel.selectByTapEnabled = true
         let count = min(10, products.count) // limited by 10 items to not exhaust memory

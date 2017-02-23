@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UIKit
 
 class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
 
@@ -13,8 +14,13 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
 
     private var searchButton: UIBarButtonItem!
 
+    private var slidingMenuGestureRecognizer: UIScreenEdgePanGestureRecognizer!
+
     override init() {
         super.init()
+
+        slidingMenuGestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(self.didPanScreenEdge))
+        slidingMenuGestureRecognizer.edges = .left
 
         let cartItemCount = UIBarButtonItem(title: "0", style: .plain, target: nil, action: nil)
         let cartButton = UIBarButtonItem(title: "View Cart", style: .plain, target: self, action: #selector(self.viewCart))
@@ -39,6 +45,9 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
 
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         self.navigationController = navigationController
+
+        viewController.view.addGestureRecognizer(slidingMenuGestureRecognizer)
+
         if !(viewController is CartViewController) {
             viewController.setToolbarItems(toolbarItems, animated: false)
         }
@@ -68,6 +77,10 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
     func didTapSearchButton() {
         let controller = CollectionListViewController()
         navigationController!.pushViewController(controller, animated: true)
+    }
+
+    @IBAction func didPanScreenEdge(_ sender: Any) {
+        AppDelegate.shared.sideMenuViewController.presentLeftMenuViewController()
     }
 
 }
