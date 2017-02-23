@@ -21,6 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        // increase shopify page sizes to not need to load multiple pages
+        ShopifyController.instance.client.productPageSize = 250
+        ShopifyController.instance.client.collectionPageSize = 250
+        ShopifyController.instance.client.productTagPageSize = 250
+
         navigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNavigationController") as! UINavigationController
 
         navigationController.toolbar.barTintColor = UIColor(0xfc8127)
