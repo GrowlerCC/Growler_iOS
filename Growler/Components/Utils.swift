@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UIKit
 
 @objc
 class Utils: NSObject {
@@ -26,6 +27,14 @@ class Utils: NSObject {
         mq {
             UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
         }
+    }
+
+    class func calculateContentHeight(navigationController: UINavigationController) -> CGFloat {
+        let screenHeight = UIScreen.main.bounds.height
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        let navigationBarHeight = navigationController.navigationBar.frame.height
+        let toolbarHeight = navigationController.toolbar.frame.height
+        return screenHeight - statusBarHeight - navigationBarHeight - toolbarHeight
     }
 
 }
