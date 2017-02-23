@@ -271,6 +271,8 @@ open class SwiftCarousel: UIView {
     
     override open func layoutSubviews() {
         super.layoutSubviews()
+
+        setupViews(choices)
         
         guard (scrollView.frame.width > 0 && scrollView.frame.height > 0)  else { return }
         
