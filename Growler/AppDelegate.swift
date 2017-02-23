@@ -12,6 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private var drawerMenuController: MenuViewController!
 
+    private(set) var navigationController: UINavigationController!
+
     private var navigationControllerDelegate: NavigationControllerDelegate!
 
     static var shared: AppDelegate {
@@ -19,20 +21,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-        let mainNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNavigationController") as! UINavigationController
+        navigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNavigationController") as! UINavigationController
 
-        mainNavigationController.toolbar.barTintColor = UIColor(0xfc8127)
-        mainNavigationController.toolbar.tintColor = UIColor.white
+        navigationController.toolbar.barTintColor = UIColor(0xfc8127)
+        navigationController.toolbar.tintColor = UIColor.white
 
         drawerMenuController = MenuViewController.loadFromStoryboard()
-        let homeViewController = mainNavigationController.viewControllers.first as? HomeViewController
+        let homeViewController = navigationController.viewControllers.first as? HomeViewController
         drawerMenuController.homeController = homeViewController
 
         navigationControllerDelegate = NavigationControllerDelegate()
-        mainNavigationController.delegate = navigationControllerDelegate
+        navigationController.delegate = navigationControllerDelegate
 
         sideMenuViewController = RESideMenu(
-            contentViewController: mainNavigationController,
+            contentViewController: navigationController,
             leftMenuViewController: drawerMenuController,
             rightMenuViewController: nil
         )

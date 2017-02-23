@@ -31,6 +31,7 @@
 		2735459EE81F68AC489D611A /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273548BE2FFC5603ADE95129 /* Lato-Heavy.ttf */; };
 		273545B47818BC278D22FA99 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2735419A19E7A46743195F08 /* Lato-Semibold.ttf */; };
 		273545C5BE81A08CF5520FEA /* ConfirmAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354DB4E856B90AE0A6D6F0 /* ConfirmAddressViewController.swift */; };
+		2735462159140E1BBEAC4E4A /* AbstractBannerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354910FD67555BAC44E975 /* AbstractBannerFactory.swift */; };
 		273546621A3FBB0F0C42598D /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273546B9025A603186DD233E /* Lato-Hairline.ttf */; };
 		273546ECE12237ED461FE492 /* Aller_LtIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273543E6AB7C01EE659A1B97 /* Aller_LtIt.ttf */; };
 		273546F109C156DC17AE33ED /* Aller_It.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354834DA98485A6AD7DEB9 /* Aller_It.ttf */; };
@@ -47,6 +48,7 @@
 		273549B45374256364CBD4FB /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735466D3B4DFDB29F42F403 /* UITableViewCell.swift */; };
 		27354A266FDF4A2913B202C0 /* SwiftCarousel+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354CA07B29DBA2BCEE3F81 /* SwiftCarousel+UIGestureRecognizerDelegate.swift */; };
 		27354A8795569AB65B73EAF1 /* ShopifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354E8CEF38601B1FCB9EAC /* ShopifyController.swift */; };
+		27354AC4EA3CB633A3944591 /* ProductBannerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273545C16EBC547CC7254F90 /* ProductBannerFactory.swift */; };
 		27354AE22708256909208565 /* Aller_BdIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354EA6F6C9482032638D2D /* Aller_BdIt.ttf */; };
 		27354AE49328F66BA049EF1C /* SwiftCarousel+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735436A75AA18B8B4BFE5F7 /* SwiftCarousel+UIScrollViewDelegate.swift */; };
 		27354B14D6F4A8BFDBE206D1 /* Theme+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 27354E2881A94B765A968CF9 /* Theme+Additions.m */; };
@@ -158,6 +160,7 @@
 		273544280EF5AC9BC915DAEA /* ProductBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductBannerView.swift; sourceTree = "<group>"; };
 		273544C315EDAB7FEFEED3E8 /* MenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = MenuViewController.storyboard; path = "View Controllers/MenuViewController.storyboard"; sourceTree = "<group>"; };
 		27354546FCDBC5D861D32179 /* SwiftCarouselError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCarouselError.swift; sourceTree = "<group>"; };
+		273545C16EBC547CC7254F90 /* ProductBannerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductBannerFactory.swift; sourceTree = "<group>"; };
 		273545C68D4A7ECD75039CEF /* ProductListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListCell.swift; sourceTree = "<group>"; };
 		27354615934DAB3FC2F37C25 /* ActivityIndicatorTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorTableCell.swift; sourceTree = "<group>"; };
 		273546349EAC77ADDD4F3D7A /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -173,6 +176,7 @@
 		2735482A55251FC462DB19FB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		27354834DA98485A6AD7DEB9 /* Aller_It.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; name = Aller_It.ttf; path = Aller/Aller_It.ttf; sourceTree = "<group>"; };
 		273548BE2FFC5603ADE95129 /* Lato-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Heavy.ttf"; sourceTree = "<group>"; };
+		27354910FD67555BAC44E975 /* AbstractBannerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractBannerFactory.swift; sourceTree = "<group>"; };
 		27354954DC5AA012890A2DD2 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		273549840063D5EE463FAC80 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		273549AB40941EA9AC1C6642 /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
@@ -388,6 +392,15 @@
 				273549AB40941EA9AC1C6642 /* Lato-SemiboldItalic.ttf */,
 			);
 			path = Lato;
+			sourceTree = "<group>";
+		};
+		27354A205EFFDEFE5C8C52E3 /* Banner Factories */ = {
+			isa = PBXGroup;
+			children = (
+				27354910FD67555BAC44E975 /* AbstractBannerFactory.swift */,
+				273545C16EBC547CC7254F90 /* ProductBannerFactory.swift */,
+			);
+			path = "Banner Factories";
 			sourceTree = "<group>";
 		};
 		27354B93693B9F44A51F3500 /* SwiftCarousel */ = {
@@ -618,6 +631,7 @@
 				27354FE0AADB8E8AB7B2C154 /* Controllers */,
 				27354CA2FF6C4AB99020D8EE /* NavigationControllerDelegate.swift */,
 				27354EFBF4CC46E620B19266 /* Promisses.swift */,
+				27354A205EFFDEFE5C8C52E3 /* Banner Factories */,
 			);
 			path = Growler;
 			sourceTree = "<group>";
@@ -889,6 +903,8 @@
 				27354243C472769E6AA2BB66 /* ActivityIndicatorTableCell.swift in Sources */,
 				27354BBA18946DD8C17A2231 /* Promisses.swift in Sources */,
 				273543BD5B5FB022A21F7E4B /* CollectionIdentifier.swift in Sources */,
+				2735462159140E1BBEAC4E4A /* AbstractBannerFactory.swift in Sources */,
+				27354AC4EA3CB633A3944591 /* ProductBannerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

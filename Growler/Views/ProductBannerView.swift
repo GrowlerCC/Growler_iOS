@@ -10,8 +10,6 @@ class ProductBannerView: UIView {
 
     var product: BUYProduct?
 
-    weak var navigationController: UINavigationController?
-
     @IBOutlet weak var image: AsyncImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -34,11 +32,11 @@ class ProductBannerView: UIView {
     }
 
     func didTap(_ sender: UITapGestureRecognizer) {
-        if let product = product, let nav = navigationController {
+        if let product = product {
             let controller = ProductViewController(client: ShopifyController.instance.client)!
             controller.merchantId = MERCHANT_ID
             controller.load(with: product) { success, error in }
-            nav.pushViewController(controller, animated: true)
+            AppDelegate.shared.navigationController.pushViewController(controller, animated: true)
         }
     }
 

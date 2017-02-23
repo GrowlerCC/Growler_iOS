@@ -58,21 +58,21 @@ class HomeViewController: UITableViewController {
             }
             .always {
                 _ in
-                self.items[CarouserIndex.main.rawValue] = CarouselTableCell.create(title: "", itemsPerPage: 1)
+                self.items[CarouserIndex.main.rawValue] = CarouselTableCell.create(title: "", itemsPerPage: 1, bannerFactory: ProductBannerFactory(products: products))
 
-                self.items[CarouserIndex.recommendedForYou.rawValue] = CarouselTableCell.create(title: "Recommended for You", itemsPerPage: 1.5)
+                self.items[CarouserIndex.recommendedForYou.rawValue] = CarouselTableCell.create(title: "Recommended for You", itemsPerPage: 1.5, bannerFactory: ProductBannerFactory(products: products))
 
-                self.items[CarouserIndex.featuredCollections.rawValue] = CarouselTableCell.create(title: "Featured Collections", itemsPerPage: 2.5)
+                self.items[CarouserIndex.featuredCollections.rawValue] = CarouselTableCell.create(title: "Featured Collections", itemsPerPage: 2.5, bannerFactory: ProductBannerFactory(products: products))
 
-                self.items[CarouserIndex.ciceronesChoice.rawValue] = CarouselTableCell.create(title: "Cicerone’s Choice", itemsPerPage: 2.5)
+                self.items[CarouserIndex.ciceronesChoice.rawValue] = CarouselTableCell.create(title: "Cicerone’s Choice", itemsPerPage: 2.5, bannerFactory: ProductBannerFactory(products: products))
 
-                self.items[CarouserIndex.staffsPick.rawValue] = CarouselTableCell.create(title: "Staff’s Pick", itemsPerPage: 2.5)
+                self.items[CarouserIndex.staffsPick.rawValue] = CarouselTableCell.create(title: "Staff’s Pick", itemsPerPage: 2.5, bannerFactory: ProductBannerFactory(products: products))
 
-                self.items[CarouserIndex.shopByCollections.rawValue] = CarouselTableCell.create(title: "Shop By Collections", itemsPerPage: 2.5)
+                self.items[CarouserIndex.shopByCollections.rawValue] = CarouselTableCell.create(title: "Shop By Collections", itemsPerPage: 2.5, bannerFactory: ProductBannerFactory(products: products))
 
-                self.items[CarouserIndex.shopByStyle.rawValue] = CarouselTableCell.create(title: "Shop By Style", itemsPerPage: 2.5)
+                self.items[CarouserIndex.shopByStyle.rawValue] = CarouselTableCell.create(title: "Shop By Style", itemsPerPage: 2.5, bannerFactory: ProductBannerFactory(products: products))
 
-                self.items[CarouserIndex.shopByPrice.rawValue] = CarouselTableCell.create(title: "Shop By Price", itemsPerPage: 2.5)
+                self.items[CarouserIndex.shopByPrice.rawValue] = CarouselTableCell.create(title: "Shop By Price", itemsPerPage: 2.5, bannerFactory: ProductBannerFactory(products: products))
 
                 mq {
                     self.tableView.reloadData()

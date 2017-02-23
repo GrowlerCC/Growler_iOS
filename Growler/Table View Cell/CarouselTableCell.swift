@@ -13,8 +13,14 @@ class CarouselTableCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
 
-    static func create(title: String, itemsPerPage: CGFloat) -> CarouselTableCell {
+    var bannerFactory: AbstractBannerFactory!
+
+    private var carouselIsSetUp: Bool = false
+
+    static func create(title: String, itemsPerPage: CGFloat, bannerFactory: AbstractBannerFactory) -> CarouselTableCell {
         let cell = CarouselTableCell.loadFromNib()
+        
+        cell.bannerFactory = bannerFactory
         
         cell.titleLabel.text = title
         if title.isEmpty {
@@ -26,30 +32,23 @@ class CarouselTableCell: UITableViewCell {
         // so setting resize type here
         // also resizeType should always be set before setting items
         cell.carousel.resizeType = .visibleItemsPerPage(Int(itemsPerPage))
-
         return cell
     }
 
-    private func setupCarousel(_ carousel: SwiftCarousel) {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if !carouselIsSetUp {
+            setupCarousel()
+            carouselIsSetUp = true
+        }
+        carousel.layoutSubviews()
+    }
+
+    private func setupCarousel() {
         carousel.selectByTapEnabled = true
-        let count = 0//min(10, products.count) // limited by 10 items to not exhaust memory
+        let count = min(2, bannerFactory.getBannerCount())
         try! carousel.itemsFactory(itemsCount: count) {
-            index in
-            let view = Utils.loadViewFromNib(nibName: "ProductBannerView", owner: self) as! ProductBannerView
-            //let product = products[index]
-            /*
-            view.product = product
-            view.navigationController = navigationController
-            view.titleLabel.text = product.title
-            view.descriptionLabel.text = product.stringDescription
-            view.costLabel.text = Utils.formatUSD(value: product.minimumPrice)
-            view.deliveryTimeLabel.text = ""
-            view.deliveryCostLabel.text = ""
-            if let image = product.images.firstObject as? BUYImageLink {
-                view.image.loadImage(with: image.sourceURL, completion: nil)
-            }
-            */
-            return view
+            index in self.bannerFactory.getBannerForIndex(index, owner: self)
         }
         carousel.layoutSubviews() // this will update scrollview content size
         // todo? carousel.delegate = self
