@@ -12,9 +12,9 @@ import PromiseKit
 enum CarouserIndex: Int {
     case mostPopular
     case recommendedForYou
-    case ciceronesChoiceBoozyGueuze
     case ciceronesChoice
     case staffsPick
+    case gameDay
     case shopByCollections
     case shopByStyle
     case shopByPrice
@@ -42,6 +42,14 @@ class HomeViewController: UITableViewController {
     }
 
     func createCarouselCells() {
+        _ = getTags(page: 1)
+            .then {
+                tags -> Void in
+                for tag in tags {
+                   print("\(tag)\n")
+                }
+            }
+
         _ = getProducts(fromCollectionWithId: CollectionIdentifier.mostPopular.rawValue, page: 1)
             .then {
                 (products: [BUYProduct]) -> Void in
@@ -53,17 +61,7 @@ class HomeViewController: UITableViewController {
                 mq { self.tableView.reloadData() }
             }
 
-        _ = getProducts(fromCollectionWithId: CollectionIdentifier.ciceronesChoiceBoozyGueuze.rawValue, page: 1)
-            .then {
-                (products: [BUYProduct]) -> Void in
-                self.items[CarouserIndex.ciceronesChoiceBoozyGueuze.rawValue] = CarouselTableCell.create(
-                    title: "Featured Collections",
-                    itemsPerPage: 2.5,
-                    bannerFactory: ProductBannerFactory(products: products)
-                )
-                mq { self.tableView.reloadData() }
-            }
-
+        // featured collections
         _ = getProducts(fromCollectionWithId: CollectionIdentifier.ciceronesChoiceBoozyGueuze.rawValue, page: 1)
             .then {
                 (products: [BUYProduct]) -> Void in
@@ -85,6 +83,18 @@ class HomeViewController: UITableViewController {
                 )
                 mq { self.tableView.reloadData() }
             }
+
+        _ = getProducts(fromCollectionWithId: CollectionIdentifier.gameDay.rawValue, page: 1)
+            .then {
+                (products: [BUYProduct]) -> Void in
+                self.items[CarouserIndex.ciceronesChoiceBoozyGueuze.rawValue] = CarouselTableCell.create(
+                    title: "Featured Collections",
+                    itemsPerPage: 2.5,
+                    bannerFactory: ProductBannerFactory(products: products)
+                )
+                mq { self.tableView.reloadData() }
+            }
+        // end of featured collections
 
         _ = getProductsPage(page: 1)
             .then {
