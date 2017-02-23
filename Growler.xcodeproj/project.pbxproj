@@ -35,9 +35,11 @@
 		273546621A3FBB0F0C42598D /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273546B9025A603186DD233E /* Lato-Hairline.ttf */; };
 		273546ECE12237ED461FE492 /* Aller_LtIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273543E6AB7C01EE659A1B97 /* Aller_LtIt.ttf */; };
 		273546F109C156DC17AE33ED /* Aller_It.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354834DA98485A6AD7DEB9 /* Aller_It.ttf */; };
+		273546FACE992DD8BD7F845C /* CollectionBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273546683DE465DB0BC766E1 /* CollectionBannerCell.swift */; };
 		273546FCDD642A5AAF60141F /* Aller_Lt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273546A29C70124D41D3E605 /* Aller_Lt.ttf */; };
 		27354788EA25B4E34DF8966B /* ProductBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273544280EF5AC9BC915DAEA /* ProductBannerView.swift */; };
 		27354797D77A561F80F1C820 /* Aller_Bd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354AEE54F51A672672BA12 /* Aller_Bd.ttf */; };
+		273547B2814D9B2556926D86 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354D0B6DBD65F59912B402 /* HomeHeaderCell.swift */; };
 		273547CA5A98D002216D720C /* MenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273540C7B6D311FD299C8368 /* MenuItem.xib */; };
 		273547E1A7AC333297BCB35D /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354A7A9281457AAED4CE6B /* UIViewController.swift */; };
 		273548BF8654E4BBE381E36D /* Aller_Rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354AAE8B7DFBBB38F8400D /* Aller_Rg.ttf */; };
@@ -165,6 +167,7 @@
 		273545C68D4A7ECD75039CEF /* ProductListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListCell.swift; sourceTree = "<group>"; };
 		27354615934DAB3FC2F37C25 /* ActivityIndicatorTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorTableCell.swift; sourceTree = "<group>"; };
 		273546349EAC77ADDD4F3D7A /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		273546683DE465DB0BC766E1 /* CollectionBannerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionBannerCell.swift; sourceTree = "<group>"; };
 		2735466D3B4DFDB29F42F403 /* UITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		273546A29C70124D41D3E605 /* Aller_Lt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; name = Aller_Lt.ttf; path = Aller/Aller_Lt.ttf; sourceTree = "<group>"; };
 		273546A4D2717ECFDF3AA763 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -194,6 +197,7 @@
 		27354C867E114FDDC7306A45 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		27354CA07B29DBA2BCEE3F81 /* SwiftCarousel+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftCarousel+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
 		27354CA2FF6C4AB99020D8EE /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
+		27354D0B6DBD65F59912B402 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		27354D56E8ECC4A741C93605 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
 		27354DB4E856B90AE0A6D6F0 /* ConfirmAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmAddressViewController.swift; path = "View Controllers/ConfirmAddressViewController.swift"; sourceTree = "<group>"; };
 		27354E17505632D486F6CA28 /* SwiftCarouselDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCarouselDelegate.swift; sourceTree = "<group>"; };
@@ -432,6 +436,8 @@
 				D95ACBA41E5EE5C100BA4078 /* CarouselTableCell.xib */,
 				D95ACBA71E5EE90B00BA4078 /* ActivityIndicatorTableCell.xib */,
 				27354615934DAB3FC2F37C25 /* ActivityIndicatorTableCell.swift */,
+				273546683DE465DB0BC766E1 /* CollectionBannerCell.swift */,
+				27354D0B6DBD65F59912B402 /* HomeHeaderCell.swift */,
 			);
 			path = "Table View Cell";
 			sourceTree = "<group>";
@@ -909,6 +915,8 @@
 				2735462159140E1BBEAC4E4A /* AbstractBannerFactory.swift in Sources */,
 				27354AC4EA3CB633A3944591 /* ProductBannerFactory.swift in Sources */,
 				27354F950072C32CC6F1961D /* CollectionBannerFactory.swift in Sources */,
+				273546FACE992DD8BD7F845C /* CollectionBannerCell.swift in Sources */,
+				273547B2814D9B2556926D86 /* HomeHeaderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

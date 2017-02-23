@@ -9,9 +9,11 @@ import Buy
 import CoreGraphics
 import PromiseKit
 
+// todo rename to HomePageCellIndex
 enum CarouserIndex: Int {
     case mostPopular
     case recommendedForYou
+    case featuredCollectionsHeader
     case ciceronesChoice
     case staffsPick
     case gameDay
@@ -26,7 +28,17 @@ class HomeViewController: UITableViewController {
     
     @IBOutlet weak var bottomCarousel: SwiftCarousel!
 
-    private var items: [UITableViewCell] = (0...7).map{ _ in ActivityIndicatorTableCell.loadFromNib() }
+    private var items: [UITableViewCell] = [
+        ActivityIndicatorTableCell.loadFromNib(),
+        ActivityIndicatorTableCell.loadFromNib(),
+        HomeHeaderCell.create(title: "Featured Collections"),
+        CollectionBannerCell.create(collectionId: CollectionIdentifier.ciceronesChoiceBoozyGueuze),
+        CollectionBannerCell.create(collectionId: CollectionIdentifier.staffPicks),
+        CollectionBannerCell.create(collectionId: CollectionIdentifier.gameDay),
+        ActivityIndicatorTableCell.loadFromNib(),
+        ActivityIndicatorTableCell.loadFromNib(),
+        ActivityIndicatorTableCell.loadFromNib(),
+    ]
 
     private var contentHeight: CGFloat = 0
 
@@ -87,7 +99,7 @@ class HomeViewController: UITableViewController {
         _ = getProducts(fromCollectionWithId: CollectionIdentifier.gameDay.rawValue, page: 1)
             .then {
                 (products: [BUYProduct]) -> Void in
-                self.items[CarouserIndex.ciceronesChoiceBoozyGueuze.rawValue] = CarouselTableCell.create(
+                self.items[CarouserIndex.ciceronesChoice.rawValue] = CarouselTableCell.create(
                     title: "Featured Collections",
                     itemsPerPage: 2.5,
                     bannerFactory: ProductBannerFactory(products: products)
@@ -143,7 +155,12 @@ class HomeViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.row < 2 ? contentHeight / 2 : contentHeight / 3 // first 2 carousels take 1/2 of screen height, others - 1/3
+        // first 2 carousels take 1/2 of screen height, others - 1/3
+        switch indexPath.row {
+            case 0 ..< CarouserIndex.featuredCollectionsHeader.rawValue: return contentHeight / 2
+            case CarouserIndex.featuredCollectionsHeader.rawValue: return 45
+            default: return contentHeight / 3
+        }
     }
 
 }
