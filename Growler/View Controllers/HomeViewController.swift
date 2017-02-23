@@ -73,41 +73,6 @@ class HomeViewController: UITableViewController {
                 mq { self.tableView.reloadData() }
             }
 
-        // featured collections
-        _ = getProducts(fromCollectionWithId: CollectionIdentifier.ciceronesChoiceBoozyGueuze.rawValue, page: 1)
-            .then {
-                (products: [BUYProduct]) -> Void in
-                self.items[CarouserIndex.ciceronesChoice.rawValue] = CarouselTableCell.create(
-                    title: "Cicerone’s Choice",
-                    itemsPerPage: 2.5,
-                    bannerFactory: ProductBannerFactory(products: products)
-                )
-                mq { self.tableView.reloadData() }
-            }
-
-        _ = getProducts(fromCollectionWithId: CollectionIdentifier.staffPicks.rawValue, page: 1)
-            .then {
-                (products: [BUYProduct]) -> Void in
-                self.items[CarouserIndex.staffsPick.rawValue] = CarouselTableCell.create(
-                    title: "Staff’s Pick",
-                    itemsPerPage: 2.5,
-                    bannerFactory: ProductBannerFactory(products: products)
-                )
-                mq { self.tableView.reloadData() }
-            }
-
-        _ = getProducts(fromCollectionWithId: CollectionIdentifier.gameDay.rawValue, page: 1)
-            .then {
-                (products: [BUYProduct]) -> Void in
-                self.items[CarouserIndex.gameDay.rawValue] = CarouselTableCell.create(
-                    title: "Featured Collections",
-                    itemsPerPage: 2.5,
-                    bannerFactory: ProductBannerFactory(products: products)
-                )
-                mq { self.tableView.reloadData() }
-            }
-        // end of featured collections
-
         _ = getProductsPage(page: 1)
             .then {
                 (products: [BUYProduct]) -> Void in
