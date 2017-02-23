@@ -5,7 +5,8 @@
 
 import Foundation
 import UIKit
-import Buy;
+import Buy
+import CoreGraphics
 
 class HomeViewController: UITableViewController {
 
@@ -13,61 +14,51 @@ class HomeViewController: UITableViewController {
     
     @IBOutlet weak var bottomCarousel: SwiftCarousel!
 
-    private var products: [BUYProduct] = []
+    private var items: [UITableViewCell] = (0...7).map{ _ in ActivityIndicatorTableCell.loadFromNib() }
+
+    private var contentHeight: CGFloat = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        /*
-        
-        // visibleItemsPerPage is the only resize type in which SwiftCarousel doesn't crash when empty
-        // so setting resize type here
-        // also resizeType should always be set before setting items
-        topCarousel.resizeType = .visibleItemsPerPage(1)
-        bottomCarousel.resizeType = .visibleItemsPerPage(2)
-
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        ShopifyController.instance.client.getProductsPage(1) {
-            products, page, reachedEnd, error in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            if let products = products, error == nil {
-                self.products = products
-                if !products.isEmpty {
-                    self.setupCarousel(self.topCarousel)
-                    self.setupCarousel(self.bottomCarousel)
-                }
-            } else {
-                print("Error fetching products: \(error)")
-            }
-        }
-        */
+        tableView.separatorStyle = .none
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.createCarouselCells), userInfo: nil, repeats: false)
     }
 
-    func didTapMenuButton() {
-        AppDelegate.shared.sideMenuViewController.presentLeftMenuViewController()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        contentHeight = Utils.calculateContentHeight(navigationController: navigationController!)
     }
 
-    private func setupCarousel(_ carousel: SwiftCarousel) {
-        carousel.selectByTapEnabled = true
-        let count = min(10, products.count) // limited by 10 items to not exhaust memory
-        try! carousel.itemsFactory(itemsCount: count) {
-            index in
-            let view = Utils.loadViewFromNib(nibName: "ProductBannerView", owner: self) as! ProductBannerView
-            let product = products[index]
-            view.product = product
-            view.navigationController = navigationController
-            view.titleLabel.text = product.title
-            view.descriptionLabel.text = product.stringDescription
-            view.costLabel.text = Utils.formatUSD(value: product.minimumPrice)
-            view.deliveryTimeLabel.text = ""
-            view.deliveryCostLabel.text = ""
-            if let image = product.images.firstObject as? BUYImageLink {
-                view.image.loadImage(with: image.sourceURL, completion: nil)
-            }
-            return view
-        }
-        carousel.layoutSubviews() // this will update scrollview content size
-        // todo? carousel.delegate = self
+    func createCarouselCells() {
+        self.items[0] = CarouselTableCell.create(title: "", itemsPerPage: 1)
+
+        self.items[1] = CarouselTableCell.create(title: "Recommended for You", itemsPerPage: 1.5)
+
+        self.items[2] = CarouselTableCell.create(title: "Featured Collections", itemsPerPage: 2.5)
+
+        self.items[3] = CarouselTableCell.create(title: "Cicerone’s Choice", itemsPerPage: 2.5)
+
+        self.items[4] = CarouselTableCell.create(title: "Staff’s Pick", itemsPerPage: 2.5)
+
+        self.items[5] = CarouselTableCell.create(title: "Shop By Collections", itemsPerPage: 2.5)
+
+        self.items[6] = CarouselTableCell.create(title: "Shop By Style", itemsPerPage: 2.5)
+
+        self.items[7] = CarouselTableCell.create(title: "Shop By Price", itemsPerPage: 2.5)
+
+        tableView.reloadData()
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return items[indexPath.item]
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return indexPath.row < 2 ? contentHeight / 2 : contentHeight / 3 // first 2 carousels take 1/2 of screen height, others - 1/3
     }
 
 }
