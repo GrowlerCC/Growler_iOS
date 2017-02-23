@@ -23,7 +23,7 @@ class DrawerMenuViewController: UIViewController, UITableViewDataSource, UITable
         },
         MenuItem.create(title: "My orders", color: UIColor(0x25313b), image: UIImage(named: "MyOrdersIcon")),
         MenuItem.create(title: "Recommendations", color: UIColor(0x25313b), image: UIImage(named: "RecommendationsIcon")),
-        MenuItem.create(title: "Favorites", color: UIColor(0x25313b), image: UIImage(named: "Favorites")),
+        MenuItem.create(title: "Favorites", color: UIColor(0x25313b), image: UIImage(named: "FavoritesIcon")),
 
         MenuItem.create(title: "", image: nil), // separator
 

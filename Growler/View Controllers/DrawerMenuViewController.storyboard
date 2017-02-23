@@ -23,17 +23,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LOR-RU-gge">
-                                <rect key="frame" x="0.0" y="236" width="375" height="431"/>
+                                <rect key="frame" x="0.0" y="198" width="375" height="469"/>
                                 <color key="backgroundColor" red="0.1764705882" green="0.23529411759999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BRa-d0-tDn" id="Tf3-pb-bt5"/>
                                     <outlet property="delegate" destination="BRa-d0-tDn" id="5zE-dD-fMi"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wj-ML-y0J">
-                                <rect key="frame" x="322" y="28" width="37" height="84"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <state key="normal" title="×">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wj-ML-y0J">
+                                <rect key="frame" x="338" y="28" width="21" height="22"/>
+                                <state key="normal" image="CloseMenuButton">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -41,8 +40,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sB6-Ns-Voe">
-                                <rect key="frame" x="16" y="95" width="297" height="96"/>
-                                <state key="normal" image="Logo"/>
+                                <rect key="frame" x="16" y="95" width="178" height="58"/>
+                                <state key="normal" image="SmallLogo"/>
                                 <connections>
                                     <action selector="didTapLogo:" destination="BRa-d0-tDn" eventType="touchUpInside" id="yFz-5J-OPF"/>
                                 </connections>
@@ -70,6 +69,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="297" height="96"/>
+        <image name="CloseMenuButton" width="21" height="21"/>
+        <image name="SmallLogo" width="178" height="58"/>
     </resources>
 </document>
