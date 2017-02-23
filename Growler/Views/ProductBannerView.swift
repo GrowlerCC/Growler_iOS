@@ -16,10 +16,6 @@ class ProductBannerView: UIView {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    @IBOutlet weak var deliveryCostLabel: UILabel!
-    
-    @IBOutlet weak var deliveryTimeLabel: UILabel!
-    
     @IBOutlet weak var costLabel: UILabel!
 
     private var recognizer: UITapGestureRecognizer!

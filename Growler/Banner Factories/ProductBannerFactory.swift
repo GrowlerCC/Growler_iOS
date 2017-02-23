@@ -25,8 +25,6 @@ class ProductBannerFactory: NSObject, AbstractBannerFactory {
         view.titleLabel.text = product.title
         view.descriptionLabel.text = product.stringDescription
         view.costLabel.text = Utils.formatUSD(value: product.minimumPrice)
-        view.deliveryTimeLabel.text = ""
-        view.deliveryCostLabel.text = ""
         if let image = product.images.firstObject as? BUYImageLink {
             view.image.loadImage(with: image.sourceURL, completion: nil)
         }
