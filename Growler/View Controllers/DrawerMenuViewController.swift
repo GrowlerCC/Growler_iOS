@@ -8,7 +8,7 @@ import UIKit
 
 class DrawerMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    weak var homeController: HomeViewController?
+    var homeController: HomeViewController?
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -16,7 +16,7 @@ class DrawerMenuViewController: UIViewController, UITableViewDataSource, UITable
         MenuItem.create(title: "Profile", image: UIImage(named: "AccountProfileIcon")) {
             navigationController in
             let controller = AccountProfileViewController()
-            navigationController!.pushViewController(controller, animated: true)
+            navigationController!.pushViewController(controller, animated: true) // todo replace controllers instead of pushing (to save memory)
         },
         MenuItem.create(title: "My orders", image: UIImage(named: "MyOrdersIcon")),
         MenuItem.create(title: "Recommendations", image: UIImage(named: "RecommendationsIcon")),
@@ -52,4 +52,10 @@ class DrawerMenuViewController: UIViewController, UITableViewDataSource, UITable
         AppDelegate.shared.sideMenuViewController!.hideViewController()
     }
 
+    @IBAction func didTapLogo(_ sender: Any) {
+        let nav = self.homeController!.navigationController
+        nav!.viewControllers = [homeController!]
+        AppDelegate.shared.sideMenuViewController!.hideViewController()
+    }
+    
 }

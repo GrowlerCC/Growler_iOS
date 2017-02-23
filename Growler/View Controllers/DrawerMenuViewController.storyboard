@@ -30,9 +30,6 @@
                                     <outlet property="delegate" destination="BRa-d0-tDn" id="5zE-dD-fMi"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlackLogo" translatesAutoresizingMaskIntoConstraints="NO" id="0DC-Ox-r2w">
-                                <rect key="frame" x="16" y="95" width="178" height="57"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wj-ML-y0J">
                                 <rect key="frame" x="322" y="28" width="37" height="84"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
@@ -43,17 +40,24 @@
                                     <action selector="didTapCloseButton:" destination="BRa-d0-tDn" eventType="touchUpInside" id="3Nx-Tu-tDj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sB6-Ns-Voe">
+                                <rect key="frame" x="16" y="95" width="178" height="57"/>
+                                <state key="normal" image="BlackLogo"/>
+                                <connections>
+                                    <action selector="didTapLogo:" destination="BRa-d0-tDn" eventType="touchUpInside" id="yFz-5J-OPF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.89411764705882346" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="7R8-IM-vEC" firstAttribute="top" secondItem="LOR-RU-gge" secondAttribute="bottom" constant="8" id="1kL-7B-7DE"/>
-                            <constraint firstItem="LOR-RU-gge" firstAttribute="top" secondItem="0DC-Ox-r2w" secondAttribute="bottom" constant="45" id="21B-od-wEU"/>
-                            <constraint firstItem="0DC-Ox-r2w" firstAttribute="leading" secondItem="MCK-93-bjJ" secondAttribute="leadingMargin" id="7Hg-de-FEF"/>
+                            <constraint firstItem="LOR-RU-gge" firstAttribute="top" secondItem="sB6-Ns-Voe" secondAttribute="bottom" constant="45" id="9zK-I2-YsC"/>
                             <constraint firstItem="LOR-RU-gge" firstAttribute="leading" secondItem="MCK-93-bjJ" secondAttribute="leadingMargin" id="JR9-BT-ZCq"/>
+                            <constraint firstItem="sB6-Ns-Voe" firstAttribute="top" secondItem="3Ef-Hh-dUe" secondAttribute="bottom" constant="75" id="KsE-bN-pah"/>
                             <constraint firstItem="7wj-ML-y0J" firstAttribute="trailing" secondItem="MCK-93-bjJ" secondAttribute="trailingMargin" id="Xqc-lv-38Z"/>
                             <constraint firstItem="LOR-RU-gge" firstAttribute="trailing" secondItem="MCK-93-bjJ" secondAttribute="trailingMargin" id="ayt-Ps-sKJ"/>
                             <constraint firstItem="7wj-ML-y0J" firstAttribute="top" secondItem="3Ef-Hh-dUe" secondAttribute="bottom" constant="8" id="e07-bm-iNU"/>
-                            <constraint firstItem="0DC-Ox-r2w" firstAttribute="top" secondItem="3Ef-Hh-dUe" secondAttribute="bottom" constant="75" id="fa4-ht-iz3"/>
+                            <constraint firstItem="sB6-Ns-Voe" firstAttribute="leading" secondItem="MCK-93-bjJ" secondAttribute="leadingMargin" id="rsb-RF-S1e"/>
                         </constraints>
                     </view>
                     <connections>
