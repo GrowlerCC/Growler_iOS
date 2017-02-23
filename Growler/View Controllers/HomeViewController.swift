@@ -10,7 +10,7 @@ import CoreGraphics
 import PromiseKit
 
 enum CarouserIndex: Int {
-    case main
+    case mostPopular
     case recommendedForYou
     case featuredCollections
     case ciceronesChoice
@@ -58,7 +58,7 @@ class HomeViewController: UITableViewController {
             }
             .always {
                 _ in
-                self.items[CarouserIndex.main.rawValue] = CarouselTableCell.create(title: "", itemsPerPage: 1, bannerFactory: ProductBannerFactory(products: products))
+                self.items[CarouserIndex.mostPopular.rawValue] = CarouselTableCell.create(title: "", itemsPerPage: 1, bannerFactory: ProductBannerFactory(products: products))
 
                 self.items[CarouserIndex.recommendedForYou.rawValue] = CarouselTableCell.create(title: "Recommended for You", itemsPerPage: 1.5, bannerFactory: ProductBannerFactory(products: products))
 
