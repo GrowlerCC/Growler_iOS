@@ -85,4 +85,8 @@ class ShopifyController: NSObject {
         return address
     }
 
+    class func selectRecommendedProducts(from products: [BUYProduct]) -> [BUYProduct] {
+        return products.filter { product in product.identifierValue % 3 == 0 } // todo implement real algorithm
+    }
+
 }

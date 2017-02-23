@@ -12,7 +12,7 @@ import PromiseKit
 enum CarouserIndex: Int {
     case mostPopular
     case recommendedForYou
-    case featuredCollections
+    case ciceronesChoiceBoozyGueuze
     case ciceronesChoice
     case staffsPick
     case shopByCollections
@@ -45,6 +45,50 @@ class HomeViewController: UITableViewController {
         var products: [BUYProduct] = []
         var collections: [BUYCollection] = []
 
+        getProducts(fromCollectionWithId: CollectionIdentifier.mostPopular.rawValue, page: 1)
+            .then {
+                collectionProducts in
+                self.items[CarouserIndex.mostPopular.rawValue] = CarouselTableCell.create(
+                    title: "",
+                    itemsPerPage: 1,
+                    bannerFactory: ProductBannerFactory(products: collectionProducts)
+                )
+                mq { self.tableView.reloadData() }
+            }
+
+        getProducts(fromCollectionWithId: CollectionIdentifier.ciceronesChoiceBoozyGueuze.rawValue, page: 1)
+            .then {
+                collectionProducts in
+                self.items[CarouserIndex.ciceronesChoiceBoozyGueuze.rawValue] = CarouselTableCell.create(
+                    title: "Featured Collections",
+                    itemsPerPage: 2.5,
+                    bannerFactory: ProductBannerFactory(products: products)
+                )
+                mq { self.tableView.reloadData() }
+            }
+
+        getProducts(fromCollectionWithId: CollectionIdentifier.ciceronesChoiceBoozyGueuze.rawValue, page: 1)
+            .then {
+                collectionProducts in
+                self.items[CarouserIndex.ciceronesChoice.rawValue] = CarouselTableCell.create(
+                    title: "Cicerone’s Choice",
+                    itemsPerPage: 2.5,
+                    bannerFactory: ProductBannerFactory(products: products)
+                )
+                mq { self.tableView.reloadData() }
+            }
+
+        getProducts(fromCollectionWithId: CollectionIdentifier.staffPicks.rawValue, page: 1)
+            .then {
+                collectionProducts in
+                self.items[CarouserIndex.staffsPick.rawValue] = CarouselTableCell.create(
+                    title: "Staff’s Pick",
+                    itemsPerPage: 2.5,
+                    bannerFactory: ProductBannerFactory(products: products)
+                )
+                mq { self.tableView.reloadData() }
+            }
+
         getProductsPage(page: 1)
             .then {
                 (list: [BUYProduct]) -> Promise<[BUYCollection]> in
@@ -58,15 +102,12 @@ class HomeViewController: UITableViewController {
             }
             .always {
                 _ in
-                self.items[CarouserIndex.mostPopular.rawValue] = CarouselTableCell.create(title: "", itemsPerPage: 1, bannerFactory: ProductBannerFactory(products: products))
-
-                self.items[CarouserIndex.recommendedForYou.rawValue] = CarouselTableCell.create(title: "Recommended for You", itemsPerPage: 1.5, bannerFactory: ProductBannerFactory(products: products))
-
-                self.items[CarouserIndex.featuredCollections.rawValue] = CarouselTableCell.create(title: "Featured Collections", itemsPerPage: 2.5, bannerFactory: ProductBannerFactory(products: products))
-
-                self.items[CarouserIndex.ciceronesChoice.rawValue] = CarouselTableCell.create(title: "Cicerone’s Choice", itemsPerPage: 2.5, bannerFactory: ProductBannerFactory(products: products))
-
-                self.items[CarouserIndex.staffsPick.rawValue] = CarouselTableCell.create(title: "Staff’s Pick", itemsPerPage: 2.5, bannerFactory: ProductBannerFactory(products: products))
+                let recommendedProducts = ShopifyController.selectRecommendedProducts(from: products)
+                self.items[CarouserIndex.recommendedForYou.rawValue] = CarouselTableCell.create(
+                    title: "Recommended for You",
+                    itemsPerPage: 1.5,
+                    bannerFactory: ProductBannerFactory(products: recommendedProducts)
+                )
 
                 self.items[CarouserIndex.shopByCollections.rawValue] = CarouselTableCell.create(title: "Shop By Collections", itemsPerPage: 2.5, bannerFactory: ProductBannerFactory(products: products))
 
@@ -74,9 +115,7 @@ class HomeViewController: UITableViewController {
 
                 self.items[CarouserIndex.shopByPrice.rawValue] = CarouselTableCell.create(title: "Shop By Price", itemsPerPage: 2.5, bannerFactory: ProductBannerFactory(products: products))
 
-                mq {
-                    self.tableView.reloadData()
-                }
+                mq { self.tableView.reloadData() }
             }
     }
 
