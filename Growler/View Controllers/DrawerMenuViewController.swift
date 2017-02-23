@@ -22,7 +22,7 @@ class DrawerMenuViewController: UIViewController, UITableViewDataSource, UITable
         MenuItem.create(title: "Recommendations", image: UIImage(named: "RecommendationsIcon")),
         MenuItem.create(title: "Favorites", image: UIImage(named: "Favorites")),
         MenuItem.create(title: "", image: nil), // separator
-        MenuItem.create(title: "App settings", image: UIImage(named: "SettingsIcon")),
+//        MenuItem.create(title: "App settings", image: UIImage(named: "SettingsIcon")),
         MenuItem.create(title: "FAQs", image: UIImage(named: "FaqsIcon")),
         MenuItem.create(title: "About", image: UIImage(named: "AboutIcon")),
     ]
