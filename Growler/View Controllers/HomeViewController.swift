@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import Buy;
 
-class HomeViewController: UIViewController, SwiftCarouselDelegate {
+class HomeViewController: UITableViewController {
 
     @IBOutlet weak var topCarousel: SwiftCarousel!
     
@@ -18,6 +18,8 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        /*
+        
         // visibleItemsPerPage is the only resize type in which SwiftCarousel doesn't crash when empty
         // so setting resize type here
         // also resizeType should always be set before setting items
@@ -38,6 +40,7 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
                 print("Error fetching products: \(error)")
             }
         }
+        */
     }
 
     func didTapMenuButton() {
@@ -64,7 +67,7 @@ class HomeViewController: UIViewController, SwiftCarouselDelegate {
             return view
         }
         carousel.layoutSubviews() // this will update scrollview content size
-        carousel.delegate = self
+        // todo? carousel.delegate = self
     }
 
 }
