@@ -16,15 +16,17 @@ class DrawerMenuViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var tableView: UITableView!
     
     var menuItems: [MenuItem] = [
-        MenuItem.create(title: "Profile", image: UIImage(named: "AccountProfileIcon")) {
+        MenuItem.create(title: "Profile", color: UIColor(0x25313b), image: UIImage(named: "AccountProfileIcon")) {
             navigationController in
             let controller = AccountProfileViewController()
             navigationController!.pushViewController(controller, animated: true) // todo replace controllers instead of pushing (to save memory)
         },
-        MenuItem.create(title: "My orders", image: UIImage(named: "MyOrdersIcon")),
-        MenuItem.create(title: "Recommendations", image: UIImage(named: "RecommendationsIcon")),
-        MenuItem.create(title: "Favorites", image: UIImage(named: "Favorites")),
+        MenuItem.create(title: "My orders", color: UIColor(0x25313b), image: UIImage(named: "MyOrdersIcon")),
+        MenuItem.create(title: "Recommendations", color: UIColor(0x25313b), image: UIImage(named: "RecommendationsIcon")),
+        MenuItem.create(title: "Favorites", color: UIColor(0x25313b), image: UIImage(named: "Favorites")),
+
         MenuItem.create(title: "", image: nil), // separator
+
 //        MenuItem.create(title: "App settings", image: UIImage(named: "SettingsIcon")),
         MenuItem.create(title: "FAQs", image: UIImage(named: "FaqsIcon")),
         MenuItem.create(title: "About", image: UIImage(named: "AboutIcon")),

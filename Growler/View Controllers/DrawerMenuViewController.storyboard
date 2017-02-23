@@ -22,9 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LOR-RU-gge">
-                                <rect key="frame" x="16" y="197" width="343" height="462"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LOR-RU-gge">
+                                <rect key="frame" x="0.0" y="236" width="375" height="431"/>
+                                <color key="backgroundColor" red="0.1764705882" green="0.23529411759999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BRa-d0-tDn" id="Tf3-pb-bt5"/>
                                     <outlet property="delegate" destination="BRa-d0-tDn" id="5zE-dD-fMi"/>
@@ -41,21 +41,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sB6-Ns-Voe">
-                                <rect key="frame" x="16" y="95" width="178" height="57"/>
-                                <state key="normal" image="BlackLogo"/>
+                                <rect key="frame" x="16" y="95" width="297" height="96"/>
+                                <state key="normal" image="Logo"/>
                                 <connections>
                                     <action selector="didTapLogo:" destination="BRa-d0-tDn" eventType="touchUpInside" id="yFz-5J-OPF"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.89411764705882346" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.1764705882352941" green="0.23529411764705882" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="7R8-IM-vEC" firstAttribute="top" secondItem="LOR-RU-gge" secondAttribute="bottom" constant="8" id="1kL-7B-7DE"/>
+                            <constraint firstItem="7R8-IM-vEC" firstAttribute="top" secondItem="LOR-RU-gge" secondAttribute="bottom" id="1kL-7B-7DE"/>
                             <constraint firstItem="LOR-RU-gge" firstAttribute="top" secondItem="sB6-Ns-Voe" secondAttribute="bottom" constant="45" id="9zK-I2-YsC"/>
-                            <constraint firstItem="LOR-RU-gge" firstAttribute="leading" secondItem="MCK-93-bjJ" secondAttribute="leadingMargin" id="JR9-BT-ZCq"/>
+                            <constraint firstItem="LOR-RU-gge" firstAttribute="leading" secondItem="MCK-93-bjJ" secondAttribute="leading" id="JR9-BT-ZCq"/>
                             <constraint firstItem="sB6-Ns-Voe" firstAttribute="top" secondItem="3Ef-Hh-dUe" secondAttribute="bottom" constant="75" id="KsE-bN-pah"/>
                             <constraint firstItem="7wj-ML-y0J" firstAttribute="trailing" secondItem="MCK-93-bjJ" secondAttribute="trailingMargin" id="Xqc-lv-38Z"/>
-                            <constraint firstItem="LOR-RU-gge" firstAttribute="trailing" secondItem="MCK-93-bjJ" secondAttribute="trailingMargin" id="ayt-Ps-sKJ"/>
+                            <constraint firstItem="LOR-RU-gge" firstAttribute="trailing" secondItem="MCK-93-bjJ" secondAttribute="trailing" id="ayt-Ps-sKJ"/>
                             <constraint firstItem="7wj-ML-y0J" firstAttribute="top" secondItem="3Ef-Hh-dUe" secondAttribute="bottom" constant="8" id="e07-bm-iNU"/>
                             <constraint firstItem="sB6-Ns-Voe" firstAttribute="leading" secondItem="MCK-93-bjJ" secondAttribute="leadingMargin" id="rsb-RF-S1e"/>
                         </constraints>
@@ -66,10 +66,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IlJ-nF-elp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-842" y="89"/>
+            <point key="canvasLocation" x="-842.39999999999998" y="88.605697151424295"/>
         </scene>
     </scenes>
     <resources>
-        <image name="BlackLogo" width="178" height="57"/>
+        <image name="Logo" width="297" height="96"/>
     </resources>
 </document>
