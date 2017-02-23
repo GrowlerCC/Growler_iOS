@@ -41,7 +41,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHU-qL-bin">
                     <rect key="frame" x="239" y="272" width="28.5" height="17"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="F0Z-Ar-hFN"/>
+                        <constraint firstAttribute="height" constant="17" id="F0Z-Ar-hFN"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
                     <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
@@ -49,6 +49,9 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1000" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksk-iM-Jbx">
                     <rect key="frame" x="15" y="245" width="345" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="CNp-YP-7Cg"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
                     <color key="textColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -67,6 +70,9 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1000" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzJ-ib-yZT">
                     <rect key="frame" x="15" y="215" width="345" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Tnm-Mq-Omk"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
                     <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
