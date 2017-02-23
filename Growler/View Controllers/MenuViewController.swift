@@ -16,6 +16,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     
     var menuItems: [MenuItem] = [
+        // menu items with darker color
         MenuItem.create(title: "Profile", color: UIColor(0x25313b), image: UIImage(named: "AccountProfileIcon")) {
             navigationController in
             let controller = AccountProfileViewController()
@@ -27,6 +28,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         MenuItem.create(title: "", image: nil), // separator
 
+        // menu items with lighter color
 //        MenuItem.create(title: "App settings", image: UIImage(named: "SettingsIcon")),
         MenuItem.create(title: "FAQs", image: UIImage(named: "FaqsIcon")),
         MenuItem.create(title: "About", image: UIImage(named: "AboutIcon")),
@@ -52,7 +54,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return menuItems[indexPath.row]
     }
-    
+
+    func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
+
     @IBAction func didTapCloseButton(_ sender: Any) {
         AppDelegate.shared.sideMenuViewController!.hideViewController()
     }
