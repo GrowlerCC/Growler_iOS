@@ -42,7 +42,7 @@ class HomeViewController: UITableViewController {
     }
 
     func createCarouselCells() {
-        getProducts(fromCollectionWithId: CollectionIdentifier.mostPopular.rawValue, page: 1)
+       _ = getProducts(fromCollectionWithId: CollectionIdentifier.mostPopular.rawValue, page: 1)
             .then {
                 (products: [BUYProduct]) -> Void in
                 self.items[CarouserIndex.mostPopular.rawValue] = CarouselTableCell.create(
@@ -53,7 +53,7 @@ class HomeViewController: UITableViewController {
                 mq { self.tableView.reloadData() }
             }
 
-        getProducts(fromCollectionWithId: CollectionIdentifier.ciceronesChoiceBoozyGueuze.rawValue, page: 1)
+        _ = getProducts(fromCollectionWithId: CollectionIdentifier.ciceronesChoiceBoozyGueuze.rawValue, page: 1)
             .then {
                 (products: [BUYProduct]) -> Void in
                 self.items[CarouserIndex.ciceronesChoiceBoozyGueuze.rawValue] = CarouselTableCell.create(
@@ -64,7 +64,7 @@ class HomeViewController: UITableViewController {
                 mq { self.tableView.reloadData() }
             }
 
-        getProducts(fromCollectionWithId: CollectionIdentifier.ciceronesChoiceBoozyGueuze.rawValue, page: 1)
+        _ = getProducts(fromCollectionWithId: CollectionIdentifier.ciceronesChoiceBoozyGueuze.rawValue, page: 1)
             .then {
                 (products: [BUYProduct]) -> Void in
                 self.items[CarouserIndex.ciceronesChoice.rawValue] = CarouselTableCell.create(
@@ -75,7 +75,7 @@ class HomeViewController: UITableViewController {
                 mq { self.tableView.reloadData() }
             }
 
-        getProducts(fromCollectionWithId: CollectionIdentifier.staffPicks.rawValue, page: 1)
+        _ = getProducts(fromCollectionWithId: CollectionIdentifier.staffPicks.rawValue, page: 1)
             .then {
                 (products: [BUYProduct]) -> Void in
                 self.items[CarouserIndex.staffsPick.rawValue] = CarouselTableCell.create(
@@ -86,7 +86,7 @@ class HomeViewController: UITableViewController {
                 mq { self.tableView.reloadData() }
             }
 
-        getProductsPage(page: 1)
+        _ = getProductsPage(page: 1)
             .then {
                 (products: [BUYProduct]) -> Void in
                 let recommendedProducts = ShopifyController.selectRecommendedProducts(from: products)
