@@ -15,5 +15,9 @@ class SearchViewController: UIViewController {
         keywordField.layer.borderColor = Colors.grayControlBorderColor.cgColor
         keywordField.layer.borderWidth = 1
     }
+    
+    @IBAction func didTapCloseButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 
 }
