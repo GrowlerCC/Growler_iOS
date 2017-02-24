@@ -84,6 +84,8 @@
 - (void) loadProducts {
     if (self.collection) {
         [self getCollectionWithSortOrder:BUYCollectionSortCollectionDefault];
+    } else if (self.tags) {
+        [self getCollectionByTags];
     } else {
         // todo implement loading all pages as user scrolls UITableView
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -161,6 +163,27 @@
             NSLog(@"Error fetching products: %@", error);
         }
     }];
+}
+
+- (void)getCollectionByTags
+{
+    [self.collectionOperation cancel];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+
+    id collectionId = self.collection == nil ? @0 : self.collection.identifier; // cannot pass nil to API, instead empty string should be passed
+
+    self.collectionOperation = [self.client
+            getProductsByTags:self.tags
+                         page:1
+                 completion:^(NSArray * _Nullable products, NSError * _Nullable error) {
+                     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                     if (error == nil && products) {
+                         self.products = products;
+                         [self.tableView reloadData];
+                     } else {
+                         NSLog(@"Error fetching products: %@", error);
+                     }
+                 }];
 }
 
 #pragma mark - Table View

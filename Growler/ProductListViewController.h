@@ -33,6 +33,8 @@
 
 @property NSArray* products;
 
+@property (nonatomic, strong) NSArray *tags;
+
 - (instancetype)initWithClient:(BUYClient *)client collection:(BUYCollection*)collection;
 
 - (void)loadProducts;
