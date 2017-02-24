@@ -7,10 +7,6 @@ import Foundation
 
 class RecommendationListViewController: ProductListViewController {
 
-    private var footer: UIView!
-
-    private var checkoutButton: UIBarButtonItem!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Recommendations"
@@ -23,10 +19,6 @@ class RecommendationListViewController: ProductListViewController {
             self.products = ShopifyController.selectRecommendedProducts(from: products)
             mq { self.tableView.reloadData() }
         }
-    }
-
-    func checkout() {
-        ShopifyController.instance.checkout(navigationController: navigationController!)
     }
 
 }
