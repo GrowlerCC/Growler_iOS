@@ -15,7 +15,12 @@ class SearchViewController: UIViewController {
         keywordField.layer.borderColor = Colors.grayControlBorderColor.cgColor
         keywordField.layer.borderWidth = 1
     }
-    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        keywordField.becomeFirstResponder()
+    }
+
     @IBAction func didTapCloseButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

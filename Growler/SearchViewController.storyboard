@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q4g-ls-Imi">
-                                <rect key="frame" x="38" y="28" width="299" height="33"/>
+                                <rect key="frame" x="38" y="20" width="299" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="U9N-7t-9lc"/>
                                 </constraints>
@@ -36,7 +36,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZD-hc-pEf">
-                                <rect key="frame" x="345" y="33" width="18" height="22"/>
+                                <rect key="frame" x="345" y="25" width="18" height="22"/>
                                 <state key="normal" image="CloseSearchButton"/>
                                 <connections>
                                     <action selector="didTapCloseButton:" destination="MBU-vn-hvj" eventType="touchUpInside" id="r7t-o0-vVd"/>
@@ -48,7 +48,7 @@
                             <constraint firstItem="vZD-hc-pEf" firstAttribute="centerY" secondItem="Q4g-ls-Imi" secondAttribute="centerY" id="WNX-nm-pAg"/>
                             <constraint firstItem="vZD-hc-pEf" firstAttribute="leading" secondItem="Q4g-ls-Imi" secondAttribute="trailing" constant="8" id="WnZ-2a-Tbh"/>
                             <constraint firstAttribute="trailing" secondItem="Q4g-ls-Imi" secondAttribute="trailing" constant="38" id="nbd-ka-0x0"/>
-                            <constraint firstItem="Q4g-ls-Imi" firstAttribute="top" secondItem="uA9-Pp-9e2" secondAttribute="bottom" constant="8" id="uju-Lm-WJa"/>
+                            <constraint firstItem="Q4g-ls-Imi" firstAttribute="top" secondItem="uA9-Pp-9e2" secondAttribute="bottom" id="uju-Lm-WJa"/>
                             <constraint firstItem="Q4g-ls-Imi" firstAttribute="leading" secondItem="JXe-u6-Ncm" secondAttribute="leading" constant="38" id="y6d-t5-bII"/>
                         </constraints>
                     </view>
