@@ -6,14 +6,14 @@
 import Foundation
 import UIKit
 
-class AccountProfileViewController: UITableViewController {
+enum AccountCellIndex: Int {
+    case email
+    case myCreditCards
+    case myAddresses
+    case myRecommendations
+}
 
-    let items = [
-        "Email",
-        "My Credit Cards",
-        "My Addresses",
-        "My Recommendations",
-    ]
+class AccountProfileViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class AccountProfileViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -29,8 +29,37 @@ class AccountProfileViewController: UITableViewController {
         if (cell == nil) {
             cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
         }
-        cell?.textLabel?.text = items[indexPath.row]
+        let title: String
+        switch AccountCellIndex(rawValue: indexPath.row)! {
+            case .email: title = "Email: \(getEmail())"
+            case .myCreditCards: title = "My Credit Cards: \(getMaskedCreditCard())"
+            case .myAddresses: title = "My Address: \(getAddress())"
+            case .myRecommendations: title = "My Recommendations"
+        }
+        cell?.textLabel?.text = title
         return cell!
     }
+
+    func getEmail() -> String {
+        return "test@example.com"
+    }
+
+    func getMaskedCreditCard() -> String {
+        return "****************"
+    }
+
+    func getAddress() -> String {
+        return "Berlin Tirpark Hotel"
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch AccountCellIndex(rawValue: indexPath.row)! {
+            case .email: break
+            case .myCreditCards: break
+            case .myAddresses: break
+            case .myRecommendations: break
+        }
+    }
+
 
 }
