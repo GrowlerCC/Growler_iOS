@@ -8,8 +8,6 @@ import UIKit
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var homeController: HomeViewController? // todo move to appdelegate? or to new class AppController?
-
     // todo store link to navigation controller here or retrieve it from app.
     // todo store all view controllers which can be reused instead of recreating them. they can be store in menu object or in AppDelegate/AppController
 
@@ -72,8 +70,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     @IBAction func didTapLogo(_ sender: Any) {
-        let nav = self.homeController!.navigationController
-        nav!.viewControllers = [homeController!]
+        let homeController = AppDelegate.shared.homeViewController
+        AppDelegate.shared.navigationController.viewControllers = [homeController!]
         AppDelegate.shared.sideMenuViewController!.hideViewController()
     }
     

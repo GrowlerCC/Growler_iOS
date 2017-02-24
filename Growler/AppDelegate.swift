@@ -10,6 +10,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     public var sideMenuViewController: RESideMenu!
 
+    public var homeViewController: HomeViewController! // recreating it every time is expensive, so we store it here
+
     private var drawerMenuController: MenuViewController!
 
     private(set) var navigationController: UINavigationController!
@@ -32,9 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController.toolbar.tintColor = UIColor.white
 
         drawerMenuController = MenuViewController.loadFromStoryboard()
-        let homeViewController = navigationController.viewControllers.first as? HomeViewController
-        drawerMenuController.homeController = homeViewController
-
+        homeViewController = navigationController.viewControllers.first as? HomeViewController
+        
         navigationControllerDelegate = NavigationControllerDelegate()
         navigationController.delegate = navigationControllerDelegate
 
