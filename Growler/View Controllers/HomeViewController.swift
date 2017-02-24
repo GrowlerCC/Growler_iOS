@@ -80,19 +80,19 @@ class HomeViewController: UITableViewController {
                 let recommendedProducts = ShopifyController.selectRecommendedProducts(from: products)
                 self.items[CarouserIndex.recommendedForYou.rawValue] = CarouselTableCell.create(
                     title: "Recommended for You",
-                    itemsPerPage: 1.5,
+                    itemsPerPage: 2,
                     bannerFactory: ProductBannerFactory(products: recommendedProducts)
                 )
 
                 self.items[CarouserIndex.shopByStyle.rawValue] = CarouselTableCell.create(
                     title: "Shop By Style",
-                    itemsPerPage: 2.5,
+                    itemsPerPage: 3,
                     bannerFactory: ProductBannerFactory(products: products)
                 )
 
                 self.items[CarouserIndex.shopByPrice.rawValue] = CarouselTableCell.create(
                     title: "Shop By Price",
-                    itemsPerPage: 2.5,
+                    itemsPerPage: 3,
                     bannerFactory: ProductBannerFactory(products: products)
                 )
 
@@ -105,7 +105,7 @@ class HomeViewController: UITableViewController {
                 collections in
                 self.items[CarouserIndex.shopByCollections.rawValue] = CarouselTableCell.create(
                     title: "Shop By Collections",
-                    itemsPerPage: 2.5,
+                    itemsPerPage: 3,
                     bannerFactory: CollectionBannerFactory(collections: collections)
                 )
 
