@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="pW7-zc-lbd" customClass="PriceBanner" customModule="Growler" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="495" height="290"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" image="NoImageAvailable" translatesAutoresizingMaskIntoConstraints="NO" id="gdD-g0-XwR" customClass="AsyncImageView">
+                    <rect key="frame" x="0.0" y="0.0" width="495" height="290"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text=" Description" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ie0-1m-gTc">
+                    <rect key="frame" x="0.0" y="129.5" width="495" height="38.5"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="32"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTd-kT-bR2">
+                    <rect key="frame" x="231" y="128.5" width="32" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Bjh-hl-ndL"/>
+                        <constraint firstAttribute="width" constant="32" id="v0t-Lu-ewy"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Under" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zy-vS-3KB">
+                    <rect key="frame" x="0.0" y="107.5" width="495" height="21"/>
+                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+            <constraints>
+                <constraint firstItem="tTd-kT-bR2" firstAttribute="centerY" secondItem="pW7-zc-lbd" secondAttribute="centerY" constant="-16" id="3lk-JK-yoH"/>
+                <constraint firstAttribute="bottom" secondItem="gdD-g0-XwR" secondAttribute="bottom" id="9ca-h0-VFk"/>
+                <constraint firstAttribute="trailing" secondItem="0zy-vS-3KB" secondAttribute="trailing" id="BZe-dH-I4H"/>
+                <constraint firstItem="tTd-kT-bR2" firstAttribute="top" secondItem="0zy-vS-3KB" secondAttribute="bottom" id="GsW-cB-4Sq"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ie0-1m-gTc" secondAttribute="bottom" constant="10" id="Iyn-Tg-3Zv"/>
+                <constraint firstItem="gdD-g0-XwR" firstAttribute="top" secondItem="pW7-zc-lbd" secondAttribute="top" id="Kem-g1-i6p"/>
+                <constraint firstItem="ie0-1m-gTc" firstAttribute="top" secondItem="tTd-kT-bR2" secondAttribute="bottom" id="PAz-ns-Doh"/>
+                <constraint firstItem="ie0-1m-gTc" firstAttribute="leading" secondItem="pW7-zc-lbd" secondAttribute="leading" id="R6l-UK-Gq0"/>
+                <constraint firstAttribute="trailing" secondItem="ie0-1m-gTc" secondAttribute="trailing" id="fcu-nc-tbe"/>
+                <constraint firstItem="0zy-vS-3KB" firstAttribute="leading" secondItem="pW7-zc-lbd" secondAttribute="leading" id="jgR-7w-YUE"/>
+                <constraint firstItem="gdD-g0-XwR" firstAttribute="leading" secondItem="pW7-zc-lbd" secondAttribute="leading" id="oMH-OQ-zlz"/>
+                <constraint firstItem="tTd-kT-bR2" firstAttribute="centerX" secondItem="pW7-zc-lbd" secondAttribute="centerX" id="omP-1i-qAR"/>
+                <constraint firstItem="0zy-vS-3KB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pW7-zc-lbd" secondAttribute="top" id="vbO-JX-Mxn"/>
+                <constraint firstAttribute="trailing" secondItem="gdD-g0-XwR" secondAttribute="trailing" id="ygs-MC-KFq"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="picture" destination="gdD-g0-XwR" id="ity-xA-xnM"/>
+                <outlet property="priceLabel" destination="ie0-1m-gTc" id="OFF-RR-V2z"/>
+            </connections>
+            <point key="canvasLocation" x="-415.5" y="25"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="NoImageAvailable" width="1280" height="960"/>
+    </resources>
+</document>

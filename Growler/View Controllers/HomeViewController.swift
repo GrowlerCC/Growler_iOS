@@ -37,7 +37,7 @@ class HomeViewController: UITableViewController {
         CollectionBannerCell.create(collectionId: CollectionIdentifier.gameDay),
         ActivityIndicatorTableCell.loadFromNib(),
         ActivityIndicatorTableCell.loadFromNib(),
-        ActivityIndicatorTableCell.loadFromNib(),
+        CarouselTableCell.create(title: "Shop By Price", itemsPerPage: 3, bannerFactory: PriceBannerFactory()),
     ]
 
     private var contentHeight: CGFloat = 0
@@ -55,14 +55,6 @@ class HomeViewController: UITableViewController {
     }
 
     func createCarouselCells() {
-        _ = getTags(page: 1)
-            .then {
-                tags -> Void in
-                for tag in tags {
-                   print("\(tag)\n")
-                }
-            }
-
         _ = getProducts(fromCollectionWithId: CollectionIdentifier.mostPopular.rawValue, page: 1)
             .then {
                 (products: [BUYProduct]) -> Void in
@@ -83,32 +75,30 @@ class HomeViewController: UITableViewController {
                     itemsPerPage: 2,
                     bannerFactory: ProductBannerFactory(products: recommendedProducts)
                 )
-
-                self.items[CarouserIndex.shopByStyle.rawValue] = CarouselTableCell.create(
-                    title: "Shop By Style",
-                    itemsPerPage: 3,
-                    bannerFactory: ProductBannerFactory(products: products)
-                )
-
-                self.items[CarouserIndex.shopByPrice.rawValue] = CarouselTableCell.create(
-                    title: "Shop By Price",
-                    itemsPerPage: 3,
-                    bannerFactory: ProductBannerFactory(products: products)
-                )
-
                 mq { self.tableView.reloadData() }
             }
 
 
-        getCollectionsPage(page: 1)
+        _ = getCollectionsPage(page: 1)
             .then {
-                collections in
+                (collections: [BUYCollection]) -> Void in
                 self.items[CarouserIndex.shopByCollections.rawValue] = CarouselTableCell.create(
                     title: "Shop By Collections",
                     itemsPerPage: 3,
                     bannerFactory: CollectionBannerFactory(collections: collections)
                 )
+                mq { self.tableView.reloadData() }
+            }
 
+        _ = getTags(page: 1)
+            .then {
+                (tags: [String]) -> Void in
+                self.items[CarouserIndex.shopByStyle.rawValue] = CarouselTableCell.create(
+                    title: "Shop By Style",
+                    itemsPerPage: 3,
+                    bannerFactory: TagBannerFactory(tags: tags)
+                )
+                mq { self.tableView.reloadData() }
             }
     }
 
