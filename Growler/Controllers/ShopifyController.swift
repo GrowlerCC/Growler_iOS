@@ -19,7 +19,7 @@ class ShopifyController: NSObject {
 
     public var favoriteProductIds: PersistentIdSet!
 
-    private var cartProductIds: PersistentIdSet!
+    public var cartProductIds: PersistentIdSet!
 
     override init() {
         client = BUYClient(shopDomain:SHOP_DOMAIN, apiKey: API_KEY, appId: APP_ID)

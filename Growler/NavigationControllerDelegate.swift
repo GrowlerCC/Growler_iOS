@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
+class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, Notifiable {
 
     var toolbarItems: [UIBarButtonItem]!
 
@@ -15,6 +15,10 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
     private var searchButton: UIBarButtonItem!
 
     private var slidingMenuGestureRecognizer: UIScreenEdgePanGestureRecognizer!
+    
+    private var cartItemCount: UIBarButtonItem!
+    
+    private var cartTotalAmount: UIBarButtonItem!
 
     override init() {
         super.init()
@@ -22,9 +26,9 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
         slidingMenuGestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(self.didPanScreenEdge))
         slidingMenuGestureRecognizer.edges = .left
 
-        let cartItemCount = UIBarButtonItem(title: "0", style: .plain, target: nil, action: nil)
+        cartItemCount = UIBarButtonItem(title: "0", style: .plain, target: nil, action: nil)
         let cartButton = UIBarButtonItem(title: "View Cart", style: .plain, target: self, action: #selector(self.viewCart))
-        let cartTotalAmount = UIBarButtonItem(title: "$0", style: .plain, target: nil, action: nil)
+        cartTotalAmount = UIBarButtonItem(title: "$0", style: .plain, target: nil, action: nil)
 
         toolbarItems = [
             cartItemCount,
@@ -39,6 +43,14 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
 
         let searchButtonImage = UIImage(named: "SearchButton")?.withRenderingMode(.alwaysOriginal)
         searchButton = UIBarButtonItem(image: searchButtonImage, style: .plain, target: self, action: #selector(self.didTapSearchButton))
+
+        reloadCartStatus()
+
+        subscribeTo(Notification.Name.cartChanged, selector: #selector(self.cartChanged))
+    }
+
+    deinit {
+        unsubscribeFromNotifications()
     }
 
     var navigationController: UINavigationController!
@@ -74,8 +86,20 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
         navigationController!.pushViewController(controller, animated: true)
     }
     
-    // @Notification(.didChangeCart)
-    func didChangeCart() {
+    func cartChanged() {
+        reloadCartStatus()
+    }
+
+    func reloadCartStatus() {
+        let ids = ShopifyController.instance.cartProductIds.getAll()
+        _ = getProductsByIds(ids).then {
+            products -> Void in
+            self.cartItemCount.title = String(products.count)
+            let totalAmount = products.reduce(NSDecimalNumber(integerLiteral: 0)) {
+                total, product in total.adding(product.minimumPrice)
+            }
+            self.cartTotalAmount.title = Utils.formatUSD(value: totalAmount)
+        }
     }
     
     func didTapProfileButton() {
