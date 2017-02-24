@@ -46,6 +46,7 @@
 #import "ActionableFooterView.h"
 #import "ShippingRatesTableViewController.h"
 #import "Growler-Swift.h"
+#import "Credentials.h"
 
 CGFloat const BUYMaxProductViewWidth = 414.0; // We max out to the width of the iPhone 6+
 CGFloat const BUYMaxProductViewHeight = 640.0;
