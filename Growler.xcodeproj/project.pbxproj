@@ -121,7 +121,6 @@
 		84BA52EE1CB2E83C00AB1560 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BA52ED1CB2E83C00AB1560 /* NavigationController.m */; };
 		902C9B8F1BB0729F00FC456E /* ShippingRateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 902C9B8E1BB0729F00FC456E /* ShippingRateTableViewCell.m */; };
 		902C9B921BB08FF500FC456E /* SummaryItemsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 902C9B911BB08FF500FC456E /* SummaryItemsTableViewCell.m */; };
-		9079F5F41BB1AAA100CB1B35 /* CollectionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079F5F31BB1AAA100CB1B35 /* CollectionListViewController.m */; };
 		90A6F42D1BA8BCAC003E7C4F /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A6F42C1BA8BCAC003E7C4F /* PassKit.framework */; };
 		9A0B0C871CEC8F370037D68F /* PaymentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B0C861CEC8F370037D68F /* PaymentButton.m */; };
 		B2C560C21CEE39180015AA40 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C560C11CEE39180015AA40 /* UIColor+Additions.m */; };
@@ -325,8 +324,6 @@
 		902C9B8E1BB0729F00FC456E /* ShippingRateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShippingRateTableViewCell.m; sourceTree = "<group>"; };
 		902C9B901BB08FF500FC456E /* SummaryItemsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryItemsTableViewCell.h; sourceTree = "<group>"; };
 		902C9B911BB08FF500FC456E /* SummaryItemsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryItemsTableViewCell.m; sourceTree = "<group>"; };
-		9079F5F21BB1AAA100CB1B35 /* CollectionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionListViewController.h; sourceTree = "<group>"; };
-		9079F5F31BB1AAA100CB1B35 /* CollectionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionListViewController.m; sourceTree = "<group>"; };
 		90A6F42C1BA8BCAC003E7C4F /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		9A0B0C851CEC8F370037D68F /* PaymentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentButton.h; sourceTree = "<group>"; };
 		9A0B0C861CEC8F370037D68F /* PaymentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentButton.m; sourceTree = "<group>"; };
@@ -727,8 +724,6 @@
 				D91B37E71E59EA4C00A5B5A5 /* ConfirmAddressViewController.storyboard */,
 				27354DB4E856B90AE0A6D6F0 /* ConfirmAddressViewController.swift */,
 				27354F3FE07E2F2591BF5EFF /* AccountProfileViewController.swift */,
-				9079F5F21BB1AAA100CB1B35 /* CollectionListViewController.h */,
-				9079F5F31BB1AAA100CB1B35 /* CollectionListViewController.m */,
 				273544C315EDAB7FEFEED3E8 /* MenuViewController.storyboard */,
 				273547E48016C5BE03F59076 /* MenuViewController.swift */,
 				BE8B82551B8CF49D00E3F871 /* ProductListViewController.h */,
@@ -946,7 +941,6 @@
 				847612961CAB059100AB17AA /* ImageKit.m in Sources */,
 				847612A21CAB05BE00AB17AA /* UIImage+Additions.m in Sources */,
 				847612771CAB047600AB17AA /* ProductView.m in Sources */,
-				9079F5F41BB1AAA100CB1B35 /* CollectionListViewController.m in Sources */,
 				BE8B82541B8CF49D00E3F871 /* AppDelegate.swift in Sources */,
 				842799661CB31498003AD0CE /* PaymentViewController.m in Sources */,
 				847612671CAB047600AB17AA /* DisclosureIndicatorView.m in Sources */,
