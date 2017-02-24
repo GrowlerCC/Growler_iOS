@@ -22,7 +22,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             AppDelegate.shared.navigationController.viewControllers = [MyOrdersViewController()]
         },
         MenuItem.create(title: "Recommendations", color: UIColor(0x25313b), image: UIImage(named: "RecommendationsIcon")) {
-            AppDelegate.shared.navigationController.viewControllers = [RecommendationListViewController()]
+            AppDelegate.shared.navigationController.viewControllers = [RecommendationListViewController(client: ShopifyController.instance.client, collection: nil)]
         },
         MenuItem.create(title: "Favorites", color: UIColor(0x25313b), image: UIImage(named: "FavoritesIcon")) {
             AppDelegate.shared.navigationController.viewControllers = [FavoriteListViewController(client: ShopifyController.instance.client, collection: nil)]
