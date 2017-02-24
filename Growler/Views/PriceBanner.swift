@@ -29,8 +29,14 @@ class PriceBanner: UIView {
     }
 
     func didTap(_ sender: UITapGestureRecognizer) {
-//        let controller = ProductListViewController(client: ShopifyController.instance.client, collection: collection)!
-//        AppDelegate.shared.navigationController.pushViewController(controller, animated: true)
+        let controller = ProductListViewController(client: ShopifyController.instance.client, collection: nil)!
+        if let start = priceRange.startPrice {
+            controller.minPrice = NSDecimalNumber(integerLiteral: start)
+        }
+        if let end = priceRange.endPrice {
+            controller.maxPrice = NSDecimalNumber(integerLiteral: end)
+        }
+        AppDelegate.shared.navigationController.pushViewController(controller, animated: true)
     }
 
 }

@@ -35,6 +35,10 @@
 
 @property (nonatomic, strong) NSArray *tags;
 
+@property (nonatomic, strong) NSDecimalNumber * _Nullable minPrice;
+
+@property (nonatomic, strong) NSDecimalNumber * _Nullable maxPrice;
+
 - (instancetype)initWithClient:(BUYClient *)client collection:(BUYCollection*)collection;
 
 - (void)loadProducts;

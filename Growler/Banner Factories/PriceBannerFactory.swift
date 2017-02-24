@@ -10,7 +10,7 @@ class PriceBannerFactory: AbstractBannerFactory {
     let priceRanges: [PriceRange] = [
         PriceRange(startPrice: nil, endPrice: 10, title: "$10"),
         PriceRange(startPrice: 10, endPrice: 20, title: "$10-$20"),
-        PriceRange(startPrice: 20, endPrice: 30, title: "$30"),
+        PriceRange(startPrice: nil, endPrice: 30, title: "$30"),
     ]
 
     func getBannerCount() -> Int {

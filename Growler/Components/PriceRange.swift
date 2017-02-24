@@ -7,9 +7,9 @@ import Foundation
 
 class PriceRange {
 
-    var startPrice: Int?
+    var startPrice: Int? // todo rename to minPrice
 
-    var endPrice: Int?
+    var endPrice: Int? // todo rename to maxPrice
 
     var title: String
 

@@ -92,13 +92,35 @@
         [self.client getProductsPage:1 completion:^(NSArray *products, NSUInteger page, BOOL reachedEnd, NSError *error) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             if (error == nil && products) {
-                self.products = products;
+                self.products = [self filterProducts:products];
                 [self.tableView reloadData];
             } else {
                 NSLog(@"Error fetching products: %@", error);
             }
         }];
     }
+}
+
+- (NSArray *)filterProducts:(NSArray *)products {
+    if (self.minPrice == nil && self.maxPrice == nil) {
+        return products;
+    }
+    NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:products.count];
+    for (NSUInteger i = 0; i < products.count; i++) {
+        BUYProduct *product = products[i];
+        NSDecimalNumber *price = product.minimumPrice;
+        if (price == nil) {
+            continue;
+        }
+        if (self.minPrice != nil && [price compare:self.minPrice] < 0) {
+            continue;
+        }
+        if (self.maxPrice != nil && [price compare:self.maxPrice] > 0) {
+            continue;
+        }
+        [result addObject:product];
+    }
+    return result;
 }
 
 - (void)dealloc
@@ -156,7 +178,7 @@
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         if (error == nil && products) {
-            self.products = products;
+            self.products = [self filterProducts:products];
             [self.tableView reloadData];
         }
         else {
@@ -178,7 +200,7 @@
                  completion:^(NSArray * _Nullable products, NSError * _Nullable error) {
                      [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                      if (error == nil && products) {
-                         self.products = products;
+                         self.products = [self filterProducts:products];
                          [self.tableView reloadData];
                      } else {
                          NSLog(@"Error fetching products: %@", error);
