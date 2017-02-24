@@ -122,6 +122,7 @@
 		BE948D4D1B95087A009AB20B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE948D4C1B95087A009AB20B /* Images.xcassets */; };
 		C1007F599F5C3D4D1CE62BFE /* Pods_Growler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE84DE96E82A8FB1AC28658 /* Pods_Growler.framework */; };
 		D911CD901E5FB47F00EA5DD1 /* CollectionBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D911CD8F1E5FB47F00EA5DD1 /* CollectionBannerCell.xib */; };
+		D911CD941E6036A100EA5DD1 /* AboutViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D911CD931E6036A100EA5DD1 /* AboutViewController.storyboard */; };
 		D9178E1B1E5620E2002FA829 /* Buy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9178E1A1E5620E2002FA829 /* Buy.framework */; };
 		D91B37E81E59EA4C00A5B5A5 /* ConfirmAddressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D91B37E71E59EA4C00A5B5A5 /* ConfirmAddressViewController.storyboard */; };
 		D91B37EC1E5A542D00A5B5A5 /* ProductBannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91B37EB1E5A542D00A5B5A5 /* ProductBannerView.xib */; };
@@ -322,6 +323,7 @@
 		BE8B82991B8E72CC00E3F871 /* CheckoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckoutViewController.m; sourceTree = "<group>"; };
 		BE948D4C1B95087A009AB20B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D911CD8F1E5FB47F00EA5DD1 /* CollectionBannerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionBannerCell.xib; sourceTree = "<group>"; };
+		D911CD931E6036A100EA5DD1 /* AboutViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AboutViewController.storyboard; path = "View Controllers/AboutViewController.storyboard"; sourceTree = "<group>"; };
 		D9178E1A1E5620E2002FA829 /* Buy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Buy.framework; path = "../../Users/Sash/Library/Developer/Xcode/DerivedData/Mobile_Buy_SDK-dnyvblfcrcpjwzesrfmtajoaedfb/Build/Products/Debug-universal/Buy.framework"; sourceTree = "<group>"; };
 		D91B37E71E59EA4C00A5B5A5 /* ConfirmAddressViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ConfirmAddressViewController.storyboard; path = "View Controllers/ConfirmAddressViewController.storyboard"; sourceTree = "<group>"; };
 		D91B37EB1E5A542D00A5B5A5 /* ProductBannerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductBannerView.xib; sourceTree = "<group>"; };
@@ -675,6 +677,7 @@
 				273542A9FD01576C756A27E9 /* AbstractProductListViewController.swift */,
 				273542A18C5A99AA5B360DC2 /* FavoriteListViewController.swift */,
 				27354B6BCCBC005346670354 /* FaqViewController.swift */,
+				D911CD931E6036A100EA5DD1 /* AboutViewController.storyboard */,
 				27354085FB6B9C3045EC2AE3 /* AboutViewController.swift */,
 				273545AA98315DCB30A0A459 /* MyOrdersViewController.swift */,
 				273547785F455240EC5351DA /* HomeViewController.swift */,
@@ -796,6 +799,7 @@
 				273541D7AB2D79DA5F76FF14 /* Lato-HairlineItalic.ttf in Resources */,
 				273543978C99E4C1CD933CA9 /* Lato-SemiboldItalic.ttf in Resources */,
 				D91B37EE1E5A6B0100A5B5A5 /* ProductListCell.xib in Resources */,
+				D911CD941E6036A100EA5DD1 /* AboutViewController.storyboard in Resources */,
 				273546FCDD642A5AAF60141F /* Aller_Lt.ttf in Resources */,
 				D95ACBA51E5EE5C100BA4078 /* CarouselTableCell.xib in Resources */,
 				273546F109C156DC17AE33ED /* Aller_It.ttf in Resources */,

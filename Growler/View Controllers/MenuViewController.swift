@@ -38,7 +38,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             AppDelegate.shared.navigationController.viewControllers = [FaqViewController()]
         },
         MenuItem.create(title: "About", image: UIImage(named: "AboutIcon")) {
-            AppDelegate.shared.navigationController.viewControllers = [AboutViewController()]
+            AppDelegate.shared.navigationController.viewControllers = [AboutViewController.loadFromStoryboard()]
         },
     ]
 
