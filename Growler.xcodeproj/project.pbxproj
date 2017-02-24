@@ -55,6 +55,7 @@
 		27354926AED8F8096CE69BBC /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354CA2FF6C4AB99020D8EE /* NavigationControllerDelegate.swift */; };
 		2735492C7E40D1279D1C5056 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 273544C315EDAB7FEFEED3E8 /* MenuViewController.storyboard */; };
 		2735492D22C36B6EBE538630 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547785F455240EC5351DA /* HomeViewController.swift */; };
+		2735494CE26EC6E7FCD268B1 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354F693B986B178E1E15A9 /* FavoritesController.swift */; };
 		27354963DFAB0957A1A63225 /* FaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354B6BCCBC005346670354 /* FaqViewController.swift */; };
 		2735497A6C31F85B0B047AA6 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2735427F6AB2A06821861055 /* Lato-Medium.ttf */; };
 		273549ADF18D0DD122588B63 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735434B4379A1BDE9D9FF3C /* Colors.swift */; };
@@ -248,6 +249,7 @@
 		27354F115349B2087E426AAA /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		27354F3FE07E2F2591BF5EFF /* AccountProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountProfileViewController.swift; path = "View Controllers/AccountProfileViewController.swift"; sourceTree = "<group>"; };
 		27354F62BEEA547CBB474E47 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		27354F693B986B178E1E15A9 /* FavoritesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
 		27354FCF88B85937F09ED48D /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		2AE84DE96E82A8FB1AC28658 /* Pods_Growler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Growler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5491CB13BE24F1150D1EC99D /* Pods-Growler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Growler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Growler/Pods-Growler.release.xcconfig"; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 			isa = PBXGroup;
 			children = (
 				27354E8CEF38601B1FCB9EAC /* ShopifyController.swift */,
+				27354F693B986B178E1E15A9 /* FavoritesController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -997,6 +1000,7 @@
 				27354F3935F8568436E24834 /* PriceBannerFactory.swift in Sources */,
 				27354156C382264691495A26 /* TagBannerFactory.swift in Sources */,
 				27354AE2AFC12C86D8F63609 /* PriceRange.swift in Sources */,
+				2735494CE26EC6E7FCD268B1 /* FavoritesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

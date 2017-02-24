@@ -25,7 +25,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             AppDelegate.shared.navigationController.viewControllers = [RecommendationListViewController()]
         },
         MenuItem.create(title: "Favorites", color: UIColor(0x25313b), image: UIImage(named: "FavoritesIcon")) {
-            AppDelegate.shared.navigationController.viewControllers = [FavoriteListViewController()]
+            AppDelegate.shared.navigationController.viewControllers = [FavoriteListViewController(client: ShopifyController.instance.client, collection: nil)]
         },
 
         MenuItem.create(title: "", image: nil), // separator

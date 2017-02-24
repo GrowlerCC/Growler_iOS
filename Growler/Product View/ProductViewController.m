@@ -50,6 +50,9 @@
 CGFloat const BUYMaxProductViewWidth = 414.0; // We max out to the width of the iPhone 6+
 CGFloat const BUYMaxProductViewHeight = 640.0;
 
+static NSString *const EMPTY_HEART_CHARACTER = @"♡";
+static NSString *const FILLED_HEART_CHARACTER = @"♥";
+
 @interface ProductViewController (Private)
 
 @property (nonatomic, strong) BUYWebCheckoutPaymentProvider *webPaymentProvider;
@@ -85,6 +88,7 @@ CGFloat const BUYMaxProductViewHeight = 640.0;
 @end
 
 @implementation ProductViewController {
+    UIBarButtonItem *favoriteButton;
 }
 
 - (instancetype)initWithClient:(BUYClient *)client
@@ -155,6 +159,28 @@ CGFloat const BUYMaxProductViewHeight = 640.0;
 	[super viewWillAppear:animated];
 	[self setupNavigationBarAppearance];
 	[self.navigationController setNavigationBarHidden:(self.presentingViewController && self.isLoading)];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+    favoriteButton = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                      style:UIBarButtonItemStylePlain
+                                                     target:self
+                                                     action:@selector(didTapFavoriteButton)
+    ];
+    [self updateFavoriteButton];
+    self.navigationItem.rightBarButtonItem = favoriteButton;
+}
+
+- (void)didTapFavoriteButton
+{
+    [FavoritesController toggleFavoriteWithProductId:self.product.identifierValue];
+    [self updateFavoriteButton];
+}
+
+- (void)updateFavoriteButton
+{
+    favoriteButton.title = [FavoritesController isFavoriteProductWithProductId:self.product.identifierValue] ? FILLED_HEART_CHARACTER : EMPTY_HEART_CHARACTER;
 }
 
 - (void)viewDidLayoutSubviews

@@ -5,5 +5,21 @@
 
 import Foundation
 
-class FavoriteListViewController: AbstractProductListViewController {
+class FavoriteListViewController: ProductListViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Favorites"
+    }
+
+    override func loadProducts() {
+        // important: don't call super! we don't want to show all products, but only ones in the cart
+        _ = getProductsPage(page: 1).then {
+            products -> Void in
+            let favoriteIds = FavoritesController.getFavoriteIds()
+            self.products = products.filter{ favoriteIds.contains($0.identifierValue) }
+            mq { self.tableView.reloadData() }
+        }
+    }
+
 }

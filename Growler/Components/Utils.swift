@@ -38,6 +38,15 @@ class Utils: NSObject {
         return screenHeight - statusBarHeight - navigationBarHeight - toolbarHeight
     }
 
+    class func identifiersToString(_ ids: Set<Int64>) -> String {
+        return ids.map{ String($0) }.joined(separator: ",")
+    }
+
+    class func stringToIdentifiers(_ string: String) -> Set<Int64> {
+        let ids = string._split(separator: ",").map { Int64($0) ?? 0 }
+        return Set<Int64>(ids)
+    }
+
 }
 
 
