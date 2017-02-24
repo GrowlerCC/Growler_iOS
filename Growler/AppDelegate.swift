@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ShopifyController.instance.client.collectionPageSize = 250
         ShopifyController.instance.client.productTagPageSize = 250
 
+        UINavigationBar.appearance().tintColor = UIColor.black
+
         navigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNavigationController") as! UINavigationController
 
         navigationController.toolbar.barTintColor = UIColor(0xfc8127)

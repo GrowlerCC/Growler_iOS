@@ -52,8 +52,17 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
             viewController.setToolbarItems(toolbarItems, animated: false)
         }
 
-        if !(viewController is AccountProfileViewController) {
-            viewController.navigationItem.leftBarButtonItem = profileButton
+        switch viewController {
+            case is AccountProfileViewController:
+                // we already on account page, there's no point to show account page button
+                // mayb we should hide back button as follows?
+                // viewController.navigationItem.hidesBackButton = true
+                break
+            case is ProductViewController:
+                // it's inconvenient to return to list using menu after viewing each product. so for product we keep back button
+                break
+            default:
+                viewController.navigationItem.leftBarButtonItem = profileButton
         }
 
         // todo search button should be visible on all screens?
