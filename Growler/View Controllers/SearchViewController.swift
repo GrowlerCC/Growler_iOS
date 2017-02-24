@@ -5,5 +5,15 @@
 
 import Foundation
 
-class SearchViewController {
+class SearchViewController: UIViewController {
+    
+    @IBOutlet weak var keywordField: UITextField!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        keywordField.layer.cornerRadius = 16.5
+        keywordField.layer.borderColor = Colors.grayControlBorderColor.cgColor
+        keywordField.layer.borderWidth = 1
+    }
+
 }

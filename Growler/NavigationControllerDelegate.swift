@@ -108,8 +108,8 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
     }
 
     func didTapSearchButton() {
-//        let controller = CollectionListViewController()
-//        navigationController!.pushViewController(controller, animated: true)
+        let controller = SearchViewController.loadFromStoryboard()
+        navigationController!.present(controller, animated: true)
     }
 
     @IBAction func didPanScreenEdge(_ sender: Any) {

@@ -10,5 +10,7 @@ class Colors {
     static let launchScreenOrangeColor = UIColor(0xfc8127)
     
     static let menuAndToolbarDarkBackground = UIColor(0x2d3c48)
-    
+
+    static let grayControlBorderColor = UIColor(0xcacaca)
+
 }
