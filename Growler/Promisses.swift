@@ -24,6 +24,8 @@ func getProductsByIds(_ ids: Set<Int64>) -> Promise<[BUYProduct]> {
     return getProductsByIds(Array<Int64>(ids))
 }
 
+// important: it's recommended to always use this function instead of BUYClient.getProductsByIds
+// because BUYClient.getProductsByIds has bug - if id list is empty, it returns all products
 func getProductsByIds(_ ids: [Int64]) -> Promise<[BUYProduct]> {
     return Promise {
         fulfill, reject in
