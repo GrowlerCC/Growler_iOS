@@ -46,7 +46,7 @@ class CarouselTableCell: UITableViewCell {
 
     private func setupCarousel() {
         carousel.selectByTapEnabled = true
-        let count = min(2, bannerFactory.getBannerCount())
+        let count = bannerFactory.getBannerCount()
         try! carousel.itemsFactory(itemsCount: count) {
             index in self.bannerFactory.getBannerForIndex(index, owner: self)
         }
