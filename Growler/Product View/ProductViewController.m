@@ -418,7 +418,7 @@ static NSString *const FILLED_HEART_CHARACTER = @"♥";
 		[self.productView updateBackgroundImage:[self.product.images array]];
 	}
 	if (self.productView.productViewFooter) {
-		self.productView.productViewFooter.actionButton.enabled = selectedProductVariant.available.boolValue;
+        self.productView.productViewFooter.actionButton.enabled = TEST_MODE ? YES : selectedProductVariant.available.boolValue;
 		self.productView.productViewFooter.paymentButton.enabled = selectedProductVariant.available.boolValue;
 	}
 	if (self.productView.tableView) {

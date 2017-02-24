@@ -28,3 +28,5 @@
 #define API_KEY     @"81c0486b7e825ac51e8c9b7748d8d483"
 #define APP_ID      @"8"
 #define MERCHANT_ID @""
+
+#define TEST_MODE YES
