@@ -20,6 +20,27 @@ func getProductsPage(page: UInt) -> Promise<[BUYProduct]> {
     }
 }
 
+func getProductsByIds(_ ids: Set<Int64>) -> Promise<[BUYProduct]> {
+    return getProductsByIds(Array<Int64>(ids))
+}
+
+func getProductsByIds(_ ids: [Int64]) -> Promise<[BUYProduct]> {
+    return Promise {
+        fulfill, reject in
+        if ids.isEmpty {
+            fulfill([])
+        }
+        let nsnumbers = ids.map { $0 as NSNumber }
+        ShopifyController.instance.client.getProductsByIds(nsnumbers) {
+            products, error in
+            if let error = error {
+                reject(error)
+            }
+            fulfill(products ?? [])
+        }
+    }
+}
+
 // todo fetch all instead of one page?
 func getCollectionsPage(page: UInt) -> Promise<[BUYCollection]> {
     return Promise {
