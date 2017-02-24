@@ -86,7 +86,10 @@ class ShopifyController: NSObject {
     }
 
     class func selectRecommendedProducts(from products: [BUYProduct]) -> [BUYProduct] {
-        return products.filter { product in product.identifierValue % 3 == 0 } // todo implement real algorithm
+        // todo implement algorithm
+        let lastIndex = products.count - 1
+        let firstIndex = max(0, lastIndex - 5)
+        return Array<BUYProduct>(products[firstIndex...lastIndex])
     }
 
 }
