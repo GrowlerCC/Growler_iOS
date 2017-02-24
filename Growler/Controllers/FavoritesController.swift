@@ -33,6 +33,7 @@ class FavoritesController: NSObject {
             favoriteIds.insert(productId)
         }
         setFavoriteIds(ids: favoriteIds)
+        Notification.Name.favoritesChanged.send()
     }
 
 }

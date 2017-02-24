@@ -10,6 +10,11 @@ class FavoriteListViewController: ProductListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Favorites"
+        subscribeTo(notification: Notification.Name.favoritesChanged, selector: #selector(self.favoritesChanged))
+    }
+
+    deinit {
+        unsubscribeFromNotifications()
     }
 
     override func loadProducts() {
@@ -20,6 +25,10 @@ class FavoriteListViewController: ProductListViewController {
             self.products = products.filter{ favoriteIds.contains($0.identifierValue) }
             mq { self.tableView.reloadData() }
         }
+    }
+
+    func favoritesChanged() {
+        loadProducts()
     }
 
 }
