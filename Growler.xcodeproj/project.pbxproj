@@ -81,6 +81,7 @@
 		27354DCA9127146C0563685C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547E48016C5BE03F59076 /* MenuViewController.swift */; };
 		27354E01B9FBF64215E4D6F5 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354FCF88B85937F09ED48D /* Lato-Black.ttf */; };
 		27354E7B8ADC896B8D589F76 /* MyOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273545AA98315DCB30A0A459 /* MyOrdersViewController.swift */; };
+		27354EDE8C0B346308370E93 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354B83AA859765D5F90150 /* Notifications.swift */; };
 		27354F3935F8568436E24834 /* PriceBannerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354C58ED18468E5A09765B /* PriceBannerFactory.swift */; };
 		27354F950072C32CC6F1961D /* CollectionBannerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354B8BE1C2936EC2030042 /* CollectionBannerFactory.swift */; };
 		27354FE17180F307BCB92157 /* CollectionBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27354C6229B79D830BB09C91 /* CollectionBanner.xib */; };
@@ -228,6 +229,7 @@
 		27354B1C126D596C9DF894CA /* UIView+SwiftCarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SwiftCarousel.swift"; sourceTree = "<group>"; };
 		27354B6BCCBC005346670354 /* FaqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaqViewController.swift; path = "View Controllers/FaqViewController.swift"; sourceTree = "<group>"; };
 		27354B8365DFB4A2B2F3AB2E /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		27354B83AA859765D5F90150 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		27354B8BE1C2936EC2030042 /* CollectionBannerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionBannerFactory.swift; sourceTree = "<group>"; };
 		27354B980382872E5B2B5517 /* Theme+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Theme+Additions.h"; sourceTree = "<group>"; };
 		27354C58ED18468E5A09765B /* PriceBannerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceBannerFactory.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				273547965E0F89B0140E5C91 /* CollectionIdentifier.swift */,
 				2735434B4379A1BDE9D9FF3C /* Colors.swift */,
 				273549BFDE8389F3DE760DB2 /* PriceRange.swift */,
+				27354B83AA859765D5F90150 /* Notifications.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1001,6 +1004,7 @@
 				27354156C382264691495A26 /* TagBannerFactory.swift in Sources */,
 				27354AE2AFC12C86D8F63609 /* PriceRange.swift in Sources */,
 				2735494CE26EC6E7FCD268B1 /* FavoritesController.swift in Sources */,
+				27354EDE8C0B346308370E93 /* Notifications.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
