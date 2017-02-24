@@ -25,7 +25,7 @@ class CollectionBanner: UIView {
         if let url = collection.image?.sourceURL.absoluteURL {
             cell.picture.loadImage(with: url, completion: nil)
         } else {
-            cell.picture.image = UIImage(named: "NoImageAvailable")
+            cell.picture.image = UIImage(named: "NoImageAvailableSmall")
         }
         return cell
     }

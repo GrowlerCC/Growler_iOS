@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="495" height="290"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" image="NoImageAvailable" translatesAutoresizingMaskIntoConstraints="NO" id="gdD-g0-XwR" customClass="AsyncImageView">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" image="NoImageAvailableSmall" translatesAutoresizingMaskIntoConstraints="NO" id="gdD-g0-XwR" customClass="AsyncImageView">
                     <rect key="frame" x="0.0" y="0.0" width="495" height="290"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text=" Description" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ie0-1m-gTc">
@@ -75,6 +75,6 @@
         </view>
     </objects>
     <resources>
-        <image name="NoImageAvailable" width="1280" height="960"/>
+        <image name="NoImageAvailableSmall" width="250" height="250"/>
     </resources>
 </document>
