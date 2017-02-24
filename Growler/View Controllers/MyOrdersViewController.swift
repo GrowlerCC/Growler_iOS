@@ -6,5 +6,5 @@
 import Foundation
 import UIKit
 
-class MyOrdersViewController: UIViewController {
+class MyOrdersViewController: UITableViewController {
 }
