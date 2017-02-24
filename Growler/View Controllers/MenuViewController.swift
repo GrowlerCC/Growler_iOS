@@ -35,7 +35,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // menu items with lighter color
 //        MenuItem.create(title: "App settings", image: UIImage(named: "SettingsIcon")),
         MenuItem.create(title: "FAQs", image: UIImage(named: "FaqsIcon")) {
-            AppDelegate.shared.navigationController.viewControllers = [FaqViewController()]
+            AppDelegate.shared.navigationController.viewControllers = [FaqViewController.loadFromStoryboard()]
         },
         MenuItem.create(title: "About", image: UIImage(named: "AboutIcon")) {
             AppDelegate.shared.navigationController.viewControllers = [AboutViewController.loadFromStoryboard()]

@@ -5,6 +5,37 @@
 
 import Foundation
 import UIKit
+import EMString
 
 class FaqViewController: UIViewController {
+
+    @IBOutlet weak var faqText: UILabel!
+
+    static var registeredStyles = false
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        if !FaqViewController.registeredStyles {
+            FaqViewController.registeredStyles = true
+            let questionStyle = EMStylingClass(markup: "<growler_question>")!
+            questionStyle.color = UIColor(0xFC8127)
+            EMStringStylingConfiguration.sharedInstance().addNewStylingClass(questionStyle)
+
+            let answerStyle = EMStylingClass(markup: "<growler_answer>")!
+            // important: due to bug in EMString pod app will crash if some EMStylingClass object will have all attributes equal to nil
+            answerStyle.color = UIColor.black
+            EMStringStylingConfiguration.sharedInstance().addNewStylingClass(answerStyle)
+        }
+
+        faqText.attributedText = FAQ
+            .map {
+                (question: String, answer: String) -> String in
+                let line: String = "<growler_question>\(question)</growler_question>\n<growler_answer>\(answer)</growler_answer>\n\n\n"
+                return line
+            }
+            .joined()
+            .attributedString
+    }
+
 }

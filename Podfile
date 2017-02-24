@@ -8,6 +8,7 @@ target 'Growler' do
     pod 'Mobile-Buy-SDK', '~> 2.2.0'
     pod 'RESideMenu', '~> 4.0.7'
     pod 'PromiseKit', '~> 4.1.7'
+    pod 'EMString', '0.3.0'
 
 end
 

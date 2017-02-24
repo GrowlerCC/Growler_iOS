@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Faq View Controller-->
+        <scene sceneID="rCa-ds-7pp">
+            <objects>
+                <viewController storyboardIdentifier="FaqViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Ke-32-Wtv" customClass="FaqViewController" customModule="Growler" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Fi-GV-62x"/>
+                        <viewControllerLayoutGuide type="bottom" id="kzG-Fr-9O0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="77N-vl-glU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAh-tv-A8G">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1000" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uw6-jO-zZP">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="1197"/>
+                                        <mutableString key="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
+
+
+</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="uw6-jO-zZP" firstAttribute="top" secondItem="iAh-tv-A8G" secondAttribute="top" id="4Yw-fN-NPb"/>
+                                    <constraint firstItem="uw6-jO-zZP" firstAttribute="width" secondItem="iAh-tv-A8G" secondAttribute="width" id="5o0-mQ-G5F"/>
+                                    <constraint firstAttribute="bottom" secondItem="uw6-jO-zZP" secondAttribute="bottom" id="Ncs-pW-vlX"/>
+                                    <constraint firstItem="uw6-jO-zZP" firstAttribute="leading" secondItem="iAh-tv-A8G" secondAttribute="leading" id="nhV-Aj-yp2"/>
+                                    <constraint firstAttribute="trailing" secondItem="uw6-jO-zZP" secondAttribute="trailing" id="xBo-BV-Q2c"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iAh-tv-A8G" firstAttribute="leading" secondItem="77N-vl-glU" secondAttribute="leadingMargin" id="GQj-2m-syG"/>
+                            <constraint firstItem="iAh-tv-A8G" firstAttribute="trailing" secondItem="77N-vl-glU" secondAttribute="trailingMargin" id="dF4-Md-fMq"/>
+                            <constraint firstItem="kzG-Fr-9O0" firstAttribute="top" secondItem="iAh-tv-A8G" secondAttribute="bottom" id="sfZ-cx-OS6"/>
+                            <constraint firstItem="iAh-tv-A8G" firstAttribute="top" secondItem="6Fi-GV-62x" secondAttribute="bottom" id="x7s-pq-0Y2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="faqText" destination="uw6-jO-zZP" id="xK4-qV-qam"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RPQ-ms-Nnr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-282" y="31"/>
+        </scene>
+    </scenes>
+</document>
