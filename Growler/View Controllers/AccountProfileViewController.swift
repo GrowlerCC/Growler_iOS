@@ -57,7 +57,8 @@ class AccountProfileViewController: UITableViewController {
             case .email: break
             case .myCreditCards: break
             case .myAddresses: break
-            case .myRecommendations: break
+            case .myRecommendations:
+                AppDelegate.shared.navigationController.viewControllers = [RecommendationListViewController()]
         }
     }
 
