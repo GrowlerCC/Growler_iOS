@@ -19,7 +19,7 @@ extension Notification.Name {
 
 extension UIViewController {
 
-    func subscribeTo(notification: Notification.Name, selector: Selector) {
+    func subscribeTo(_ notification: Notification.Name, selector: Selector) {
         NotificationCenter.default.addObserver(
                 self,
                 selector: selector,

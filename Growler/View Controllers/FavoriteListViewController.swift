@@ -10,7 +10,7 @@ class FavoriteListViewController: ProductListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Favorites"
-        subscribeTo(notification: Notification.Name.favoritesChanged, selector: #selector(self.favoritesChanged))
+        subscribeTo(Notification.Name.favoritesChanged, selector: #selector(self.favoritesChanged))
     }
 
     deinit {
