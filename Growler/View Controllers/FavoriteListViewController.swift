@@ -5,7 +5,7 @@
 
 import Foundation
 
-class FavoriteListViewController: ProductListViewController {
+class FavoriteListViewController: ProductListViewController, Notifiable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
