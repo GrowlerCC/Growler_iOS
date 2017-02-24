@@ -52,6 +52,7 @@
 		2735492D22C36B6EBE538630 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547785F455240EC5351DA /* HomeViewController.swift */; };
 		27354963DFAB0957A1A63225 /* FaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354B6BCCBC005346670354 /* FaqViewController.swift */; };
 		2735497A6C31F85B0B047AA6 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2735427F6AB2A06821861055 /* Lato-Medium.ttf */; };
+		273549ADF18D0DD122588B63 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735434B4379A1BDE9D9FF3C /* Colors.swift */; };
 		273549B45374256364CBD4FB /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735466D3B4DFDB29F42F403 /* UITableViewCell.swift */; };
 		27354A266FDF4A2913B202C0 /* SwiftCarousel+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354CA07B29DBA2BCEE3F81 /* SwiftCarousel+UIGestureRecognizerDelegate.swift */; };
 		27354A8795569AB65B73EAF1 /* ShopifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354E8CEF38601B1FCB9EAC /* ShopifyController.swift */; };
@@ -169,6 +170,7 @@
 		2735427F6AB2A06821861055 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		273542A18C5A99AA5B360DC2 /* FavoriteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteListViewController.swift; path = "View Controllers/FavoriteListViewController.swift"; sourceTree = "<group>"; };
 		273542A9FD01576C756A27E9 /* AbstractProductListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractProductListViewController.swift; path = "View Controllers/AbstractProductListViewController.swift"; sourceTree = "<group>"; };
+		2735434B4379A1BDE9D9FF3C /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2735436A75AA18B8B4BFE5F7 /* SwiftCarousel+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftCarousel+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
 		2735438F5E5197BBC80DCBF0 /* SwiftCarouselResizeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCarouselResizeType.swift; sourceTree = "<group>"; };
 		273543E49897ED81C375486B /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				273546A4D2717ECFDF3AA763 /* Utils.swift */,
 				27354B93693B9F44A51F3500 /* SwiftCarousel */,
 				273547965E0F89B0140E5C91 /* CollectionIdentifier.swift */,
+				2735434B4379A1BDE9D9FF3C /* Colors.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -957,6 +960,7 @@
 				273540231E5D31F66BE6E496 /* AboutViewController.swift in Sources */,
 				27354E7B8ADC896B8D589F76 /* MyOrdersViewController.swift in Sources */,
 				273546F63CDFAD52EC4FE312 /* FAQ.swift in Sources */,
+				273549ADF18D0DD122588B63 /* Colors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

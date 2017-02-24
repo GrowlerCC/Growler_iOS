@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         navigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNavigationController") as! UINavigationController
 
-        navigationController.toolbar.barTintColor = UIColor(0xfc8127)
+        navigationController.toolbar.barTintColor = Colors.menuAndToolbarDarkBackground
         navigationController.toolbar.tintColor = UIColor.white
 
         drawerMenuController = MenuViewController.loadFromStoryboard()
