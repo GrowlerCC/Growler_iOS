@@ -24,7 +24,6 @@ class ProductBannerView: UIView {
         super.awakeFromNib()
         recognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTap(_:)))
         addGestureRecognizer(recognizer)
-
     }
 
     func didTap(_ sender: UITapGestureRecognizer) {
