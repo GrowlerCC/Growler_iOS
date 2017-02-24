@@ -44,6 +44,7 @@ class HomeViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.allowsSelection = false
         tableView.separatorStyle = .none
         createCarouselCells()
     }
