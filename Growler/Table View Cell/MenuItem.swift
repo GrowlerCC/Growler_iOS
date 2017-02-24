@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-typealias MenuCallback = ((UINavigationController?) -> Void)
+typealias MenuCallback = (() -> Void)
 
 class MenuItem: UITableViewCell {
 

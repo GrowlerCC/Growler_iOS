@@ -18,20 +18,28 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var menuItems: [MenuItem] = [
         // menu items with darker color
         MenuItem.create(title: "Profile", color: UIColor(0x25313b), image: UIImage(named: "AccountProfileIcon")) {
-            navigationController in
-            let controller = AccountProfileViewController()
-            navigationController!.pushViewController(controller, animated: true) // todo replace controllers instead of pushing (to save memory)
+            AppDelegate.shared.navigationController.viewControllers = [AccountProfileViewController()]
         },
-        MenuItem.create(title: "My orders", color: UIColor(0x25313b), image: UIImage(named: "MyOrdersIcon")),
-        MenuItem.create(title: "Recommendations", color: UIColor(0x25313b), image: UIImage(named: "RecommendationsIcon")),
-        MenuItem.create(title: "Favorites", color: UIColor(0x25313b), image: UIImage(named: "FavoritesIcon")),
+        MenuItem.create(title: "My orders", color: UIColor(0x25313b), image: UIImage(named: "MyOrdersIcon")) {
+            AppDelegate.shared.navigationController.viewControllers = [MyOrdersViewController()]
+        },
+        MenuItem.create(title: "Recommendations", color: UIColor(0x25313b), image: UIImage(named: "RecommendationsIcon")) {
+            AppDelegate.shared.navigationController.viewControllers = [RecommendationListViewController()]
+        },
+        MenuItem.create(title: "Favorites", color: UIColor(0x25313b), image: UIImage(named: "FavoritesIcon")) {
+            AppDelegate.shared.navigationController.viewControllers = [FavoriteListViewController()]
+        },
 
         MenuItem.create(title: "", image: nil), // separator
 
         // menu items with lighter color
 //        MenuItem.create(title: "App settings", image: UIImage(named: "SettingsIcon")),
-        MenuItem.create(title: "FAQs", image: UIImage(named: "FaqsIcon")),
-        MenuItem.create(title: "About", image: UIImage(named: "AboutIcon")),
+        MenuItem.create(title: "FAQs", image: UIImage(named: "FaqsIcon")) {
+            AppDelegate.shared.navigationController.viewControllers = [FaqViewController()]
+        },
+        MenuItem.create(title: "About", image: UIImage(named: "AboutIcon")) {
+            AppDelegate.shared.navigationController.viewControllers = [AboutViewController()]
+        },
     ]
 
     override func viewDidLoad() {
@@ -43,7 +51,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let selectedItem = menuItems[indexPath.row]
         AppDelegate.shared.sideMenuViewController!.hideViewController()
-        selectedItem.didSelect?(self.homeController!.navigationController)
+        selectedItem.didSelect?()
         return indexPath
     }
 
