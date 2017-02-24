@@ -25,8 +25,11 @@ class CartViewController: ProductListViewController {
 
     override func loadProducts() {
         // important: don't call super! we don't want to show all products, but only ones in the cart
-        self.products = ShopifyController.instance.getCart()
-        tableView.reloadData()
+        ShopifyController.instance.getCart().then {
+            products -> Void in
+            self.products = products
+            mq { self.tableView.reloadData() }
+        }
     }
 
     func checkout() {

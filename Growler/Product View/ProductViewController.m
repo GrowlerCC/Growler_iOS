@@ -174,13 +174,13 @@ static NSString *const FILLED_HEART_CHARACTER = @"♥";
 
 - (void)didTapFavoriteButton
 {
-    [FavoritesController toggleFavoriteWithProductId:self.product.identifierValue];
+    [ShopifyController.instance.favoriteProductIds toggle:self.product.identifierValue];
     [self updateFavoriteButton];
 }
 
 - (void)updateFavoriteButton
 {
-    favoriteButton.title = [FavoritesController isFavoriteProductWithProductId:self.product.identifierValue] ? FILLED_HEART_CHARACTER : EMPTY_HEART_CHARACTER;
+    favoriteButton.title = [ShopifyController.instance.favoriteProductIds contains:self.product.identifierValue] ? FILLED_HEART_CHARACTER : EMPTY_HEART_CHARACTER;
 }
 
 - (void)viewDidLayoutSubviews

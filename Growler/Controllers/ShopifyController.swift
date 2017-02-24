@@ -6,6 +6,7 @@
 import Foundation
 import UIKit
 import Buy
+import PromiseKit
 
 @objc
 class ShopifyController: NSObject {
@@ -16,20 +17,25 @@ class ShopifyController: NSObject {
 
     let client: BUYClient
 
+    public var favoriteProductIds: PersistentIdSet!
+
+    private var cartProductIds: PersistentIdSet!
+
     override init() {
         client = BUYClient(shopDomain:SHOP_DOMAIN, apiKey: API_KEY, appId: APP_ID)
+
+        favoriteProductIds = PersistentIdSet(defaultsKey: "FAVORITE_PRODUCT_IDENTIFIERS", changeNotification: Notification.Name.favoritesChanged)
+        cartProductIds = PersistentIdSet(defaultsKey: "CART_PRODUCT_IDENTIFIERS", changeNotification: Notification.Name.cartChanged)
     }
 
     private var checkoutCreationOperation: Operation?
 
-    private var cartProducts: [BUYProduct] = []
-
-    func getCart() -> [BUYProduct] {
-        return cartProducts
+    func getCart() -> Promise<[BUYProduct]> {
+        return getProductsByIds(cartProductIds.getAll())
     }
 
     func addProductToCart(product: BUYProduct) {
-        cartProducts.append(product)
+        cartProductIds.add(product.identifierValue)
     }
 
     deinit {
@@ -37,6 +43,12 @@ class ShopifyController: NSObject {
     }
 
     func checkout(navigationController: UINavigationController) {
+        _ = getCart().then {
+            products -> Void in self.checkoutInternal(products: products, navigationController: navigationController)
+        }
+    }
+    
+    func checkoutInternal(products: [BUYProduct], navigationController: UINavigationController) {
         if let operation = checkoutCreationOperation, operation.isExecuting {
             operation.cancel()
         }
@@ -46,7 +58,7 @@ class ShopifyController: NSObject {
             return
         }
 
-        for product in cartProducts {
+        for product in products {
             cart.add(product.variants.firstObject as! BUYProductVariant)
         }
 

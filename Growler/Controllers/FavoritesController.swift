@@ -6,34 +6,57 @@
 import Foundation
 
 @objc
-class FavoritesController: NSObject {
+class PersistentIdSet: NSObject {
 
-    private static let FAVORITE_IDS_DEFAULTS_KEY = "FAVORITE_IDENTIFIERS"
+    let defaultsKey: String
 
-    class func getFavoriteIds() -> Set<Int64> {
-        let rawFavoriteIds = UserDefaults.standard.string(forKey: FAVORITE_IDS_DEFAULTS_KEY) ?? ""
-        return Utils.stringToIdentifiers(rawFavoriteIds)
+    let changeNotification: Notification.Name
+
+    init(defaultsKey: String, changeNotification: Notification.Name) {
+        self.defaultsKey = defaultsKey
+        self.changeNotification = changeNotification
     }
 
-    private class func setFavoriteIds(ids: Set<Int64>) {
-        let rawFavoriteIds = Utils.identifiersToString(ids)
-        UserDefaults.standard.set(rawFavoriteIds, forKey: FavoritesController.FAVORITE_IDS_DEFAULTS_KEY)
+    func getAll() -> Set<Int64> {
+        let rawIds = UserDefaults.standard.string(forKey: defaultsKey) ?? ""
+        let list = rawIds._split(separator: ",").map { Int64($0) ?? 0 }
+        return Set<Int64>(list)
     }
 
-    class func isFavoriteProduct(productId: Int64) -> Bool {
-        let favoriteIds = getFavoriteIds()
-        return favoriteIds.contains(productId)
+    private func save(_ ids: Set<Int64>) {
+        let rawIds = ids.map{ String($0) }.joined(separator: ",")
+        UserDefaults.standard.set(rawIds, forKey: defaultsKey)
     }
 
-    class func toggleFavorite(productId: Int64) {
-        var favoriteIds = getFavoriteIds()
-        if favoriteIds.contains(productId) {
-            favoriteIds.remove(productId)
+    func contains(_ id: Int64) -> Bool {
+        let ids = getAll()
+        return ids.contains(id)
+    }
+
+    func add(_ id: Int64) {
+        var ids = getAll()
+        ids.insert(id)
+        save(ids)
+        changeNotification.send()
+    }
+    
+    func remove(_ id: Int64) {
+        var ids = getAll()
+        ids.remove(id)
+        save(ids)
+        changeNotification.send()
+    }
+
+    @objc
+    func toggle(_ id: Int64) {
+        var ids = getAll()
+        if ids.contains(id) {
+            ids.remove(id)
         } else {
-            favoriteIds.insert(productId)
+            ids.insert(id)
         }
-        setFavoriteIds(ids: favoriteIds)
-        Notification.Name.favoritesChanged.send()
+        save(ids)
+        changeNotification.send()
     }
 
 }

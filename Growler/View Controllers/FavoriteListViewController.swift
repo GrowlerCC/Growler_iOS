@@ -19,10 +19,10 @@ class FavoriteListViewController: ProductListViewController {
 
     override func loadProducts() {
         // important: don't call super! we don't want to show all products, but only ones in the cart
-        _ = getProductsPage(page: 1).then {
+        let favoriteIds = ShopifyController.instance.favoriteProductIds.getAll()
+        _ = getProductsByIds(favoriteIds).then {
             products -> Void in
-            let favoriteIds = FavoritesController.getFavoriteIds()
-            self.products = products.filter{ favoriteIds.contains($0.identifierValue) }
+            self.products = products
             mq { self.tableView.reloadData() }
         }
     }
