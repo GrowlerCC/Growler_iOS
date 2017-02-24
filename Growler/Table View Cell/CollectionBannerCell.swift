@@ -21,7 +21,11 @@ class CollectionBannerCell: UITableViewCell {
             guard let collection = collections?.first else {
                 return
             }
-            cell.picture.loadImage(with: collection.image?.sourceURL.absoluteURL, completion: nil)
+            if let url = collection.image?.sourceURL.absoluteURL {
+                cell.picture.loadImage(with: url, completion: nil)
+            } else {
+                cell.picture.image = UIImage(named: "NoImageAvailable")
+            }
             cell.titleLabel.text = collection.title
             cell.descriptionLabel.text = collection.stringDescription
         }
