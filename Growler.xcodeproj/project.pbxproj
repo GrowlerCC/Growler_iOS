@@ -657,11 +657,6 @@
 				27354CA2FF6C4AB99020D8EE /* NavigationControllerDelegate.swift */,
 				27354EFBF4CC46E620B19266 /* Promisses.swift */,
 				27354A205EFFDEFE5C8C52E3 /* Banner Factories */,
-				273542A9FD01576C756A27E9 /* AbstractProductListViewController.swift */,
-				273542A18C5A99AA5B360DC2 /* FavoriteListViewController.swift */,
-				27354B6BCCBC005346670354 /* FaqViewController.swift */,
-				27354085FB6B9C3045EC2AE3 /* AboutViewController.swift */,
-				273545AA98315DCB30A0A459 /* MyOrdersViewController.swift */,
 			);
 			path = Growler;
 			sourceTree = "<group>";
@@ -677,6 +672,11 @@
 		BE8B82961B8E6A6900E3F871 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				273542A9FD01576C756A27E9 /* AbstractProductListViewController.swift */,
+				273542A18C5A99AA5B360DC2 /* FavoriteListViewController.swift */,
+				27354B6BCCBC005346670354 /* FaqViewController.swift */,
+				27354085FB6B9C3045EC2AE3 /* AboutViewController.swift */,
+				273545AA98315DCB30A0A459 /* MyOrdersViewController.swift */,
 				273547785F455240EC5351DA /* HomeViewController.swift */,
 				273540B1004A856A4D07F46F /* CartViewController.swift */,
 				D91B37E71E59EA4C00A5B5A5 /* ConfirmAddressViewController.storyboard */,
