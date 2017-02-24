@@ -12,7 +12,7 @@ class CollectionBannerCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var descriptionLabel: UILabel!
-    
+
     class func create(collectionId: CollectionIdentifier) -> CollectionBannerCell {
         let cell = CollectionBannerCell.loadFromNib()
 
