@@ -14,11 +14,12 @@ class CollectionBannerFactory: AbstractBannerFactory {
     }
 
     func getBannerCount() -> Int {
-        return 0
+        return collections.count
     }
 
     func getBannerForIndex(_ index: Int, owner: AnyObject) -> UIView {
-        return UIView()
+        let collection = collections[index]
+        return CollectionBanner.create(collection: collection)
     }
 
 }

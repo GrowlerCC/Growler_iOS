@@ -10,7 +10,7 @@ import UIKit
 class Utils: NSObject {
 
     // todo move to UIView extension
-    static func loadViewFromNib(nibName: String, owner: AnyObject) -> UIView {
+    static func loadViewFromNib(nibName: String, owner: AnyObject?) -> UIView {
         let views = Bundle.main.loadNibNamed(nibName, owner: owner, options: nil)
         return views![0] as! UIView
     }
