@@ -38,6 +38,28 @@ class Utils: NSObject {
         return screenHeight - statusBarHeight - navigationBarHeight - toolbarHeight
     }
 
+    static func inputBox(title: String, message: String, okTitle: String, callback: @escaping (String?) -> Void) {
+        let alert = UIAlertController(title: title,
+            message: message,
+            preferredStyle: .alert)
+
+        alert.addTextField { _ in }
+
+        alert.addAction(UIAlertAction(title: okTitle, style: .default) {
+            action in
+            let textField = alert.textFields![0]
+            callback(textField.text)
+        })
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default) {
+            action in callback(nil)
+        })
+
+        mq {
+            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
+    }
+
 }
 
 

@@ -59,10 +59,39 @@ class AccountProfileViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch AccountCellIndex(rawValue: indexPath.row)! {
-            case .email: break
-            case .myCreditCards: break
-            case .myAddresses: break
-            case .myRecommendations:
+            case .email:
+                Utils.inputBox(
+                    title: "Email",
+                    message: "Enter your email",
+                    okTitle: "OK")
+                {
+                    if let value = $0 {
+                        ShopifyController.instance.email.value = value
+                    }
+                }
+            case .myCreditCards:
+                Utils.inputBox(
+                    title: "Credit card number",
+                    message: "Enter your credit card number",
+                    okTitle: "OK")
+                {
+                    if let value = $0 {
+                        ShopifyController.instance.creditCardNumber.value = value
+                    }
+                }
+
+        case .myAddresses:
+            Utils.inputBox(
+                title: "Address",
+                message: "Enter your address",
+                okTitle: "OK")
+            {
+                if let value = $0 {
+                    ShopifyController.instance.address1.value = value
+                }
+            }
+
+        case .myRecommendations:
                 AppDelegate.shared.navigationController.viewControllers = [RecommendationListViewController()]
         }
     }
