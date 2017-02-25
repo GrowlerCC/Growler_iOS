@@ -13,11 +13,16 @@ enum AccountCellIndex: Int {
     case myRecommendations
 }
 
-class AccountProfileViewController: UITableViewController {
+class AccountProfileViewController: UITableViewController, Notifiable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        subscribeTo(Notification.Name.accountChanged, selector: #selector(self.accountChanged))
+    }
+
+    deinit {
+        unsubscribeFromNotifications()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,6 +98,12 @@ class AccountProfileViewController: UITableViewController {
 
         case .myRecommendations:
                 AppDelegate.shared.navigationController.viewControllers = [RecommendationListViewController()]
+        }
+    }
+
+    func accountChanged() {
+        mq {
+            self.tableView.reloadData()
         }
     }
 

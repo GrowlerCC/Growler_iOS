@@ -23,6 +23,7 @@ class PersistentString {
 
         set(newValue) {
             UserDefaults.standard.set(newValue, forKey: defaultsKey)
+            changeNotification.send()
         }
     }
 
