@@ -17,16 +17,4 @@ extension UIViewController {
         return UIStoryboard(name: name, bundle: nil).instantiateViewController(withIdentifier: name) as! T
     }
 
-    static func loadFromNib() -> Self {
-        return self.loadFromNibInternal()
-    }
-
-    private static func loadFromNibInternal<T: UIViewController>() -> T {
-        let mirror = Mirror(reflecting: T.self)
-        let name = String(describing: mirror.subjectType).replacingOccurrences(of: "\\.Type$", with: "", options: .regularExpression)
-        let items = Bundle.main.loadNibNamed(name, owner: nil, options: nil)
-        return items?.first as! T
-    }
-
-
 }

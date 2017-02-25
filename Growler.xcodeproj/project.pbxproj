@@ -59,7 +59,7 @@
 		27354963DFAB0957A1A63225 /* FaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354B6BCCBC005346670354 /* FaqViewController.swift */; };
 		2735497A6C31F85B0B047AA6 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2735427F6AB2A06821861055 /* Lato-Medium.ttf */; };
 		273549ADF18D0DD122588B63 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735434B4379A1BDE9D9FF3C /* Colors.swift */; };
-		273549B45374256364CBD4FB /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735466D3B4DFDB29F42F403 /* UITableViewCell.swift */; };
+		273549B45374256364CBD4FB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735466D3B4DFDB29F42F403 /* UIView.swift */; };
 		27354A266FDF4A2913B202C0 /* SwiftCarousel+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354CA07B29DBA2BCEE3F81 /* SwiftCarousel+UIGestureRecognizerDelegate.swift */; };
 		27354A8795569AB65B73EAF1 /* ShopifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354E8CEF38601B1FCB9EAC /* ShopifyController.swift */; };
 		27354AC4EA3CB633A3944591 /* ProductBannerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273545C16EBC547CC7254F90 /* ProductBannerFactory.swift */; };
@@ -200,7 +200,7 @@
 		27354615934DAB3FC2F37C25 /* ActivityIndicatorTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorTableCell.swift; sourceTree = "<group>"; };
 		273546349EAC77ADDD4F3D7A /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		273546683DE465DB0BC766E1 /* CollectionBannerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionBannerCell.swift; sourceTree = "<group>"; };
-		2735466D3B4DFDB29F42F403 /* UITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
+		2735466D3B4DFDB29F42F403 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		273546A29C70124D41D3E605 /* Aller_Lt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; name = Aller_Lt.ttf; path = Aller/Aller_Lt.ttf; sourceTree = "<group>"; };
 		273546A4D2717ECFDF3AA763 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		273546B9025A603186DD233E /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
@@ -406,12 +406,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		273541BAB8B4666FD02B27B4 /* Collection View Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Collection View Cell";
+			sourceTree = "<group>";
+		};
 		273544175039954B20CDFEBA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				27354A7A9281457AAED4CE6B /* UIViewController.swift */,
 				27354C867E114FDDC7306A45 /* UIColor.swift */,
-				2735466D3B4DFDB29F42F403 /* UITableViewCell.swift */,
+				2735466D3B4DFDB29F42F403 /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -702,6 +709,7 @@
 				27354EFBF4CC46E620B19266 /* Promisses.swift */,
 				27354A205EFFDEFE5C8C52E3 /* Banner Factories */,
 				27354A07CC5B2974FA246F57 /* SearchViewController.swift */,
+				273541BAB8B4666FD02B27B4 /* Collection View Cell */,
 			);
 			path = Growler;
 			sourceTree = "<group>";
@@ -981,7 +989,7 @@
 				27354926AED8F8096CE69BBC /* NavigationControllerDelegate.swift in Sources */,
 				273540387E68807C8476659B /* UIColor.swift in Sources */,
 				2735402ABBAF4B0944A56145 /* CarouselTableCell.swift in Sources */,
-				273549B45374256364CBD4FB /* UITableViewCell.swift in Sources */,
+				273549B45374256364CBD4FB /* UIView.swift in Sources */,
 				27354243C472769E6AA2BB66 /* ActivityIndicatorTableCell.swift in Sources */,
 				27354BBA18946DD8C17A2231 /* Promisses.swift in Sources */,
 				273543BD5B5FB022A21F7E4B /* CollectionIdentifier.swift in Sources */,
