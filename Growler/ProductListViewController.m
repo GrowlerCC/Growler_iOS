@@ -102,9 +102,10 @@
 }
 
 - (NSArray *)filterProducts:(NSArray *)products {
-    if (self.minPrice == nil && self.maxPrice == nil) {
+    if (self.minPrice == nil && self.maxPrice == nil && self.searchKeyword == nil) {
         return products;
     }
+    NSString *searchKeywordLowerCase = self.searchKeyword == nil || self.searchKeyword.length == 0 ? nil : [self.searchKeyword lowercaseString];
     NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:products.count];
     for (NSUInteger i = 0; i < products.count; i++) {
         BUYProduct *product = products[i];
@@ -118,9 +119,18 @@
         if (self.maxPrice != nil && [price compare:self.maxPrice] > 0) {
             continue;
         }
+        if (searchKeywordLowerCase != nil && ![self product:product matchesKeyword:searchKeywordLowerCase]) {
+            continue;
+        }
         [result addObject:product];
     }
     return result;
+}
+
+- (BOOL)product:(BUYProduct *)product matchesKeyword:(NSString *)keyword {
+    NSString *title = [product.title lowercaseString];
+    NSString *description = [product.title lowercaseString];
+    return [title rangeOfString:keyword].location != NSNotFound || [description rangeOfString:keyword].location != NSNotFound;
 }
 
 - (void)dealloc

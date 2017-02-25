@@ -10,6 +10,8 @@ class SearchTagCell: UICollectionViewCell {
 
     @IBOutlet weak var button: UIButton!
 
+    weak var searchViewController: SearchViewController!
+
     var tagName: String = ""
 
     override func awakeFromNib() {
@@ -22,5 +24,10 @@ class SearchTagCell: UICollectionViewCell {
     @IBAction func didTapButton(_ sender: Any) {
         button.isSelected = !button.isSelected
         button.backgroundColor = button.isSelected ? Colors.launchScreenOrangeColor : UIColor.white
+        if button.isSelected {
+            searchViewController.selectedTags.insert(tagName)
+        } else {
+            searchViewController.selectedTags.remove(tagName)
+        }
     }
 }

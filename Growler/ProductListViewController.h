@@ -33,7 +33,9 @@
 
 @property NSArray* products;
 
-@property (nonatomic, strong) NSArray *tags;
+@property (nonatomic, strong) NSArray * _Nullable tags;
+
+@property (nonatomic, strong) NSString * _Nullable searchKeyword;
 
 @property (nonatomic, strong) NSDecimalNumber * _Nullable minPrice;
 

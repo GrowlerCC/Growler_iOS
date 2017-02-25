@@ -5,19 +5,23 @@
 
 import Foundation
 
-class SearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,
+    UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
     @IBOutlet weak var keywordField: UITextField!
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var tags: [String] = []
-    
+
+    public var selectedTags = Set<String>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         keywordField.layer.cornerRadius = 16.5
         keywordField.layer.borderColor = Colors.grayControlBorderColor.cgColor
         keywordField.layer.borderWidth = 1
+        keywordField.delegate = self
 
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -46,6 +50,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchTagCell", for: indexPath) as! SearchTagCell
         let tag = tags[indexPath.row]
+        cell.searchViewController = self
         cell.tagName = tag
         cell.button.setTitle(tag, for: .normal)
         return cell
@@ -62,6 +67,16 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         ).size.width
         let cornerRadius = CGFloat(16.5)
         return CGSize(width: textWidth + cornerRadius * 2, height: cornerRadius * 2)
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        keywordField.resignFirstResponder()
+        let controller = ProductListViewController(client: ShopifyController.instance.client, collection: nil)!
+        controller.searchKeyword = keywordField.text
+        controller.tags = Array<String>(selectedTags)
+        dismiss(animated: false)
+        AppDelegate.shared.navigationController.viewControllers = [controller]
+        return true
     }
 
 }
