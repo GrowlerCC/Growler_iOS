@@ -20,6 +20,8 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
     
     private var cartTotalAmount: UIBarButtonItem!
 
+    var titleView: UIButton!
+
     override init() {
         super.init()
 
@@ -38,6 +40,10 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
             cartTotalAmount,
         ]
 
+        titleView = UIButton()
+        titleView.setTitleColor(UIColor.black, for: .normal)
+        updateAddress()
+
         let profileButtonImage = UIImage(named: "ProfileButton")?.withRenderingMode(.alwaysOriginal)
         profileButton = UIBarButtonItem(image: profileButtonImage, style: .plain, target: self, action: #selector(self.didTapProfileButton))
 
@@ -47,6 +53,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
         reloadCartStatus()
 
         subscribeTo(Notification.Name.cartChanged, selector: #selector(self.cartChanged))
+        subscribeTo(Notification.Name.accountChanged, selector: #selector(self.updateAddress))
     }
 
     deinit {
@@ -54,6 +61,10 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
     }
 
     var navigationController: UINavigationController!
+
+    func updateAddress() {
+        titleView.setTitle(ShopifyController.instance.address1.value, for: .normal)
+    }
 
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         self.navigationController = navigationController
@@ -76,6 +87,8 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
             default:
                 viewController.navigationItem.leftBarButtonItem = profileButton
         }
+
+        viewController.navigationItem.titleView = titleView
 
         // todo search button should be visible on all screens?
         viewController.navigationItem.rightBarButtonItem = searchButton
