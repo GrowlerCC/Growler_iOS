@@ -9,7 +9,6 @@ class RecommendationListViewController: ProductListViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Recommendations"
     }
 
     override func loadProducts() {

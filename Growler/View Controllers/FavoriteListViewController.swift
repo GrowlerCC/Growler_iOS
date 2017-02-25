@@ -9,7 +9,6 @@ class FavoriteListViewController: ProductListViewController, Notifiable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Favorites"
         subscribeTo(Notification.Name.favoritesChanged, selector: #selector(self.favoritesChanged))
     }
 

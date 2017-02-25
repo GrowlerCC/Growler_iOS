@@ -14,7 +14,6 @@ class CartViewController: ProductListViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Cart"
         checkoutButton = UIBarButtonItem(title: "Checkout", style: .plain, target: self, action: #selector(self.checkout))
     }
 
