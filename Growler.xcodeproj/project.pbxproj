@@ -32,6 +32,7 @@
 		273543BD5B5FB022A21F7E4B /* CollectionIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547965E0F89B0140E5C91 /* CollectionIdentifier.swift */; };
 		273543D4C234F3C6A2592240 /* SwiftCarouselResizeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735438F5E5197BBC80DCBF0 /* SwiftCarouselResizeType.swift */; };
 		273543E73385C0467657BC87 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354E54D9255B8C3C4B9C2E /* Lato-ThinItalic.ttf */; };
+		273544014D9EFECC92C63234 /* PersistentString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273540310EEB849FABF9D67A /* PersistentString.swift */; };
 		2735441B823F8241C7087A03 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354954DC5AA012890A2DD2 /* Lato-Italic.ttf */; };
 		2735453FD4102BC2D42F20CD /* UIView+SwiftCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354B1C126D596C9DF894CA /* UIView+SwiftCarousel.swift */; };
 		273545915511BE779907130F /* PriceBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547AF4090E7C3EB3B2F94 /* PriceBanner.swift */; };
@@ -175,6 +176,7 @@
 /* Begin PBXFileReference section */
 		1B8C0E5AC304875CD46EE891 /* Pods-Growler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Growler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Growler/Pods-Growler.debug.xcconfig"; sourceTree = "<group>"; };
 		27354016B2E128FBEB7C0B21 /* TagBannerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagBannerFactory.swift; sourceTree = "<group>"; };
+		273540310EEB849FABF9D67A /* PersistentString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentString.swift; sourceTree = "<group>"; };
 		2735403BE710BFE3CCE75A1A /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		2735407D9F504661E5337A2F /* CollectionBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionBanner.swift; sourceTree = "<group>"; };
 		27354085FB6B9C3045EC2AE3 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = "View Controllers/AboutViewController.swift"; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 				2735434B4379A1BDE9D9FF3C /* Colors.swift */,
 				273549BFDE8389F3DE760DB2 /* PriceRange.swift */,
 				27354B83AA859765D5F90150 /* Notifications.swift */,
+				273540310EEB849FABF9D67A /* PersistentString.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1023,6 +1026,7 @@
 				27354EDE8C0B346308370E93 /* Notifications.swift in Sources */,
 				27354CEBFDA318B1226C23CC /* SearchViewController.swift in Sources */,
 				2735425DB8B479B02DE65EB7 /* SearchTagCell.swift in Sources */,
+				273544014D9EFECC92C63234 /* PersistentString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

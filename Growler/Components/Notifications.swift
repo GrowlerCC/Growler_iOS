@@ -11,6 +11,8 @@ extension Notification.Name {
     
     static let cartChanged = Notification.Name("cartChanged")
 
+    static let accountChanged = Notification.Name("accountChanged")
+
     func send() {
         NotificationCenter.default.post(name: self, object: nil)
     }

@@ -21,6 +21,12 @@ class ShopifyController: NSObject {
 
     public var cartProductIds: PersistentIdSet!
 
+    public var address1 = PersistentString(defaultsKey: "ADDRESS1", changeNotification: Notification.Name.accountChanged)
+
+    public var email = PersistentString(defaultsKey: "EMAIL", changeNotification: Notification.Name.accountChanged)
+
+    public var creditCardNumber = PersistentString(defaultsKey: "CREDIT_CARD_NUMBER", changeNotification: Notification.Name.accountChanged)
+
     override init() {
         client = BUYClient(shopDomain:SHOP_DOMAIN, apiKey: API_KEY, appId: APP_ID)
 
@@ -84,16 +90,16 @@ class ShopifyController: NSObject {
         guard let address = client.modelManager.insertAddress(withJSONDictionary: nil) else {
             return nil
         }
-        address.address1 = "150 Elgin Street"
-        address.address2 = "8th Floor"
-        address.city = "Ottawa"
-        address.company = "Shopify Inc."
-        address.firstName = "Egon"
-        address.lastName = "Spengler"
-        address.phone = "1-555-555-5555"
-        address.countryCode = "CA"
-        address.provinceCode = "ON"
-        address.zip = "K1N5T5"
+        address.address1 = address1.value
+//        address.address2 = address2.value
+//        address.city = city.value
+//        address.company =
+//        address.firstName =
+//        address.lastName =
+//        address.phone =
+//        address.countryCode =
+//        address.provinceCode =
+//        address.zip =
         return address
     }
 

@@ -41,15 +41,20 @@ class AccountProfileViewController: UITableViewController {
     }
 
     func getEmail() -> String {
-        return "test@example.com"
+        return ShopifyController.instance.email.value
     }
 
     func getMaskedCreditCard() -> String {
-        return "****************"
+        var number = ShopifyController.instance.creditCardNumber.value
+        let endIndex = max(0, number.characters.count - 4)
+        let start = number.index(number.startIndex, offsetBy: 0)
+        let end = number.index(number.startIndex, offsetBy: endIndex)
+        number.replaceSubrange(start..<end, with: "************")
+        return number
     }
 
     func getAddress() -> String {
-        return "Berlin Tirpark Hotel"
+        return ShopifyController.instance.address1.value
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
