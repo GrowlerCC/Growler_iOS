@@ -19,7 +19,7 @@ class FaqViewController: UIViewController {
         if !FaqViewController.registeredStyles {
             FaqViewController.registeredStyles = true
             let questionStyle = EMStylingClass(markup: "<growler_question>")!
-            questionStyle.color = UIColor(0xFC8127)
+            questionStyle.color = Colors.launchScreenOrangeColor
             questionStyle.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightBold)
             EMStringStylingConfiguration.sharedInstance().addNewStylingClass(questionStyle)
 

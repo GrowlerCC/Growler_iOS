@@ -5,7 +5,7 @@
 
 import Foundation
 
-class SearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class SearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var keywordField: UITextField!
 
@@ -53,7 +53,15 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 40)
+        let tag = tags[indexPath.row]
+        let font = UIFont(name: "Lato", size: 15)!
+        let textWidth = tag.boundingRect(with: CGSize(width: CGFloat.infinity, height: CGFloat.infinity),
+            options: .usesLineFragmentOrigin,
+            attributes: [NSFontAttributeName: font],
+            context: nil
+        ).size.width
+        let cornerRadius = CGFloat(16.5)
+        return CGSize(width: textWidth + cornerRadius * 2, height: cornerRadius * 2)
     }
 
 }

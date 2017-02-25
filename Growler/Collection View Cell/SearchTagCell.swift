@@ -11,8 +11,16 @@ class SearchTagCell: UICollectionViewCell {
     @IBOutlet weak var button: UIButton!
 
     var tagName: String = ""
-    
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        button.layer.cornerRadius = 16.5
+        button.layer.borderColor = Colors.grayControlBorderColor.cgColor
+        button.layer.borderWidth = 1
+    }
+
     @IBAction func didTapButton(_ sender: Any) {
-        print("\(tagName)\n")
+        button.isSelected = !button.isSelected
+        button.backgroundColor = button.isSelected ? Colors.launchScreenOrangeColor : UIColor.white
     }
 }
