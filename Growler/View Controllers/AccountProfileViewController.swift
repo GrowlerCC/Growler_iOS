@@ -34,14 +34,14 @@ class AccountProfileViewController: UITableViewController, Notifiable {
         if (cell == nil) {
             cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
         }
-        let title: String
+        let label: String
         switch AccountCellIndex(rawValue: indexPath.row)! {
-            case .email: title = "Email: \(getEmail())"
-            case .myCreditCards: title = "My Credit Cards: \(getMaskedCreditCard())"
-            case .myAddresses: title = "My Address: \(getAddress())"
-            case .myRecommendations: title = "My Recommendations"
+            case .email: label = "Email: \(getEmail())"
+            case .myCreditCards: label = "My Credit Cards: \(getMaskedCreditCard())"
+            case .myAddresses: label = "My Address: \(getAddress())"
+            case .myRecommendations: label = "My Recommendations"
         }
-        cell?.textLabel?.text = title
+        cell?.textLabel?.text = label
         return cell!
     }
 
