@@ -42,6 +42,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
 
         titleView = UIButton()
         titleView.setTitleColor(UIColor.black, for: .normal)
+        titleView.addTarget(self, action: #selector(self.changeAddress), for: .touchUpInside)
         updateAddress()
 
         let profileButtonImage = UIImage(named: "ProfileButton")?.withRenderingMode(.alwaysOriginal)
@@ -64,6 +65,18 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
 
     func updateAddress() {
         titleView.setTitle(ShopifyController.instance.address1.value, for: .normal)
+    }
+
+    func changeAddress() {
+        Utils.inputBox(
+            title: "Address",
+            message: "Enter your address",
+            okTitle: "OK")
+        {
+            if let value = $0 {
+                ShopifyController.instance.address1.value = value
+            }
+        }
     }
 
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
