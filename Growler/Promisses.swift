@@ -85,3 +85,16 @@ func getTags(page: UInt) -> Promise<[String]> {
         }
     }
 }
+
+func getOrders() -> Promise<[BUYOrder]> {
+    return Promise {
+        fulfill, reject in
+        ShopifyController.instance.client.getOrdersForCustomerCallback() {
+            orders, error in
+            if let error = error {
+                reject(error)
+            }
+            fulfill(orders ?? [])
+        }
+    }
+}
