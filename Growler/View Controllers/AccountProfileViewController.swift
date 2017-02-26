@@ -75,28 +75,14 @@ class AccountProfileViewController: UITableViewController, Notifiable {
                     }
                 }
             case .myCreditCards:
-                Utils.inputBox(
-                    title: "Credit card number",
-                    message: "Enter your credit card number",
-                    okTitle: "OK")
-                {
-                    if let value = $0 {
-                        ShopifyController.instance.creditCardNumber.value = value
-                    }
-                }
+                let controller = CreditCardFormController()
+                navigationController!.pushViewController(controller, animated: true)
 
-        case .myAddresses:
-            Utils.inputBox(
-                title: "Address",
-                message: "Enter your address",
-                okTitle: "OK")
-            {
-                if let value = $0 {
-                    ShopifyController.instance.address1.value = value
-                }
-            }
+            case .myAddresses:
+                let controller = AddressFormController()
+                navigationController!.pushViewController(controller, animated: true)
 
-        case .myRecommendations:
+            case .myRecommendations:
                 AppDelegate.shared.navigationController.viewControllers = [RecommendationListViewController()]
         }
     }
