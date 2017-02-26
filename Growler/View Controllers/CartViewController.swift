@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-class CartViewController: ProductListViewController {
+class CartViewController: ProductListViewController, Notifiable {
 
     private var footer: UIView!
 
@@ -15,6 +15,11 @@ class CartViewController: ProductListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkoutButton = UIBarButtonItem(title: "Checkout", style: .plain, target: self, action: #selector(self.checkout))
+        subscribeTo(Notification.Name.cartChanged, selector: #selector(self.cartChanged))
+    }
+
+    deinit {
+        unsubscribeFromNotifications()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +48,10 @@ class CartViewController: ProductListViewController {
 
     func checkout() {
         ShopifyController.instance.checkout(navigationController: navigationController!)
+    }
+
+    func cartChanged() {
+        loadProducts()
     }
 
 }
