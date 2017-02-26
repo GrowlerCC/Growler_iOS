@@ -31,10 +31,11 @@ class CartViewController: ProductListViewController {
         }
     }
 
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete") {
+    override func tableView(_ tableView: UITableView,
+                   editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") {
             action, indexPath in
-            let product = self.products[indexPath.row]
+            let product = self.products[indexPath.row] as! BUYProduct
             ShopifyController.instance.cartProductIds.remove(product.identifierValue)
         }
         return [deleteAction]
