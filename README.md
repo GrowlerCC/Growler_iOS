@@ -9,6 +9,34 @@ Initial Setup
 1. Drag the Buy.framework that was just created into the Linked Frameworks and Libraries section for the target you want to add the framework to. Check Copy items if needed so the framework is copied to your project
 1. In the Build Settings tab, add -all_load to Other Linker Flags
 
+Testing Payments
+----------------
+https://help.shopify.com/manual/payments/shopify-payments/testing-shopify-payments
+
+### Enable test mode
+To test the setup and configuration of your Shopify Payments gateway.
+From your Shopify admin, click Settings, then click Payments (or press G S P).
+In the Shopify Payments section, click Edit:
+
+1. Edit sp settings 
+1. Check Use test mode:
+1. Use sp test mode
+1. Click Save.
+
+###Test credit cards:
+```
+Name on card: Enter at least two words.
+Expiry date: Enter any date in the future.
+CVV: Enter any three digits.
+Card number: Use the following numbers:
+Visa	4242424242424242
+MasterCard	5555555555554444
+American Express	378282246310005
+Discover	6011111111111117
+Diners Club	30569309025904
+JCB	3530111333300000
+```
+
 ### Classes
 #### View Controllers
 
