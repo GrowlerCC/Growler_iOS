@@ -68,14 +68,15 @@ NSString * const MerchantId = @"";
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 164)];
     
     UIButton *creditCardButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [creditCardButton setTitle:@"Checkout with Credit Card" forState:UIControlStateNormal];
+    [creditCardButton setTitle:@"Checkout" forState:UIControlStateNormal];
     creditCardButton.backgroundColor = [UIColor colorWithRed:0.48f green:0.71f blue:0.36f alpha:1.0f];
     creditCardButton.layer.cornerRadius = 6;
     [creditCardButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     creditCardButton.translatesAutoresizingMaskIntoConstraints = NO;
     [creditCardButton addTarget:self action:@selector(checkoutWithCreditCard) forControlEvents:UIControlEventTouchUpInside];
     [footerView addSubview:creditCardButton];
-    
+
+    /*
     UIButton *webCheckoutButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [webCheckoutButton setTitle:@"Web Checkout" forState:UIControlStateNormal];
     webCheckoutButton.backgroundColor = [UIColor colorWithRed:0.48f green:0.71f blue:0.36f alpha:1.0f];
@@ -89,13 +90,12 @@ NSString * const MerchantId = @"";
     applePayButton.translatesAutoresizingMaskIntoConstraints = NO;
     [applePayButton addTarget:self action:@selector(checkoutWithApplePay) forControlEvents:UIControlEventTouchUpInside];
     [footerView addSubview:applePayButton];
-    
-    NSDictionary *views = NSDictionaryOfVariableBindings(creditCardButton, webCheckoutButton, applePayButton);
+    */
+
+    NSDictionary *views = NSDictionaryOfVariableBindings(creditCardButton/*, webCheckoutButton, applePayButton*/);
     [footerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[creditCardButton]-|" options:0 metrics:nil views:views]];
-    [footerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[webCheckoutButton]-|" options:0 metrics:nil views:views]];
-    [footerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[applePayButton]-|" options:0 metrics:nil views:views]];
-    
-    [footerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[creditCardButton(44)]-[webCheckoutButton(==creditCardButton)]-[applePayButton(==creditCardButton)]-|" options:0 metrics:nil views:views]];
+
+    [footerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[creditCardButton(44)]-|" options:0 metrics:nil views:views]];
     
     self.tableView.tableFooterView = footerView;
     
