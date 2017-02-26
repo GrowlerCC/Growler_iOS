@@ -90,16 +90,16 @@ class ShopifyController: NSObject {
         guard let address = client.modelManager.insertAddress(withJSONDictionary: nil) else {
             return nil
         }
-        address.address1 = address1.value
-//        address.address2 = address2.value
-//        address.city = city.value
-//        address.company =
-//        address.firstName =
-//        address.lastName =
-//        address.phone =
-//        address.countryCode =
-//        address.provinceCode =
-//        address.zip =
+        address.address1 = "Address 1"
+        address.address2 = "address 2"
+        address.city = "Test city"
+        address.company = "Test company"
+        address.firstName = "First name"
+        address.lastName = "Last Name"
+        address.phone = "123456789"
+        address.countryCode = "US"
+        address.provinceCode = "CA"
+        address.zip = "94118"
         return address
     }
 
