@@ -26,14 +26,14 @@
 
 #define TEST_MODE YES
 
-#if TEST_MODE
+//#if TEST_MODE
     #define SHOP_DOMAIN @"growler-development.myshopify.com"
     #define API_KEY     @"6c22005269ee2ce68ac27bc2fb37316f"
     #define APP_ID      @"8" // 6 = website, 8 = mobile app
     #define MERCHANT_ID @""
-#else
-    #define SHOP_DOMAIN @"growler-express.myshopify.com"
-    #define API_KEY     @"81c0486b7e825ac51e8c9b7748d8d483"
-    #define APP_ID      @"8" // 6 = website, 8 = mobile app
-    #define MERCHANT_ID @""
-#endif
+//#else
+//    #define SHOP_DOMAIN @"growler-express.myshopify.com"
+//    #define API_KEY     @"81c0486b7e825ac51e8c9b7748d8d483"
+//    #define APP_ID      @"8" // 6 = website, 8 = mobile app
+//    #define MERCHANT_ID @""
+//#endif
