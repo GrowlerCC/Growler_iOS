@@ -8,6 +8,8 @@ import SwiftyJSON
 
 class FormTableViewController: UITableViewController {
 
+    public var onSave: (() -> Void)?
+
     private var items: [FormTableCell] = []
 
     private var saveButton: UIBarButtonItem!
@@ -67,7 +69,11 @@ class FormTableViewController: UITableViewController {
         if isValid() {
             let values = getValues()
             saveData(values)
-            navigationController!.popViewController(animated: true)
+            if let onSave = onSave {
+                onSave()
+            } else {
+                navigationController!.popViewController(animated: true)
+            }
         }
     }
 

@@ -189,8 +189,16 @@ NSString * const MerchantId = @"";
 
 #pragma mark - Native Checkout
 
-- (void)checkoutWithCreditCard
-{
+- (void)checkoutWithCreditCard {
+    __weak CheckoutViewController *welf = self;
+    CreditCardFormController *controller = [[CreditCardFormController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+    controller.onSave = ^{
+        [welf doCheckout];
+    };
+}
+
+- (void) doCheckout {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
     __weak CheckoutViewController *welf = self;
