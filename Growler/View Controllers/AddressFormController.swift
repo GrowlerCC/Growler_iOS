@@ -25,11 +25,11 @@ class AddressFormController: FormTableViewController {
 
     override func saveData(_ data: JSON) {
         let rawString = data.rawString(.utf8 )
-        ShopifyController.instance.address1.value = rawString ?? "{}"
+        ShopifyController.instance.addressJsonString.value = rawString ?? "{}"
     }
 
     override func loadData() -> JSON {
-        let value = ShopifyController.instance.address1.value
+        let value = ShopifyController.instance.addressJsonString.value
         return JSON(data: value.data(using: .utf8)!) // imaportnat: don't use JSON(parseString:), it doesn't work!!!
     }
 

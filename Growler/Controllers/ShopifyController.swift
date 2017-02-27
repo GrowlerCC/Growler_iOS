@@ -22,13 +22,11 @@ class ShopifyController: NSObject {
 
     public var cartProductIds: PersistentIdSet!
 
-    // todo rename to address
-    public var address1 = PersistentString(defaultsKey: "ADDRESS1", changeNotification: Notification.Name.accountChanged)
+    public var addressJsonString = PersistentString(defaultsKey: "ADDRESS_JSON_STRING", changeNotification: Notification.Name.accountChanged)
 
     public var email = PersistentString(defaultsKey: "EMAIL", changeNotification: Notification.Name.accountChanged)
 
-    // todo rename to creditCard
-    public var creditCardNumber = PersistentString(defaultsKey: "CREDIT_CARD_NUMBER", changeNotification: Notification.Name.accountChanged)
+    public var creditCardJsonString = PersistentString(defaultsKey: "CREDIT_CARD_JSON_STRING", changeNotification: Notification.Name.accountChanged)
 
     override init() {
         client = BUYClient(shopDomain:SHOP_DOMAIN, apiKey: API_KEY, appId: APP_ID)
@@ -72,8 +70,8 @@ class ShopifyController: NSObject {
         }
 
         let checkout = BUYCheckout(modelManager: cart.modelManager!, cart: cart)
-        checkout.shippingAddress = address()
-        checkout.billingAddress = address()
+        checkout.shippingAddress = getAddress()
+        checkout.billingAddress = getAddress()
         checkout.email = "banana@testasaurus.com";
 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -89,12 +87,11 @@ class ShopifyController: NSObject {
         }
     }
 
-    // todo rename to getAddress
-    func address() -> BUYAddress? {
+    func getAddress() -> BUYAddress? {
         guard let address = client.modelManager.insertAddress(withJSONDictionary: nil) else {
             return nil
         }
-        let json = JSON(data: address1.value.data(using: .utf8)!)
+        let json = JSON(data: addressJsonString.value.data(using: .utf8)!)
         address.loadFrom(json: json)
         /*
         address.address1 = "Address 1"
@@ -113,7 +110,7 @@ class ShopifyController: NSObject {
 
     func getCreditCard() -> BUYCreditCard {
         let result = BUYCreditCard()
-        let json = JSON(data: creditCardNumber.value.data(using: .utf8)!)
+        let json = JSON(data: creditCardJsonString.value.data(using: .utf8)!)
         result.loadFrom(json: json)
         /*
         creditCard.number = "4242424242424242"

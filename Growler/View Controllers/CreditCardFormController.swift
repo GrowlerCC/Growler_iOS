@@ -20,11 +20,11 @@ class CreditCardFormController: FormTableViewController {
 
     override func saveData(_ data: JSON) {
         let rawString = data.rawString()
-        ShopifyController.instance.creditCardNumber.value = rawString ?? "{}"
+        ShopifyController.instance.creditCardJsonString.value = rawString ?? "{}"
     }
 
     override func loadData() -> JSON {
-        let value = ShopifyController.instance.creditCardNumber.value
+        let value = ShopifyController.instance.creditCardJsonString.value
         return JSON(data: value.data(using: .utf8)!) // imaportnat: don't use JSON(parseString:), it doesn't work!!!
     }
 

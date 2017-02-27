@@ -59,7 +59,7 @@ class AccountProfileViewController: UITableViewController, Notifiable {
     }
 
     func getAddress() -> String {
-        return ShopifyController.instance.address()?.address1 ?? ""
+        return ShopifyController.instance.getAddress()?.address1 ?? ""
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

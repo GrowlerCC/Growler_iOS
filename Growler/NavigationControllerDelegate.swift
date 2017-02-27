@@ -64,7 +64,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
     var navigationController: UINavigationController!
 
     func updateAddress() {
-        let address = ShopifyController.instance.address()
+        let address = ShopifyController.instance.getAddress()
         titleView.setTitle(address?.address1, for: .normal)
     }
 
