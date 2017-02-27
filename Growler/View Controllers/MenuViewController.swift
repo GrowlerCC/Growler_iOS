@@ -15,6 +15,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var menuItems: [MenuItem] = [
         // menu items with darker color
+        MenuItem.create(title: "Home", color: UIColor(0x25313b), image: UIImage(named: "AccountProfileIcon")) {
+            AppDelegate.shared.navigationController.viewControllers = [AppDelegate.shared.homeViewController]
+        },
         MenuItem.create(title: "Profile", color: UIColor(0x25313b), image: UIImage(named: "AccountProfileIcon")) {
             // don't rewrite viewControllers property here! it's required that AccountProfileViewController had back button which can be accomplished by pushing controller
             let controller = AccountProfileViewController()
