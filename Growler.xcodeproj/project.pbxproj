@@ -1175,7 +1175,7 @@
 				INFOPLIST_FILE = Growler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.growlerexpress.GrowlerExpress;
+				PRODUCT_BUNDLE_IDENTIFIER = com.myiosappid.GrowlerExpress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Growler/Growler-Bridging-Header.h";
@@ -1199,7 +1199,7 @@
 				INFOPLIST_FILE = Growler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.growlerexpress.GrowlerExpress;
+				PRODUCT_BUNDLE_IDENTIFIER = com.myiosappid.GrowlerExpress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Growler/Growler-Bridging-Header.h";
