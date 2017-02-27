@@ -126,8 +126,9 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
     }
     
     func didTapProfileButton() {
-        let controller = AccountProfileViewController()
-        navigationController!.pushViewController(controller, animated: true)
+//        let controller = AccountProfileViewController()
+//        navigationController!.pushViewController(controller, animated: true)
+        AppDelegate.shared.sideMenuViewController.presentLeftMenuViewController()
     }
 
     func didTapSearchButton() {
