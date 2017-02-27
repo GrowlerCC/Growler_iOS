@@ -50,7 +50,7 @@ class AccountProfileViewController: UITableViewController, Notifiable {
     }
 
     func getMaskedCreditCard() -> String {
-        var number = ShopifyController.instance.creditCardNumber.value
+        var number = ShopifyController.instance.getCreditCard().number ?? ""
         let endIndex = max(0, number.characters.count - 4)
         let start = number.index(number.startIndex, offsetBy: 0)
         let end = number.index(number.startIndex, offsetBy: endIndex)
@@ -59,7 +59,7 @@ class AccountProfileViewController: UITableViewController, Notifiable {
     }
 
     func getAddress() -> String {
-        return ShopifyController.instance.address1.value
+        return ShopifyController.instance.address()?.address1 ?? ""
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

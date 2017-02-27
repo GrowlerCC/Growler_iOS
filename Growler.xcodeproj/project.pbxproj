@@ -81,6 +81,7 @@
 		27354BF8C05626F7CCEB6754 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354F115349B2087E426AAA /* Lato-Light.ttf */; };
 		27354C1FDFF7D5CC70332A12 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273549840063D5EE463FAC80 /* Lato-LightItalic.ttf */; };
 		27354C26A00A1A67E56ED756 /* FormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354A8251BC4153A063092C /* FormTableViewController.swift */; };
+		27354CA847C911056F22C6EE /* BUYAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735449B5D83E6C7778C595A /* BUYAddress.swift */; };
 		27354CC5559BCE620FD30F75 /* ProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273545C68D4A7ECD75039CEF /* ProductListCell.swift */; };
 		27354CEBFDA318B1226C23CC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354A07CC5B2974FA246F57 /* SearchViewController.swift */; };
 		27354D24E9BAF5D44440799A /* SwiftCarouselDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354E17505632D486F6CA28 /* SwiftCarouselDelegate.swift */; };
@@ -91,6 +92,7 @@
 		27354DCA9127146C0563685C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547E48016C5BE03F59076 /* MenuViewController.swift */; };
 		27354E01B9FBF64215E4D6F5 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27354FCF88B85937F09ED48D /* Lato-Black.ttf */; };
 		27354E7B8ADC896B8D589F76 /* MyOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273545AA98315DCB30A0A459 /* MyOrdersViewController.swift */; };
+		27354E82ECC52F0A394C0DC5 /* BUYCreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354AE02B043FBD34A3AAD5 /* BUYCreditCard.swift */; };
 		27354EDE8C0B346308370E93 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354B83AA859765D5F90150 /* Notifications.swift */; };
 		27354F3935F8568436E24834 /* PriceBannerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354C58ED18468E5A09765B /* PriceBannerFactory.swift */; };
 		27354F950072C32CC6F1961D /* CollectionBannerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354B8BE1C2936EC2030042 /* CollectionBannerFactory.swift */; };
@@ -204,6 +206,7 @@
 		273543E6AB7C01EE659A1B97 /* Aller_LtIt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; name = Aller_LtIt.ttf; path = Aller/Aller_LtIt.ttf; sourceTree = "<group>"; };
 		273544280EF5AC9BC915DAEA /* ProductBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductBannerView.swift; sourceTree = "<group>"; };
 		27354498D36853A62C3A40DD /* FAQ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
+		2735449B5D83E6C7778C595A /* BUYAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BUYAddress.swift; sourceTree = "<group>"; };
 		273544C315EDAB7FEFEED3E8 /* MenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = MenuViewController.storyboard; path = "View Controllers/MenuViewController.storyboard"; sourceTree = "<group>"; };
 		27354546FCDBC5D861D32179 /* SwiftCarouselError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCarouselError.swift; sourceTree = "<group>"; };
 		273545AA98315DCB30A0A459 /* MyOrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyOrdersViewController.swift; path = "View Controllers/MyOrdersViewController.swift"; sourceTree = "<group>"; };
@@ -240,6 +243,7 @@
 		27354A8251BC4153A063092C /* FormTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormTableViewController.swift; path = "View Controllers/FormTableViewController.swift"; sourceTree = "<group>"; };
 		27354AAC7DFEFC019C6D2D68 /* CarouselTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselTableCell.swift; sourceTree = "<group>"; };
 		27354AAE8B7DFBBB38F8400D /* Aller_Rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; name = Aller_Rg.ttf; path = Aller/Aller_Rg.ttf; sourceTree = "<group>"; };
+		27354AE02B043FBD34A3AAD5 /* BUYCreditCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BUYCreditCard.swift; sourceTree = "<group>"; };
 		27354AEE54F51A672672BA12 /* Aller_Bd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; name = Aller_Bd.ttf; path = Aller/Aller_Bd.ttf; sourceTree = "<group>"; };
 		27354AF6C4F4DD0B12545E42 /* TagBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagBanner.swift; sourceTree = "<group>"; };
 		27354B09BED69F4D4D62C474 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -441,6 +445,8 @@
 				27354A7A9281457AAED4CE6B /* UIViewController.swift */,
 				27354C867E114FDDC7306A45 /* UIColor.swift */,
 				2735466D3B4DFDB29F42F403 /* UIView.swift */,
+				2735449B5D83E6C7778C595A /* BUYAddress.swift */,
+				27354AE02B043FBD34A3AAD5 /* BUYCreditCard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1055,6 +1061,8 @@
 				27354C26A00A1A67E56ED756 /* FormTableViewController.swift in Sources */,
 				2735469B478298BAB51E70BA /* AddressFields.swift in Sources */,
 				27354A16485FF3CE16183CCD /* CreditCardFields.swift in Sources */,
+				27354CA847C911056F22C6EE /* BUYAddress.swift in Sources */,
+				27354E82ECC52F0A394C0DC5 /* BUYCreditCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
