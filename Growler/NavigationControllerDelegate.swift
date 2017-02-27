@@ -87,12 +87,8 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
                 is FavoriteListViewController,
                 is RecommendationListViewController:
                     viewController.navigationItem.leftBarButtonItem = profileButton
-            case is AccountProfileViewController:
-                // we already on account page, there's no point to show account page button
-                // mayb we should hide back button as follows?
-                // viewController.navigationItem.hidesBackButton = true
-                break
             case
+                is AccountProfileViewController,
                 is AddressFormController,
                 is CreditCardFormController,
                 is ProductListViewController,
