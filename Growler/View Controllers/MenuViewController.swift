@@ -18,9 +18,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         MenuItem.create(title: "Profile", color: UIColor(0x25313b), image: UIImage(named: "AccountProfileIcon")) {
             AppDelegate.shared.navigationController.viewControllers = [AccountProfileViewController()]
         },
-        MenuItem.create(title: "My orders", color: UIColor(0x25313b), image: UIImage(named: "MyOrdersIcon")) {
-            AppDelegate.shared.navigationController.viewControllers = [MyOrdersViewController()]
-        },
+        //MenuItem.create(title: "My orders", color: UIColor(0x25313b), image: UIImage(named: "MyOrdersIcon")) {
+        //    AppDelegate.shared.navigationController.viewControllers = [MyOrdersViewController()]
+        //},
         MenuItem.create(title: "Recommendations", color: UIColor(0x25313b), image: UIImage(named: "RecommendationsIcon")) {
             AppDelegate.shared.navigationController.viewControllers = [RecommendationListViewController(client: ShopifyController.instance.client, collection: nil)]
         },
