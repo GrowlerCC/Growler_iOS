@@ -63,4 +63,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func replaceController(_ viewController: UIViewController) {
+        navigationController.delegate?.navigationController?(navigationController, willShow: viewController, animated: false)
+        navigationController.viewControllers = [viewController]
+    }
+
 }

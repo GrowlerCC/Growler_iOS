@@ -16,7 +16,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var menuItems: [MenuItem] = [
         // menu items with darker color
         MenuItem.create(title: "Home", color: UIColor(0x25313b), image: UIImage(named: "AccountProfileIcon")) {
-            AppDelegate.shared.navigationController.viewControllers = [AppDelegate.shared.homeViewController]
+            AppDelegate.shared.replaceController(AppDelegate.shared.homeViewController)
         },
         MenuItem.create(title: "Profile", color: UIColor(0x25313b), image: UIImage(named: "AccountProfileIcon")) {
             // don't rewrite viewControllers property here! it's required that AccountProfileViewController had back button which can be accomplished by pushing controller
@@ -27,10 +27,12 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //    AppDelegate.shared.navigationController.viewControllers = [MyOrdersViewController()]
         //},
         MenuItem.create(title: "Recommendations", color: UIColor(0x25313b), image: UIImage(named: "RecommendationsIcon")) {
-            AppDelegate.shared.navigationController.viewControllers = [RecommendationListViewController(client: ShopifyController.instance.client, collection: nil)]
+            let controller = RecommendationListViewController(client: ShopifyController.instance.client, collection: nil)!
+            AppDelegate.shared.replaceController(controller)
         },
         MenuItem.create(title: "Favorites", color: UIColor(0x25313b), image: UIImage(named: "FavoritesIcon")) {
-            AppDelegate.shared.navigationController.viewControllers = [FavoriteListViewController(client: ShopifyController.instance.client, collection: nil)]
+            let controller = FavoriteListViewController(client: ShopifyController.instance.client, collection: nil)!
+            AppDelegate.shared.replaceController(controller)
         },
 
         MenuItem.create(title: "", image: nil), // separator
@@ -38,10 +40,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // menu items with lighter color
 //        MenuItem.create(title: "App settings", image: UIImage(named: "SettingsIcon")),
         MenuItem.create(title: "FAQs", image: UIImage(named: "FaqsIcon")) {
-            AppDelegate.shared.navigationController.viewControllers = [FaqViewController.loadFromStoryboard()]
+            AppDelegate.shared.replaceController(FaqViewController.loadFromStoryboard())
         },
         MenuItem.create(title: "About", image: UIImage(named: "AboutIcon")) {
-            AppDelegate.shared.navigationController.viewControllers = [AboutViewController.loadFromStoryboard()]
+            AppDelegate.shared.replaceController(AboutViewController.loadFromStoryboard())
         },
     ]
 
