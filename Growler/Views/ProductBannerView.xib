@@ -24,10 +24,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="Q8f-IR-YU9" customClass="AsyncImageView">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="198.5"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="219"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1000" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksk-iM-Jbx">
-                    <rect key="frame" x="15" y="242.5" width="345" height="17"/>
+                    <rect key="frame" x="15" y="253" width="345" height="17"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="17" id="CNp-YP-7Cg"/>
                     </constraints>
@@ -42,7 +42,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1000" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzJ-ib-yZT">
-                    <rect key="frame" x="15" y="212.5" width="345" height="20"/>
+                    <rect key="frame" x="15" y="233" width="345" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Tnm-Mq-Omk"/>
                     </constraints>
@@ -51,7 +51,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHU-qL-bin">
-                    <rect key="frame" x="15" y="269.5" width="32.5" height="19.5"/>
+                    <rect key="frame" x="15" y="270" width="33" height="19"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="19.5" id="jQg-7m-AaW"/>
                     </constraints>
@@ -73,9 +73,9 @@
                 <constraint firstItem="DHU-qL-bin" firstAttribute="leading" secondItem="s8i-0v-OfU" secondAttribute="leading" constant="15" id="bKb-Na-C8P"/>
                 <constraint firstItem="FzJ-ib-yZT" firstAttribute="top" secondItem="Q8f-IR-YU9" secondAttribute="bottom" constant="14" id="dTS-pl-qdZ"/>
                 <constraint firstAttribute="trailing" secondItem="Q8f-IR-YU9" secondAttribute="trailing" id="gz1-F6-7G7"/>
-                <constraint firstItem="DHU-qL-bin" firstAttribute="top" secondItem="ksk-iM-Jbx" secondAttribute="bottom" constant="10" id="jAy-6P-eux"/>
+                <constraint firstItem="DHU-qL-bin" firstAttribute="top" secondItem="ksk-iM-Jbx" secondAttribute="bottom" id="jAy-6P-eux"/>
                 <constraint firstAttribute="trailing" secondItem="ksk-iM-Jbx" secondAttribute="trailing" constant="15" id="mkV-yw-2jb"/>
-                <constraint firstItem="ksk-iM-Jbx" firstAttribute="top" secondItem="FzJ-ib-yZT" secondAttribute="bottom" constant="10" id="ucy-DP-1Y7"/>
+                <constraint firstItem="ksk-iM-Jbx" firstAttribute="top" secondItem="FzJ-ib-yZT" secondAttribute="bottom" id="ucy-DP-1Y7"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
