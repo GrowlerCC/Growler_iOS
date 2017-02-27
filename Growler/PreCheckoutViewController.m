@@ -29,6 +29,7 @@
 #import "SummaryItemsTableViewCell.h"
 @import Buy;
 @import PassKit;
+#import "Growler-Swift.h"
 
 typedef NS_ENUM(NSInteger, UITableViewSections) {
     UITableViewSectionSummaryItems,
@@ -209,6 +210,7 @@ typedef NS_ENUM(NSInteger, UITableViewDiscountGiftCardSection) {
                                                                   [self.tableView reloadData];
                                                               }
                                                               else {
+                                                                  [Utils alertWithMessage:@"Error applying checkout"];
                                                                   NSLog(@"Error applying checkout: %@", error);
                                                               }
                                                           }];                                                          
@@ -248,6 +250,7 @@ typedef NS_ENUM(NSInteger, UITableViewDiscountGiftCardSection) {
                                                                   [self.tableView reloadData];
                                                               }
                                                               else {
+                                                                  [Utils alertWithMessage:@"Error applying gift card"];
                                                                   NSLog(@"Error applying gift card: %@", error);
                                                               }
                                                           }];

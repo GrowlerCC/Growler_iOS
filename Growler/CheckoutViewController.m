@@ -145,6 +145,8 @@ NSString * const MerchantId = @"";
             NSLog(@"Successfully added credit card to checkout");
         }
         else {
+            NSString *info = [Utils formatErrorInfo:[error userInfo]];
+            [Utils alertWithMessage:@"Error applying credit card"];
             NSLog(@"Error applying credit card: %@", error);
         }
         
@@ -207,6 +209,7 @@ NSString * const MerchantId = @"";
                 }
                 else {
                     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                    [Utils alertWithMessage:@"Error completing checkout"];
                     NSLog(@"Error completing checkout: %@", error);
                 }
             }];
@@ -352,6 +355,7 @@ NSString * const MerchantId = @"";
             }];
         }
         else {
+            [Utils alertWithMessage:@"Error completing checkout"];
             NSLog(@"Error completing checkout: %@", error);
         }
     }];

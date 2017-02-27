@@ -61,6 +61,7 @@ class ShopifyController: NSObject {
         }
 
         guard let cart = client.modelManager.insertCart(withJSONDictionary: nil) else {
+            Utils.alert(message: "Failed to create card")
             print("Failed to create card")
             return
         }
@@ -82,6 +83,7 @@ class ShopifyController: NSObject {
                 let shippingController = ShippingRatesTableViewController(client: self.client, checkout: checkout)
                 navigationController.pushViewController(shippingController!, animated: true)
             } else {
+                Utils.alert(message: "Error creating checkout")
                 print("Error creating checkout: \(error)")
             }
         }

@@ -60,6 +60,31 @@ class Utils: NSObject {
         }
     }
 
+    static func formatErrorInfoInternal(_ info: [AnyHashable: Any], path: [String]) -> [String] {
+        var errors = [String]()
+        for (key, value) in info.enumerated() {
+            var newPath = path
+            if let key = key as? String {
+                let humanReadableKey = key.replacingOccurrences(of: "_", with: " ")
+                newPath.append(humanReadableKey)
+            }
+            if let dictionary = value as? [AnyHashable: Any] {
+                if let message = dictionary["message"] as? String {
+                    let error = path.joined(separator: " - ") + ": " + message
+                    errors.append(error)
+                } else {
+                    errors.append(contentsOf: formatErrorInfoInternal(dictionary, path: newPath))
+                }
+            }
+        }
+        return errors
+    }
+
+    static func formatErrorInfo(_ info: [AnyHashable: Any]) -> String {
+        let errors = formatErrorInfoInternal(info, path: [])
+        return errors.joined(separator: "\n")
+    }
+
 }
 
 
