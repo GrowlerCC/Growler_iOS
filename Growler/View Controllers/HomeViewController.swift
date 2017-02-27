@@ -12,7 +12,7 @@ import PromiseKit
 // todo rename to HomePageCellIndex
 enum CarouserIndex: Int {
     case mostPopular
-    case recommendedForYou
+    case freshBrews
     case featuredCollectionsHeader
     case ciceronesChoice
     case staffsPick
@@ -66,12 +66,12 @@ class HomeViewController: UITableViewController {
                 mq { self.tableView.reloadData() }
             }
 
-        _ = getProductsPage(page: 1)
+        _ = getProducts(fromCollectionWithId: CollectionIdentifier.freshBrews.rawValue, page: 1)
             .then {
                 (products: [BUYProduct]) -> Void in
                 let recommendedProducts = ShopifyController.selectRecommendedProducts(from: products)
-                self.items[CarouserIndex.recommendedForYou.rawValue] = CarouselTableCell.create(
-                    title: "Recommended for You",
+                self.items[CarouserIndex.freshBrews.rawValue] = CarouselTableCell.create(
+                    title: "Fresh Brews",
                     itemsPerPage: 2,
                     bannerFactory: ProductBannerFactory(products: recommendedProducts)
                 )
