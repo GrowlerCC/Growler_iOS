@@ -91,6 +91,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
             case
                 is AddressFormController,
                 is CreditCardFormController,
+                is ProductListViewController,
                 is ProductViewController:
                 // it's inconvenient to return to list using menu after viewing each product or editing address/card. so for these controllers we keep back button
                 break

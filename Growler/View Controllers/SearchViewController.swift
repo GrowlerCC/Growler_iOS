@@ -75,10 +75,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         controller.searchKeyword = keywordField.text
         controller.tags = Array<String>(selectedTags)
         dismiss(animated: false)
-        if let navigation = AppDelegate.shared.navigationController {
-            navigation.delegate?.navigationController?(navigation, willShow: controller, animated: false) // navigation controller doesn't fir it when viewControllers are assigned
-            navigation.viewControllers = [controller]
-        }
+        AppDelegate.shared.navigationController.pushViewController(controller, animated: true)
         return true
     }
 
