@@ -4,13 +4,12 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class AddressFormController: FormTableViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        items = [
+    override func getItems() -> [FormTableCell] {
+        return [
             FormTableCell.create(title: "Address 1", name: AddressFields.address1.rawValue, required: true),
             FormTableCell.create(title: "Address 2", name: AddressFields.address2.rawValue, required: true),
             FormTableCell.create(title: "City", name: AddressFields.city.rawValue, required: true),
@@ -22,6 +21,16 @@ class AddressFormController: FormTableViewController {
             FormTableCell.create(title: "Province Code", name: AddressFields.provinceCode.rawValue, required: true),
             FormTableCell.create(title: "Zip", name: AddressFields.zip.rawValue, required: true),
         ]
+    }
+
+    override func saveData(_ data: JSON) {
+        let rawString = data.rawString(.utf8 )
+        ShopifyController.instance.address1.value = rawString ?? "{}"
+    }
+
+    override func loadData() -> JSON {
+        let value = ShopifyController.instance.address1.value
+        return JSON(data: value.data(using: .utf8)!) // imaportnat: don't use JSON(parseString:), it doesn't work!!!
     }
 
 }
