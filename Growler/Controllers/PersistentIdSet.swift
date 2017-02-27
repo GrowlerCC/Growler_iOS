@@ -47,6 +47,11 @@ class PersistentIdSet: NSObject {
         changeNotification.send()
     }
 
+    func removeAll() {
+        save(Set<Int64>())
+        changeNotification.send()
+    }
+
     @objc
     func toggle(_ id: Int64) {
         var ids = getAll()

@@ -24,6 +24,7 @@
 //  THE SOFTWARE.
 //
 
+#import "ProductListViewController.h"
 #import "Growler-Swift.h"
 #import "CheckoutViewController.h"
 #import "SummaryItemsTableViewCell.h"
@@ -199,8 +200,10 @@ NSString * const MerchantId = @"";
             [welf.client completeCheckoutWithToken:welf.checkout.token paymentToken:token completion:^(BUYCheckout *checkout, NSError *error) {
                 
                 if (error == nil && checkout) {
-                    NSLog(@"Successfully completed checkout");
                     welf.checkout = checkout;
+                    [[[ShopifyController instance] cartProductIds] removeAll];
+                    [AppDelegate shared].navigationController.viewControllers = @[[AppDelegate shared].homeViewController];
+                    [Utils alertWithMessage:@"Your order has been completed successfully"];
                 }
                 else {
                     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
