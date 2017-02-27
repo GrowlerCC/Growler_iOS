@@ -59,7 +59,7 @@ class HomeViewController: UITableViewController {
             .then {
                 (products: [BUYProduct]) -> Void in
                 self.items[CarouserIndex.mostPopular.rawValue] = CarouselTableCell.create(
-                    title: "",
+                    title: "Most Popular",
                     itemsPerPage: 1,
                     bannerFactory: ProductBannerFactory(products: products)
                 )
