@@ -60,7 +60,7 @@ class HomeViewController: UITableViewController {
                 (products: [BUYProduct]) -> Void in
                 self.items[CarouserIndex.mostPopular.rawValue] = CarouselTableCell.create(
                     title: "Most Popular",
-                    itemsPerPage: 1,
+                    itemsPerPage: 2,
                     bannerFactory: ProductBannerFactory(products: products)
                 )
                 mq { self.tableView.reloadData() }
