@@ -9,6 +9,7 @@ target 'Growler' do
     pod 'RESideMenu', '~> 4.0.7'
     pod 'PromiseKit', '~> 4.1.7'
     pod 'EMString', '0.3.0'
+    pod 'SwiftyJSON', '~> 3.1.1'
 
 end
 

@@ -64,19 +64,13 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
     var navigationController: UINavigationController!
 
     func updateAddress() {
-        titleView.setTitle(ShopifyController.instance.address1.value, for: .normal)
+        let address = ShopifyController.instance.address()
+        titleView.setTitle(address?.address1, for: .normal)
     }
 
     func changeAddress() {
-        Utils.inputBox(
-            title: "Address",
-            message: "Enter your address",
-            okTitle: "OK")
-        {
-            if let value = $0 {
-                ShopifyController.instance.address1.value = value
-            }
-        }
+        let controller = AddressFormController()
+        navigationController.pushViewController(controller, animated: true)
     }
 
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
@@ -94,8 +88,11 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
                 // mayb we should hide back button as follows?
                 // viewController.navigationItem.hidesBackButton = true
                 break
-            case is ProductViewController:
-                // it's inconvenient to return to list using menu after viewing each product. so for product we keep back button
+            case
+                is AddressFormController,
+                is CreditCardFormController,
+                is ProductViewController:
+                // it's inconvenient to return to list using menu after viewing each product or editing address/card. so for these controllers we keep back button
                 break
             default:
                 viewController.navigationItem.leftBarButtonItem = profileButton

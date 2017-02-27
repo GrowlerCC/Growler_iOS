@@ -4,10 +4,11 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class FormTableViewController: UITableViewController {
 
-    var items: [FormTableCell] = []
+    private var items: [FormTableCell] = []
 
     private var saveButton: UIBarButtonItem!
 
@@ -17,11 +18,21 @@ class FormTableViewController: UITableViewController {
 
         saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(self.didTapSaveButton))
         saveButton.title = "Save"
+
+        items = getItems()
+        let data = loadData()
+        for item in items {
+            item.field.text = data[item.name].string
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationItem.rightBarButtonItem = saveButton
+    }
+
+    func getItems() -> [FormTableCell] {
+        return []
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,10 +55,10 @@ class FormTableViewController: UITableViewController {
         return result
     }
     
-    func getValues() -> [String: String] {
-        var result = [String: String]()
+    func getValues() -> JSON {
+        var result = JSON(parseJSON: "{}")
         for item in items {
-            result[item.name] = item.field.text
+            result[item.name].string = item.field.text
         }
         return result
     }
@@ -55,8 +66,16 @@ class FormTableViewController: UITableViewController {
     func didTapSaveButton() {
         if isValid() {
             let values = getValues()
+            saveData(values)
             navigationController!.popViewController(animated: true)
         }
+    }
+
+    public func saveData(_ data: JSON) {
+    }
+
+    public func loadData() -> JSON {
+        return JSON(parseJSON: "{}")
     }
 
 }

@@ -24,8 +24,7 @@
 //  THE SOFTWARE.
 //
 
-@import Buy;
-
+#import "Growler-Swift.h"
 #import "CheckoutViewController.h"
 #import "SummaryItemsTableViewCell.h"
 #import "UIButton+PaymentButton.h"
@@ -139,7 +138,8 @@ NSString * const MerchantId = @"";
 
 - (void)addCreditCardToCheckout:(void (^)(BOOL success, id<BUYPaymentToken> token))callback
 {
-    [self.client storeCreditCard:[self creditCard] checkout:self.checkout completion:^(id<BUYPaymentToken> token, NSError *error) {
+    BUYCreditCard *creditCard = [ShopifyController.instance getCreditCard];
+    [self.client storeCreditCard:creditCard checkout:self.checkout completion:^(id<BUYPaymentToken> token, NSError *error) {
         if (error == nil && token) {
             NSLog(@"Successfully added credit card to checkout");
         }
@@ -149,18 +149,6 @@ NSString * const MerchantId = @"";
         
         callback(error == nil && token, token);
     }];
-}
-
-- (BUYCreditCard *)creditCard
-{
-    BUYCreditCard *creditCard = [[BUYCreditCard alloc] init];
-    creditCard.number = @"4242424242424242";
-    creditCard.expiryMonth = @"12";
-    creditCard.expiryYear = @"2020";
-    creditCard.cvv = @"123";
-    creditCard.nameOnCard = @"John Smith";
-    
-    return creditCard;
 }
 
 - (void)showCheckoutConfirmation

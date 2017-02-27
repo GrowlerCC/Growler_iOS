@@ -7,6 +7,7 @@ import Foundation
 import UIKit
 import Buy
 import PromiseKit
+import SwiftyJSON
 
 @objc
 class ShopifyController: NSObject {
@@ -21,10 +22,12 @@ class ShopifyController: NSObject {
 
     public var cartProductIds: PersistentIdSet!
 
+    // todo rename to address
     public var address1 = PersistentString(defaultsKey: "ADDRESS1", changeNotification: Notification.Name.accountChanged)
 
     public var email = PersistentString(defaultsKey: "EMAIL", changeNotification: Notification.Name.accountChanged)
 
+    // todo rename to creditCard
     public var creditCardNumber = PersistentString(defaultsKey: "CREDIT_CARD_NUMBER", changeNotification: Notification.Name.accountChanged)
 
     override init() {
@@ -86,10 +89,14 @@ class ShopifyController: NSObject {
         }
     }
 
+    // todo rename to getAddress
     func address() -> BUYAddress? {
         guard let address = client.modelManager.insertAddress(withJSONDictionary: nil) else {
             return nil
         }
+        let json = JSON(data: address1.value.data(using: .utf8)!)
+        address.loadFrom(json: json)
+        /*
         address.address1 = "Address 1"
         address.address2 = "address 2"
         address.city = "Test city"
@@ -100,7 +107,22 @@ class ShopifyController: NSObject {
         address.countryCode = "US"
         address.provinceCode = "CA"
         address.zip = "94118"
+        */
         return address
+    }
+
+    func getCreditCard() -> BUYCreditCard {
+        let result = BUYCreditCard()
+        let json = JSON(data: creditCardNumber.value.data(using: .utf8)!)
+        result.loadFrom(json: json)
+        /*
+        creditCard.number = "4242424242424242"
+        creditCard.expiryMonth = "12"
+        creditCard.expiryYear = "2020"
+        creditCard.cvv = "123"
+        creditCard.nameOnCard = "John Smith"
+        */
+        return result
     }
 
     class func selectRecommendedProducts(from products: [BUYProduct]) -> [BUYProduct] {

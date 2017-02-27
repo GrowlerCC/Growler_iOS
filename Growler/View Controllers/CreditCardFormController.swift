@@ -4,19 +4,28 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class CreditCardFormController: FormTableViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        items = [
+    override func getItems() -> [FormTableCell] {
+        return [
             FormTableCell.create(title: "Number", name: CreditCardFields.number.rawValue, required: true),
             FormTableCell.create(title: "Expiry Month", name: CreditCardFields.expiryMonth.rawValue, required: true),
             FormTableCell.create(title: "Expiry Year", name: CreditCardFields.expiryYear.rawValue, required: true),
             FormTableCell.create(title: "CVV", name: CreditCardFields.cvv.rawValue, required: true),
             FormTableCell.create(title: "Name on Card", name: CreditCardFields.nameOnCard.rawValue, required: true),
         ]
+    }
+
+    override func saveData(_ data: JSON) {
+        let rawString = data.rawString()
+        ShopifyController.instance.creditCardNumber.value = rawString ?? "{}"
+    }
+
+    override func loadData() -> JSON {
+        let value = ShopifyController.instance.creditCardNumber.value
+        return JSON(data: value.data(using: .utf8)!) // imaportnat: don't use JSON(parseString:), it doesn't work!!!
     }
 
 }
