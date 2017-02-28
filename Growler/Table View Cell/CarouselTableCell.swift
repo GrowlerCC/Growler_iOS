@@ -17,7 +17,7 @@ class CarouselTableCell: UITableViewCell {
 
     private var carouselIsSetUp: Bool = false
 
-    static func create(title: String, itemsPerPage: Int, bannerFactory: AbstractBannerFactory) -> CarouselTableCell {
+    static func create(title: String, itemsPerPage: CGFloat, bannerFactory: AbstractBannerFactory) -> CarouselTableCell {
         let cell = CarouselTableCell.loadFromNib()
         
         cell.bannerFactory = bannerFactory

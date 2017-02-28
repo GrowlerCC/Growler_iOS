@@ -62,7 +62,7 @@ class HomeViewController: UITableViewController {
                 (products: [BUYProduct]) -> Void in
                 self.items[CarouserIndex.mostPopular.rawValue] = CarouselTableCell.create(
                     title: "Most Popular",
-                    itemsPerPage: 2,
+                    itemsPerPage: 1.5,
                     bannerFactory: ProductBannerFactory(products: products)
                 )
                 mq { self.tableView.reloadData() }
@@ -74,7 +74,7 @@ class HomeViewController: UITableViewController {
                 let recommendedProducts = ShopifyController.selectRecommendedProducts(from: products)
                 self.items[CarouserIndex.freshBrews.rawValue] = CarouselTableCell.create(
                     title: "Fresh Brews",
-                    itemsPerPage: 2,
+                    itemsPerPage: 1.5,
                     bannerFactory: ProductBannerFactory(products: recommendedProducts)
                 )
                 mq { self.tableView.reloadData() }
@@ -86,7 +86,7 @@ class HomeViewController: UITableViewController {
                 (collections: [BUYCollection]) -> Void in
                 self.items[CarouserIndex.shopByCollections.rawValue] = CarouselTableCell.create(
                     title: "Shop By Collections",
-                    itemsPerPage: 3,
+                    itemsPerPage: 2.5,
                     bannerFactory: CollectionBannerFactory(collections: collections)
                 )
                 mq { self.tableView.reloadData() }
@@ -97,7 +97,7 @@ class HomeViewController: UITableViewController {
                 (tags: [String]) -> Void in
                 self.items[CarouserIndex.shopByStyle.rawValue] = CarouselTableCell.create(
                     title: "Shop By Style",
-                    itemsPerPage: 3,
+                    itemsPerPage: 2.5,
                     bannerFactory: TagBannerFactory(tags: tags)
                 )
                 mq { self.tableView.reloadData() }
