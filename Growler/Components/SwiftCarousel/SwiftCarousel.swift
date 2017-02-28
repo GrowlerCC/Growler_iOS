@@ -305,6 +305,7 @@ open class SwiftCarousel: UIView {
     }
     
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        /*
         if let _ = change?[NSKeyValueChangeKey.newKey] , keyPath == "contentOffset" {
             // with autolayout this seems to be quite usual, we want to wait
             // until we have some size we can actualy work with
@@ -328,6 +329,7 @@ open class SwiftCarousel: UIView {
             
             self.delegate?.didScroll?(toOffset: self.scrollView.contentOffset)
         }
+        */
     }
     
     // MARK: - Gestures
