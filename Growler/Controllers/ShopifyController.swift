@@ -125,13 +125,12 @@ class ShopifyController: NSObject {
     }
 
     class func selectRecommendedProducts(from products: [BUYProduct]) -> [BUYProduct] {
-        let belgiumAleId: Int64 = 8633520269
-        let filtered = products.filter {
-            $0.identifierValue != belgiumAleId // belgium ale - it has portrait image which displays bad in carousel
+        if products.count == 0 {
+            return products
         }
-        let lastIndex = filtered.count - 1
+        let lastIndex = max(0, products.count - 1)
         let firstIndex = max(0, lastIndex - 5)
-        return Array<BUYProduct>(filtered[firstIndex...lastIndex])
+        return Array<BUYProduct>(products[firstIndex...lastIndex])
     }
 
 }
