@@ -20,7 +20,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
     
     private var cartTotalAmount: UIBarButtonItem!
 
-    var titleView: UIButton!
+    var titleViews: [UIButton] = []
 
     override init() {
         super.init()
@@ -45,9 +45,6 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
             cartTotalAmount,
         ]
 
-        titleView = UIButton()
-        titleView.setTitleColor(UIColor.black, for: .normal)
-        titleView.addTarget(self, action: #selector(self.changeAddress), for: .touchUpInside)
         updateAddress()
 
         let profileButtonImage = UIImage(named: "ProfileButton")?.withRenderingMode(.alwaysOriginal)
@@ -69,13 +66,31 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
     var navigationController: UINavigationController!
 
     func updateAddress() {
-        let address = ShopifyController.instance.getAddress()
-        titleView.setTitle(address?.address1, for: .normal)
+        let address = ShopifyController.instance.getAddress()?.address1
+        for titleView in titleViews {
+            titleView.setTitle(address, for: .normal)
+        }
     }
 
     func changeAddress() {
         let controller = AddressFormController()
         navigationController.pushViewController(controller, animated: true)
+    }
+
+    func setTitleView(forViewController viewController: UIViewController) {
+        if !(viewController.navigationItem.titleView is UIButton) {
+            let titleView = UIButton()
+            titleView.setTitleColor(UIColor.black, for: .normal)
+            titleView.addTarget(self, action: #selector(self.changeAddress), for: .touchUpInside)
+            viewController.navigationItem.titleView = titleView
+            titleViews.append(titleView)
+            updateAddress() // setting title for this new view
+        }
+        // trick to re-add title view
+        let titleView = viewController.navigationItem.titleView
+        viewController.navigationItem.titleView = nil
+        viewController.navigationItem.titleView = titleView
+        viewController.navigationItem.titleView?.isHidden = false
     }
 
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
@@ -104,14 +119,14 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
                 viewController.navigationItem.leftBarButtonItem = profileButton
         }
 
+        setTitleView(forViewController: viewController)
+
         // todo search button should be visible on all screens?
         viewController.navigationItem.rightBarButtonItem = searchButton
     }
 
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        viewController.navigationItem.titleView = titleView
-        navigationController.navigationItem.titleView = titleView
-        titleView.isHidden = false
+        setTitleView(forViewController: viewController)
     }
 
     func viewCart() {
