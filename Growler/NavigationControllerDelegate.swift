@@ -104,10 +104,14 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
                 viewController.navigationItem.leftBarButtonItem = profileButton
         }
 
-        viewController.navigationItem.titleView = titleView
-
         // todo search button should be visible on all screens?
         viewController.navigationItem.rightBarButtonItem = searchButton
+    }
+
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        viewController.navigationItem.titleView = titleView
+        navigationController.navigationItem.titleView = titleView
+        titleView.isHidden = false
     }
 
     func viewCart() {
