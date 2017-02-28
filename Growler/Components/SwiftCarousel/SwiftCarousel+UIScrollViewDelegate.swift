@@ -37,10 +37,12 @@ extension SwiftCarousel: UIScrollViewDelegate {
         delegate?.didEndDragging?(withOffset: scrollView.contentOffset)
     }
     
-    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity
+        velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        /*
         var velocity = velocity.x * 300.0
         
-        var targetX = scrollView.frame.width / 2.0 + velocity
+        var targetX = 0 /* align left border of view to left border of carousel */ + velocity
         
         // When the target is being scrolled and we scroll again,
         // the position we need to take as base should be the destination
@@ -52,24 +54,36 @@ extension SwiftCarousel: UIScrollViewDelegate {
         } else {
             targetX += scrollView.contentOffset.x
         }
+        print("targetX: \(targetX)\n")
         
         if velocity >= maxVelocity {
             velocity = maxVelocity
         } else if velocity <= -maxVelocity {
             velocity = -maxVelocity
         }
-        
-        if (targetX > scrollView.contentSize.width || targetX < 0.0) {
-            targetX = scrollView.contentSize.width / 3.0 + velocity
+
+        if targetX < 0.0 {
+            targetX = 0
         }
-        
+        if (targetX > scrollView.contentSize.width) {
+            switch resizeType {
+                case .visibleItemsPerPage(let itemsPerPage):
+                    let itemWidth = scrollView.bounds.width / itemsPerPage
+                    targetX = scrollView.contentSize.width - itemWidth
+
+                default: targetX = scrollView.contentSize.width
+            }
+        }
+ 
         let choiceView = nearestViewAtLocation(CGPoint(x: targetX, y: scrollView.frame.minY))
-        let newTargetX = choiceView.center.x - scrollView.frame.width / 2.0
+        let newTargetX: CGFloat = 0 /* align left border of view to left border of carousel */
         currentVelocityX = newTargetX
-        targetContentOffset.pointee.x = newTargetX
-        targetContentOffset.pointee.y = 0
-        if case .max(_) = scrollType {
-            scrollView.isScrollEnabled = false
-        }
+//        targetContentOffset.pointee.x = newTargetX
+//        targetContentOffset.pointee.y = 0
+//        if case .max(_) = scrollType {
+//            scrollView.isScrollEnabled = false
+//        }
+        */
+ 
     }
 }
