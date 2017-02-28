@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -26,8 +31,8 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKO-wE-t7W">
-                        <rect key="frame" x="13" y="17" width="454" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="13" y="12" width="454" height="23"/>
+                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="19"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,7 +50,7 @@
                     <constraint firstItem="3eW-kU-aRF" firstAttribute="top" secondItem="3Lb-NP-Bt0" secondAttribute="bottom" id="SAU-nA-ZX7"/>
                     <constraint firstItem="3eW-kU-aRF" firstAttribute="leading" secondItem="NP8-i8-9iM" secondAttribute="leading" id="bHN-XQ-Og4"/>
                     <constraint firstAttribute="trailing" secondItem="3Lb-NP-Bt0" secondAttribute="trailing" id="k0u-Qr-TbT"/>
-                    <constraint firstItem="cKO-wE-t7W" firstAttribute="top" secondItem="NP8-i8-9iM" secondAttribute="top" constant="17" id="sws-cI-3As"/>
+                    <constraint firstItem="cKO-wE-t7W" firstAttribute="top" secondItem="NP8-i8-9iM" secondAttribute="top" constant="12" id="sws-cI-3As"/>
                     <constraint firstAttribute="trailing" secondItem="cKO-wE-t7W" secondAttribute="trailing" constant="13" id="x8F-nQ-rgT"/>
                 </constraints>
             </tableViewCellContentView>

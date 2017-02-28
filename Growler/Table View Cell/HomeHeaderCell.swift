@@ -9,6 +9,7 @@ class HomeHeaderCell: UITableViewCell {
 
     static func create(title: String) -> HomeHeaderCell {
         let cell = HomeHeaderCell()
+        cell.textLabel?.font = UIFont(name: "Lato-Bold", size: 19/*, wight: .bold*/)
         cell.textLabel?.text = title
         return cell
     }
