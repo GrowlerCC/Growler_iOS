@@ -18,9 +18,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="480" height="336"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Lb-NP-Bt0" customClass="SwiftCarousel" customModule="Growler" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="46" width="480" height="290.5"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eW-kU-aRF">
+                        <rect key="frame" x="0.0" y="327" width="480" height="9"/>
+                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="9" id="gI0-MU-Zig"/>
+                        </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKO-wE-t7W">
                         <rect key="frame" x="13" y="17" width="454" height="21"/>
@@ -28,13 +31,20 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Lb-NP-Bt0" customClass="SwiftCarousel" customModule="Growler" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="46" width="480" height="281"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="3eW-kU-aRF" secondAttribute="bottom" id="2As-9W-rsA"/>
                     <constraint firstItem="3Lb-NP-Bt0" firstAttribute="leading" secondItem="NP8-i8-9iM" secondAttribute="leading" id="2f4-0v-P3s"/>
                     <constraint firstItem="3Lb-NP-Bt0" firstAttribute="top" secondItem="NP8-i8-9iM" secondAttribute="top" constant="46" id="8yQ-tW-7i5"/>
+                    <constraint firstAttribute="trailing" secondItem="3eW-kU-aRF" secondAttribute="trailing" id="DHq-Du-mT5"/>
                     <constraint firstItem="cKO-wE-t7W" firstAttribute="leading" secondItem="NP8-i8-9iM" secondAttribute="leading" constant="13" id="Lyf-Wd-YBR"/>
+                    <constraint firstItem="3eW-kU-aRF" firstAttribute="top" secondItem="3Lb-NP-Bt0" secondAttribute="bottom" id="SAU-nA-ZX7"/>
+                    <constraint firstItem="3eW-kU-aRF" firstAttribute="leading" secondItem="NP8-i8-9iM" secondAttribute="leading" id="bHN-XQ-Og4"/>
                     <constraint firstAttribute="trailing" secondItem="3Lb-NP-Bt0" secondAttribute="trailing" id="k0u-Qr-TbT"/>
-                    <constraint firstAttribute="bottom" secondItem="3Lb-NP-Bt0" secondAttribute="bottom" id="oey-rG-t3y"/>
                     <constraint firstItem="cKO-wE-t7W" firstAttribute="top" secondItem="NP8-i8-9iM" secondAttribute="top" constant="17" id="sws-cI-3As"/>
                     <constraint firstAttribute="trailing" secondItem="cKO-wE-t7W" secondAttribute="trailing" constant="13" id="x8F-nQ-rgT"/>
                 </constraints>
@@ -44,7 +54,7 @@
                 <outlet property="titleLabel" destination="cKO-wE-t7W" id="NLz-nN-0jv"/>
                 <outlet property="topCarouselConstraint" destination="8yQ-tW-7i5" id="sTq-OA-LJC"/>
             </connections>
-            <point key="canvasLocation" x="-268" y="54"/>
+            <point key="canvasLocation" x="-268" y="53.5"/>
         </tableViewCell>
     </objects>
 </document>
