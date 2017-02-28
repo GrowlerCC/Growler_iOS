@@ -78,6 +78,16 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
     }
 
     func setTitleView(forViewController viewController: UIViewController) {
+        switch viewController {
+            case
+                is AddressFormController,
+                is CreditCardFormController,
+                is ShippingRatesTableViewController,
+                is PreCheckoutViewController,
+                is CheckoutViewController:
+                return
+            default: break
+        }
         if !(viewController.navigationItem.titleView is UIButton) {
             let titleView = UIButton()
             titleView.setTitleColor(UIColor.black, for: .normal)

@@ -18,6 +18,11 @@ class CreditCardFormController: FormTableViewController {
         ]
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        title = "Credit Card"
+    }
+
     override func saveData(_ data: JSON) {
         let rawString = data.rawString()
         ShopifyController.instance.creditCardJsonString.value = rawString ?? "{}"

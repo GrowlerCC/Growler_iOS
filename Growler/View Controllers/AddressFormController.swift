@@ -23,6 +23,11 @@ class AddressFormController: FormTableViewController {
         ]
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        title = "Address"
+    }
+
     override func saveData(_ data: JSON) {
         let rawString = data.rawString(.utf8 )
         ShopifyController.instance.addressJsonString.value = rawString ?? "{}"
