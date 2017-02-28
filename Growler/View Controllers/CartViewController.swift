@@ -12,9 +12,11 @@ class CartViewController: ProductListViewController, Notifiable {
 
     private var buttons: [UIBarButtonItem]!
 
+    private var checkoutButton: UIBarButtonItem!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        let checkoutButton = UIBarButtonItem(title: "Checkout", style: .plain, target: self, action: #selector(self.checkout))
+        checkoutButton = UIBarButtonItem(title: "Checkout", style: .plain, target: self, action: #selector(self.checkout))
         buttons = [
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             checkoutButton,
@@ -37,6 +39,7 @@ class CartViewController: ProductListViewController, Notifiable {
         ShopifyController.instance.getCart().then {
             products -> Void in
             self.products = products
+            self.checkoutButton.isEnabled = products.count > 0
             mq { self.tableView.reloadData() }
         }
     }
