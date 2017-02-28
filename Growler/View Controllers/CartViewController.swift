@@ -10,11 +10,16 @@ class CartViewController: ProductListViewController, Notifiable {
 
     private var footer: UIView!
 
-    private var checkoutButton: UIBarButtonItem!
+    private var buttons: [UIBarButtonItem]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkoutButton = UIBarButtonItem(title: "Checkout", style: .plain, target: self, action: #selector(self.checkout))
+        let checkoutButton = UIBarButtonItem(title: "Checkout", style: .plain, target: self, action: #selector(self.checkout))
+        buttons = [
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            checkoutButton,
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+        ]
         subscribeTo(Notification.Name.cartChanged, selector: #selector(self.cartChanged))
     }
 
@@ -24,7 +29,7 @@ class CartViewController: ProductListViewController, Notifiable {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setToolbarItems([checkoutButton], animated: true)
+        setToolbarItems(buttons, animated: true)
     }
 
     override func loadProducts() {
