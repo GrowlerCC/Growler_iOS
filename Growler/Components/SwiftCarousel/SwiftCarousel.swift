@@ -508,7 +508,7 @@ open class SwiftCarousel: UIView {
         }
         
         let choiceView = choices[index]
-        let x = choiceView.center.x - scrollView.frame.width / 2.0
+        let x = 0
         
         let newPosition = CGPoint(x: x, y: 0)
         let animationIsNotNeeded = newPosition.equalTo(scrollView.contentOffset)
