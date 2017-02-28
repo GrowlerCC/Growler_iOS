@@ -27,6 +27,7 @@
 #import "ShippingRatesTableViewController.h"
 #import "PreCheckoutViewController.h"
 #import "ShippingRateTableViewCell.h"
+#import "Growler-Swift.h"
 
 @import Buy;
 
@@ -140,6 +141,8 @@
             [self.navigationController pushViewController:preCheckoutController animated:YES];
         }
         else {
+            NSString *info = [Utils formatErrorInfo:[error userInfo] message: @"Error applying checkout"];
+            [Utils alertWithMessage:info];
             NSLog(@"Error applying checkout: %@", error);
         }
         

@@ -210,7 +210,8 @@ typedef NS_ENUM(NSInteger, UITableViewDiscountGiftCardSection) {
                                                                   [self.tableView reloadData];
                                                               }
                                                               else {
-                                                                  [Utils alertWithMessage:@"Error applying checkout"];
+                                                                  NSString *info = [Utils formatErrorInfo:[error userInfo] message: @"Error applying checkout"];
+                                                                  [Utils alertWithMessage:info];
                                                                   NSLog(@"Error applying checkout: %@", error);
                                                               }
                                                           }];                                                          
@@ -250,7 +251,8 @@ typedef NS_ENUM(NSInteger, UITableViewDiscountGiftCardSection) {
                                                                   [self.tableView reloadData];
                                                               }
                                                               else {
-                                                                  [Utils alertWithMessage:@"Error applying gift card"];
+                                                                  NSString *info = [Utils formatErrorInfo:[error userInfo] message: @"Error applying gift card"];
+                                                                  [Utils alertWithMessage:info];
                                                                   NSLog(@"Error applying gift card: %@", error);
                                                               }
                                                           }];

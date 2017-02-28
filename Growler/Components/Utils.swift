@@ -60,29 +60,45 @@ class Utils: NSObject {
         }
     }
 
-    static func formatErrorInfoInternal(_ info: [AnyHashable: Any], path: [String]) -> [String] {
+    static func formatErrorInfo(_ info: [AnyHashable: Any], message: String) -> String {
         var errors = [String]()
-        for (key, value) in info.enumerated() {
-            var newPath = path
-            if let key = key as? String {
-                let humanReadableKey = key.replacingOccurrences(of: "_", with: " ")
-                newPath.append(humanReadableKey)
+        guard let errorList = info["errors"] as? [AnyHashable: Any] else {
+            return message
+        }
+        for (rawAction, rawActionErrors) in errorList {
+            let action = Utils.humanReadable(rawAction as? String).capitalized
+            guard let actionErrors = rawActionErrors as? NSDictionary else {
+                continue
             }
-            if let dictionary = value as? [AnyHashable: Any] {
-                if let message = dictionary["message"] as? String {
-                    let error = path.joined(separator: " - ") + ": " + message
-                    errors.append(error)
-                } else {
-                    errors.append(contentsOf: formatErrorInfoInternal(dictionary, path: newPath))
+            for (rawForm, rawFormErrors) in actionErrors {
+                let form = Utils.humanReadable(rawForm as? String).capitalized
+                guard let formErrors = rawFormErrors as? NSDictionary else {
+                    continue
+                }
+                for (rawField, rawFieldErrors) in formErrors {
+                    let field = Utils.humanReadable(rawField as? String).capitalized
+                    guard let fieldErrors = rawFieldErrors as? NSArray else {
+                        continue
+                    }
+                    for rawError in fieldErrors {
+                        guard let error = rawError as? NSDictionary else {
+                            continue
+                        }
+                        if let message = error["message"] as? String {
+                            errors.append(
+                                //"\(action) - "+
+                                "\(form) - \(field): \(message)"
+                            )
+                        }
+                    }
                 }
             }
         }
-        return errors
+        return message + ". \n" + errors.joined(separator: ".\n")
     }
-
-    static func formatErrorInfo(_ info: [AnyHashable: Any]) -> String {
-        let errors = formatErrorInfoInternal(info, path: [])
-        return errors.joined(separator: "\n")
+    
+    static func humanReadable(_ text: String?) -> String {
+        return (text ?? "").replacingOccurrences(of: "_", with: " ")
     }
 
 }

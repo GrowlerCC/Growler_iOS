@@ -83,7 +83,10 @@ class ShopifyController: NSObject {
                 let shippingController = ShippingRatesTableViewController(client: self.client, checkout: checkout)
                 navigationController.pushViewController(shippingController!, animated: true)
             } else {
-                Utils.alert(message: "Error creating checkout")
+                if let err = error as? NSError {
+                    let info = Utils.formatErrorInfo(err.userInfo, message: "Error creating checkout")
+                    Utils.alert(message: info)
+                }
                 print("Error creating checkout: \(error)")
             }
         }
