@@ -64,7 +64,8 @@ class FormTableViewController: UITableViewController {
     func getValues() -> JSON {
         var result = JSON(parseJSON: "{}")
         for item in items {
-            result[item.name].string = item.field.text
+            let value = item.field.text ?? ""
+            result[item.name].string = value.isEmpty ? item.`default` : value
         }
         return result
     }

@@ -15,11 +15,15 @@ class FormTableCell: UITableViewCell {
     
     var name: String = ""
 
+    var `default`: String?
+
     private var required: Bool = false
 
-    static func create(title: String, name: String, required: Bool, minLength: Int? = nil, maxLength: Int? = nil) -> FormTableCell {
+    static func create(title: String, name: String, required: Bool, `default`: String? = nil, minLength: Int? = nil, maxLength: Int? = nil) -> FormTableCell {
         let cell = FormTableCell.loadFromNib()
         cell.label.text = title
+        cell.`default` = `default`
+        cell.field.placeholder = `default`
         cell.errorLabel.text = ""
         cell.required = required
         cell.name = name
