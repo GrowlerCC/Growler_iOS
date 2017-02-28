@@ -17,6 +17,7 @@ enum CarouserIndex: Int {
     case ciceronesChoice
     case staffsPick
     case gameDay
+    case separator
     case shopByCollections
     case shopByStyle
     case shopByPrice
@@ -35,6 +36,7 @@ class HomeViewController: UITableViewController {
         CollectionBannerCell.create(collectionId: CollectionIdentifier.ciceronesChoiceBoozyGueuze),
         CollectionBannerCell.create(collectionId: CollectionIdentifier.staffPicks),
         CollectionBannerCell.create(collectionId: CollectionIdentifier.gameDay),
+        HomeSeparatorCell.loadFromNib(),
         ActivityIndicatorTableCell.loadFromNib(),
         ActivityIndicatorTableCell.loadFromNib(),
         CarouselTableCell.create(title: "Shop By Price", itemsPerPage: 3, bannerFactory: PriceBannerFactory()),
@@ -115,6 +117,7 @@ class HomeViewController: UITableViewController {
         switch indexPath.row {
             case 0 ..< CarouserIndex.featuredCollectionsHeader.rawValue: return contentHeight / 2
             case CarouserIndex.featuredCollectionsHeader.rawValue: return 45
+            case CarouserIndex.separator.rawValue: return 9
             default: return contentHeight / 3
         }
     }
