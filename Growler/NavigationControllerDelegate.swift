@@ -98,8 +98,17 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
 
         viewController.view.addGestureRecognizer(slidingMenuGestureRecognizer)
 
-        if !(viewController is CartViewController) {
-            viewController.setToolbarItems(toolbarItems, animated: false)
+        switch viewController {
+            case
+                is CartViewController,
+                is AddressFormController,
+                is ShippingRatesTableViewController,
+                is PreCheckoutViewController,
+                is CheckoutViewController,
+                is CreditCardFormController:
+                    break // these forms are used in checkout process so we don't need checkout toolbar for them
+            default:
+                viewController.setToolbarItems(toolbarItems, animated: false)
         }
 
         switch viewController {
@@ -112,6 +121,9 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
                 is AddressFormController,
                 is CreditCardFormController,
                 is ProductListViewController,
+                is ShippingRatesTableViewController,
+                is PreCheckoutViewController,
+                is CheckoutViewController,
                 is ProductViewController:
                 // it's inconvenient to return to list using menu after viewing each product or editing address/card. so for these controllers we keep back button
                 break
