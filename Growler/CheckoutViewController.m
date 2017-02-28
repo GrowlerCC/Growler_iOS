@@ -192,10 +192,10 @@ NSString * const MerchantId = @"";
 - (void)checkoutWithCreditCard {
     __weak CheckoutViewController *welf = self;
     CreditCardFormController *controller = [[CreditCardFormController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
     controller.onSave = ^{
         [welf doCheckout];
     };
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void) doCheckout {

@@ -18,14 +18,18 @@ class FormTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.allowsSelection = false
 
-        saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(self.didTapSaveButton))
-        saveButton.title = "Save"
+        saveButton = UIBarButtonItem(title: onSave != nil ? "Continue" : "Save", style: .plain, target: self, action: #selector(self.didTapSaveButton))
 
         items = getItems()
         let data = loadData()
         for item in items {
             item.field.text = data[item.name].string
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.rightBarButtonItem = saveButton
     }
 
     override func viewDidAppear(_ animated: Bool) {

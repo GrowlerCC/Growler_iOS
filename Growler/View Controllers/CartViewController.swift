@@ -56,10 +56,10 @@ class CartViewController: ProductListViewController, Notifiable {
 
     func checkout() {
         let controller = AddressFormController()
-        navigationController?.pushViewController(controller, animated: true)
         controller.onSave = {
             ShopifyController.instance.checkout(navigationController: self.navigationController!)
         }
+        navigationController?.pushViewController(controller, animated: true)
     }
 
     func cartChanged() {
