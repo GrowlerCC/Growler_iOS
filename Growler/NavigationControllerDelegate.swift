@@ -16,7 +16,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
 
     private var slidingMenuGestureRecognizer: UIScreenEdgePanGestureRecognizer!
     
-    private var cartItemCount: UIBarButtonItem!
+    private var cartItemCount: UIButton!
     
     private var cartTotalAmount: UIBarButtonItem!
 
@@ -28,12 +28,17 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
         slidingMenuGestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(self.didPanScreenEdge))
         slidingMenuGestureRecognizer.edges = .left
 
-        cartItemCount = UIBarButtonItem(title: "0", style: .plain, target: nil, action: nil)
+        cartItemCount = UIButton()
+        cartItemCount.setTitle("0", for: .normal)
+        cartItemCount.frame = CGRect(x: 0, y: 0, width: 23, height: 23)
+        cartItemCount.layer.borderColor = UIColor.white.cgColor
+        cartItemCount.layer.borderWidth = 1.0
+        let cartItemCountWrapper = UIBarButtonItem(customView: cartItemCount)
         let cartButton = UIBarButtonItem(title: "View Cart", style: .plain, target: self, action: #selector(self.viewCart))
         cartTotalAmount = UIBarButtonItem(title: "$0", style: .plain, target: nil, action: nil)
 
         toolbarItems = [
-            cartItemCount,
+            cartItemCountWrapper,
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             cartButton,
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
@@ -118,7 +123,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
         let ids = ShopifyController.instance.cartProductIds.getAll()
         _ = getProductsByIds(ids).then {
             products -> Void in
-            self.cartItemCount.title = String(products.count)
+            self.cartItemCount.setTitle(String(products.count), for: .normal)
             let totalAmount = products.reduce(NSDecimalNumber(integerLiteral: 0)) {
                 total, product in total.adding(product.minimumPrice)
             }
