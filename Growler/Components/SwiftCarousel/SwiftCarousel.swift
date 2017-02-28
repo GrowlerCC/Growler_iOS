@@ -161,7 +161,7 @@ open class SwiftCarousel: UIView {
         guard count > 0 else { return }
         
         originalChoicesNumber = count
-        try (0..<3).forEach { counter in
+        try (0..<count).forEach { counter in
             let newViews: [UIView] = try stride(from: 0, to: count, by: 1).map { i in
                 let view = factory(i)
                 guard !self.choices.contains(view) else {
@@ -169,7 +169,9 @@ open class SwiftCarousel: UIView {
                 }
                 return view
             }
-            self.choices.append(contentsOf: newViews)
+            if self.choices.count == 0 {
+                self.choices = newViews
+            }
         }
         setupViews(choices)
     }
@@ -499,6 +501,7 @@ open class SwiftCarousel: UIView {
      - parameter force:    Force should be set to true if choice index is out of items bounds.
      */
     fileprivate func selectItem(_ choice: Int, animated: Bool, force: Bool) {
+        return
         var index = choice
         if !force {
             // allow scroll only in the range of original items
