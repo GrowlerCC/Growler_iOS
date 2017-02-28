@@ -61,6 +61,7 @@ class Utils: NSObject {
     }
 
     static func formatErrorInfo(_ info: [AnyHashable: Any], message: String) -> String {
+        let separator = "\n-------------------\n"
         var errors = [String]()
         guard let errorList = info["errors"] as? [AnyHashable: Any] else {
             return message
@@ -94,7 +95,7 @@ class Utils: NSObject {
                 }
             }
         }
-        return message + ". \n" + errors.joined(separator: ".\n")
+        return message + separator + errors.joined(separator: separator)
     }
     
     static func humanReadable(_ text: String?) -> String {
