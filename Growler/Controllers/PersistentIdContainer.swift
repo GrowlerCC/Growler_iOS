@@ -65,14 +65,11 @@ class PersistentIdContainer: NSObject {
 
     @objc
     func toggle(_ id: Int64) {
-        var ids = getAll()
-        if ids.contains(id) {
+        if contains(id) {
             removeAll(equalTo: id)
         } else {
-            ids.append(id)
+            add(id)
         }
-        save(ids)
-        changeNotification.send()
     }
 
 }
