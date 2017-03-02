@@ -161,8 +161,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
     }
 
     func reloadCartStatus() {
-        let ids = ShopifyController.instance.cartProductIds.getAll()
-        _ = getProductsByIds(ids).then {
+        ShopifyController.instance.getCart().then {
             products -> Void in
             self.cartItemCount.setTitle(String(products.count), for: .normal)
             let totalAmount = products.reduce(NSDecimalNumber(integerLiteral: 0)) {

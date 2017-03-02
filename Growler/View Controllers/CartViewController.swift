@@ -49,7 +49,7 @@ class CartViewController: ProductListViewController, Notifiable {
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") {
             action, indexPath in
             let product = self.products[indexPath.row] as! BUYProduct
-            ShopifyController.instance.cartProductIds.remove(product.identifierValue)
+            ShopifyController.instance.cartProductIds.remove(at: indexPath.row)
         }
         return [deleteAction]
     }

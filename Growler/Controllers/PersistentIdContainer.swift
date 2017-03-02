@@ -6,24 +6,27 @@
 import Foundation
 
 @objc
-class PersistentIdSet: NSObject {
+class PersistentIdContainer: NSObject {
 
-    let defaultsKey: String
+    private let defaultsKey: String
 
-    let changeNotification: Notification.Name
+    private let changeNotification: Notification.Name
 
-    init(defaultsKey: String, changeNotification: Notification.Name) {
+    private let unique: Bool
+
+    init(defaultsKey: String, unique: Bool, changeNotification: Notification.Name) {
         self.defaultsKey = defaultsKey
         self.changeNotification = changeNotification
+        self.unique = unique
     }
 
-    func getAll() -> Set<Int64> {
+    func getAll() -> [Int64] {
         let rawIds = UserDefaults.standard.string(forKey: defaultsKey) ?? ""
         let list = rawIds._split(separator: ",").map { Int64($0) ?? 0 }
-        return Set<Int64>(list)
+        return [Int64](list)
     }
 
-    private func save(_ ids: Set<Int64>) {
+    private func save(_ ids: [Int64]) {
         let rawIds = ids.map{ String($0) }.joined(separator: ",")
         UserDefaults.standard.set(rawIds, forKey: defaultsKey)
     }
@@ -35,20 +38,28 @@ class PersistentIdSet: NSObject {
 
     func add(_ id: Int64) {
         var ids = getAll()
-        ids.insert(id)
+        if !ids.contains(id) || !unique {
+            ids.append(id)
+        }
         save(ids)
         changeNotification.send()
     }
     
-    func remove(_ id: Int64) {
+    func remove(at: Int) {
         var ids = getAll()
-        ids.remove(id)
+        ids.remove(at: at)
+        save(ids)
+        changeNotification.send()
+    }
+
+    func removeAll(equalTo value: Int64) {
+        let ids = getAll().filter{ $0 != value }
         save(ids)
         changeNotification.send()
     }
 
     func removeAll() {
-        save(Set<Int64>())
+        save([Int64]())
         changeNotification.send()
     }
 
@@ -56,9 +67,9 @@ class PersistentIdSet: NSObject {
     func toggle(_ id: Int64) {
         var ids = getAll()
         if ids.contains(id) {
-            ids.remove(id)
+            removeAll(equalTo: id)
         } else {
-            ids.insert(id)
+            ids.append(id)
         }
         save(ids)
         changeNotification.send()

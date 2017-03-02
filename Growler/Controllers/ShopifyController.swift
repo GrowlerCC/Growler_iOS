@@ -18,9 +18,9 @@ class ShopifyController: NSObject {
 
     let client: BUYClient
 
-    public var favoriteProductIds: PersistentIdSet!
+    public var favoriteProductIds: PersistentIdContainer!
 
-    public var cartProductIds: PersistentIdSet!
+    public var cartProductIds: PersistentIdContainer!
 
     public var addressJsonString = PersistentString(defaultsKey: "ADDRESS_JSON_STRING", changeNotification: Notification.Name.accountChanged)
 
@@ -31,14 +31,40 @@ class ShopifyController: NSObject {
     override init() {
         client = BUYClient(shopDomain:SHOP_DOMAIN, apiKey: API_KEY, appId: APP_ID)
 
-        favoriteProductIds = PersistentIdSet(defaultsKey: "FAVORITE_PRODUCT_IDENTIFIERS", changeNotification: Notification.Name.favoritesChanged)
-        cartProductIds = PersistentIdSet(defaultsKey: "CART_PRODUCT_IDENTIFIERS", changeNotification: Notification.Name.cartChanged)
+        favoriteProductIds = PersistentIdContainer(
+            defaultsKey: "FAVORITE_PRODUCT_IDENTIFIERS",
+            unique: true,
+            changeNotification: Notification.Name.favoritesChanged
+        )
+
+        cartProductIds = PersistentIdContainer(
+            defaultsKey: "CART_PRODUCT_IDENTIFIERS",
+            unique: false,
+            changeNotification: Notification.Name.cartChanged
+        )
     }
 
     private var checkoutCreationOperation: Operation?
 
     func getCart() -> Promise<[BUYProduct]> {
-        return getProductsByIds(cartProductIds.getAll())
+        return Promise {
+            fulfill, error in
+            let ids = cartProductIds.getAll()
+            getProductsByIds(ids).then {
+                products -> Void in
+                var productMap = [Int64: BUYProduct]()
+                for product in products {
+                    productMap[product.identifierValue] = product
+                }
+                var cartProducts = [BUYProduct]()
+                for id in ids {
+                    if let product = productMap[id] {
+                        cartProducts.append(product)
+                    }
+                }
+                fulfill(cartProducts)
+            }
+        }
     }
 
     func addProductToCart(product: BUYProduct) {

@@ -60,7 +60,7 @@
 		27354926AED8F8096CE69BBC /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354CA2FF6C4AB99020D8EE /* NavigationControllerDelegate.swift */; };
 		2735492C7E40D1279D1C5056 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 273544C315EDAB7FEFEED3E8 /* MenuViewController.storyboard */; };
 		2735492D22C36B6EBE538630 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273547785F455240EC5351DA /* HomeViewController.swift */; };
-		2735494CE26EC6E7FCD268B1 /* PersistentIdSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354F693B986B178E1E15A9 /* PersistentIdSet.swift */; };
+		2735494CE26EC6E7FCD268B1 /* PersistentIdContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354F693B986B178E1E15A9 /* PersistentIdContainer.swift */; };
 		27354963DFAB0957A1A63225 /* FaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354B6BCCBC005346670354 /* FaqViewController.swift */; };
 		27354964B84F04043C35F4AC /* CreditCardFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27354D064B4D530A20073FA2 /* CreditCardFormController.swift */; };
 		2735497A6C31F85B0B047AA6 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2735427F6AB2A06821861055 /* Lato-Medium.ttf */; };
@@ -279,7 +279,7 @@
 		27354F33FB3C9B4AACBAB1C8 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		27354F3FE07E2F2591BF5EFF /* AccountProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountProfileViewController.swift; path = "View Controllers/AccountProfileViewController.swift"; sourceTree = "<group>"; };
 		27354F62BEEA547CBB474E47 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
-		27354F693B986B178E1E15A9 /* PersistentIdSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentIdSet.swift; sourceTree = "<group>"; };
+		27354F693B986B178E1E15A9 /* PersistentIdContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentIdContainer.swift; sourceTree = "<group>"; };
 		27354FCF88B85937F09ED48D /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		2AE84DE96E82A8FB1AC28658 /* Pods_Growler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Growler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5491CB13BE24F1150D1EC99D /* Pods-Growler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Growler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Growler/Pods-Growler.release.xcconfig"; sourceTree = "<group>"; };
@@ -549,7 +549,7 @@
 			isa = PBXGroup;
 			children = (
 				27354E8CEF38601B1FCB9EAC /* ShopifyController.swift */,
-				27354F693B986B178E1E15A9 /* PersistentIdSet.swift */,
+				27354F693B986B178E1E15A9 /* PersistentIdContainer.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1057,7 +1057,7 @@
 				27354F3935F8568436E24834 /* PriceBannerFactory.swift in Sources */,
 				27354156C382264691495A26 /* TagBannerFactory.swift in Sources */,
 				27354AE2AFC12C86D8F63609 /* PriceRange.swift in Sources */,
-				2735494CE26EC6E7FCD268B1 /* PersistentIdSet.swift in Sources */,
+				2735494CE26EC6E7FCD268B1 /* PersistentIdContainer.swift in Sources */,
 				27354EDE8C0B346308370E93 /* Notifications.swift in Sources */,
 				27354CEBFDA318B1226C23CC /* SearchViewController.swift in Sources */,
 				2735425DB8B479B02DE65EB7 /* SearchTagCell.swift in Sources */,
