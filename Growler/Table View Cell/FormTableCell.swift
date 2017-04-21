@@ -7,36 +7,54 @@ import Foundation
 
 class FormTableCell: UITableViewCell {
 
-    @IBOutlet weak var label: UILabel!
-    
-    @IBOutlet weak var errorLabel: UILabel!
-    
-    @IBOutlet weak var field: UITextField!
-    
-    var name: String = ""
+    private(set) var inputs: [FormInput] = []
 
-    var `default`: String?
+    static func create(_ input: FormInput) -> UITableViewCell {
+        return create(inputs: [input])
+    }
 
-    private var required: Bool = false
-
-    static func create(title: String, name: String, required: Bool, `default`: String? = nil, minLength: Int? = nil, maxLength: Int? = nil) -> FormTableCell {
-        let cell = FormTableCell.loadFromNib()
-        cell.label.text = title
-        cell.`default` = `default`
-        cell.field.placeholder = `default`
-        cell.errorLabel.text = ""
-        cell.required = required
-        cell.name = name
+    static func create(inputs: [FormInput]) -> UITableViewCell {
+        let cell = FormTableCell()
+        cell.inputs = inputs
+        for input in inputs {
+            cell.contentView.addSubview(input)
+        }
+        cell.createConstraintsForInputs()
         return cell
     }
 
-    func isValid() -> Bool {
-        let isEmpty = field.text?.isEmpty ?? true
-        if required && isEmpty {
-            errorLabel.text = "This field is required"
-            return false
+    func createConstraintsForInputs() {
+        for input in inputs {
+            input.translatesAutoresizingMaskIntoConstraints = false
         }
-        return true
+
+        var allConstraints = [NSLayoutConstraint]()
+
+        // vertical constraints
+        for input in inputs {
+            allConstraints += NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-0-[input]-0-|",
+                options: [],
+                metrics: nil,
+                views: ["input": input]
+            )
+        }
+
+        // horizontal constraints
+        var horizontalViewsMap = [String: UIView]()
+        for (index, input) in inputs.enumerated() {
+            horizontalViewsMap["input\(index)"] = input
+        }
+        let horizontalViewFormat = inputs.indices.map { return "[input\($0)]" }.joined(separator: "-0-")
+        allConstraints += NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-\(horizontalViewFormat)-0-|",
+            options: [],
+            metrics: nil,
+            views: horizontalViewsMap
+        )
+
+        NSLayoutConstraint.activate(allConstraints)
+        contentView.layoutIfNeeded()
     }
-    
+
 }

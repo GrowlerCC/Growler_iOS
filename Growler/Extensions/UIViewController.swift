@@ -17,4 +17,24 @@ extension UIViewController {
         return UIStoryboard(name: name, bundle: nil).instantiateViewController(withIdentifier: name) as! T
     }
 
+    func popupWithNavigationController(parentController: UIViewController? = nil) {
+        if navigationController == nil {
+            _ = UINavigationController(rootViewController: self) // this will set self.naviationController
+        }
+        let parent = parentController ?? AppDelegate.shared.window!.rootViewController
+        parent?.present(navigationController!, animated: true)
+    }
+
+    func setupDarkToolbars() {
+        if let navController = navigationController {
+            navController.navigationBar.backgroundColor = Colors.menuAndToolbarDarkBackground
+            navController.navigationBar.barTintColor = Colors.menuAndToolbarDarkBackground
+            navController.navigationBar.tintColor = UIColor.white
+            navController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+            navController.isToolbarHidden = false
+            navController.toolbar.barTintColor = Colors.menuAndToolbarDarkBackground
+            navController.toolbar.tintColor = UIColor.white
+        }
+    }
+
 }

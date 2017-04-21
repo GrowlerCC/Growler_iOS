@@ -6,14 +6,15 @@
 import Foundation
 
 enum AddressFields: String {
+
+    case email
     case address1
-    case address2
     case city
     case company
     case firstName
     case lastName
     case phone
-    case countryCode
     case provinceCode
     case zip
+
 }

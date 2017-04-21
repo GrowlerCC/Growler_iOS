@@ -9,7 +9,7 @@ import UIKit
 @objc
 class ProductListCell: UITableViewCell {
 
-    static let HEIGHT = 84
+    static let HEIGHT: CGFloat = 76
 
     @IBOutlet weak var titleLabel: UILabel!
 
@@ -21,7 +21,17 @@ class ProductListCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        picture.layer.cornerRadius = 36
+    }
+
+    func setupWithProduct(_ product: BUYProduct) {
+        accessoryType = .none
+        titleLabel.text = product.title
+        descriptionLabel.text = product.stringDescription
+        priceLabel.text = Utils.formatUSD(value: product.minimumPrice)
+
+        if let image = product.images.firstObject, let link = image as? BUYImageLink {
+            picture.loadImage(with: link.sourceURL, completion: nil)
+        }
     }
 
 }

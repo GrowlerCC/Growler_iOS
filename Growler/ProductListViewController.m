@@ -224,26 +224,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProductListCell" forIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    ProductListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProductListCell" forIndexPath:indexPath];
     BUYProduct *product = self.products[indexPath.row];
-    ProductListCell *productCell = (ProductListCell *) cell;
-    productCell.titleLabel.text = product.title;
-    productCell.descriptionLabel.text = product.stringDescription;
-    productCell.priceLabel.text = [Utils formatUSDWithValue:product.minimumPrice];
-
-    id image = product.images.firstObject;
-    if (image != nil) {
-        BUYImageLink *link = (BUYImageLink *)image;
-        [productCell.picture loadImageWithURL:link.sourceURL completion:NULL];
-    }
+    [cell setupWithProduct:product];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 84;
+    return ProductListCell.HEIGHT;
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

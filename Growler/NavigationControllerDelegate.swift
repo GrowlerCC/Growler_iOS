@@ -15,10 +15,8 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
     private var searchButton: UIBarButtonItem!
 
     private var slidingMenuGestureRecognizer: UIScreenEdgePanGestureRecognizer!
-    
-    private var cartItemCount: UIButton!
-    
-    private var cartTotalAmount: UIBarButtonItem!
+
+    private var cartStatusBar: CartStatusBar!
 
     var titleViews: [UIButton] = []
 
@@ -28,21 +26,15 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
         slidingMenuGestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(self.didPanScreenEdge))
         slidingMenuGestureRecognizer.edges = .left
 
-        cartItemCount = UIButton()
-        cartItemCount.setTitle("0", for: .normal)
-        cartItemCount.frame = CGRect(x: 0, y: 0, width: 23, height: 23)
-        cartItemCount.layer.borderColor = UIColor.white.cgColor
-        cartItemCount.layer.borderWidth = 1.0
-        let cartItemCountWrapper = UIBarButtonItem(customView: cartItemCount)
+        cartStatusBar = CartStatusBar()
         let cartButton = UIBarButtonItem(title: "View Cart", style: .plain, target: self, action: #selector(self.viewCart))
-        cartTotalAmount = UIBarButtonItem(title: "$0", style: .plain, target: nil, action: nil)
 
         toolbarItems = [
-            cartItemCountWrapper,
+            cartStatusBar.cartItemCountWrapper,
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             cartButton,
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            cartTotalAmount,
+            cartStatusBar.cartTotalAmount,
         ]
 
         updateAddress()
@@ -53,9 +45,6 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
         let searchButtonImage = UIImage(named: "SearchButton")?.withRenderingMode(.alwaysOriginal)
         searchButton = UIBarButtonItem(image: searchButtonImage, style: .plain, target: self, action: #selector(self.didTapSearchButton))
 
-        reloadCartStatus()
-
-        subscribeTo(Notification.Name.cartChanged, selector: #selector(self.cartChanged))
         subscribeTo(Notification.Name.accountChanged, selector: #selector(self.updateAddress))
     }
 
@@ -67,14 +56,14 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
 
     func updateAddress() {
         let address = ShopifyController.instance.getAddress()?.address1
+        let title = (address ?? "") + " ▾"
         for titleView in titleViews {
-            titleView.setTitle(address, for: .normal)
+            titleView.setTitle(title, for: .normal)
         }
     }
 
     func changeAddress() {
-        let controller = AddressFormController()
-        navigationController.pushViewController(controller, animated: true)
+        AddressFormController().popupWithNavigationController()
     }
 
     func setTitleView(forViewController viewController: UIViewController) {
@@ -127,7 +116,6 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
                 is RecommendationListViewController:
                     viewController.navigationItem.leftBarButtonItem = profileButton
             case
-                is AccountProfileViewController,
                 is AddressFormController,
                 is CreditCardFormController,
                 is ProductListViewController,
@@ -152,23 +140,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
     }
 
     func viewCart() {
-        let controller = CartViewController(client: ShopifyController.instance.client, collection: nil)!
-        navigationController!.pushViewController(controller, animated: true)
-    }
-    
-    func cartChanged() {
-        reloadCartStatus()
-    }
-
-    func reloadCartStatus() {
-        ShopifyController.instance.getCart().then {
-            products -> Void in
-            self.cartItemCount.setTitle(String(products.count), for: .normal)
-            let totalAmount = products.reduce(NSDecimalNumber(integerLiteral: 0)) {
-                total, product in total.adding(product.minimumPrice)
-            }
-            self.cartTotalAmount.title = Utils.formatUSD(value: totalAmount)
-        }
+        CartViewController().popupWithNavigationController()
     }
     
     func didTapProfileButton() {

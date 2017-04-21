@@ -26,7 +26,11 @@ class ShopifyController: NSObject {
 
     public var email = PersistentString(defaultsKey: "EMAIL", changeNotification: Notification.Name.accountChanged)
 
-    public var creditCardJsonString = PersistentString(defaultsKey: "CREDIT_CARD_JSON_STRING", changeNotification: Notification.Name.accountChanged)
+    public var creditCardJsonString = PersistentString(defaultsKey: "CREDIT_CARD_JSON_STRING", changeNotification: Notification.Name.creditCardChanged)
+
+    public var promoCodeJsonString = PersistentString(defaultsKey: "PROMO_CODE_JSON_STRING", changeNotification: Notification.Name.promoCodeChanged)
+
+    public var customer: BUYCustomer?
 
     override init() {
         client = BUYClient(shopDomain:SHOP_DOMAIN, apiKey: API_KEY, appId: APP_ID)
@@ -67,6 +71,10 @@ class ShopifyController: NSObject {
         }
     }
 
+    func isEmptyCart() -> Bool {
+        return cartProductIds.getAll().count == 0
+    }
+
     func addProductToCart(product: BUYProduct) {
         cartProductIds.add(product.identifierValue)
     }
@@ -75,45 +83,42 @@ class ShopifyController: NSObject {
         checkoutCreationOperation?.cancel()
     }
 
-    func checkout(navigationController: UINavigationController) {
-        _ = getCart().then {
-            products -> Void in self.checkoutInternal(products: products, navigationController: navigationController)
-        }
-    }
-    
-    func checkoutInternal(products: [BUYProduct], navigationController: UINavigationController) {
+    func createCheckout(products: [BUYProduct]) -> Promise<BUYCheckout> {
         if let operation = checkoutCreationOperation, operation.isExecuting {
             operation.cancel()
         }
 
-        guard let cart = client.modelManager.insertCart(withJSONDictionary: nil) else {
-            Utils.alert(message: "Failed to create card")
-            print("Failed to create card")
-            return
-        }
+        return Promise {
+            fulfill, reject in
 
-        for product in products {
-            cart.add(product.variants.firstObject as! BUYProductVariant)
-        }
+            // todo make cart singleton. and add each product only when button is pressed or when app is launched (from NSUserDefaults)
+            guard let cart = client.modelManager.insertCart(withJSONDictionary: nil) else {
+                reject(NSError(domain: "com.shopify.CreateCart", code: 0, userInfo: ["error": "Failed to create cart"]))
+                return
+            }
 
-        let checkout = BUYCheckout(modelManager: cart.modelManager!, cart: cart)
-        checkout.shippingAddress = getAddress()
-        checkout.billingAddress = getAddress()
-        checkout.email = "banana@testasaurus.com";
+            for product in products {
+                cart.add(product.variants.firstObject as! BUYProductVariant)
+            }
 
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        checkoutCreationOperation = self.client.createCheckout(checkout) {
-            checkout, error in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            if let checkout = checkout, error == nil {
-                let shippingController = ShippingRatesTableViewController(client: self.client, checkout: checkout)
-                navigationController.pushViewController(shippingController!, animated: true)
-            } else {
-                if let err = error as? NSError {
-                    let info = Utils.formatErrorInfo(err.userInfo, message: "Error creating checkout")
-                    Utils.alert(message: info)
+            let checkout = BUYCheckout(modelManager: cart.modelManager!, cart: cart)
+            checkout.shippingAddress = getAddress()
+            checkout.billingAddress = getAddress()
+            checkout.email = getEmail()
+            let promoCode = getPromoCode()
+            checkout.discount = promoCode.isEmpty ? nil : client.modelManager.discount(withCode: promoCode)
+
+            checkoutCreationOperation = self.client.createCheckout(checkout) {
+                checkout, error in
+                if let checkout = checkout, error == nil {
+                    fulfill(checkout)
+                } else {
+                    if let error = error {
+                        reject(error)
+                    } else {
+                        reject(NSError(domain: "com.shopify.CreateCart", code: 0, userInfo: ["error": "Failed to create checkout"]))
+                    }
                 }
-                print("Error creating checkout: \(error)")
             }
         }
     }
@@ -124,32 +129,23 @@ class ShopifyController: NSObject {
         }
         let json = JSON(data: addressJsonString.value.data(using: .utf8)!)
         address.loadFrom(json: json)
-        /*
-        address.address1 = "Address 1"
-        address.address2 = "address 2"
-        address.city = "Test city"
-        address.company = "Test company"
-        address.firstName = "First name"
-        address.lastName = "Last Name"
-        address.phone = "123456789"
-        address.countryCode = "US"
-        address.provinceCode = "CA"
-        address.zip = "94118"
-        */
         return address
+    }
+
+    func getEmail() -> String {
+        let json = JSON(data: addressJsonString.value.data(using: .utf8)!)
+        return json[AddressFields.email.rawValue].string ?? ""
+    }
+
+    func getPromoCode() -> String {
+        let json = JSON(data: promoCodeJsonString.value.data(using: .utf8)!)
+        return json[PromoCodeFields.promoCode.rawValue].string ?? ""
     }
 
     func getCreditCard() -> BUYCreditCard {
         let result = BUYCreditCard()
         let json = JSON(data: creditCardJsonString.value.data(using: .utf8)!)
         result.loadFrom(json: json)
-        /*
-        creditCard.number = "4242424242424242"
-        creditCard.expiryMonth = "12"
-        creditCard.expiryYear = "2020"
-        creditCard.cvv = "123"
-        creditCard.nameOnCard = "John Smith"
-        */
         return result
     }
 

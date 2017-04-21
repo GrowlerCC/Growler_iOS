@@ -8,13 +8,15 @@ import SwiftyJSON
 
 class CreditCardFormController: FormTableViewController {
 
-    override func getItems() -> [FormTableCell] {
+    override func getCells() -> [UITableViewCell] {
         return [
-            FormTableCell.create(title: "Number", name: CreditCardFields.number.rawValue, required: true),
-            FormTableCell.create(title: "Expiry Month", name: CreditCardFields.expiryMonth.rawValue, required: true),
-            FormTableCell.create(title: "Expiry Year", name: CreditCardFields.expiryYear.rawValue, required: true),
-            FormTableCell.create(title: "CVV", name: CreditCardFields.cvv.rawValue, required: true),
-            FormTableCell.create(title: "Name on Card", name: CreditCardFields.nameOnCard.rawValue, required: true),
+            FormTableCell.create(FormInput.create(title: "Name on Card", name: CreditCardFields.nameOnCard.rawValue, required: true)),
+            FormTableCell.create(FormInput.create(title: "Number", name: CreditCardFields.number.rawValue, required: true)),
+            FormTableCell.create(inputs: [
+                FormInput.create(title: "Exp. Month", name: CreditCardFields.expiryMonth.rawValue, required: true, inputWidth: 30),
+                FormInput.create(title: "Year", name: CreditCardFields.expiryYear.rawValue, required: true),
+                FormInput.create(title: "CVV", name: CreditCardFields.cvv.rawValue, required: true, inputWidth: 45),
+            ])
         ]
     }
 
@@ -23,9 +25,10 @@ class CreditCardFormController: FormTableViewController {
         title = "Credit Card"
     }
 
-    override func saveData(_ data: JSON) {
+    override func saveData(_ data: JSON) -> Bool {
         let rawString = data.rawString()
         ShopifyController.instance.creditCardJsonString.value = rawString ?? "{}"
+        return true
     }
 
     override func loadData() -> JSON {

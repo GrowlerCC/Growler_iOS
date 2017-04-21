@@ -13,6 +13,10 @@ extension Notification.Name {
 
     static let accountChanged = Notification.Name("accountChanged")
 
+    static let creditCardChanged = Notification.Name("creditCardChanged")
+
+    static let promoCodeChanged = Notification.Name("promoCodeChanged")
+
     func send() {
         NotificationCenter.default.post(name: self, object: nil)
     }

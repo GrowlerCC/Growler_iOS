@@ -23,10 +23,15 @@ class Utils: NSObject {
     }
 
     static func alert(message: String) {
+        self.alert(message: message, parent: nil)
+    }
+
+    static func alert(message: String, parent: UIViewController? = nil) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        let parent = parent ?? UIApplication.shared.keyWindow?.rootViewController
         mq {
-            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+            parent?.present(alertController, animated: true, completion: nil)
         }
     }
 
@@ -61,8 +66,11 @@ class Utils: NSObject {
     }
 
     static func formatErrorInfo(_ info: [AnyHashable: Any], message: String) -> String {
-        let separator = "\n-------------------\n"
+        let separator = "\n\n"
         var errors = [String]()
+        if let error = info["error"] as? String {
+            return error
+        }
         guard let errorList = info["errors"] as? [AnyHashable: Any] else {
             return message
         }
@@ -73,33 +81,60 @@ class Utils: NSObject {
             }
             for (rawForm, rawFormErrors) in actionErrors {
                 let form = Utils.humanReadable(rawForm as? String).capitalized
-                guard let formErrors = rawFormErrors as? NSDictionary else {
-                    continue
+                if let formErrors = rawFormErrors as? NSDictionary {
+                    parseErrorMap(form, formErrors, &errors)
                 }
-                for (rawField, rawFieldErrors) in formErrors {
-                    let field = Utils.humanReadable(rawField as? String).capitalized
-                    guard let fieldErrors = rawFieldErrors as? NSArray else {
-                        continue
-                    }
-                    for rawError in fieldErrors {
-                        guard let error = rawError as? NSDictionary else {
-                            continue
-                        }
-                        if let message = error["message"] as? String {
-                            errors.append(
-                                //"\(action) - "+
-                                "\(form) - \(field): \(message)"
-                            )
-                        }
-                    }
+                if let formErrors = rawFormErrors as? NSArray {
+                    parseErrorArray(form, formErrors, &errors)
                 }
             }
         }
         return message + separator + errors.joined(separator: separator)
     }
     
+    static func parseErrorMap(_ form: String, _ formErrors: NSDictionary, _ errors: inout [String]) {
+        for (rawField, rawFieldErrors) in formErrors {
+            let field = Utils.humanReadable(rawField as? String).capitalized
+            guard let fieldErrors = rawFieldErrors as? NSArray else {
+                continue
+            }
+            for rawError in fieldErrors {
+                guard let error = rawError as? NSDictionary else {
+                    continue
+                }
+                if let message = error["message"] as? String {
+                    errors.append(
+                        //"\(action) - "+
+                        "\(form) - \(field): \(message)"
+                    )
+                }
+            }
+        }
+    }
+    
+    static func parseErrorArray(_ form: String, _ formErrors: NSArray, _ errors: inout [String]) {
+        print("\(formErrors)")
+        for item in formErrors {
+            if let dictionary = item as? NSDictionary {
+                parseErrorMap(form, dictionary, &errors)
+            }
+        }
+    }
+    
     static func humanReadable(_ text: String?) -> String {
         return (text ?? "").replacingOccurrences(of: "_", with: " ")
+    }
+
+    static func maskCreditCardNumber(_ value: String) -> String {
+        if value.isEmpty {
+            return ""
+        }
+        var number = value
+        let endIndex = max(0, number.characters.count - 4)
+        let start = number.index(number.startIndex, offsetBy: 0)
+        let end = number.index(number.startIndex, offsetBy: endIndex)
+        number.replaceSubrange(start..<end, with: "************")
+        return number
     }
 
 }

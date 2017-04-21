@@ -5,8 +5,21 @@
 
 import Foundation
 import UIKit
+import RESideMenu
 
-class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+let signInItem = MenuItem.create(title: "Sing In", image: UIImage(named: "AboutIcon")) {
+
+    let loggedIn = ShopifyController.instance.customer != nil
+    if loggedIn {
+        ShopifyController.instance.client.logoutCustomerCallback({ _,_ in  })
+        ShopifyController.instance.customer = nil
+        ShopifyController.instance.cartProductIds.removeAll()
+    } else {
+        LoginFormController().popupWithNavigationController()
+    }
+}
+
+class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RESideMenuDelegate {
 
     // todo store link to navigation controller here or retrieve it from app.
     // todo store all view controllers which can be reused instead of recreating them. they can be store in menu object or in AppDelegate/AppController
@@ -15,27 +28,23 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var menuItems: [MenuItem] = [
         // menu items with darker color
-        MenuItem.create(title: "Home", color: UIColor(0x25313b), image: UIImage(named: "AccountProfileIcon")) {
+        MenuItem.create(title: "Home", color: Colors.lightGrayMenuBackground, image: UIImage(named: "AccountProfileIcon")) {
             AppDelegate.shared.replaceController(AppDelegate.shared.homeViewController)
         },
-        MenuItem.create(title: "Profile", color: UIColor(0x25313b), image: UIImage(named: "AccountProfileIcon")) {
-            // don't rewrite viewControllers property here! it's required that AccountProfileViewController had back button which can be accomplished by pushing controller
-            let controller = AccountProfileViewController()
-            AppDelegate.shared.navigationController.pushViewController(controller, animated: true)
+        MenuItem.create(title: "Profile", color: Colors.lightGrayMenuBackground, image: UIImage(named: "AccountProfileIcon")) {
+            AddressFormController().popupWithNavigationController()
         },
-        //MenuItem.create(title: "My orders", color: UIColor(0x25313b), image: UIImage(named: "MyOrdersIcon")) {
+        //MenuItem.create(title: "My orders", color: Colors.lightGrayMenuBackground, image: UIImage(named: "MyOrdersIcon")) {
         //    AppDelegate.shared.navigationController.viewControllers = [MyOrdersViewController()]
         //},
-        MenuItem.create(title: "Recommendations", color: UIColor(0x25313b), image: UIImage(named: "RecommendationsIcon")) {
+        MenuItem.create(title: "Recommendations", color: Colors.lightGrayMenuBackground, image: UIImage(named: "RecommendationsIcon")) {
             let controller = RecommendationListViewController(client: ShopifyController.instance.client, collection: nil)!
             AppDelegate.shared.replaceController(controller)
         },
-        MenuItem.create(title: "Favorites", color: UIColor(0x25313b), image: UIImage(named: "FavoritesIcon")) {
+        MenuItem.create(title: "Favorites", color: Colors.lightGrayMenuBackground, image: UIImage(named: "FavoritesIcon")) {
             let controller = FavoriteListViewController(client: ShopifyController.instance.client, collection: nil)!
             AppDelegate.shared.replaceController(controller)
         },
-
-        MenuItem.create(title: "", image: nil), // separator
 
         // menu items with lighter color
 //        MenuItem.create(title: "App settings", image: UIImage(named: "SettingsIcon")),
@@ -45,12 +54,12 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         MenuItem.create(title: "About", image: UIImage(named: "AboutIcon")) {
             AppDelegate.shared.replaceController(AboutViewController.loadFromStoryboard())
         },
+        signInItem,
     ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
-        tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0) // make room for status bar
     }
 
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -81,5 +90,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         AppDelegate.shared.navigationController.viewControllers = [homeController!]
         AppDelegate.shared.sideMenuViewController!.hideViewController()
     }
-    
+
+    func sideMenu(_ sideMenu: RESideMenu, willShowMenuViewController menuViewController: UIViewController) {
+        let loggedIn = ShopifyController.instance.customer != nil
+        signInItem.titleLabel.text = loggedIn ? "Sign Out" : "Sign In";
+    }
+
 }

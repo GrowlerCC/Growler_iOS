@@ -47,6 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             rightMenuViewController: nil
         )
 
+        sideMenuViewController.delegate = drawerMenuController
+
         window?.rootViewController = sideMenuViewController
         return false
     }

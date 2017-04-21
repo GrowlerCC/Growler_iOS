@@ -14,8 +14,9 @@ func getProductsPage(page: UInt) -> Promise<[BUYProduct]> {
             products, page, reachedEnd, error in
             if let error = error {
                 reject(error)
+            } else {
+                fulfill(products ?? [])
             }
-            fulfill(products ?? [])
         }
     }
 }
@@ -37,8 +38,9 @@ func getProductsByIds(_ ids: [Int64]) -> Promise<[BUYProduct]> {
             products, error in
             if let error = error {
                 reject(error)
+            } else {
+                fulfill(products ?? [])
             }
-            fulfill(products ?? [])
         }
     }
 }
@@ -51,8 +53,9 @@ func getCollectionsPage(page: UInt) -> Promise<[BUYCollection]> {
             collections, page, reachedEnd, error in
             if let error = error {
                 reject(error)
+            } else {
+                fulfill(collections ?? [])
             }
-            fulfill(collections ?? [])
         }
     }
 }
@@ -66,8 +69,9 @@ func getProducts(fromCollectionWithId collectionId: Int64, page: UInt) -> Promis
             products, page, reachedEnd, error in
             if let error = error {
                 reject(error)
+            } else {
+                fulfill(products ?? [])
             }
-            fulfill(products ?? [])
         }
     }
 }
@@ -80,8 +84,9 @@ func getTags(page: UInt) -> Promise<[String]> {
             products, page, reachedEnd, error in
             if let error = error {
                 reject(error)
+            } else {
+                fulfill(products ?? [])
             }
-            fulfill(products ?? [])
         }
     }
 }
@@ -93,8 +98,37 @@ func getOrders() -> Promise<[BUYOrder]> {
             orders, error in
             if let error = error {
                 reject(error)
+            } else {
+                fulfill(orders ?? [])
             }
-            fulfill(orders ?? [])
+        }
+    }
+}
+
+func getShippingRates(forCheckout checkout: BUYCheckout) -> Promise<[BUYShippingRate]> {
+    return Promise {
+        fulfill, reject in
+        ShopifyController.instance.client.getShippingRatesForCheckout(withToken: checkout.token) {
+            (shippingRates: [BUYShippingRate]?, status: BUYStatus, error: Error?) -> Void in
+            if let error = error {
+                reject(error)
+            } else {
+                fulfill(shippingRates ?? [])
+            }
+        }
+    }
+}
+
+func updateCheckout(_ checkout: BUYCheckout) -> Promise<BUYCheckout> {
+    return Promise {
+        fulfill, reject in
+        ShopifyController.instance.client.update(checkout) {
+            newCheckout, error in
+            if let error = error {
+                reject(error)
+            } else {
+                fulfill(newCheckout ?? checkout)
+            }
         }
     }
 }

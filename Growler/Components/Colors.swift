@@ -11,6 +11,12 @@ class Colors {
     
     static let menuAndToolbarDarkBackground = UIColor(0x2d3c48)
 
+    static let lightGrayMenuBackground = UIColor(0x25313b)
+
     static let grayControlBorderColor = UIColor(0xcacaca)
+
+    static let grayBackground = UIColor(0xe9e9e9)
+
+    static let grayText = UIColor(0xa5a5a5)
 
 }

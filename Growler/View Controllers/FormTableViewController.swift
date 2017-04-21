@@ -6,55 +6,101 @@
 import Foundation
 import SwiftyJSON
 
-class FormTableViewController: UITableViewController {
+class FormTableViewController: UITableViewController, UITextFieldDelegate {
 
     public var onSave: (() -> Void)?
 
-    private var items: [FormTableCell] = []
+    private var cells: [UITableViewCell] = []
 
-    private var saveButton: UIBarButtonItem!
+    private var fields: [FormInput] = []
+
+    private var buttonItems: [UIBarButtonItem]!
+
+    private var closeButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.allowsSelection = false
 
-        saveButton = UIBarButtonItem(title: onSave != nil ? "Continue" : "Save", style: .plain, target: self, action: #selector(self.didTapSaveButton))
+        tableView.backgroundColor = Colors.grayBackground
+        tableView.separatorColor = Colors.grayBackground
+        
+        let okButtonTitle = getOkButtonTitle()
+        let okButton = UIBarButtonItem(title: okButtonTitle, style: .plain, target: self, action: #selector(self.didTapSaveButton))
+        
+        closeButton = UIBarButtonItem(image: UIImage(named: "CloseMenuButton"), style: .plain, target: self, action: #selector(LoginFormController.didTapCloseButton))
+        
+        buttonItems = [
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            okButton,
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+        ]
 
-        items = getItems()
+        cells = getCells()
+        
+        fields = cells
+            .filter{ $0 is FormTableCell }
+            .reduce([FormInput]()) { $0 + ($1 as! FormTableCell).inputs }
+
         let data = loadData()
-        for item in items {
-            item.field.text = data[item.name].string
+        for field in fields {
+            field.field.text = data[field.name].string
+            field.field.delegate = self
         }
     }
-    
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        didTapSaveButton()
+        return true
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.rightBarButtonItem = saveButton
+        setupToolbars()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationItem.rightBarButtonItem = saveButton
+        setupToolbars()
     }
 
-    func getItems() -> [FormTableCell] {
+    public func getOkButtonTitle() -> String {
+        return "Save"
+    }
+
+    func setupToolbars() {
+        setupDarkToolbars()
+        navigationItem.title = getTitle()
+        navigationItem.leftBarButtonItem = closeButton
+        setToolbarItems(buttonItems, animated: false)
+    }
+
+    func getCells() -> [UITableViewCell] {
         return []
     }
 
+    public func getTitle() -> String {
+        return ""
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return cells.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return items[indexPath.row]
+        return cells[indexPath.row]
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CoreGraphics.CGFloat {
+        return 45
     }
 
     func isValid() -> Bool {
         var result = true
 
         // using for loop instead of items.reduce because we don't need lazy evaluation. we need to validate all fields
-        for item in items {
-            if !item.isValid() {
+        for field in fields {
+            if !field.isValid() {
                 result = false
             }
         }
@@ -63,9 +109,9 @@ class FormTableViewController: UITableViewController {
     
     func getValues() -> JSON {
         var result = JSON(parseJSON: "{}")
-        for item in items {
-            let value = item.field.text ?? ""
-            result[item.name].string = value.isEmpty ? item.`default` : value
+        for field in fields {
+            let value = field.field.text ?? ""
+            result[field.name].string = value.isEmpty ? field.`default` : value
         }
         return result
     }
@@ -73,16 +119,27 @@ class FormTableViewController: UITableViewController {
     func didTapSaveButton() {
         if isValid() {
             let values = getValues()
-            saveData(values)
+            guard saveData(values) else {
+                return
+            }
             if let onSave = onSave {
                 onSave()
             } else {
-                navigationController!.popViewController(animated: true)
+                navigationController!.dismiss(animated: true)
             }
         }
     }
 
-    public func saveData(_ data: JSON) {
+    func didTapCloseButton() {
+        dismiss(animated: true)
+    }
+
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
+
+    public func saveData(_ data: JSON) -> Bool {
+        return true
     }
 
     public func loadData() -> JSON {
