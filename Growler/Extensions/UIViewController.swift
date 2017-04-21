@@ -19,19 +19,24 @@ extension UIViewController {
 
     func popupWithNavigationController(parentController: UIViewController? = nil) {
         if navigationController == nil {
-            _ = UINavigationController(rootViewController: self) // this will set self.naviationController
+            _ = LightStatusBarNavigationController(rootViewController: self) // this will set self.navigationController
         }
         let parent = parentController ?? AppDelegate.shared.window!.rootViewController
         parent?.present(navigationController!, animated: true)
     }
 
-    func setupDarkToolbars() {
+    // Important!!
+    // Calling controller should:
+    //      - call setNeedsStatusBarAppearanceUpdate() in viewDidLoad
+    //      - override var preferredStatusBarStyle: UIStatusBarStyle
+    //      - set modalPresentationCapturesStatusBarAppearance to true
+    func setupDarkToolbars(bottomBar: Bool = true) {
         if let navController = navigationController {
             navController.navigationBar.backgroundColor = Colors.menuAndToolbarDarkBackground
             navController.navigationBar.barTintColor = Colors.menuAndToolbarDarkBackground
             navController.navigationBar.tintColor = UIColor.white
             navController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-            navController.isToolbarHidden = false
+            navController.isToolbarHidden = !bottomBar
             navController.toolbar.barTintColor = Colors.menuAndToolbarDarkBackground
             navController.toolbar.tintColor = UIColor.white
         }

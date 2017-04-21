@@ -6,8 +6,9 @@
 import Foundation
 import UIKit
 import PromiseKit
+import EMString
 
-class CartViewController: UITableViewController, Notifiable {
+class CartViewController: UITableViewController, Notifiable, UIPickerViewDelegate, UIPickerViewDataSource {
 
     let SIMPLE_CELL_IDENTIFIER = "Cell"
 
@@ -17,7 +18,7 @@ class CartViewController: UITableViewController, Notifiable {
 
     private var buttonItems: [UIBarButtonItem]!
 
-    private var checkoutButton: UIBarButtonItem!
+    private var checkoutButton: UIButton!
 
     private var products: [BUYProduct] = []
 
@@ -29,14 +30,34 @@ class CartViewController: UITableViewController, Notifiable {
 
     private var shippingRates: [BUYShippingRate] = []
 
+    private var isLoading = false
+
+    private static var registeredStyles = false
+
+    private let headerFont = UIFont(name: "Helvetica", size: 12)
+
+    private var deliveryField: UITextField!
+
+    private var deliveryPicker: UIPickerView!
+
+    private var selectedShippingRate: Int = 0
+
+    private var deliveryToolBar: UIToolbar!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.backgroundColor = Colors.grayBackground
         tableView.separatorColor = Colors.grayBackground
 
-        checkoutButton = UIBarButtonItem(title: "Checkout", style: .plain, target: self, action: #selector(self.doCheckout))
+        checkoutButton = UIButton()
         checkoutButton.isEnabled = false
+        checkoutButton.setTitle("Checkout", for: .normal)
+        checkoutButton.setTitleColor(UIColor.white, for: .normal)
+        checkoutButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        checkoutButton.addTarget(self, action: #selector(self.doCheckout), for: .touchUpInside)
+        checkoutButton.sizeToFit()
+        let checkoutButtonWrapper = UIBarButtonItem(customView: checkoutButton)
 
         let closeIcon = UIImage(named: "CloseMenuButton")
         closeButton = UIBarButtonItem(image: closeIcon, style: .plain, target: self, action: #selector(self.didTapCloseButton))
@@ -46,10 +67,12 @@ class CartViewController: UITableViewController, Notifiable {
         buttonItems = [
             cartStatusBar.cartItemCountWrapper,
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            checkoutButton,
+            checkoutButtonWrapper,
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             cartStatusBar.cartTotalAmount,
         ]
+
+        registerStyles()
 
         subscribeTo(Notification.Name.cartChanged, selector: #selector(self.cartChanged))
         subscribeTo(Notification.Name.accountChanged, selector: #selector(self.addressChanged))
@@ -60,11 +83,46 @@ class CartViewController: UITableViewController, Notifiable {
         let nib = UINib(nibName: PRODUCT_LIST_CELL, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: PRODUCT_LIST_CELL)
 
+        deliveryField = UITextField()
+        deliveryField.bounds = CGRect(x: 0, y: 0, width: 0, height: 0)
+        view.addSubview(deliveryField)
+        deliveryPicker = UIPickerView()
+        deliveryPicker.showsSelectionIndicator = true
+        deliveryPicker.dataSource = self
+        deliveryPicker.delegate = self
+        deliveryField.inputView = deliveryPicker
+
+        deliveryToolBar = UIToolbar()
+        deliveryToolBar.barStyle = .default
+        deliveryToolBar.isTranslucent = true
+        deliveryToolBar.sizeToFit()
+
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.donePicker))
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        deliveryToolBar.setItems([spacer, doneButton], animated: false)
+        deliveryToolBar.isUserInteractionEnabled = true
+        deliveryField.inputAccessoryView = deliveryToolBar
+
         loadEverything()
     }
 
     deinit {
         unsubscribeFromNotifications()
+    }
+
+    private func registerStyles() {
+        if !CartViewController.registeredStyles {
+            CartViewController.registeredStyles = true
+
+            let grayText = EMStylingClass(markup: "<growler_gray_text>")!
+            grayText.color = Colors.grayText
+            EMStringStylingConfiguration.sharedInstance().addNewStylingClass(grayText)
+
+            let orangeLinkStyle = EMStylingClass(markup: "<growler_orange_link>")!
+            orangeLinkStyle.color = Colors.launchScreenOrangeColor
+            EMStringStylingConfiguration.sharedInstance().addNewStylingClass(orangeLinkStyle)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -78,23 +136,48 @@ class CartViewController: UITableViewController, Notifiable {
     func loadEverything() {
         // important: don't call super! we don't want to show all products, but only ones in the cart
         // todo show HUD
-        checkoutButton.isEnabled = false
-
+       
         if ShopifyController.instance.isEmptyCart() {
             products = []
             mq {
                 // todo hide HUD
-                self.checkoutButton.isEnabled = true
                 self.tableView.reloadData()
+                self.checkoutButton.isHidden = true
             }
             return
         }
 
-        ShopifyController.instance.getCart()
+        mq {
+            self.isLoading = true
+            self.checkoutButton.isEnabled = false
+            self.tableView.reloadData()
+        }
+        
+        loadEverythingInternal()
+            .then {
+                checkout -> Void in
+                print("\(checkout)")
+            }
+            .catch {
+                _ in
+                // muting errors here. we will show errors when user will press checkout error in self.handleError(error)
+            }
+            .always {
+                mq {
+                    // todo hide HUD
+                    self.isLoading = false
+                    self.checkoutButton.isHidden = self.products.count == 0
+                    self.tableView.reloadData()
+                }
+            }
+    }
+
+    func loadEverythingInternal() -> Promise<BUYCheckout> {
+        return ShopifyController.instance.getCartProducts()
             .then {
                 products -> Promise<BUYCheckout> in
                 self.products = products
-                return ShopifyController.instance.createCheckout(products: products)
+                return ShopifyController.instance.getCheckout()
             }
             .then {
                 checkout in
@@ -105,30 +188,28 @@ class CartViewController: UITableViewController, Notifiable {
                 (shippingRates: [BUYShippingRate]) -> Promise<BUYCheckout> in
                 self.shippingRates = shippingRates
                 let checkout = self.checkout! // if we got here then checkout is not null
-                checkout.shippingRate = shippingRates.first
+                if shippingRates.indices ~= self.selectedShippingRate {
+                    checkout.shippingRate = shippingRates[self.selectedShippingRate]
+                } else {
+                    checkout.shippingRate = nil
+                }
                 return updateCheckout(checkout)
             }
-            .then {
-                checkout -> Void in
-                print("\(checkout)")
-            }
-            .catch {
-                error in self.handleError(error)
-            }
-            .always {
-                mq {
-                    // todo hide HUD
-                    self.checkoutButton.isEnabled = true
-                    self.tableView.reloadData()
-                }
-            }
+    }
+
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.section == CartViewSection.products.rawValue
     }
 
     override func tableView(_ tableView: UITableView,
                    editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        guard indexPath.section == CartViewSection.products.rawValue else {
+            return []
+        }
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") {
             action, indexPath in
-            ShopifyController.instance.cartProductIds.remove(at: indexPath.row)
+            ShopifyController.instance.removeProduct(self.products[indexPath.row])
+            self.loadEverything()
         }
         return [deleteAction]
     }
@@ -148,6 +229,17 @@ class CartViewController: UITableViewController, Notifiable {
     }
 
     func doCheckout() {
+        loadEverythingInternal()
+            .then {
+                checkout -> Void in
+                self.checkoutStep2(checkout: checkout)
+            }
+            .catch {
+                error in self.handleError(error)
+            }
+    }
+
+    func checkoutStep2(checkout: BUYCheckout?) {
         guard let checkout = checkout else {
             return
         }
@@ -158,7 +250,7 @@ class CartViewController: UITableViewController, Notifiable {
                     checkout, error in
                     if error == nil && checkout != nil {
                         self.checkout = checkout
-                        ShopifyController.instance.cartProductIds.removeAll()
+                        ShopifyController.instance.createNewCart()
                         self.navigationController?.dismiss(animated: true, completion: {})
                         Utils.alert(message: "Your order has been completed successfully")
                     } else {
@@ -202,14 +294,17 @@ class CartViewController: UITableViewController, Notifiable {
         let section = CartViewSection(rawValue: s)!
         switch section {
             case .address:
-                CreditCardFormController().popupWithNavigationController()
+                break
             case .instructionsToCourier:
                 break
             case .yourOrderHeader:
                 break
             case .products:
-                return products.count
+                return isLoading ? 1 : products.count
             case .summaryItems:
+                if isLoading {
+                    return 0
+                }
                 if let summary = getSummary() {
                     return summary.count
                 } else {
@@ -241,6 +336,8 @@ class CartViewController: UITableViewController, Notifiable {
                 cell.titleLabel?.text = getAddress()
                 cell.valueLabel?.text = getCityStateZip()
                 cell.valueLabel?.textColor = Colors.grayText
+                cell.valueLabel?.textAlignment = .left
+                cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
                 return cell
             case .instructionsToCourier:
                 let cell = UITableViewCell()
@@ -253,13 +350,18 @@ class CartViewController: UITableViewController, Notifiable {
                 let cell = UITableViewCell()
                 cell.textLabel?.text = "YOUR ORDER"
                 cell.textLabel?.textColor = Colors.grayText
+                cell.textLabel?.font = headerFont
                 cell.backgroundColor = Colors.grayBackground
                 return cell
             case .products:
-                let cell = tableView.dequeueReusableCell(withIdentifier: PRODUCT_LIST_CELL, for: indexPath) as! ProductListCell
-                let product = products[indexPath.row]
-                cell.setupWithProduct(product)
-                return cell
+                if isLoading {
+                    return ActivityIndicatorTableCell.loadFromNib()
+                } else {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: PRODUCT_LIST_CELL, for: indexPath) as! ProductListCell
+                    let product = products[indexPath.row]
+                    cell.setupWithProduct(product)
+                    return cell
+                }
             case .summaryItems:
                 let cell = CheckoutTableCell.loadFromNib()
                 if let summary = getSummary() {
@@ -284,18 +386,27 @@ class CartViewController: UITableViewController, Notifiable {
                 let cell = UITableViewCell()
                 cell.textLabel?.text = "DELIVERY DETAILS"
                 cell.textLabel?.textColor = Colors.grayText
+                cell.textLabel?.font = headerFont
                 cell.backgroundColor = Colors.grayBackground
                 return cell
             case .deliveryDetails:
                 let cell = CheckoutTableCell.loadFromNib()
                 cell.titleLabel?.text = "Delivery"
-                cell.valueLabel?.text = "Select time slot"
+                let delivery: String
+                if shippingRates.indices ~= selectedShippingRate {
+                    let rate = shippingRates[selectedShippingRate]
+                    delivery = rate.title + " " + Utils.formatUSD(value: rate.price)
+                } else {
+                    delivery = "Select shipping"
+                }
+                cell.valueLabel?.text = delivery
                 cell.valueLabel?.textColor = Colors.grayText
                 return cell
             case .paymentDetailsHeader:
                 let cell = UITableViewCell()
                 cell.textLabel?.text = "PAYMENT DETAILS"
                 cell.textLabel?.textColor = Colors.grayText
+                cell.textLabel?.font = headerFont
                 cell.backgroundColor = Colors.grayBackground
                 return cell
             case .creditCard:
@@ -313,11 +424,16 @@ class CartViewController: UITableViewController, Notifiable {
                 return cell
             case .termsAndConditions:
                 let cell = UITableViewCell()
-                cell.textLabel?.text = "By continuing, you agree to our\nTerms and Conditions"
+                cell.textLabel?.textColor = nil // otherwise it will override color of attributed string
+                cell.textLabel?.attributedText =
+                    (
+                        "<growler_gray_text>By continuing, you agree to our</growler_gray_text>\n" +
+                        "<growler_orange_link>Terms and Conditions</growler_orange_link>"
+                    )
+                    .attributedString
                 cell.textLabel?.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
                 cell.textLabel?.numberOfLines = 0
                 cell.textLabel?.textAlignment = .center
-                cell.textLabel?.textColor = Colors.grayText
                 cell.backgroundColor = Colors.grayBackground
                 return cell
         }
@@ -373,7 +489,7 @@ class CartViewController: UITableViewController, Notifiable {
             case .deliveryDetailsHeader:
                 break
             case .deliveryDetails:
-                break
+                deliveryField.becomeFirstResponder()
             case .paymentDetailsHeader:
                 break
             case .creditCard:
@@ -381,7 +497,7 @@ class CartViewController: UITableViewController, Notifiable {
             case .promoCode:
                 PromoCodeFormController().popupWithNavigationController(parentController: self)
             case .termsAndConditions:
-                break
+                AppDelegate.shared.termsViewController.popupWithNavigationController(parentController: self)
         }
 
         return nil
@@ -413,6 +529,28 @@ class CartViewController: UITableViewController, Notifiable {
     }
 
     func promoCodeChanged() {
+        loadEverything()
+    }
+
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return shippingRates.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let rate = shippingRates[row]
+        return rate.title + " " + Utils.formatUSD(value: rate.price)
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedShippingRate = row
+    }
+
+    func donePicker() {
+        deliveryField.resignFirstResponder()
         loadEverything()
     }
 

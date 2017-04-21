@@ -25,10 +25,6 @@ enum CarouserIndex: Int {
 
 class HomeViewController: UITableViewController {
 
-    @IBOutlet weak var topCarousel: SwiftCarousel!
-    
-    @IBOutlet weak var bottomCarousel: SwiftCarousel!
-
     private var items: [UITableViewCell] = [
         ActivityIndicatorTableCell.loadFromNib(),
         ActivityIndicatorTableCell.loadFromNib(),
@@ -62,7 +58,9 @@ class HomeViewController: UITableViewController {
                 (products: [BUYProduct]) -> Void in
                 self.items[CarouserIndex.mostPopular.rawValue] = CarouselTableCell.create(
                     title: "Most Popular",
-                    itemsPerPage: 1.5,
+                    description: "Most popular beers, as chosen by you.",
+                    itemsPerPage: 1.7,
+                    itemMargin: 10,
                     bannerFactory: ProductBannerFactory(products: products)
                 )
                 mq { self.tableView.reloadData() }
@@ -71,15 +69,15 @@ class HomeViewController: UITableViewController {
         _ = getProducts(fromCollectionWithId: CollectionIdentifier.freshBrews.rawValue, page: 1)
             .then {
                 (products: [BUYProduct]) -> Void in
-                let recommendedProducts = ShopifyController.selectRecommendedProducts(from: products)
                 self.items[CarouserIndex.freshBrews.rawValue] = CarouselTableCell.create(
                     title: "Fresh Brews",
-                    itemsPerPage: 1.5,
-                    bannerFactory: ProductBannerFactory(products: recommendedProducts)
+                    description: "Brewed in the past week.",
+                    itemsPerPage: 1.7,
+                    itemMargin: 10,
+                    bannerFactory: ProductBannerFactory(products: products)
                 )
                 mq { self.tableView.reloadData() }
             }
-
 
         _ = getCollectionsPage(page: 1)
             .then {
@@ -114,11 +112,14 @@ class HomeViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         // first 2 carousels take 1/2 of screen height, others - 1/3
-        switch indexPath.row {
-            case 0 ..< CarouserIndex.featuredCollectionsHeader.rawValue: return contentHeight / 2
-            case CarouserIndex.featuredCollectionsHeader.rawValue: return 45
-            case CarouserIndex.separator.rawValue: return 9
-            default: return contentHeight / 3
+        let screenWidth = UIScreen.main.bounds.width
+        // proportion constants are taken from mock-ups
+        switch CarouserIndex(rawValue: indexPath.row)! {
+            case .mostPopular, .freshBrews: return 364.0 /* this also includes gray separator */ / 445.0 * screenWidth
+            case CarouserIndex.featuredCollectionsHeader: return 45
+            case .ciceronesChoice, .staffsPick, .gameDay: return (298 + 10 /* 10 is spacing between cells */) / 447 * screenWidth
+            case CarouserIndex.separator: return 9
+            default: return 403 / 746 * screenWidth
         }
     }
 

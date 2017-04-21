@@ -56,11 +56,6 @@ typedef NS_ENUM(NSInteger, ThemeStyle) {
  */
 @property (nonatomic, assign) ThemeStyle style;
 
-/**
- *  Determines whether a blurred scaled-up product image should appear behind the product details. Default is YES
- */
-@property (nonatomic, assign) BOOL showsProductImageBackground;
-
 - (void)styleProductViewController;
 
 @end

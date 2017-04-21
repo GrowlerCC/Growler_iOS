@@ -37,7 +37,8 @@ class CollectionBanner: UIView {
     }
 
     func didTap(_ sender: UITapGestureRecognizer) {
-        let controller = ProductListViewController(client: ShopifyController.instance.client, collection: collection)!
+        let controller = CollectionPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        controller.collection = collection
         AppDelegate.shared.navigationController.pushViewController(controller, animated: true)
     }
 

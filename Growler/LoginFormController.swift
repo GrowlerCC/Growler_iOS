@@ -18,7 +18,11 @@ class LoginFormController: FormTableViewController {
         loginCell.textLabel?.font = UIFont.systemFont(ofSize: 12)
 
         return [
-            FormTableCell.create(FormInput.create(title: "Email", name: LoginFields.email.rawValue, required: true)),
+            FormTableCell.create(FormInput.create(
+                title: "Email",
+                name: LoginFields.email.rawValue,
+                required: true,
+                type: .email)),
             FormTableCell.create(FormInput.create(
                 title: "Password",
                 name: LoginFields.password.rawValue,
@@ -52,6 +56,9 @@ class LoginFormController: FormTableViewController {
             if let error = error {
                 Utils.alert(message: "Invalid user or password", parent: self)
             } else {
+                ShopifyController.instance.loginEmailString.value = email
+                ShopifyController.instance.loginPasswordString.value = password
+
                 ShopifyController.instance.customer = customer
                 self.navigationController?.dismiss(animated: true)
             }

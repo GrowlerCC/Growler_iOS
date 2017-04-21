@@ -15,7 +15,12 @@ class RegisterFormController: FormTableViewController {
         return [
             FormTableCell.create(FormInput.create(title: "First Name", name: RegisterFields.firstName.rawValue, required: true)),
             FormTableCell.create(FormInput.create(title: "Last Name", name: RegisterFields.lastName.rawValue, required: true)),
-            FormTableCell.create(FormInput.create(title: "Email", name: RegisterFields.email.rawValue, required: true)),
+            FormTableCell.create(FormInput.create(
+                title: "Email",
+                name: RegisterFields.email.rawValue,
+                required: true,
+                type: .email
+            )),
             FormTableCell.create(FormInput.create(
                 title: "Password",
                 name: RegisterFields.password.rawValue,

@@ -24,8 +24,6 @@
 //  THE SOFTWARE.
 //
 
-#import "ProductViewController.h"
-
 #import "GradientView.h"
 #import "AsyncImageView.h"
 #import "OptionSelectionNavigationController.h"
@@ -416,7 +414,6 @@ static NSString *const FILLED_HEART_CHARACTER = @"♥";
 	}
 	if (self.productView.productViewHeader.collectionView) {
 		[self.productView.productViewHeader setImageForSelectedVariant:_selectedProductVariant withImages:[self.product.images array]];
-		[self.productView updateBackgroundImage:[self.product.images array]];
 	}
 	if (self.productView.productViewFooter) {
         self.productView.productViewFooter.actionButton.enabled = TEST_MODE ? YES : selectedProductVariant.available.boolValue;
@@ -477,9 +474,6 @@ static NSString *const FILLED_HEART_CHARACTER = @"♥";
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-	if ([scrollView isKindOfClass:[UICollectionView class]]) {
-		[self.productView updateBackgroundImage:[self.product.images array]];
-	}
 }
 
 #pragma mark Checkout
@@ -514,8 +508,11 @@ static NSString *const FILLED_HEART_CHARACTER = @"♥";
 	
 	self.client.urlScheme = @"advancedsample://";
 
-    [ShopifyController.instance addProductToCartWithProduct:product];
-    [Utils alertWithMessage:@"Product has been added to cart"];
+    if ([ShopifyController.instance addProductToCart:product]) {
+        [Utils alertWithMessage:@"Product has been added to cart"];
+    } else {
+        [Utils alertWithMessage:@"Failed to create cart. Check network connection"];
+    }
 }
 
 

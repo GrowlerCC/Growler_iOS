@@ -27,7 +27,6 @@
 #import "ProductViewNavigationController.h"
 #import "ImageKit.h"
 #import "Theme+Additions.h"
-#import "ProductViewController.h"
 
 @implementation ProductViewNavigationController
 
@@ -99,9 +98,6 @@
 
 -(UIViewController*)childViewController
 {
-	if ([self.visibleViewController isKindOfClass:[ProductViewController class]] == NO) {
-		return self.viewControllers[0];
-	}
 	return self.visibleViewController;
 }
 

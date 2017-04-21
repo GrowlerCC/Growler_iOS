@@ -12,23 +12,23 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.1.7):
     - PromiseKit/CorePromise
-  - RESideMenu (4.0.7)
+  - SlideMenuControllerSwift (3.0.1)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - EMString (= 0.3.0)
   - Mobile-Buy-SDK (~> 2.2.0)
   - PromiseKit (~> 4.1.7)
-  - RESideMenu (~> 4.0.7)
+  - SlideMenuControllerSwift
   - SwiftyJSON (~> 3.1.1)
 
 SPEC CHECKSUMS:
   EMString: 612632d8224e86dd31e5743ec27ee28ea6faeae4
   Mobile-Buy-SDK: 5c335aaa578d8424e5093b8a87ed7c8cc6ad0059
   PromiseKit: 779f2e41faf62d854e7593026ddbcb0bb5c5002d
-  RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 595bf90a3d1ea123d8cff96f80bd10b347f86933
+PODFILE CHECKSUM: fc4a1e54d2451a330db9c2dc8fcfb881d2304370
 
 COCOAPODS: 1.2.0

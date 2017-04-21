@@ -35,7 +35,6 @@
 #import "OptionBreadCrumbsView.h"
 #import "HeaderOverlayView.h"
 #import "ProductViewNavigationController.h"
-#import "ProductViewController.h"
 #import "ProductView.h"
 #import "Theme.h"
 #import "Theme+Additions.h"
@@ -52,7 +51,6 @@
 	
 	if (self) {
 		self.style = ThemeStyleLight;
-		self.showsProductImageBackground = YES;
 	}
 	
 	return self;
@@ -84,7 +82,6 @@
 		[[UITableView appearanceWhenContainedInInstancesOfClasses:@[[NavigationController class]]] setBackgroundColor:contentBackgroundColor];
 		[[UITableView appearanceWhenContainedInInstancesOfClasses:@[[NavigationController class]]] setSeparatorColor:secondaryMediumColor];
 		[[UIScrollView appearanceWhenContainedInInstancesOfClasses:@[[NavigationController class]]] setIndicatorStyle:scrollViewIndicatorStyle];
-		[[UIActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[[ProductViewController class]]] setColor:primaryColor];
 	} else {
 		[[UINavigationBar appearanceWhenContainedIn:[OptionSelectionNavigationController class], nil] setTitleTextAttributes:@{ NSForegroundColorAttributeName : navigationBarTitleVariantSelectionColor }];
 		[[UINavigationBar appearanceWhenContainedIn:[NavigationController class], nil] setTitleTextAttributes:@{ NSForegroundColorAttributeName : navigationBarTitleColor }];
@@ -93,11 +90,9 @@
 		[[UITableView appearanceWhenContainedIn:[NavigationController class], nil] setBackgroundColor:contentBackgroundColor];
 		[[UITableView appearanceWhenContainedIn:[NavigationController class], nil] setSeparatorColor:secondaryMediumColor];
 		[[UIScrollView appearanceWhenContainedIn:[NavigationController class], nil] setIndicatorStyle:scrollViewIndicatorStyle];
-		[[UIActivityIndicatorView appearanceWhenContainedIn:[ProductViewController class], nil] setColor:primaryColor];
 	}
 	
 	[[ProductView appearance] setTintColor:primaryColor];
-	[[ProductView appearance] setShowsProductImageBackground:self.showsProductImageBackground];
 	[[VariantOptionView appearance] setOptionNameTextColor:self.style == ThemeStyleDark ? BUY_RGB(76, 76, 76) : BUY_RGB(191, 191, 191)];
 	[[VisualEffectView appearance] setBlurEffectStyle:blurEffectStyle];
 	[[CheckoutButton appearance] setBackgroundColor:primaryColor];

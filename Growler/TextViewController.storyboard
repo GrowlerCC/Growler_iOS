@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Faq View Controller-->
+        <!--Text View Controller-->
         <scene sceneID="rCa-ds-7pp">
             <objects>
-                <viewController storyboardIdentifier="FaqViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Ke-32-Wtv" customClass="FaqViewController" customModule="Growler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TextViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Ke-32-Wtv" customClass="TextViewController" customModule="Growler" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Fi-GV-62x"/>
                         <viewControllerLayoutGuide type="bottom" id="kzG-Fr-9O0"/>
@@ -55,7 +55,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="faqText" destination="uw6-jO-zZP" id="xK4-qV-qam"/>
+                        <outlet property="contentLabel" destination="uw6-jO-zZP" id="xK4-qV-qam"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPQ-ms-Nnr" userLabel="First Responder" sceneMemberID="firstResponder"/>

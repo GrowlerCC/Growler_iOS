@@ -22,6 +22,12 @@ class Utils: NSObject {
         return numberFormatter.string(from: value) ?? ""
     }
 
+    static func formatDecimal(_ value: NSDecimalNumber) -> String {
+        let numberFormatter = NumberFormatter();
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(from: value) ?? ""
+    }
+
     static func alert(message: String) {
         self.alert(message: message, parent: nil)
     }
@@ -41,6 +47,13 @@ class Utils: NSObject {
         let navigationBarHeight = navigationController.navigationBar.frame.height
         let toolbarHeight = navigationController.toolbar.frame.height
         return screenHeight - statusBarHeight - navigationBarHeight - toolbarHeight
+    }
+
+
+    class func calculateTopInset(navigationController: UINavigationController) -> CGFloat {
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        let navigationBarHeight = navigationController.navigationBar.frame.height
+        return statusBarHeight + navigationBarHeight
     }
 
     static func inputBox(title: String, message: String, okTitle: String, callback: @escaping (String?) -> Void) {

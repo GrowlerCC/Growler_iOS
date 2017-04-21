@@ -48,10 +48,11 @@ class CollectionBannerCell: UITableViewCell {
     }
 
     func didTap(_ sender: UITapGestureRecognizer) {
-        guard collection != nil else {
+        guard collection == collection else {
             return
         }
-        let controller = ProductListViewController(client: ShopifyController.instance.client, collection: collection)!
+        let controller = CollectionPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        controller.collection = collection
         AppDelegate.shared.navigationController.pushViewController(controller, animated: true)
     }
 

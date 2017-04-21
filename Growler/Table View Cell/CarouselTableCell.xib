@@ -6,11 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Lato-Bold.ttf">
             <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -31,33 +35,44 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKO-wE-t7W">
-                        <rect key="frame" x="13" y="12" width="454" height="23"/>
-                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="19"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="8" y="21" width="464" height="26.5"/>
+                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="22"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.26666666666666666" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Lb-NP-Bt0" customClass="SwiftCarousel" customModule="Growler" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="46" width="480" height="281"/>
+                        <rect key="frame" x="0.0" y="70" width="480" height="257"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IA-QB-LJR">
+                        <rect key="frame" x="8" y="50.5" width="464" height="14"/>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                        <color key="textColor" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="3eW-kU-aRF" secondAttribute="bottom" id="2As-9W-rsA"/>
                     <constraint firstItem="3Lb-NP-Bt0" firstAttribute="leading" secondItem="NP8-i8-9iM" secondAttribute="leading" id="2f4-0v-P3s"/>
-                    <constraint firstItem="3Lb-NP-Bt0" firstAttribute="top" secondItem="NP8-i8-9iM" secondAttribute="top" constant="46" id="8yQ-tW-7i5"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="1IA-QB-LJR" secondAttribute="trailing" id="6GT-XQ-0nL"/>
+                    <constraint firstItem="3Lb-NP-Bt0" firstAttribute="top" secondItem="NP8-i8-9iM" secondAttribute="top" constant="70" id="8yQ-tW-7i5"/>
                     <constraint firstAttribute="trailing" secondItem="3eW-kU-aRF" secondAttribute="trailing" id="DHq-Du-mT5"/>
-                    <constraint firstItem="cKO-wE-t7W" firstAttribute="leading" secondItem="NP8-i8-9iM" secondAttribute="leading" constant="13" id="Lyf-Wd-YBR"/>
+                    <constraint firstItem="cKO-wE-t7W" firstAttribute="leading" secondItem="NP8-i8-9iM" secondAttribute="leadingMargin" id="Lyf-Wd-YBR"/>
                     <constraint firstItem="3eW-kU-aRF" firstAttribute="top" secondItem="3Lb-NP-Bt0" secondAttribute="bottom" id="SAU-nA-ZX7"/>
+                    <constraint firstItem="1IA-QB-LJR" firstAttribute="leading" secondItem="NP8-i8-9iM" secondAttribute="leadingMargin" id="UEY-Ke-U7t"/>
+                    <constraint firstItem="1IA-QB-LJR" firstAttribute="top" secondItem="cKO-wE-t7W" secondAttribute="bottom" constant="3" id="YzM-xo-NLs"/>
                     <constraint firstItem="3eW-kU-aRF" firstAttribute="leading" secondItem="NP8-i8-9iM" secondAttribute="leading" id="bHN-XQ-Og4"/>
                     <constraint firstAttribute="trailing" secondItem="3Lb-NP-Bt0" secondAttribute="trailing" id="k0u-Qr-TbT"/>
-                    <constraint firstItem="cKO-wE-t7W" firstAttribute="top" secondItem="NP8-i8-9iM" secondAttribute="top" constant="12" id="sws-cI-3As"/>
-                    <constraint firstAttribute="trailing" secondItem="cKO-wE-t7W" secondAttribute="trailing" constant="13" id="x8F-nQ-rgT"/>
+                    <constraint firstItem="cKO-wE-t7W" firstAttribute="top" secondItem="NP8-i8-9iM" secondAttribute="top" constant="21" id="sws-cI-3As"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="cKO-wE-t7W" secondAttribute="trailing" id="x8F-nQ-rgT"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="carousel" destination="3Lb-NP-Bt0" id="yFp-oV-yok"/>
+                <outlet property="descriptionLabel" destination="1IA-QB-LJR" id="eqc-0S-eD7"/>
                 <outlet property="titleLabel" destination="cKO-wE-t7W" id="NLz-nN-0jv"/>
                 <outlet property="topCarouselConstraint" destination="8yQ-tW-7i5" id="sTq-OA-LJC"/>
+                <outlet property="topTitleMargin" destination="sws-cI-3As" id="696-ME-tMh"/>
             </connections>
             <point key="canvasLocation" x="-268" y="53.5"/>
         </tableViewCell>

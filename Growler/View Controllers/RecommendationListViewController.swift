@@ -13,9 +13,9 @@ class RecommendationListViewController: ProductListViewController {
 
     override func loadProducts() {
         // important: don't call super! we don't want to show all products, but only ones in the cart
-        _ = getProductsPage(page: 1).then {
-            (products) -> Void in
-            self.products = ShopifyController.selectRecommendedProducts(from: products)
+        ShopifyController.getRecommendedProducts().then {
+            products -> Void in
+            self.products = products
             mq { self.tableView.reloadData() }
         }
     }

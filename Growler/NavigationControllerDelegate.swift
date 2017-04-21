@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import EMString
 
 class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, Notifiable {
 
@@ -14,25 +15,33 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
 
     private var searchButton: UIBarButtonItem!
 
-    private var slidingMenuGestureRecognizer: UIScreenEdgePanGestureRecognizer!
-
     private var cartStatusBar: CartStatusBar!
 
     var titleViews: [UIButton] = []
 
+    private var cartNavigationButton: UIBarButtonItem!
+
     override init() {
         super.init()
 
-        slidingMenuGestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(self.didPanScreenEdge))
-        slidingMenuGestureRecognizer.edges = .left
-
         cartStatusBar = CartStatusBar()
-        let cartButton = UIBarButtonItem(title: "View Cart", style: .plain, target: self, action: #selector(self.viewCart))
+        let cartButton = UIButton()
+        cartButton.setTitle("View Cart", for: .normal)
+        cartButton.addTarget(self, action: #selector(self.viewCart), for: .touchUpInside)
+        cartButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        cartButton.sizeToFit()
+        let cartButtonWrapper = UIBarButtonItem(customView: cartButton)
+        cartNavigationButton = UIBarButtonItem(image: UIImage(named: "CartIcon"), style: .plain, target: self, action: #selector(self.viewCart))
+
+        let boldText = EMStylingClass(markup: "<growler_bold_text>")!
+        let buttonFontSize = UIButton().titleLabel?.font.pointSize ?? UIFont.systemFontSize
+        boldText.attributes = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: buttonFontSize)]
+        EMStringStylingConfiguration.sharedInstance().addNewStylingClass(boldText)
 
         toolbarItems = [
             cartStatusBar.cartItemCountWrapper,
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            cartButton,
+            cartButtonWrapper,
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             cartStatusBar.cartTotalAmount,
         ]
@@ -55,10 +64,10 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
     var navigationController: UINavigationController!
 
     func updateAddress() {
-        let address = ShopifyController.instance.getAddress()?.address1
-        let title = (address ?? "") + " ▾"
+        let address = ShopifyController.instance.getAddress()?.address1 ?? ""
+        let title = "<growler_bold_text>Delivery</growler_bold_text> to <growler_bold_text>\(address)</growler_bold_text> ▾".attributedString
         for titleView in titleViews {
-            titleView.setTitle(title, for: .normal)
+            titleView.setAttributedTitle(title, for: .normal)
         }
     }
 
@@ -95,8 +104,6 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         self.navigationController = navigationController
 
-        viewController.view.addGestureRecognizer(slidingMenuGestureRecognizer)
-
         switch viewController {
             case
                 is CartViewController,
@@ -104,6 +111,8 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
                 is ShippingRatesTableViewController,
                 is PreCheckoutViewController,
                 is CheckoutViewController,
+                is ProductPageViewController,
+                is ProductViewController,
                 is CreditCardFormController:
                     break // these forms are used in checkout process so we don't need checkout toolbar for them
             default:
@@ -131,8 +140,12 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
 
         setTitleView(forViewController: viewController)
 
-        // todo search button should be visible on all screens?
-        viewController.navigationItem.rightBarButtonItem = searchButton
+        switch viewController {
+            case is ProductPageViewController:
+                viewController.navigationItem.rightBarButtonItem = cartNavigationButton
+            default:
+                viewController.navigationItem.rightBarButtonItem = searchButton
+        }
     }
 
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
@@ -144,18 +157,12 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, No
     }
     
     func didTapProfileButton() {
-//        let controller = AccountProfileViewController()
-//        navigationController!.pushViewController(controller, animated: true)
-        AppDelegate.shared.sideMenuViewController.presentLeftMenuViewController()
+        navigationController.slideMenuController()?.openLeft()
     }
 
     func didTapSearchButton() {
         let controller = SearchViewController.loadFromStoryboard()
         navigationController!.present(controller, animated: true)
-    }
-
-    @IBAction func didPanScreenEdge(_ sender: Any) {
-        AppDelegate.shared.sideMenuViewController.presentLeftMenuViewController()
     }
 
 }

@@ -5,53 +5,88 @@
 
 import Foundation
 import UIKit
-import RESideMenu
+import SlideMenuControllerSwift
 
-let signInItem = MenuItem.create(title: "Sing In", image: UIImage(named: "AboutIcon")) {
+let signInItem = MenuItem.create(
+    title: "Sing In",
+    height: 65,
+    image: UIImage(named: "LoginLogoutIcon")
+)
+{
 
-    let loggedIn = ShopifyController.instance.customer != nil
+    let loggedIn = ShopifyController.instance.isLoggedIn()
     if loggedIn {
-        ShopifyController.instance.client.logoutCustomerCallback({ _,_ in  })
-        ShopifyController.instance.customer = nil
-        ShopifyController.instance.cartProductIds.removeAll()
+        ShopifyController.instance.logout()
     } else {
         LoginFormController().popupWithNavigationController()
     }
 }
 
-class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RESideMenuDelegate {
+class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SlideMenuControllerDelegate {
 
     // todo store link to navigation controller here or retrieve it from app.
-    // todo store all view controllers which can be reused instead of recreating them. they can be store in menu object or in AppDelegate/AppController
+    // todo store all view controllers which can be reused instead of recreating them. they can be stores in menu object or in AppDelegate/AppController
 
     @IBOutlet weak var tableView: UITableView!
+
+    let MY_ORDERS_MENU_ITEM_INDEX = 2
     
     var menuItems: [MenuItem] = [
         // menu items with darker color
-        MenuItem.create(title: "Home", color: Colors.lightGrayMenuBackground, image: UIImage(named: "AccountProfileIcon")) {
+        MenuItem.create(
+            title: "Home",
+            color: Colors.lightGrayMenuBackground,
+            image: UIImage(named: "HomeIcon")
+        ) {
             AppDelegate.shared.replaceController(AppDelegate.shared.homeViewController)
         },
-        MenuItem.create(title: "Profile", color: Colors.lightGrayMenuBackground, image: UIImage(named: "AccountProfileIcon")) {
+        MenuItem.create(
+            title: "Profile",
+            color: Colors.lightGrayMenuBackground,
+            image: UIImage(named: "AccountProfileIcon")
+        ) {
             AddressFormController().popupWithNavigationController()
         },
-        //MenuItem.create(title: "My orders", color: Colors.lightGrayMenuBackground, image: UIImage(named: "MyOrdersIcon")) {
-        //    AppDelegate.shared.navigationController.viewControllers = [MyOrdersViewController()]
-        //},
-        MenuItem.create(title: "Recommendations", color: Colors.lightGrayMenuBackground, image: UIImage(named: "RecommendationsIcon")) {
-            let controller = RecommendationListViewController(client: ShopifyController.instance.client, collection: nil)!
+        MenuItem.create(
+            title: "Payment Details",
+            color: Colors.lightGrayMenuBackground,
+            image: UIImage(named: "MyOrdersIcon")
+        ) {
+            CreditCardFormController().popupWithNavigationController()
+        },
+        MenuItem.create(
+            title: "Past orders",
+            color: Colors.lightGrayMenuBackground,
+            image: UIImage(named: "ic_history_white")
+        ) {
+            AppDelegate.shared.navigationController.viewControllers = [MyOrdersViewController()]
+        },
+        MenuItem.create(
+            title: "Recommendations",
+            color: Colors.lightGrayMenuBackground,
+            image: UIImage(named: "RecommendationsIcon")
+        ) {
+            let controller = RecommendationListViewController()
             AppDelegate.shared.replaceController(controller)
         },
-        MenuItem.create(title: "Favorites", color: Colors.lightGrayMenuBackground, image: UIImage(named: "FavoritesIcon")) {
-            let controller = FavoriteListViewController(client: ShopifyController.instance.client, collection: nil)!
+        MenuItem.create(
+            title: "Favorites",
+            color: Colors.lightGrayMenuBackground,
+            image: UIImage(named: "FavoritesIcon")
+        ) {
+            let controller = FavoriteListViewController()
             AppDelegate.shared.replaceController(controller)
         },
 
+
         // menu items with lighter color
-//        MenuItem.create(title: "App settings", image: UIImage(named: "SettingsIcon")),
-        MenuItem.create(title: "FAQs", image: UIImage(named: "FaqsIcon")) {
-            AppDelegate.shared.replaceController(FaqViewController.loadFromStoryboard())
+
+        MenuItem.create(height: 15), // spacer
+        // MenuItem.create(title: "App settings", image: UIImage(named: "SettingsIcon")),
+        MenuItem.create(title: "FAQs", height: 34, image: UIImage(named: "FaqsIcon")) {
+            AppDelegate.shared.faqViewController.popupWithNavigationController()
         },
-        MenuItem.create(title: "About", image: UIImage(named: "AboutIcon")) {
+        MenuItem.create(title: "About", height: 34, image: UIImage(named: "AboutIcon")) {
             AppDelegate.shared.replaceController(AboutViewController.loadFromStoryboard())
         },
         signInItem,
@@ -64,7 +99,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let selectedItem = menuItems[indexPath.row]
-        AppDelegate.shared.sideMenuViewController!.hideViewController()
+        self.slideMenuController()?.closeLeft()
         selectedItem.didSelect?()
         return indexPath
     }
@@ -77,22 +112,23 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return menuItems[indexPath.row]
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let item = menuItems[indexPath.row]
+        return CGFloat(item.height)
     }
 
     @IBAction func didTapCloseButton(_ sender: Any) {
-        AppDelegate.shared.sideMenuViewController!.hideViewController()
+        self.slideMenuController()?.closeLeft()
     }
 
     @IBAction func didTapLogo(_ sender: Any) {
         let homeController = AppDelegate.shared.homeViewController
         AppDelegate.shared.navigationController.viewControllers = [homeController!]
-        AppDelegate.shared.sideMenuViewController!.hideViewController()
+        self.slideMenuController()?.closeLeft()
     }
 
-    func sideMenu(_ sideMenu: RESideMenu, willShowMenuViewController menuViewController: UIViewController) {
-        let loggedIn = ShopifyController.instance.customer != nil
+    func leftWillOpen() {
+        let loggedIn = ShopifyController.instance.isLoggedIn()
         signInItem.titleLabel.text = loggedIn ? "Sign Out" : "Sign In";
     }
 

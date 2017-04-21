@@ -49,25 +49,6 @@
 {
 	self = [super initWithFrame:rect];
 	if (self) {
-		_backgroundImageView = [[HeaderBackgroundView alloc] init];
-		_backgroundImageView.translatesAutoresizingMaskIntoConstraints = NO;
-		[self addSubview:_backgroundImageView];
-		
-		[self addConstraint:[NSLayoutConstraint constraintWithItem:_backgroundImageView
-														 attribute:NSLayoutAttributeHeight
-														 relatedBy:NSLayoutRelationEqual
-															toItem:self
-														 attribute:NSLayoutAttributeHeight
-														multiplier:1.0
-														  constant:0.0]];
-		[self addConstraint:[NSLayoutConstraint constraintWithItem:_backgroundImageView
-														 attribute:NSLayoutAttributeWidth
-														 relatedBy:NSLayoutRelationEqual
-															toItem:self
-														 attribute:NSLayoutAttributeWidth
-														multiplier:1.0
-														  constant:0.0]];
-		
 		_stickyFooterView = [UIView new];
 		_stickyFooterView.translatesAutoresizingMaskIntoConstraints = NO;
 		[self addSubview:_stickyFooterView];
@@ -175,19 +156,6 @@
 	[self setInsets:UIEdgeInsetsMake(self.tableView.contentInset.top, self.tableView.contentInset.left, CGRectGetHeight(self.bounds) - CGRectGetMinY(self.productViewFooter.frame), self.tableView.contentInset.right) appendToCurrentInset:NO];
 }
 
-- (void)updateBackgroundImage:(NSArray *)images
-{
-	if ([images count] > 0) {
-		NSInteger page = 0;
-		if (CGSizeEqualToSize(self.productViewHeader.collectionView.contentSize, CGSizeZero) == NO) {
-			page = (int)(self.productViewHeader.collectionView.contentOffset.x / self.productViewHeader.collectionView.frame.size.width);
-		}
-		[self.productViewHeader setCurrentPage:page];
-		BUYImageLink *image = images[page];
-		[self.backgroundImageView setBackgroundProductImage:image];
-	}
-}
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 	CGFloat imageHeight = 0;
@@ -277,11 +245,6 @@
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
 	[super setBackgroundColor:backgroundColor];
 	_stickyFooterView.backgroundColor = backgroundColor;
-}
-
-- (void)setShowsProductImageBackground:(BOOL)showsProductImageBackground
-{
-	_backgroundImageView.hidden = showsProductImageBackground == NO;
 }
 
 @end

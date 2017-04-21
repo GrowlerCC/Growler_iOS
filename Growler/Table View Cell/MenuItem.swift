@@ -16,12 +16,16 @@ class MenuItem: UITableViewCell {
     
     public var didSelect: MenuCallback?
 
-    static func create(title: String, color: UIColor = UIColor.clear, image: UIImage?, didSelect: MenuCallback? = nil) -> MenuItem {
+    public var height: Int = 0
+
+    static func create(title: String = "", color: UIColor = UIColor.clear, height: Int = 55, image: UIImage? = nil,
+                       didSelect: MenuCallback? = nil) -> MenuItem {
         let items = Bundle.main.loadNibNamed("MenuItem", owner: nil, options: nil)
         let cell = items?.first as! MenuItem
         cell.titleLabel?.text = title
         cell.backgroundColor = color
         cell.icon.image = image
+        cell.height = height
         cell.didSelect = didSelect
         return cell
     }

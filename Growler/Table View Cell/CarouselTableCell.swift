@@ -13,11 +13,16 @@ class CarouselTableCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
 
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var topTitleMargin: NSLayoutConstraint!
+    
+    
     var bannerFactory: AbstractBannerFactory!
 
     private var carouselIsSetUp: Bool = false
 
-    static func create(title: String, itemsPerPage: CGFloat, bannerFactory: AbstractBannerFactory) -> CarouselTableCell {
+    static func create(title: String, description: String = "", itemsPerPage: CGFloat, itemMargin: CGFloat = 0, bannerFactory: AbstractBannerFactory) -> CarouselTableCell {
         let cell = CarouselTableCell.loadFromNib()
         
         cell.bannerFactory = bannerFactory
@@ -26,12 +31,20 @@ class CarouselTableCell: UITableViewCell {
         if title.isEmpty {
             cell.titleLabel.isHidden = true
             cell.topCarouselConstraint.constant = 0
+        } else {
+            if description.isEmpty {
+                cell.topCarouselConstraint.constant = 43
+                cell.topTitleMargin.constant = 11
+                cell.titleLabel.font = UIFont(name: "Lato-Bold", size: 19)
+            }
+            cell.descriptionLabel.text = description
         }
         
         // visibleItemsPerPage is the only resize type in which SwiftCarousel doesn't crash when empty
         // so setting resize type here
         // also resizeType should always be set before setting items
         cell.carousel.resizeType = .visibleItemsPerPage(itemsPerPage)
+        cell.carousel.itemMargin = itemMargin
         return cell
     }
 

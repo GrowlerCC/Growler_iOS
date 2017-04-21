@@ -24,14 +24,19 @@ class FormTableViewController: UITableViewController, UITextFieldDelegate {
         tableView.backgroundColor = Colors.grayBackground
         tableView.separatorColor = Colors.grayBackground
         
-        let okButtonTitle = getOkButtonTitle()
-        let okButton = UIBarButtonItem(title: okButtonTitle, style: .plain, target: self, action: #selector(self.didTapSaveButton))
-        
-        closeButton = UIBarButtonItem(image: UIImage(named: "CloseMenuButton"), style: .plain, target: self, action: #selector(LoginFormController.didTapCloseButton))
+        let okButton = UIButton()
+        okButton.setTitle(getOkButtonTitle(), for: .normal)
+        okButton.setTitleColor(UIColor.white, for: .normal)
+        okButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        okButton.sizeToFit()
+        okButton.addTarget(self, action: #selector(self.didTapSaveButton), for: .touchUpInside)
+        let okButtonWrapper = UIBarButtonItem(customView: okButton)
+
+        closeButton = UIBarButtonItem(image: UIImage(named: "CloseMenuButton"), style: .plain, target: self, action: #selector(self.didTapCloseButton))
         
         buttonItems = [
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            okButton,
+            okButtonWrapper,
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
         ]
 
@@ -45,6 +50,7 @@ class FormTableViewController: UITableViewController, UITextFieldDelegate {
         for field in fields {
             field.field.text = data[field.name].string
             field.field.delegate = self
+            field.updateLabel()
         }
     }
 
@@ -70,7 +76,6 @@ class FormTableViewController: UITableViewController, UITextFieldDelegate {
 
     func setupToolbars() {
         setupDarkToolbars()
-        navigationItem.title = getTitle()
         navigationItem.leftBarButtonItem = closeButton
         setToolbarItems(buttonItems, animated: false)
     }
@@ -131,7 +136,7 @@ class FormTableViewController: UITableViewController, UITextFieldDelegate {
     }
 
     func didTapCloseButton() {
-        dismiss(animated: true)
+        navigationController?.dismiss(animated: true)
     }
 
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {

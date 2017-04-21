@@ -71,7 +71,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         keywordField.resignFirstResponder()
-        let controller = ProductListViewController(client: ShopifyController.instance.client, collection: nil)!
+        let controller = ProductListViewController()
         controller.searchKeyword = keywordField.text
         controller.tags = Array<String>(selectedTags)
         dismiss(animated: false)

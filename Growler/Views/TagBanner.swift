@@ -29,7 +29,7 @@ class TagBanner: UIView {
     }
 
     func didTap(_ sender: UITapGestureRecognizer) {
-        let controller = ProductListViewController(client: ShopifyController.instance.client, collection: nil)!
+        let controller = ProductListViewController()
         controller.tags = [tagName]
         AppDelegate.shared.navigationController.pushViewController(controller, animated: true)
     }

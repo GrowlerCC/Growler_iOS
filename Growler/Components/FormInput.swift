@@ -21,6 +21,8 @@ class FormInput: UIView {
 
     private var required: Bool = false
 
+    private var title: String?
+
     static func create(
         title: String,
         name: String,
@@ -32,9 +34,11 @@ class FormInput: UIView {
         maxLength: Int? = nil
     ) -> FormInput {
         let cell = FormInput.loadFromNib()
+        cell.title = title
         cell.label.text = title
         cell.`default` = `default`
         cell.field.placeholder = `default`
+        cell.field.addTarget(cell, action: #selector(self.textChanged), for: .editingChanged)
         cell.errorLabel.text = ""
         cell.required = required
         cell.name = name
@@ -47,6 +51,9 @@ class FormInput: UIView {
             
         switch type {
         case .text: break
+        case .email:
+            cell.field.autocorrectionType = .no
+            cell.field.keyboardType = .emailAddress
         case .password:
             cell.field.isSecureTextEntry = true
             break
@@ -62,6 +69,14 @@ class FormInput: UIView {
         }
         errorLabel.text = ""
         return true
+    }
+
+    func textChanged() {
+        updateLabel()
+    }
+
+    func updateLabel() {
+        label.text = (field.text ?? "").isEmpty ? title : ""
     }
 
 }

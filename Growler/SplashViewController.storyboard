@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="1IF-oc-ewc">
+            <objects>
+                <viewController storyboardIdentifier="SplashViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FX8-xT-1UT" customClass="SplashViewController" customModule="Growler" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KEe-Nf-Y2a"/>
+                        <viewControllerLayoutGuide type="bottom" id="deP-Kl-qGq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BDc-kM-yy2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="48d-tn-IkL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jN-Qm-b0A">
+                                <rect key="frame" x="87.5" y="311" width="200" height="45"/>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.65098039215686276" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="R2e-eP-0Q2"/>
+                                    <constraint firstAttribute="height" constant="45" id="StV-WF-yRs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                <state key="normal" title="Get Started">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapGetStartedButton:" destination="FX8-xT-1UT" eventType="touchUpInside" id="1Qz-tN-by6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTi-50-rYi">
+                                <rect key="frame" x="99.5" y="371" width="175" height="29"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                <state key="normal" title="Already a member? Log in">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapLoginButton:" destination="FX8-xT-1UT" eventType="touchUpInside" id="tyf-Ef-0mc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7jN-Qm-b0A" firstAttribute="centerX" secondItem="BDc-kM-yy2" secondAttribute="centerX" id="I7e-sg-rv7"/>
+                            <constraint firstItem="NTi-50-rYi" firstAttribute="centerX" secondItem="BDc-kM-yy2" secondAttribute="centerX" id="IKe-hu-6V1"/>
+                            <constraint firstItem="NTi-50-rYi" firstAttribute="top" secondItem="7jN-Qm-b0A" secondAttribute="bottom" constant="15" id="Mjz-l8-2Jc"/>
+                            <constraint firstItem="deP-Kl-qGq" firstAttribute="top" secondItem="48d-tn-IkL" secondAttribute="bottom" id="SHv-bh-OBg"/>
+                            <constraint firstItem="7jN-Qm-b0A" firstAttribute="centerY" secondItem="BDc-kM-yy2" secondAttribute="centerY" id="T5T-vT-Lsj"/>
+                            <constraint firstAttribute="trailing" secondItem="48d-tn-IkL" secondAttribute="trailing" id="s35-b4-Sdg"/>
+                            <constraint firstItem="48d-tn-IkL" firstAttribute="top" secondItem="BDc-kM-yy2" secondAttribute="top" id="sQD-0c-tVA"/>
+                            <constraint firstItem="48d-tn-IkL" firstAttribute="leading" secondItem="BDc-kM-yy2" secondAttribute="leading" id="w1y-hQ-Gqa"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GWz-DD-XFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152.80000000000001" y="167.76611694152925"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SplashScreen.png" width="540" height="960"/>
+    </resources>
+</document>

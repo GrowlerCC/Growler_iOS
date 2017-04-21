@@ -15,14 +15,15 @@ class MyOrdersViewController: UITableViewController {
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 
-        /**
-        not implemented because it requires for user to log into shopify
-        getOrders().then {
-            orders -> Void in
-            self.orders = orders
-            mq { self.tableView.reloadData() }
+        if ShopifyController.instance.isLoggedIn() {
+            getOrders().then {
+                    orders -> Void in
+                    self.orders = orders
+                    mq {
+                        self.tableView.reloadData()
+                    }
+                }
         }
-        */
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

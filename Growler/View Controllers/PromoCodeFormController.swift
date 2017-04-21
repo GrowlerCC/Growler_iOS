@@ -16,7 +16,7 @@ class PromoCodeFormController: FormTableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        title = "Credit Card"
+        title = "Promo Code"
     }
 
     override func saveData(_ data: JSON) -> Bool {

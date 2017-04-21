@@ -17,20 +17,27 @@ class ProductBannerView: UIView {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBOutlet weak var costLabel: UILabel!
-
+    
+    @IBOutlet weak var borderView: UIView!
+    
     private var recognizer: UITapGestureRecognizer!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         recognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTap(_:)))
         addGestureRecognizer(recognizer)
+        layer.masksToBounds = true
+        layer.cornerRadius = 3
+
+        borderView.layer.cornerRadius = 3
+        borderView.layer.borderWidth = 1
+        borderView.layer.borderColor = Colors.grayControlBorderColor.cgColor
     }
 
     func didTap(_ sender: UITapGestureRecognizer) {
         if let product = product {
-            let controller = ProductViewController(client: ShopifyController.instance.client)!
-            controller.merchantId = MERCHANT_ID
-            controller.load(with: product) { success, error in }
+            let controller = ProductPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: [:])
+            controller.product = product
             AppDelegate.shared.navigationController.pushViewController(controller, animated: true)
         }
     }

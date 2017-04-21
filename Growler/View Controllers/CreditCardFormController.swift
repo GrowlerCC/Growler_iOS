@@ -11,18 +11,18 @@ class CreditCardFormController: FormTableViewController {
     override func getCells() -> [UITableViewCell] {
         return [
             FormTableCell.create(FormInput.create(title: "Name on Card", name: CreditCardFields.nameOnCard.rawValue, required: true)),
-            FormTableCell.create(FormInput.create(title: "Number", name: CreditCardFields.number.rawValue, required: true)),
+            FormTableCell.create(FormInput.create(title: "Credit Card Number", name: CreditCardFields.number.rawValue, required: true)),
             FormTableCell.create(inputs: [
-                FormInput.create(title: "Exp. Month", name: CreditCardFields.expiryMonth.rawValue, required: true, inputWidth: 30),
-                FormInput.create(title: "Year", name: CreditCardFields.expiryYear.rawValue, required: true),
-                FormInput.create(title: "CVV", name: CreditCardFields.cvv.rawValue, required: true, inputWidth: 45),
+                FormInput.create(title: "Expiry Date", name: CreditCardFields.expiryMonth.rawValue, required: true, inputWidth: 30),
+                FormInput.create(title: "", name: CreditCardFields.expiryYear.rawValue, required: true, inputWidth: 60),
+                FormInput.create(title: "CVV", name: CreditCardFields.cvv.rawValue, required: true),
             ])
         ]
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        title = "Credit Card"
+        title = "Payment Details"
     }
 
     override func saveData(_ data: JSON) -> Bool {
@@ -33,7 +33,7 @@ class CreditCardFormController: FormTableViewController {
 
     override func loadData() -> JSON {
         let value = ShopifyController.instance.creditCardJsonString.value
-        return JSON(data: value.data(using: .utf8)!) // imaportnat: don't use JSON(parseString:), it doesn't work!!!
+        return JSON(data: value.data(using: .utf8)!) // important: don't use JSON(parseString:), it doesn't work!!!
     }
 
 }

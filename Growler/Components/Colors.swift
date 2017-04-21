@@ -19,4 +19,6 @@ class Colors {
 
     static let grayText = UIColor(0xa5a5a5)
 
+    static let statusButtonColor = UIColor(0x6c777f)
+
 }

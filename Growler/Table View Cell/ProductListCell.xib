@@ -9,71 +9,71 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Lato-Bold.ttf">
-            <string>Lato-Bold</string>
-        </array>
-        <array key="Lato-Semibold.ttf">
-            <string>Lato-Semibold</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="VJL-i9-u2O" customClass="ProductListCell" customModule="Growler" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="444" height="94"/>
+            <rect key="frame" x="0.0" y="0.0" width="444" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VJL-i9-u2O" id="pVb-3T-akP">
-                <rect key="frame" x="0.0" y="0.0" width="444" height="93"/>
+                <rect key="frame" x="0.0" y="0.0" width="444" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUp-z5-DAq">
-                        <rect key="frame" x="120" y="8" width="272" height="20"/>
-                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1" text="[Title]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUp-z5-DAq">
+                        <rect key="frame" x="148" y="15" width="237" height="21.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                         <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AGR-0z-ne7">
-                        <rect key="frame" x="120" y="28" width="316" height="50.5"/>
-                        <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
-                        <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" text="[Vendor]" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AGR-0z-ne7">
+                        <rect key="frame" x="148" y="43.5" width="288" height="15.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="13"/>
+                        <color key="textColor" red="0.68235294117647061" green="0.70196078431372544" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXJ-gm-aeP">
-                        <rect key="frame" x="400" y="8" width="36" height="19"/>
-                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                        <rect key="frame" x="393" y="15" width="43" height="21.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                         <color key="textColor" red="0.9882352941176471" green="0.53333333333333333" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mYY-Wg-XHN" customClass="AsyncImageView">
-                        <rect key="frame" x="0.0" y="0.0" width="112" height="94"/>
+                        <rect key="frame" x="0.0" y="0.0" width="140" height="99.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="112" id="0K4-SK-NXV"/>
+                            <constraint firstAttribute="width" constant="140" id="0K4-SK-NXV"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" text="[Type]" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EDF-uh-WFR">
+                        <rect key="frame" x="148" y="61" width="288" height="12"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                        <color key="textColor" red="0.68235294120000001" green="0.70196078429999997" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="AGR-0z-ne7" firstAttribute="top" secondItem="LUp-z5-DAq" secondAttribute="bottom" id="2t1-Iq-fHI"/>
-                    <constraint firstItem="LUp-z5-DAq" firstAttribute="top" secondItem="pVb-3T-akP" secondAttribute="topMargin" id="64q-te-Cfo"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AGR-0z-ne7" secondAttribute="bottom" constant="8" id="IJE-yH-CMP"/>
+                    <constraint firstItem="AGR-0z-ne7" firstAttribute="top" secondItem="LUp-z5-DAq" secondAttribute="bottom" constant="7" id="2t1-Iq-fHI"/>
+                    <constraint firstItem="LUp-z5-DAq" firstAttribute="top" secondItem="pVb-3T-akP" secondAttribute="top" constant="15" id="64q-te-Cfo"/>
                     <constraint firstItem="AGR-0z-ne7" firstAttribute="leading" secondItem="mYY-Wg-XHN" secondAttribute="trailing" constant="8" id="JBH-o2-0fC"/>
                     <constraint firstAttribute="bottom" secondItem="mYY-Wg-XHN" secondAttribute="bottom" id="U6N-bB-XGm"/>
+                    <constraint firstItem="EDF-uh-WFR" firstAttribute="leading" secondItem="mYY-Wg-XHN" secondAttribute="trailing" constant="8" id="Vpa-XH-rqn"/>
                     <constraint firstAttribute="trailingMargin" secondItem="fXJ-gm-aeP" secondAttribute="trailing" id="eZi-FL-aKF"/>
+                    <constraint firstItem="EDF-uh-WFR" firstAttribute="top" secondItem="AGR-0z-ne7" secondAttribute="bottom" constant="2" id="fDl-Sj-zEj"/>
                     <constraint firstItem="mYY-Wg-XHN" firstAttribute="centerY" secondItem="pVb-3T-akP" secondAttribute="centerY" id="iTO-dR-5VB"/>
                     <constraint firstItem="mYY-Wg-XHN" firstAttribute="leading" secondItem="pVb-3T-akP" secondAttribute="leading" id="ig5-gn-JaC"/>
-                    <constraint firstItem="LUp-z5-DAq" firstAttribute="top" secondItem="pVb-3T-akP" secondAttribute="topMargin" id="lX6-cd-5AO"/>
+                    <constraint firstItem="EDF-uh-WFR" firstAttribute="trailing" secondItem="pVb-3T-akP" secondAttribute="trailingMargin" id="k9d-1E-XkA"/>
                     <constraint firstItem="fXJ-gm-aeP" firstAttribute="leading" secondItem="LUp-z5-DAq" secondAttribute="trailing" constant="8" id="rRJ-dr-9ug"/>
                     <constraint firstAttribute="trailing" secondItem="AGR-0z-ne7" secondAttribute="trailing" constant="8" id="rmu-JD-0Ag"/>
-                    <constraint firstItem="fXJ-gm-aeP" firstAttribute="top" secondItem="pVb-3T-akP" secondAttribute="topMargin" id="sKV-S8-luX"/>
+                    <constraint firstItem="fXJ-gm-aeP" firstAttribute="top" secondItem="pVb-3T-akP" secondAttribute="top" constant="15" id="sKV-S8-luX"/>
                     <constraint firstItem="LUp-z5-DAq" firstAttribute="leading" secondItem="mYY-Wg-XHN" secondAttribute="trailing" constant="8" id="v1i-ds-R6o"/>
                     <constraint firstItem="mYY-Wg-XHN" firstAttribute="top" secondItem="pVb-3T-akP" secondAttribute="top" id="vI6-fh-1HW"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="descriptionLabel" destination="AGR-0z-ne7" id="NW4-FO-uOI"/>
                 <outlet property="picture" destination="mYY-Wg-XHN" id="Di3-QR-uvc"/>
                 <outlet property="priceLabel" destination="fXJ-gm-aeP" id="BfW-hb-gXF"/>
                 <outlet property="titleLabel" destination="LUp-z5-DAq" id="slU-TG-quO"/>
+                <outlet property="typeLabel" destination="EDF-uh-WFR" id="JFu-ja-Fv2"/>
+                <outlet property="vendorLabel" destination="AGR-0z-ne7" id="DAK-hl-IjU"/>
             </connections>
             <point key="canvasLocation" x="-603" y="101"/>
         </tableViewCell>

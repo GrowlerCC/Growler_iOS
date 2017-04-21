@@ -27,18 +27,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="gdD-g0-XwR" customClass="AsyncImageView">
-                        <rect key="frame" x="0.0" y="0.0" width="453" height="239.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="453" height="284.5"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ie0-1m-gTc">
-                        <rect key="frame" x="15" y="267" width="423" height="18"/>
-                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                        <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ie0-1m-gTc">
+                        <rect key="frame" x="15" y="235" width="423" height="19.5"/>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zy-vS-3KB">
-                        <rect key="frame" x="15" y="246.5" width="423" height="20.5"/>
-                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
-                        <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zy-vS-3KB">
+                        <rect key="frame" x="15" y="203.5" width="423" height="31.5"/>
+                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="26"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -46,9 +46,9 @@
                     <constraint firstAttribute="trailing" secondItem="0zy-vS-3KB" secondAttribute="trailing" constant="15" id="0FT-Hy-hzr"/>
                     <constraint firstItem="gdD-g0-XwR" firstAttribute="top" secondItem="W1i-qL-kGB" secondAttribute="top" id="ANF-VL-aVZ"/>
                     <constraint firstItem="gdD-g0-XwR" firstAttribute="leading" secondItem="W1i-qL-kGB" secondAttribute="leading" id="Hm9-Tm-fiM"/>
+                    <constraint firstAttribute="bottom" secondItem="gdD-g0-XwR" secondAttribute="bottom" constant="10" id="Icn-th-vWD"/>
                     <constraint firstItem="ie0-1m-gTc" firstAttribute="top" secondItem="0zy-vS-3KB" secondAttribute="bottom" id="UUb-qg-6bJ"/>
-                    <constraint firstAttribute="bottom" secondItem="ie0-1m-gTc" secondAttribute="bottom" constant="10" id="Zan-fj-5Kr"/>
-                    <constraint firstItem="0zy-vS-3KB" firstAttribute="top" secondItem="gdD-g0-XwR" secondAttribute="bottom" constant="7" id="Zcb-Os-djb"/>
+                    <constraint firstAttribute="bottom" secondItem="ie0-1m-gTc" secondAttribute="bottom" constant="40" id="Zan-fj-5Kr"/>
                     <constraint firstItem="ie0-1m-gTc" firstAttribute="leading" secondItem="W1i-qL-kGB" secondAttribute="leading" constant="15" id="c53-YJ-vPB"/>
                     <constraint firstItem="0zy-vS-3KB" firstAttribute="leading" secondItem="W1i-qL-kGB" secondAttribute="leading" constant="15" id="cXS-TK-ybe"/>
                     <constraint firstAttribute="trailing" secondItem="gdD-g0-XwR" secondAttribute="trailing" id="uGi-bl-4Tj"/>

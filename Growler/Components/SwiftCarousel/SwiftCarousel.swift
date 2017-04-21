@@ -44,7 +44,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 open class SwiftCarousel: UIView {
     //MARK: - Properties
-    
+
     /// Current target with velocity left
     internal var currentVelocityX: CGFloat?
     /// Maximum velocity that swipe can reach.
@@ -61,6 +61,12 @@ open class SwiftCarousel: UIView {
     fileprivate var currentSelectedIndex: Int?
     /// Current selected index (between 0 and originalChoicesNumber).
     fileprivate var currentRealSelectedIndex: Int?
+    /// Margin value which is used when aligning views
+    open var itemMargin: CGFloat = 0 {
+        didSet {
+            layoutSubviews()
+        }
+    }
     /// Carousel delegate that handles events like didSelect.
     open weak var delegate: SwiftCarouselDelegate?
     /// Bool to set if by tap on item carousel should select it (scroll to it).
@@ -248,7 +254,7 @@ open class SwiftCarousel: UIView {
      - parameter views: Current items to setup.
      */
     fileprivate func setupViews(_ views: [UIView]) {
-        var x: CGFloat = 0.0
+        var x: CGFloat = itemMargin
         if case .floatWithSpacing(_) = resizeType {
             views.forEach { $0.sizeToFit() }
         }
@@ -259,11 +265,12 @@ open class SwiftCarousel: UIView {
             case .withoutResizing(let spacing): additionalSpacing = spacing
             case .floatWithSpacing(let spacing): additionalSpacing = spacing
             case .visibleItemsPerPage(let visibleItems):
-                choice.frame.size.width = scrollView.frame.width / CGFloat(visibleItems)
-                choice.frame.size.height = frame.height
+                choice.frame.size.width = scrollView.frame.width / CGFloat(visibleItems) - itemMargin
+                choice.frame.size.height = frame.height - 2 * itemMargin
             }
             choice.frame.origin.x = x
-            x += choice.frame.width + additionalSpacing
+            choice.frame.origin.y = itemMargin
+            x += choice.frame.width + additionalSpacing + itemMargin
         }
         
         scrollView.subviews.forEach { $0.removeFromSuperview() }
@@ -275,7 +282,7 @@ open class SwiftCarousel: UIView {
         super.layoutSubviews()
 
         setupViews(choices)
-        
+
         guard (scrollView.frame.width > 0 && scrollView.frame.height > 0)  else { return }
         
         var width: CGFloat = 0.0
@@ -283,9 +290,9 @@ open class SwiftCarousel: UIView {
         case .floatWithSpacing(_), .withoutResizing(_):
             width = choices.last!.frame.maxX
         case .visibleItemsPerPage(_):
-            width = choices.reduce(0.0) { $0 + $1.frame.width }
+            width = choices.reduce(0.0) { $0 + $1.frame.width + itemMargin } + itemMargin
         }
-        
+
         scrollView.contentSize = CGSize(width: width, height: frame.height)
         maxVelocity = scrollView.contentSize.width / 6.0
         

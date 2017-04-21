@@ -9,12 +9,14 @@ import UIKit
 @objc
 class ProductListCell: UITableViewCell {
 
-    static let HEIGHT: CGFloat = 76
+    static let HEIGHT: CGFloat = 93
 
     @IBOutlet weak var titleLabel: UILabel!
 
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var vendorLabel: UILabel!
 
+    @IBOutlet weak var typeLabel: UILabel!
+    
     @IBOutlet weak var priceLabel: UILabel!
     
     @IBOutlet weak var picture: AsyncImageView!
@@ -26,7 +28,8 @@ class ProductListCell: UITableViewCell {
     func setupWithProduct(_ product: BUYProduct) {
         accessoryType = .none
         titleLabel.text = product.title
-        descriptionLabel.text = product.stringDescription
+        vendorLabel.text = product.vendor
+        typeLabel.text = product.productType
         priceLabel.text = Utils.formatUSD(value: product.minimumPrice)
 
         if let image = product.images.firstObject, let link = image as? BUYImageLink {

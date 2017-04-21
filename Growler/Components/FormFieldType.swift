@@ -9,6 +9,8 @@ enum FormFieldType {
 
     case text
 
+    case email
+
     case password
 
 }

@@ -63,7 +63,6 @@
  *  The tableHeaderView containting the product image(s) (if available)
  */
 @property (nonatomic, strong) ProductViewHeader *productViewHeader;
-@property (nonatomic, strong) HeaderBackgroundView *backgroundImageView;
 
 /**
  *  The footer view containing the Checkout button, and - if enabled - Apple Pay button.
@@ -101,13 +100,6 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView;
 
 /**
- *  Updates the blurred product image behind the table view when the product image change.
- *
- *  @param images An array of product images.
- */
-- (void)updateBackgroundImage:(NSArray *)images;
-
-/**
  *  An toast error view above the checkout button(s) to use for display of an error when creating a checkout for Apple Pay.
  *
  *  @param errorMessage The error message to display.
@@ -129,7 +121,5 @@
  *  @param topInset The inset to use for insetting the product view inside the container.
  */
 - (void)setTopInset:(CGFloat)topInset;
-
-- (void)setShowsProductImageBackground:(BOOL)showsProductImageBackground UI_APPEARANCE_SELECTOR;
 
 @end

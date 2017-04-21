@@ -24,7 +24,6 @@
 //  THE SOFTWARE.
 //
 
-#import "ProductListViewController.h"
 #import "Growler-Swift.h"
 #import "CheckoutViewController.h"
 #import "SummaryItemsTableViewCell.h"
